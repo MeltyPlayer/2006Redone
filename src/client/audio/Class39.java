@@ -1,5 +1,7 @@
-package client;
+package client.audio;
 // Decompiled by Jad v1.5.8f. Copyright 2001 Pavel Kouznetsov.
+
+import client.Stream;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
