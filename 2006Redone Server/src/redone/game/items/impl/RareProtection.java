@@ -4,21 +4,24 @@ import redone.game.players.Client;
 
 /**
  * Rare Protection
- * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape & Runelocus)
+ * 
+ * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape &
+ *         Runelocus)
  */
 
 public class RareProtection {
 
 	public static final boolean RARES = false, CRACKERS = false;
 	private static final int[] RARE_ITEMS = { 1037, 1038, 1039, 1040, 1041,
-			1042, 1043, 1044, 1045, 1046, 1047, 1048, 1049, 1050, 1051, 962, 963, 1959, 1961, 1989 };
+			1042, 1043, 1044, 1045, 1046, 1047, 1048, 1049, 1050, 1051, 962,
+			963, 1959, 1961, 1989 };
 	private static final int[] EATABLE_RARES = { 1959, 1961, 1989 };
 
 	public static boolean equipItem(Client c) {// check when wearing, removing
 		for (int element : RARE_ITEMS) {
 			if (!RARES && c.wearId == element && c.playerRights < 3) {
-				c.getActionSender().sendMessage(
-						"You shouldn't have that item!");
+				c.getActionSender()
+						.sendMessage("You shouldn't have that item!");
 				int amountToDelete = c.getItemAssistant().getItemCount(element);
 				c.getItemAssistant().deleteItem(element, amountToDelete);
 				return false;
@@ -31,8 +34,8 @@ public class RareProtection {
 															// wearing, removing
 		for (int element : RARE_ITEMS) {
 			if (!RARES && itemId == element && c.playerRights < 3) {
-				c.getActionSender().sendMessage(
-						"You shouldn't have that item!");
+				c.getActionSender()
+						.sendMessage("You shouldn't have that item!");
 				c.getItemAssistant().deleteEquipment(element, 0);
 				return false;
 			}
@@ -44,8 +47,7 @@ public class RareProtection {
 		for (int element : RARE_ITEMS) {
 			if (!RARES && c.getItemAssistant().playerHasItem(element)
 					&& c.playerRights < 3) {
-				c.getActionSender().sendMessage(
-						"You can't have these items!");
+				c.getActionSender().sendMessage("You can't have these items!");
 				int amountToDelete = c.getItemAssistant().getItemCount(element);
 				c.getItemAssistant().deleteItem(element, amountToDelete);
 				return false;
@@ -75,8 +77,7 @@ public class RareProtection {
 		for (int element : RARE_ITEMS) {
 			if (!RARES && c.getItemAssistant().playerHasItem(element)
 					&& c.playerRights < 3) {
-				c.getActionSender().sendMessage(
-						"You shouldnt have that item!");
+				c.getActionSender().sendMessage("You shouldnt have that item!");
 				int amountToDelete = c.getItemAssistant().getItemCount(element);
 				c.getItemAssistant().deleteItem(element, amountToDelete);
 				return false;

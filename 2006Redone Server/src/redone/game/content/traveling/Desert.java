@@ -58,15 +58,23 @@ public class Desert {
 		}
 		c.getPlayerAssistant().sendFrame126("@dre@DESERT WARNING", 8144);
 		c.getPlayerAssistant().sendFrame126("", 8145);
-		c.getPlayerAssistant().sendFrame126("The intense heat of the desert reduces your health.", 8147);
-		c.getPlayerAssistant().sendFrame126("Bring 2-5 waterskins to avoid receiving any damage.", 8148);
+		c.getPlayerAssistant().sendFrame126(
+				"The intense heat of the desert reduces your health.", 8147);
+		c.getPlayerAssistant().sendFrame126(
+				"Bring 2-5 waterskins to avoid receiving any damage.", 8148);
 		c.getPlayerAssistant().sendFrame126("", 8149);
-		c.getPlayerAssistant().sendFrame126("Wearing desert robes will not prevent the damage, but", 8150);
-		c.getPlayerAssistant().sendFrame126("will reduce it significantly.", 8151);
+		c.getPlayerAssistant().sendFrame126(
+				"Wearing desert robes will not prevent the damage, but", 8150);
+		c.getPlayerAssistant().sendFrame126("will reduce it significantly.",
+				8151);
 		c.getPlayerAssistant().sendFrame126("", 8152);
-		c.getPlayerAssistant().sendFrame126("The waterskins however need to be re-filled. Bring a", 8153);
-		c.getPlayerAssistant().sendFrame126("knife and cut healthy cacti to re-fill the waterskins.", 8154);
-		c.getPlayerAssistant().sendFrame126("@red@Any water vessels will evaporate, such as jug of water.", 8155);
+		c.getPlayerAssistant().sendFrame126(
+				"The waterskins however need to be re-filled. Bring a", 8153);
+		c.getPlayerAssistant().sendFrame126(
+				"knife and cut healthy cacti to re-fill the waterskins.", 8154);
+		c.getPlayerAssistant().sendFrame126(
+				"@red@Any water vessels will evaporate, such as jug of water.",
+				8155);
 		c.getPlayerAssistant().showInterface(8134);
 	}
 
@@ -90,7 +98,8 @@ public class Desert {
 		Server.objectHandler.createAnObject(c, DRY_CACTUS, obX, obY, -1);
 		for (int element[] : FILLS) {
 			if (c.getItemAssistant().playerHasItem(element[0])) {
-				c.getItemAssistant().deleteItem(element[0], c.getItemAssistant().getItemSlot(element[0]), 1);
+				c.getItemAssistant().deleteItem(element[0],
+						c.getItemAssistant().getItemSlot(element[0]), 1);
 				c.getItemAssistant().addItem(element[1], 1);
 				c.getPlayerAssistant().addSkillXP(10, c.playerWoodcutting);
 			}
@@ -111,23 +120,27 @@ public class Desert {
 	 * @param obY
 	 *            Gets the object coordinate y.
 	 */
-	public static void cutCactus(final Client c, int itemId, final int objectId, final int obX, final int obY) {
+	public static void cutCactus(final Client c, int itemId, final int objectId,
+			final int obX, final int obY) {
 		for (int element : CACTUS_CUTTER) {
 			if (itemId == element) {
 				checkCactus(c, objectId, obX, obY);
 				CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
 					@Override
 					public void execute(CycleEventContainer container) {
-								Server.objectHandler.createAnObject(c, objectId, obX, obY, -1);
-								container.stop();
-							}
-							@Override
-							public void stop() {
-								
-							}
-						}, CACTUS_DELAY);
+						Server.objectHandler.createAnObject(c, objectId, obX,
+								obY, -1);
+						container.stop();
+					}
+
+					@Override
+					public void stop() {
+
+					}
+				}, CACTUS_DELAY);
 			} else {
-				c.getActionSender().sendMessage("You need a knife or a sharp weapon to cut this.");
+				c.getActionSender().sendMessage(
+						"You need a knife or a sharp weapon to cut this.");
 			}
 		}
 	}

@@ -49,7 +49,8 @@ public class CycleEventContainer {
 	 * @param tick
 	 *            , the cycles between execution of the event
 	 */
-	public CycleEventContainer(int id, Object owner, CycleEvent event, int tick) {
+	public CycleEventContainer(int id, Object owner, CycleEvent event,
+			int tick) {
 		eventID = id;
 		this.owner = owner;
 		this.event = event;

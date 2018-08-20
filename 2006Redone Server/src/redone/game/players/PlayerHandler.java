@@ -115,18 +115,18 @@ public class PlayerHandler {
 					PlayerSave.saveGame(t);
 				}
 
-				if (players[i].disconnected
-						&& (System.currentTimeMillis() - players[i].logoutDelay > 10000
-								|| players[i].properLogout || kickAllPlayers)) {
+				if (players[i].disconnected && (System.currentTimeMillis()
+						- players[i].logoutDelay > 10000
+						|| players[i].properLogout || kickAllPlayers)) {
 					if (players[i].inTrade) {
 						Client o = (Client) PlayerHandler.players[players[i].tradeWith];
 						if (o != null) {
 							o.getTrading().declineTrade();
 						}
 					}
-					if(Server.trawler.players.contains(this)) {
+					if (Server.trawler.players.contains(this)) {
 						Server.trawler.players.remove(this);
-				    }
+					}
 					players[i].lastX = players[i].absX;
 					players[i].lastY = players[i].absY;
 					players[i].lastH = players[i].heightLevel;
@@ -150,8 +150,8 @@ public class PlayerHandler {
 						System.out.println("Game saved for player "
 								+ players[i].playerName);
 					} else {
-						System.out.println("Could not save for "
-								+ players[i].playerName);
+						System.out.println(
+								"Could not save for " + players[i].playerName);
 					}
 					removePlayer(players[i]);
 					players[i] = null;
@@ -184,18 +184,18 @@ public class PlayerHandler {
 					}
 					PlayerSave.saveGame(t);
 				}
-				if (players[i].disconnected
-						&& (System.currentTimeMillis() - players[i].logoutDelay > 10000
-								|| players[i].properLogout || kickAllPlayers)) {
+				if (players[i].disconnected && (System.currentTimeMillis()
+						- players[i].logoutDelay > 10000
+						|| players[i].properLogout || kickAllPlayers)) {
 					if (players[i].inTrade) {
 						Client o = (Client) PlayerHandler.players[players[i].tradeWith];
 						if (o != null) {
 							o.getTrading().declineTrade();
 						}
 					}
-					if(Server.trawler.players.contains(this)) {
+					if (Server.trawler.players.contains(this)) {
 						Server.trawler.players.remove(this);
-				    }
+					}
 					players[i].lastX = players[i].absX;
 					players[i].lastY = players[i].absY;
 					players[i].lastH = players[i].heightLevel;
@@ -220,8 +220,8 @@ public class PlayerHandler {
 						System.out.println("Game saved for player "
 								+ players[i].playerName);
 					} else {
-						System.out.println("Could not save for "
-								+ players[i].playerName);
+						System.out.println(
+								"Could not save for " + players[i].playerName);
 					}
 					removePlayer(players[i]);
 					players[i] = null;
@@ -242,8 +242,8 @@ public class PlayerHandler {
 			updateAnnounced = true;
 			Server.UpdateServer = true;
 		}
-		if (updateRunning
-				&& System.currentTimeMillis() - updateStartTime > updateSeconds * 1000) {
+		if (updateRunning && System.currentTimeMillis()
+				- updateStartTime > updateSeconds * 1000) {
 			kickAllPlayers = true;
 		}
 
@@ -285,8 +285,8 @@ public class PlayerHandler {
 		for (Npc i : NpcHandler.npcs) {
 			if (i != null) {
 				int id = i.npcId;
-				if (plr.RebuildNPCList == false
-						&& (plr.npcInListBitmap[id >> 3] & 1 << (id & 7)) != 0) {
+				if (plr.RebuildNPCList == false && (plr.npcInListBitmap[id >> 3]
+						& 1 << (id & 7)) != 0) {
 				} else if (plr.withinDistance(i) == false) {
 				} else {
 					plr.addNewNPC(i, str, updateBlock);
@@ -341,7 +341,8 @@ public class PlayerHandler {
 			}
 		}
 		for (int i = 0; i < PlayerHandler.players.length; i++) {
-			if (players[i] == null || !players[i].isActive || players[i] == plr) {
+			if (players[i] == null || !players[i].isActive
+					|| players[i] == plr) {
 				continue;
 			}
 			int id = players[i].playerId;

@@ -8,25 +8,32 @@ import redone.game.players.Position;
 
 /**
  * Passdoor
- * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape & Runelocus)
+ * 
+ * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape &
+ *         Runelocus)
  */
 
 public class PassDoor {
-	
+
 	private static long doorDelay;
-	
-	public static boolean passThroughDoor(final Client client, final int objectType, int face1, final int face2, final int type, int x, int y, final int height) {
+
+	public static boolean passThroughDoor(final Client client,
+			final int objectType, int face1, final int face2, final int type,
+			int x, int y, final int height) {
 		if (System.currentTimeMillis() - doorDelay < 1200) {
-			client.getActionSender().sendMessage("You must wait longer to pass this door.");
+			client.getActionSender()
+					.sendMessage("You must wait longer to pass this door.");
 			return false;
 		}
-		client.getActionSender().object(objectType, client.objectX, client.objectY, height, face1, type);
+		client.getActionSender().object(objectType, client.objectX,
+				client.objectY, height, face1, type);
 		client.getPlayerAssistant().walkTo(x, y);
 		client.stopPlayer = true;
 		CycleEventHandler.getSingleton().addEvent(client, new CycleEvent() {
 			@Override
 			public void execute(CycleEventContainer container) {
-				client.getActionSender().object(objectType, client.objectX, client.objectY, height, face2, type);
+				client.getActionSender().object(objectType, client.objectX,
+						client.objectY, height, face2, type);
 				container.stop();
 			}
 
@@ -38,20 +45,20 @@ public class PassDoor {
 		}, 2);
 		return true;
 	}
-	
+
 	public static void processDoor(Client client, int objectType) {
-		//player, object, face1, face2, type, x, y, height
+		// player, object, face1, face2, type, x, y, height
 		switch (objectType) {
 		case 2550:
-		if (Position.checkPosition(client, 2674, 3306, 0)) {
-			passThroughDoor(client, objectType, 0, 1, 0, 0, -1, 0);
-		}
-		break;	
+			if (Position.checkPosition(client, 2674, 3306, 0)) {
+				passThroughDoor(client, objectType, 0, 1, 0, 0, -1, 0);
+			}
+			break;
 		case 2551:
-		if (Position.checkPosition(client, 2674, 3303, 0)) {
-			passThroughDoor(client, objectType, 0, 3, 0, 0, 1, 0);
-		}
-		break;
+			if (Position.checkPosition(client, 2674, 3303, 0)) {
+				passThroughDoor(client, objectType, 0, 3, 0, 0, 1, 0);
+			}
+			break;
 		case 1530:
 			if (Position.checkPosition(client, 2715, 3472, 0)) {
 				passThroughDoor(client, objectType, 1, 0, 0, 1, 0, 0);
@@ -76,9 +83,11 @@ public class PassDoor {
 				passThroughDoor(client, objectType, 0, 3, 0, 0, -1, 0);
 			} else if (Position.checkPlayerY(client, 3166, 0)) {
 				passThroughDoor(client, objectType, 0, 3, 0, 0, 1, 0);
-			} else if (Position.checkPlayerY(client, 3163, 0) && client.absX != 3107) {
+			} else if (Position.checkPlayerY(client, 3163, 0)
+					&& client.absX != 3107) {
 				passThroughDoor(client, objectType, 2, 1, 0, 0, -1, 0);
-			} else if (Position.checkPlayerY(client, 3162, 0) && client.absX != 3108 && client.absX != 3106) {
+			} else if (Position.checkPlayerY(client, 3162, 0)
+					&& client.absX != 3108 && client.absX != 3106) {
 				passThroughDoor(client, objectType, 2, 1, 0, 0, 1, 0);
 			} else if (Position.checkPosition(client, 3107, 3162, 2)) {
 				passThroughDoor(client, objectType, 1, 2, 0, 1, 0, 2);

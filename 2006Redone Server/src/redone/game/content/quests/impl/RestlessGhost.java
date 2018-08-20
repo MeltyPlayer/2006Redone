@@ -3,8 +3,10 @@ package redone.game.content.quests.impl;
 import redone.game.players.Client;
 
 /**
- * Restless Ghost 
- * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape & Runelocus)
+ * Restless Ghost
+ * 
+ * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape &
+ *         Runelocus)
  */
 
 public class RestlessGhost {
@@ -27,47 +29,46 @@ public class RestlessGhost {
 					"I can start this quest by speaking to Father Aereck in",
 					8147);
 			client.getPlayerAssistant().sendFrame126("Lumbridge", 8148);
-			client.getPlayerAssistant()
-					.sendFrame126("Minimum Requirments:", 8149);
+			client.getPlayerAssistant().sendFrame126("Minimum Requirments:",
+					8149);
 			client.getPlayerAssistant().sendFrame126("None.", 8150);
 		} else if (client.restGhost == 1) {
 			client.getPlayerAssistant().sendFrame126("Restless Ghost", 8144);
-			client.getPlayerAssistant().sendFrame126(
-					"@str@I've talked to Father Aereck", 8147);
-			client.getPlayerAssistant().sendFrame126(
-					"I should speak to Father Urhey", 8148);
+			client.getPlayerAssistant()
+					.sendFrame126("@str@I've talked to Father Aereck", 8147);
+			client.getPlayerAssistant()
+					.sendFrame126("I should speak to Father Urhey", 8148);
 		} else if (client.restGhost == 2) {
 			client.getPlayerAssistant().sendFrame126("Restless Ghost", 8144);
-			client.getPlayerAssistant().sendFrame126(
-					"@str@I've talked Father Urhey", 8147);
+			client.getPlayerAssistant()
+					.sendFrame126("@str@I've talked Father Urhey", 8147);
 			client.getPlayerAssistant().sendFrame126("@str@He gave me a amulet",
 					8148);
-			client.getPlayerAssistant().sendFrame126(
-					"I should speak to the ghost", 8149);
+			client.getPlayerAssistant()
+					.sendFrame126("I should speak to the ghost", 8149);
 		} else if (client.restGhost == 3) {
 			client.getPlayerAssistant().sendFrame126("Restless Ghost", 8144);
-			client.getPlayerAssistant().sendFrame126(
-					"@str@I've talked to the Ghost", 8147);
 			client.getPlayerAssistant()
-					.sendFrame126(
-							"I should travel to the wizards tower and kill the skeleton",
-							8148);
+					.sendFrame126("@str@I've talked to the Ghost", 8147);
 			client.getPlayerAssistant().sendFrame126(
-					"I should find the ghosts skull", 8149);
+					"I should travel to the wizards tower and kill the skeleton",
+					8148);
+			client.getPlayerAssistant()
+					.sendFrame126("I should find the ghosts skull", 8149);
 		} else if (client.restGhost == 4) {
 			client.getPlayerAssistant().sendFrame126("Restless Ghost", 8144);
-			client.getPlayerAssistant().sendFrame126("@str@I've found the skull",
-					8147);
-			client.getPlayerAssistant().sendFrame126(
-					"@str@I killed the skeleton", 8148);
-			client.getPlayerAssistant().sendFrame126(
-					"I should travel back to the ghost", 8149);
+			client.getPlayerAssistant()
+					.sendFrame126("@str@I've found the skull", 8147);
+			client.getPlayerAssistant()
+					.sendFrame126("@str@I killed the skeleton", 8148);
+			client.getPlayerAssistant()
+					.sendFrame126("I should travel back to the ghost", 8149);
 		} else if (client.restGhost == 5) {
 			client.getPlayerAssistant().sendFrame126("Restless Ghost", 8144);
 			client.getPlayerAssistant().sendFrame126(
 					"@str@I've set the skull in the coffin", 8147);
-			client.getPlayerAssistant().sendFrame126(
-					"@str@I've freed the ghost.", 8148);
+			client.getPlayerAssistant()
+					.sendFrame126("@str@I've freed the ghost.", 8148);
 			client.getPlayerAssistant().sendFrame126("@red@     QUEST COMPLETE",
 					8150);
 			client.getPlayerAssistant().sendFrame126(

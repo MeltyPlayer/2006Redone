@@ -14,55 +14,67 @@ public class RuneCraftingActions {
 		switch (objectId) {
 		case 2465:// air altar portal
 			if (client.objectX == 2841 && client.objectY == 4828) {
-				client.getPlayerAssistant().startTeleport(2983, 3293, 0, "modern");
+				client.getPlayerAssistant().startTeleport(2983, 3293, 0,
+						"modern");
 			}
 			break;
 
 		case 2466:// mind altar portal
 			if (client.objectX == 2793 && client.objectY == 4827) {
-				client.getPlayerAssistant().startTeleport(2980, 3514, 0, "modern");
+				client.getPlayerAssistant().startTeleport(2980, 3514, 0,
+						"modern");
 			}
 			break;
 
 		case 2467:// water altar portal
 			if (client.objectX == 2727 && client.objectY == 4832) {
-				client.getPlayerAssistant().startTeleport(3184, 3162, 0, "modern");
+				client.getPlayerAssistant().startTeleport(3184, 3162, 0,
+						"modern");
 			}
 			break;
 
 		case 2468:// earth rune portal
 			if (client.objectX == 2655 && client.objectY == 4829) {
-				client.getPlayerAssistant().startTeleport(3308, 3476, 0, "modern");
+				client.getPlayerAssistant().startTeleport(3308, 3476, 0,
+						"modern");
 			}
 			break;
 
 		case 2469:// fire rune portal
 			if (client.objectX == 2574 && client.objectY == 4850) {
-				client.getPlayerAssistant().startTeleport(3311, 3256, 0, "modern");
+				client.getPlayerAssistant().startTeleport(3311, 3256, 0,
+						"modern");
 			}
 			break;
 
 		case 2470:// body altar portal
 			if (client.objectX == 2523 && client.objectY == 4825) {
-				client.getPlayerAssistant().startTeleport(3051, 3444, 0, "modern");
+				client.getPlayerAssistant().startTeleport(3051, 3444, 0,
+						"modern");
 			}
 			break;
 
 		case 2471:// cosmic altar portal
-			if (client.objectX == 2163 && client.objectY == 4833 || client.objectX == 2142 && client.objectY == 4854 || client.objectX == 2121 && client.objectY == 4833 || client.objectX == 2412 && client.objectY == 4812) {
-				client.getPlayerAssistant().startTeleport(2410, 4379, 0, "modern");
+			if (client.objectX == 2163 && client.objectY == 4833
+					|| client.objectX == 2142 && client.objectY == 4854
+					|| client.objectX == 2121 && client.objectY == 4833
+					|| client.objectX == 2412 && client.objectY == 4812) {
+				client.getPlayerAssistant().startTeleport(2410, 4379, 0,
+						"modern");
 			}
 			break;
 
 		case 2472:// law altar portal
 			if (client.objectX == 2464 && client.objectY == 4817) {
-				client.getPlayerAssistant().startTeleport(2857, 3379, 0, "modern");
+				client.getPlayerAssistant().startTeleport(2857, 3379, 0,
+						"modern");
 			}
 			break;
 
 		case 2473:// nature portal altar
 			if (client.objectX == 2400 && client.objectY == 4834) {
-				client.getPlayerAssistant().startTeleport(2866, 3022, 0, "modern");
+				client.getPlayerAssistant().startTeleport(2866, 3022, 0,
+						"modern");
 			}
 			break;
 
@@ -70,11 +82,13 @@ public class RuneCraftingActions {
 			if (client.objectX == 3233 && client.objectY == 9312) {// desert
 																	// treasure
 																	// portal
-				client.getPlayerAssistant().startTeleport(3233, 2887, 0, "modern");
+				client.getPlayerAssistant().startTeleport(3233, 2887, 0,
+						"modern");
 			} else if (client.objectX == 2282 && client.objectY == 4837) {// chaos
 																			// altar
 																			// portal
-				client.getPlayerAssistant().startTeleport(3062, 3593, 0, "modern");
+				client.getPlayerAssistant().startTeleport(3062, 3593, 0,
+						"modern");
 			}
 			break;
 

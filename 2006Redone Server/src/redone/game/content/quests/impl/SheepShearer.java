@@ -4,7 +4,9 @@ import redone.game.players.Client;
 
 /**
  * Sheep Shearer
- * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape & Runelocus)
+ * 
+ * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape &
+ *         Runelocus)
  */
 
 public class SheepShearer {
@@ -26,26 +28,26 @@ public class SheepShearer {
 			client.getPlayerAssistant().sendFrame126(
 					"I can start this quest by speaking to Fred in", 8147);
 			client.getPlayerAssistant().sendFrame126("Lumbridge.", 8148);
-			client.getPlayerAssistant()
-					.sendFrame126("Minimum Requirments:", 8149);
+			client.getPlayerAssistant().sendFrame126("Minimum Requirments:",
+					8149);
 			client.getPlayerAssistant().sendFrame126("None.", 8150);
 		} else if (client.sheepShear == 1) {
 			client.getPlayerAssistant().sendFrame126("Sheep Shearer", 8144);
 			client.getPlayerAssistant().sendFrame126("@str@I've talked to fred",
 					8147);
-			client.getPlayerAssistant().sendFrame126(
-					"I've agreed to get him some wool.", 8148);
+			client.getPlayerAssistant()
+					.sendFrame126("I've agreed to get him some wool.", 8148);
 			if (client.getItemAssistant().playerHasItem(1759, 20)) {
-				client.getPlayerAssistant()
-						.sendFrame126("@str@Bal of Wool", 8149);
+				client.getPlayerAssistant().sendFrame126("@str@Bal of Wool",
+						8149);
 			} else {
 				client.getPlayerAssistant().sendFrame126("@red@Ball of Wool",
 						8149);
 			}
 		} else if (client.sheepShear == 2) {
 			client.getPlayerAssistant().sendFrame126("Sheep Shearer", 8144);
-			client.getPlayerAssistant().sendFrame126("@str@I gave fred his wool",
-					8147);
+			client.getPlayerAssistant()
+					.sendFrame126("@str@I gave fred his wool", 8147);
 			client.getPlayerAssistant().sendFrame126("@str@So he awarded me.",
 					8148);
 			client.getPlayerAssistant().sendFrame126("@red@     QUEST COMPLETE",

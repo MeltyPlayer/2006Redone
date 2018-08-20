@@ -6,10 +6,9 @@ import java.io.IOException;
 
 public class ItemDefinitions {
 
-
-    public static ItemDefinitions getDef()[] {
-        return definitions;
-    }
+	public static ItemDefinitions getDef()[] {
+		return definitions;
+	}
 
 	public ItemDefinitions() {
 		name = null;
@@ -31,25 +30,25 @@ public class ItemDefinitions {
 		block = -1;
 		id = -1;
 	}
-    
-    private static int id;
 
-    public static int getId() {
-        return id;
-    }
+	private static int id;
 
+	public static int getId() {
+		return id;
+	}
 
 	/**
 	 * Reads the definitions from the file.
 	 */
 	public static void read() {
 		try {
-			DataInputStream in = new DataInputStream(new FileInputStream("./Data/data/itemdef.gsu"));
+			DataInputStream in = new DataInputStream(
+					new FileInputStream("./Data/data/itemdef.gsu"));
 			total = in.readShort();
-			if(definitions == null)
+			if (definitions == null)
 				definitions = new ItemDefinitions[total];
-			for(int j = 0; j < total; j++) {
-				if(definitions[j] == null) {
+			for (int j = 0; j < total; j++) {
+				if (definitions[j] == null) {
 					definitions[j] = new ItemDefinitions();
 				}
 				definitions[j].getValues(in);
@@ -61,56 +60,57 @@ public class ItemDefinitions {
 
 	/**
 	 * Reads the stream values.
+	 * 
 	 * @param in
 	 */
 	private void getValues(DataInputStream in) {
 		try {
 			do {
 				int opcode = in.readByte();
-				if(opcode == 0)
+				if (opcode == 0)
 					return;
-				if(opcode == 1) {
+				if (opcode == 1) {
 					name = in.readUTF();
-				} else if(opcode == 2) {
+				} else if (opcode == 2) {
 					itemDescription = in.readUTF();
-				} else if(opcode == 3) {
+				} else if (opcode == 3) {
 					shopValue = in.readInt();
-				} else if(opcode == 4) {
+				} else if (opcode == 4) {
 					lowAlch = in.readInt();
-				} else if(opcode == 5) {
+				} else if (opcode == 5) {
 					highAlch = in.readInt();
-				} else if(opcode == 6) {
+				} else if (opcode == 6) {
 					isStackable = true;
-				} else if(opcode == 7) {
+				} else if (opcode == 7) {
 					isNoteable = true;
-				} else if(opcode == 8) {
+				} else if (opcode == 8) {
 					weight = in.readDouble();
-				} else if(opcode == 9) {
+				} else if (opcode == 9) {
 					int length = in.readShort();
 					bonuses = new double[length];
 					for (int index = 0; index < length; index++) {
 						bonuses[index] = in.readDouble();
 					}
-				} else if(opcode == 10) {
+				} else if (opcode == 10) {
 					stand = in.readShort();
-				} else if(opcode == 11) {
+				} else if (opcode == 11) {
 					walk = in.readShort();
-				} else if(opcode == 12) {
+				} else if (opcode == 12) {
 					run = in.readShort();
-				} else if(opcode == 13) {
+				} else if (opcode == 13) {
 					turn90left = in.readShort();
-				} else if(opcode == 14) {
+				} else if (opcode == 14) {
 					turn90right = in.readShort();
-				} else if(opcode == 15) {
+				} else if (opcode == 15) {
 					turn180 = in.readShort();
-				} else if(opcode == 16) {
+				} else if (opcode == 16) {
 					attack = in.readShort();
-				} else if(opcode == 17) {
+				} else if (opcode == 17) {
 					block = in.readShort();
 				} else {
 					System.out.println("Unrecognized opcode: " + opcode);
 				}
-			} while(true);
+			} while (true);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -140,6 +140,7 @@ public class ItemDefinitions {
 
 	/**
 	 * Returns the name of the item.
+	 * 
 	 * @return
 	 */
 	public static String getName(int id) {
@@ -210,7 +211,7 @@ public class ItemDefinitions {
 	 * Can the item be noted?
 	 */
 	public boolean isNoteable;
-	
+
 	/**
 	 * Returns whether or not the item can be noted.
 	 */

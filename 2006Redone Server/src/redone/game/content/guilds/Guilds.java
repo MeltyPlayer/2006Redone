@@ -9,7 +9,9 @@ import redone.game.players.Client;
 
 /**
  * Guilds Class
- * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape & Runelocus)
+ * 
+ * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape &
+ *         Runelocus)
  */
 
 public class Guilds {
@@ -106,8 +108,8 @@ public class Guilds {
 			}
 			break;
 		default:
-			c.getActionSender().sendMessage(
-					"You can't access this guild from here.");
+			c.getActionSender()
+					.sendMessage("You can't access this guild from here.");
 			break;
 		}
 	}
@@ -116,7 +118,9 @@ public class Guilds {
 		switch (objectId) {
 		case 1805: // Champions Guild
 			if (c.questPoints < QuestAssistant.MAXIMUM_QUESTPOINTS) {
-				c.getDialogueHandler().sendStatement("You need " + QuestAssistant.MAXIMUM_QUESTPOINTS + " quest points to enter this guild!");
+				c.getDialogueHandler().sendStatement(
+						"You need " + QuestAssistant.MAXIMUM_QUESTPOINTS
+								+ " quest points to enter this guild!");
 				c.nextChat = 0;
 				return false;
 			}
@@ -124,42 +128,50 @@ public class Guilds {
 		case 2392:
 		case 2391:
 			if (hasCompletedLegends == false && c.playerRights < 3) {
-				c.getDialogueHandler().sendStatement("You need to complete Legends Quest to enter this guild!");
+				c.getDialogueHandler().sendStatement(
+						"You need to complete Legends Quest to enter this guild!");
 				c.nextChat = 0;
 				return false;
 			}
 			break;
 		case 2641: // Prayer Guild
 			if (c.getPlayerAssistant().getLevelForXP(c.playerXP[5]) < 31) {
-				c.getDialogueHandler().sendStatement("You need 31 prayer to enter this guild!");
+				c.getDialogueHandler().sendStatement(
+						"You need 31 prayer to enter this guild!");
 				c.nextChat = 0;
 				return false;
 			}
 			break;
 		case 2712: // Cooking Guild
-			if (c.playerLevel[c.playerCooking] < 32 || c.playerEquipment[c.playerHat] != 1949) {
-				c.getDialogueHandler().sendStatement("You need 32 cooking and a chefs hat to enter this guild!");
+			if (c.playerLevel[c.playerCooking] < 32
+					|| c.playerEquipment[c.playerHat] != 1949) {
+				c.getDialogueHandler().sendStatement(
+						"You need 32 cooking and a chefs hat to enter this guild!");
 				c.nextChat = 0;
 				return false;
 			}
 			break;
 		case 2647: // Crafting Guild
-			if (c.playerLevel[c.playerCrafting] < 40 || c.playerEquipment[c.playerChest] != 1757) {
-				c.getDialogueHandler().sendStatement("You need 40 Crafting and a Brown Apron to enter this guild!");
+			if (c.playerLevel[c.playerCrafting] < 40
+					|| c.playerEquipment[c.playerChest] != 1757) {
+				c.getDialogueHandler().sendStatement(
+						"You need 40 Crafting and a Brown Apron to enter this guild!");
 				c.nextChat = 0;
 				return false;
 			}
 			break;
 		case 2113: // Mining Guild
 			if (c.playerLevel[c.playerMining] < 60) {
-				c.getDialogueHandler().sendStatement("You need 60 Mining to enter this guild!");
+				c.getDialogueHandler().sendStatement(
+						"You need 60 Mining to enter this guild!");
 				c.nextChat = 0;
 				return false;
 			}
 			break;
 		case 2025: // Fishing Guild
 			if (c.playerLevel[c.playerFishing] < 68) {
-				c.getDialogueHandler().sendStatement("You need 68 Fishing to enter this guild!");
+				c.getDialogueHandler().sendStatement(
+						"You need 68 Fishing to enter this guild!");
 				c.nextChat = 0;
 				return false;
 			}
@@ -167,14 +179,16 @@ public class Guilds {
 		case 1600:
 		case 1601: // Wizards Guild
 			if (c.playerLevel[c.playerMagic] < 66) {
-				c.getDialogueHandler().sendStatement("You need 66 Magic to enter this guild!");
+				c.getDialogueHandler().sendStatement(
+						"You need 66 Magic to enter this guild!");
 				c.nextChat = 0;
 				return false;
 			}
 			break;
 		case 2514:
 			if (c.playerLevel[c.playerRanged] < 40) { // Ranging Guild
-				c.getDialogueHandler().sendStatement("You need 40 Range to enter this guild!");
+				c.getDialogueHandler().sendStatement(
+						"You need 40 Range to enter this guild!");
 				c.nextChat = 0;
 				return false;
 			}

@@ -10,37 +10,37 @@ import java.util.zip.GZIPInputStream;
 import redone.game.objects.Objects;
 
 public class Region {
-	
+
 	private ArrayList<Objects> realObjects = new ArrayList<Objects>();
-	 
+
 	public static Region getRegion(int x, int y) {
-	    int regionX = x >> 3;
-	    int regionY = y >> 3;
-	    int regionId = (regionX / 8 << 8) + regionY / 8;
-	    for (Region region : regions) {
-	        if (region.id() == regionId) {
-	            return region;
-	        }
-	    }
-	    return null;
+		int regionX = x >> 3;
+		int regionY = y >> 3;
+		int regionId = (regionX / 8 << 8) + regionY / 8;
+		for (Region region : regions) {
+			if (region.id() == regionId) {
+				return region;
+			}
+		}
+		return null;
 	}
-	
+
 	public static boolean blockedShot(int x, int y, int z) {
 		return (getClipping(x, y, z) & 0x20000) == 0;
 	}
-	 
+
 	public static boolean objectExists(int id, int x, int y, int z) {
-	    Region r = getRegion(x, y);
-	    if (r == null)
-	        return false;
-	    for (Objects o : r.realObjects) {
-	        if (o.objectId == id) {
-	            if (o.objectX == x && o.objectY == y && o.objectHeight == z) {
-	                return true;
-	            }
-	        }
-	    }
-	    return false;
+		Region r = getRegion(x, y);
+		if (r == null)
+			return false;
+		for (Objects o : r.realObjects) {
+			if (o.objectId == id) {
+				if (o.objectX == x && o.objectY == y && o.objectHeight == z) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	private void addClip(int x, int y, int height, int shift) {
@@ -51,8 +51,9 @@ public class Region {
 		}
 		clips[height][x - regionAbsX][y - regionAbsY] |= shift;
 	}
-	
-	public static boolean canMove(int startX, int startY, int endX, int endY, int height, int xLength, int yLength) {
+
+	public static boolean canMove(int startX, int startY, int endX, int endY,
+			int height, int xLength, int yLength) {
 		int diffX = endX - startX;
 		int diffY = endY - startY;
 		int max = Math.max(Math.abs(diffX), Math.abs(diffY));
@@ -64,34 +65,36 @@ public class Region {
 					if (diffX < 0 && diffY < 0) {
 						if ((getClipping((currentX + i) - 1,
 								(currentY + i2) - 1, height) & 0x128010e) != 0
-								|| (getClipping((currentX + i) - 1, currentY
-										+ i2, height) & 0x1280108) != 0
+								|| (getClipping((currentX + i) - 1,
+										currentY + i2, height) & 0x1280108) != 0
 								|| (getClipping(currentX + i,
-										(currentY + i2) - 1, height) & 0x1280102) != 0)
+										(currentY + i2) - 1, height)
+										& 0x1280102) != 0)
 							return false;
 					} else if (diffX > 0 && diffY > 0) {
 						if ((getClipping(currentX + i + 1, currentY + i2 + 1,
 								height) & 0x12801e0) != 0
-								|| (getClipping(currentX + i + 1,
-										currentY + i2, height) & 0x1280180) != 0
-								|| (getClipping(currentX + i,
-										currentY + i2 + 1, height) & 0x1280120) != 0)
+								|| (getClipping(currentX + i + 1, currentY + i2,
+										height) & 0x1280180) != 0
+								|| (getClipping(currentX + i, currentY + i2 + 1,
+										height) & 0x1280120) != 0)
 							return false;
 					} else if (diffX < 0 && diffY > 0) {
 						if ((getClipping((currentX + i) - 1, currentY + i2 + 1,
 								height) & 0x1280138) != 0
-								|| (getClipping((currentX + i) - 1, currentY
-										+ i2, height) & 0x1280108) != 0
-								|| (getClipping(currentX + i,
-										currentY + i2 + 1, height) & 0x1280120) != 0)
+								|| (getClipping((currentX + i) - 1,
+										currentY + i2, height) & 0x1280108) != 0
+								|| (getClipping(currentX + i, currentY + i2 + 1,
+										height) & 0x1280120) != 0)
 							return false;
 					} else if (diffX > 0 && diffY < 0) {
 						if ((getClipping(currentX + i + 1, (currentY + i2) - 1,
 								height) & 0x1280183) != 0
-								|| (getClipping(currentX + i + 1,
-										currentY + i2, height) & 0x1280180) != 0
+								|| (getClipping(currentX + i + 1, currentY + i2,
+										height) & 0x1280180) != 0
 								|| (getClipping(currentX + i,
-										(currentY + i2) - 1, height) & 0x1280102) != 0)
+										(currentY + i2) - 1, height)
+										& 0x1280102) != 0)
 							return false;
 					} else if (diffX > 0 && diffY == 0) {
 						if ((getClipping(currentX + i + 1, currentY + i2,
@@ -105,8 +108,7 @@ public class Region {
 						if ((getClipping(currentX + i, currentY + i2 + 1,
 								height) & 0x1280120) != 0)
 							return false;
-					} else if (diffX == 0
-							&& diffY < 0
+					} else if (diffX == 0 && diffY < 0
 							&& (getClipping(currentX + i, (currentY + i2) - 1,
 									height) & 0x1280102) != 0)
 						return false;
@@ -297,7 +299,8 @@ public class Region {
 		}
 	}
 
-	public static void addObject(int objectId, int x, int y, int height, int type, int direction, boolean startUp) {
+	public static void addObject(int objectId, int x, int y, int height,
+			int type, int direction, boolean startUp) {
 		if (ObjectDef.getObjectDef(objectId) == null) {
 		}
 		int xLength;
@@ -327,10 +330,12 @@ public class Region {
 		}
 		Region r = getRegion(x, y);
 		if (r != null) {
-		    if (startUp)
-		        r.realObjects.add(new Objects(objectId, x, y, height, direction, type, 0));
-		    else if (!objectExists(objectId, x, y, height))
-		        r.realObjects.add(new Objects(objectId, x, y, height, direction, type, 0));
+			if (startUp)
+				r.realObjects.add(new Objects(objectId, x, y, height, direction,
+						type, 0));
+			else if (!objectExists(objectId, x, y, height))
+				r.realObjects.add(new Objects(objectId, x, y, height, direction,
+						type, 0));
 		}
 	}
 
@@ -367,24 +372,32 @@ public class Region {
 				return (getClipping(x, y, height) & 0x1280120) == 0;
 			} else if (moveTypeX == -1 && moveTypeY == -1) {
 				return (getClipping(x, y, height) & 0x128010e) == 0
-						&& (getClipping(checkX - 1, checkY, height) & 0x1280108) == 0
-						&& (getClipping(checkX - 1, checkY, height) & 0x1280102) == 0;
+						&& (getClipping(checkX - 1, checkY, height)
+								& 0x1280108) == 0
+						&& (getClipping(checkX - 1, checkY, height)
+								& 0x1280102) == 0;
 			} else if (moveTypeX == 1 && moveTypeY == -1) {
 				return (getClipping(x, y, height) & 0x1280183) == 0
-						&& (getClipping(checkX + 1, checkY, height) & 0x1280180) == 0
-						&& (getClipping(checkX, checkY - 1, height) & 0x1280102) == 0;
+						&& (getClipping(checkX + 1, checkY, height)
+								& 0x1280180) == 0
+						&& (getClipping(checkX, checkY - 1, height)
+								& 0x1280102) == 0;
 			} else if (moveTypeX == -1 && moveTypeY == 1) {
 				return (getClipping(x, y, height) & 0x1280138) == 0
-						&& (getClipping(checkX - 1, checkY, height) & 0x1280108) == 0
-						&& (getClipping(checkX, checkY + 1, height) & 0x1280120) == 0;
+						&& (getClipping(checkX - 1, checkY, height)
+								& 0x1280108) == 0
+						&& (getClipping(checkX, checkY + 1, height)
+								& 0x1280120) == 0;
 			} else if (moveTypeX == 1 && moveTypeY == 1) {
 				return (getClipping(x, y, height) & 0x12801e0) == 0
-						&& (getClipping(checkX + 1, checkY, height) & 0x1280180) == 0
-						&& (getClipping(checkX, checkY + 1, height) & 0x1280120) == 0;
+						&& (getClipping(checkX + 1, checkY, height)
+								& 0x1280180) == 0
+						&& (getClipping(checkX, checkY + 1, height)
+								& 0x1280120) == 0;
 			} else {
-				System.out.println("[FATAL ERROR]: At getClipping: " + x + ", "
-						+ y + ", " + height + ", " + moveTypeX + ", "
-						+ moveTypeY);
+				System.out.println(
+						"[FATAL ERROR]: At getClipping: " + x + ", " + y + ", "
+								+ height + ", " + moveTypeX + ", " + moveTypeY);
 				return false;
 			}
 		} catch (Exception e) {
@@ -416,10 +429,10 @@ public class Region {
 				regions[i] = new Region(regionIds[i], isMembers[i]);
 			}
 			for (int i = 0; i < size; i++) {
-				byte[] file1 = getBuffer(new File("./Data/world/map/"
-						+ mapObjectsFileIds[i] + ".gz"));
-				byte[] file2 = getBuffer(new File("./Data/world/map/"
-						+ mapGroundFileIds[i] + ".gz"));
+				byte[] file1 = getBuffer(new File(
+						"./Data/world/map/" + mapObjectsFileIds[i] + ".gz"));
+				byte[] file2 = getBuffer(new File(
+						"./Data/world/map/" + mapGroundFileIds[i] + ".gz"));
 				if (file1 == null || file2 == null) {
 					continue;
 				}
@@ -427,8 +440,8 @@ public class Region {
 					loadMaps(regionIds[i], new ByteStream(file1),
 							new ByteStream(file2));
 				} catch (Exception e) {
-					System.out.println("Error loading map region: "
-							+ regionIds[i]);
+					System.out.println(
+							"Error loading map region: " + regionIds[i]);
 				}
 			}
 			System.out.println("[Region] DONE LOADING REGION CONFIGURATIONS");
@@ -437,7 +450,8 @@ public class Region {
 		}
 	}
 
-	private static void loadMaps(int regionId, ByteStream str1, ByteStream str2) {
+	private static void loadMaps(int regionId, ByteStream str1,
+			ByteStream str2) {
 		int absX = (regionId >> 8) * 64;
 		int absY = (regionId & 0xff) * 64;
 		int[][][] someArray = new int[4][64][64];
@@ -513,12 +527,12 @@ public class Region {
 		dis.close();
 		byte[] gzipInputBuffer = new byte[999999];
 		int bufferlength = 0;
-		GZIPInputStream gzip = new GZIPInputStream(new ByteArrayInputStream(
-				buffer));
+		GZIPInputStream gzip = new GZIPInputStream(
+				new ByteArrayInputStream(buffer));
 		do {
 			if (bufferlength == gzipInputBuffer.length) {
-				System.out
-						.println("Error inflating data.\nGZIP buffer overflow.");
+				System.out.println(
+						"Error inflating data.\nGZIP buffer overflow.");
 				break;
 			}
 			int readByte = gzip.read(gzipInputBuffer, bufferlength,

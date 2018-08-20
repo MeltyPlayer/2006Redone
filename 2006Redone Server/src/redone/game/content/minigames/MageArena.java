@@ -42,11 +42,14 @@ public class MageArena {
 			c.getPlayerAssistant().sendFrame126(interfaceText[i - 15950], i);
 		}
 
-		c.getPlayerAssistant().sendFrame126(Integer.toString(telePoints), 15955);
+		c.getPlayerAssistant().sendFrame126(Integer.toString(telePoints),
+				15955);
 		c.getPlayerAssistant().sendFrame126(Integer.toString(enchantPoints),
 				15956);
-		c.getPlayerAssistant().sendFrame126(Integer.toString(gravePoints), 15957);
-		c.getPlayerAssistant().sendFrame126(Integer.toString(alchPoints), 15958);
+		c.getPlayerAssistant().sendFrame126(Integer.toString(gravePoints),
+				15957);
+		c.getPlayerAssistant().sendFrame126(Integer.toString(alchPoints),
+				15958);
 		c.getPlayerAssistant().showInterface(15944);
 	}
 
@@ -255,8 +258,8 @@ public class MageArena {
 	}
 
 	public void sendMessage(int itemId) {
-		c.getActionSender().sendMessage(
-				ItemAssistant.getItemName(itemId) + " costs "
+		c.getActionSender()
+				.sendMessage(ItemAssistant.getItemName(itemId) + " costs "
 						+ getGraveValue(itemId) + " Graveyard points, "
 						+ getAlchVal(itemId) + " Alchemy points,");
 		c.getActionSender().sendMessage(

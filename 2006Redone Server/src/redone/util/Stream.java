@@ -59,7 +59,8 @@ public class Stream {
 
 	public int readSignedWordBigEndian() {
 		currentOffset += 2;
-		int i = ((buffer[currentOffset - 1] & 0xff) << 8) + (buffer[currentOffset - 2] & 0xff);
+		int i = ((buffer[currentOffset - 1] & 0xff) << 8)
+				+ (buffer[currentOffset - 2] & 0xff);
 		if (i > 32767) {
 			i -= 0x10000;
 		}
@@ -68,7 +69,8 @@ public class Stream {
 
 	public int readSignedWordA() {
 		currentOffset += 2;
-		int i = ((buffer[currentOffset - 2] & 0xff) << 8) + (buffer[currentOffset - 1] - 128 & 0xff);
+		int i = ((buffer[currentOffset - 2] & 0xff) << 8)
+				+ (buffer[currentOffset - 1] - 128 & 0xff);
 		if (i > 32767) {
 			i -= 0x10000;
 		}
@@ -77,7 +79,8 @@ public class Stream {
 
 	public int readSignedWordBigEndianA() {
 		currentOffset += 2;
-		int i = ((buffer[currentOffset - 1] & 0xff) << 8) + (buffer[currentOffset - 2] - 128 & 0xff);
+		int i = ((buffer[currentOffset - 1] & 0xff) << 8)
+				+ (buffer[currentOffset - 2] - 128 & 0xff);
 		if (i > 32767) {
 			i -= 0x10000;
 		}
@@ -86,17 +89,20 @@ public class Stream {
 
 	public int readUnsignedWordBigEndian() {
 		currentOffset += 2;
-		return ((buffer[currentOffset - 1] & 0xff) << 8) + (buffer[currentOffset - 2] & 0xff);
+		return ((buffer[currentOffset - 1] & 0xff) << 8)
+				+ (buffer[currentOffset - 2] & 0xff);
 	}
 
 	public int readUnsignedWordA() {
 		currentOffset += 2;
-		return ((buffer[currentOffset - 2] & 0xff) << 8) + (buffer[currentOffset - 1] - 128 & 0xff);
+		return ((buffer[currentOffset - 2] & 0xff) << 8)
+				+ (buffer[currentOffset - 1] - 128 & 0xff);
 	}
 
 	public int readUnsignedWordBigEndianA() {
 		currentOffset += 2;
-		return ((buffer[currentOffset - 1] & 0xff) << 8) + (buffer[currentOffset - 2] - 128 & 0xff);
+		return ((buffer[currentOffset - 1] & 0xff) << 8)
+				+ (buffer[currentOffset - 2] - 128 & 0xff);
 	}
 
 	public void writeWordBigEndianA(int i) {
@@ -312,12 +318,14 @@ public class Stream {
 
 	public int readUnsignedWord() {
 		currentOffset += 2;
-		return ((buffer[currentOffset - 2] & 0xff) << 8) + (buffer[currentOffset - 1] & 0xff);
+		return ((buffer[currentOffset - 2] & 0xff) << 8)
+				+ (buffer[currentOffset - 1] & 0xff);
 	}
 
 	public int readSignedWord() {
 		currentOffset += 2;
-		int i = ((buffer[currentOffset - 2] & 0xff) << 8) + (buffer[currentOffset - 1] & 0xff);
+		int i = ((buffer[currentOffset - 2] & 0xff) << 8)
+				+ (buffer[currentOffset - 1] & 0xff);
 		if (i > 32767) {
 			i -= 0x10000;
 		}

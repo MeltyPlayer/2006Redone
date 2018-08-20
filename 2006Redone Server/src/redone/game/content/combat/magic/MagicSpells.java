@@ -7,8 +7,9 @@ import redone.game.players.PlayerHandler;
 import redone.util.Misc;
 
 public class MagicSpells extends MagicData {
-	
-	public static void appendMultiBarrage(Client c, int playerId, boolean splashed) {
+
+	public static void appendMultiBarrage(Client c, int playerId,
+			boolean splashed) {
 		if (PlayerHandler.players[playerId] != null) {
 			Client c2 = (Client) PlayerHandler.players[playerId];
 			if (c2.isDead || c2.respawnTimer > 0) {
@@ -31,8 +32,14 @@ public class MagicSpells extends MagicData {
 					if (c2.playerLevel[3] - damage < 0) {
 						damage = c2.playerLevel[3];
 					}
-					c.getPlayerAssistant().addSkillXP(MagicData.MAGIC_SPELLS[c.oldSpellId][7] + damage * Constants.MAGIC_EXP_RATE, 6);
-					c.getPlayerAssistant().addSkillXP(MagicData.MAGIC_SPELLS[c.oldSpellId][7] + damage / 3, 3);
+					c.getPlayerAssistant()
+							.addSkillXP(
+									MagicData.MAGIC_SPELLS[c.oldSpellId][7]
+											+ damage * Constants.MAGIC_EXP_RATE,
+									6);
+					c.getPlayerAssistant()
+							.addSkillXP(MagicData.MAGIC_SPELLS[c.oldSpellId][7]
+									+ damage / 3, 3);
 					// Server.playerHandler.players[playerId].setHitDiff(damage);
 					// Server.playerHandler.players[playerId].setHitUpdateRequired(true);
 					PlayerHandler.players[playerId].handleHitMask(damage);
@@ -45,8 +52,7 @@ public class MagicSpells extends MagicData {
 					multiSpellEffect(c, playerId, damage);
 				} else {
 					c2.gfx100(85);
-					c.getActionSender().sendSound(SoundList.MAGE_FAIL, 100,
-							0);
+					c.getActionSender().sendSound(SoundList.MAGE_FAIL, 100, 0);
 				}
 			}
 		}
@@ -61,7 +67,9 @@ public class MagicSpells extends MagicData {
 				PlayerHandler.players[playerId].reduceStat = System
 						.currentTimeMillis();
 				PlayerHandler.players[playerId].playerLevel[0] -= PlayerHandler.players[playerId]
-						.getLevelForXP(PlayerHandler.players[playerId].playerXP[0]) * 10 / 100;
+						.getLevelForXP(
+								PlayerHandler.players[playerId].playerXP[0])
+						* 10 / 100;
 			}
 			break;
 		case 12919: // blood spells
@@ -69,8 +77,8 @@ public class MagicSpells extends MagicData {
 			int heal = damage / 4;
 			if (c.playerLevel[3] + heal >= c.getPlayerAssistant()
 					.getLevelForXP(c.playerXP[3])) {
-				c.playerLevel[3] = c.getPlayerAssistant().getLevelForXP(
-						c.playerXP[3]);
+				c.playerLevel[3] = c.getPlayerAssistant()
+						.getLevelForXP(c.playerXP[3]);
 			} else {
 				c.playerLevel[3] += heal;
 			}
@@ -85,7 +93,7 @@ public class MagicSpells extends MagicData {
 			break;
 		}
 	}
-	
+
 	public static boolean checkMultiBarrageReqs(Client c, int i) {
 		if (PlayerHandler.players[i] == null) {
 			return false;
@@ -100,13 +108,12 @@ public class MagicSpells extends MagicData {
 			return false;
 		}
 		if (Constants.COMBAT_LEVEL_DIFFERENCE) {
-			int combatDif1 = c.getCombatAssistant().getCombatDifference(c.combatLevel,
-					PlayerHandler.players[i].combatLevel);
+			int combatDif1 = c.getCombatAssistant().getCombatDifference(
+					c.combatLevel, PlayerHandler.players[i].combatLevel);
 			if (combatDif1 > c.wildLevel
 					|| combatDif1 > PlayerHandler.players[i].wildLevel) {
-				c.getActionSender()
-						.sendMessage(
-								"Your combat level difference is too great to attack that player here.");
+				c.getActionSender().sendMessage(
+						"Your combat level difference is too great to attack that player here.");
 				return false;
 			}
 		}
@@ -120,19 +127,19 @@ public class MagicSpells extends MagicData {
 				}
 				if (PlayerHandler.players[i].playerId != c.underAttackBy
 						&& c.underAttackBy != 0) {
-					c.getActionSender().sendMessage(
-							"You are already in combat.");
+					c.getActionSender()
+							.sendMessage("You are already in combat.");
 					return false;
 				}
 			}
 		}
 		return true;
 	}
-	
+
 	public static int mageAtk(Client c) {
 		return MagicMaxHit.mageAttackBonus(c);
 	}
-	
+
 	public static int mageDef(Client c) {
 		return MagicMaxHit.mageDefenceBonus(c);
 	}

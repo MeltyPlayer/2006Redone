@@ -138,39 +138,34 @@ public class PacketHandler {
 		// ContinueDialoguePacketHandler();
 	}
 
-	/*public static void processPacket(Client c, int packetType, int packetSize) {
-		if (packetType == -1) {
-			return;
-		}
+	/*
+	 * public static void processPacket(Client c, int packetType, int
+	 * packetSize) { if (packetType == -1) { return; } PacketType p =
+	 * packetId[packetType]; if (p != null) { try { //
+	 * System.out.println("packet: " + packetType); p.processPacket(c,
+	 * packetType, packetSize); } catch (Exception e) { e.printStackTrace(); } }
+	 * else { System.out.println("Unhandled packet type: " + packetType +
+	 * " - size: " + packetSize); } }
+	 */
+
+	public static void processPacket(Client c, int packetType, int packetSize) {
 		PacketType p = packetId[packetType];
-		if (p != null) {
+		if (p != null && packetType > 0 && packetType < 257
+				&& packetType == c.packetType && packetSize == c.packetSize) {
+			if (Constants.sendServerPackets && c.playerRights == 3) {
+				c.getActionSender().sendMessage("PacketType: " + packetType
+						+ ". PacketSize: " + packetSize + ".");
+			}
 			try {
-				// System.out.println("packet: " + packetType);
 				p.processPacket(c, packetType, packetSize);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} else {
-			System.out.println("Unhandled packet type: " + packetType
-					+ " - size: " + packetSize);
+			c.disconnected = true;
+			System.out.println(c.playerName + "is sending invalid PacketType: "
+					+ packetType + ". PacketSize: " + packetSize);
 		}
-	}*/
-	
-	public static void processPacket(Client c, int packetType, int packetSize) {
-        PacketType p = packetId[packetType];
-        if(p != null && packetType > 0 && packetType < 257 && packetType == c.packetType && packetSize == c.packetSize) {
-            if (Constants.sendServerPackets && c.playerRights == 3) {
-                c.getActionSender().sendMessage("PacketType: " + packetType + ". PacketSize: " + packetSize + ".");
-            }
-            try {
-                p.processPacket(c, packetType, packetSize);
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
-        } else {
-            c.disconnected = true;
-            System.out.println(c.playerName + "is sending invalid PacketType: " + packetType + ". PacketSize: " + packetSize);
-        }
-    }
+	}
 
 }

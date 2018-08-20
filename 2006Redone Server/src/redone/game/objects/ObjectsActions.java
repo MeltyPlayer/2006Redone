@@ -56,18 +56,22 @@ public class ObjectsActions {
 	public ObjectsActions(Client Client) {
 		player = Client;
 	}
-	
+
 	public void firstClickObject(int objectType, int objectX, int objectY) {
 		player.faceUpdate(0);
 		player.clickObjectType = 0;
 		player.turnPlayerTo(objectX, objectY);
-		if (!Region.objectExists(objectType, objectX, objectY, player.heightLevel)) {
-			player.getActionSender().sendMessage("This object does not exist. Please report this to a staff member.");
-		    return;
+		if (!Region.objectExists(objectType, objectX, objectY,
+				player.heightLevel)) {
+			player.getActionSender().sendMessage(
+					"This object does not exist. Please report this to a staff member.");
+			return;
 		}
 		if (player.isBotting == true) {
-			player.getActionSender().sendMessage("You can't click any objects until you confirm you are not botting.");
-			player.getActionSender().sendMessage("If you need to you can type ::amibotting, to see if your botting.");
+			player.getActionSender().sendMessage(
+					"You can't click any objects until you confirm you are not botting.");
+			player.getActionSender().sendMessage(
+					"If you need to you can type ::amibotting, to see if your botting.");
 			return;
 		}
 		if (Webs.webs(player, objectType)) {
@@ -105,7 +109,7 @@ public class ObjectsActions {
 			return;
 		}
 		ClimbOther.handleOpenOther(player, objectType);
-		for (ClimbData t: ClimbData.values()) {
+		for (ClimbData t : ClimbData.values()) {
 			if (objectType == t.getOpen()) {
 				ClimbOther.useOther(player, objectType);
 			}
@@ -122,66 +126,86 @@ public class ObjectsActions {
 			player.getCannon().clickCannon(objectX, objectY);
 			break;
 		case 2091:
-			player.getMining().startMining(player, 0, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 0, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2095:
-			player.getMining().startMining(player, 1, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 1, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2093:
-			player.getMining().startMining(player, 2, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 2, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2097:
-			player.getMining().startMining(player, 3, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 3, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2103:
-			player.getMining().startMining(player, 4, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 4, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2105:
-			player.getMining().startMining(player, 5, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 5, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2107:
-			player.getMining().startMining(player, 6, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 6, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2090:
-			player.getMining().startMining(player, 7, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 7, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2094:
-			player.getMining().startMining(player, 8, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 8, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2092:
-			player.getMining().startMining(player, 9, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 9, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2096:
-			player.getMining().startMining(player, 10, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 10, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2102:
-			player.getMining().startMining(player, 11, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 11, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2104:
-			player.getMining().startMining(player, 12, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 12, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2106:
-			player.getMining().startMining(player, 13, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 13, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2100:
-			player.getMining().startMining(player, 14, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 14, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2101:
-			player.getMining().startMining(player, 15, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 15, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2098:
-			player.getMining().startMining(player, 16, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 16, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 2099:
-			player.getMining().startMining(player, 17, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 17, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 3042:
-			player.getMining().startMining(player, 18, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 18, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
 		case 3043:
-			player.getMining().startMining(player, 19, player.objectX, player.objectY, player.clickObjectType);
+			player.getMining().startMining(player, 19, player.objectX,
+					player.objectY, player.clickObjectType);
 			break;
-		
+
 		case 6702:
 		case 6703:
 		case 6704:
@@ -190,204 +214,235 @@ public class ObjectsActions {
 		case 6707:
 			player.getBarrows().useStairs();
 			break;
-			
+
 		case 10284:
 			player.getBarrows().useChest();
-		break;
-		
-	case 6823:
-		if(player.barrowsNpcs[0][1] == 0) {
-			NpcHandler.spawnNpc(player, 2030, player.getX(), player.getY()-1, 3, 0, 120, 25, 200, 200, true, true);
-			player.barrowsNpcs[0][1] = 1;
-		} else {
-			player.getActionSender().sendMessage("You have already searched in this sarcophagus.");
-		}
-		break;
-		
-	case 6772:
-		if(player.barrowsNpcs[1][1] == 0) {
-			NpcHandler.spawnNpc(player, 2029, player.getX()+1, player.getY(), 3, 0, 120, 20, 200, 200, true, true);
-			player.barrowsNpcs[1][1] = 1;
-		} else {
-			player.getActionSender().sendMessage("You have already searched in this sarcophagus.");
-		}
-		break;
-		
-	case 6822:
-		if(player.barrowsNpcs[2][1] == 0) {
-			NpcHandler.spawnNpc(player, 2028, player.getX(), player.getY()-1, 3, 0, 90, 17, 200, 200, true, true);
-			player.barrowsNpcs[2][1] = 1;
-		} else {
-			player.getActionSender().sendMessage("You have already searched in this sarcophagus.");
-		}
-		break;
-		
-	case 6773:
-		if(player.barrowsNpcs[3][1] == 0) {
-			NpcHandler.spawnNpc(player, 2027, player.getX(), player.getY()-1, 3, 0, 120, 23, 200, 200, true, true);
-			player.barrowsNpcs[3][1] = 1;
-		} else {
-			player.getActionSender().sendMessage("You have already searched in this sarcophagus.");
-		}
-		break;
-		
-	case 6771:
+			break;
+
+		case 6823:
+			if (player.barrowsNpcs[0][1] == 0) {
+				NpcHandler.spawnNpc(player, 2030, player.getX(),
+						player.getY() - 1, 3, 0, 120, 25, 200, 200, true, true);
+				player.barrowsNpcs[0][1] = 1;
+			} else {
+				player.getActionSender().sendMessage(
+						"You have already searched in this sarcophagus.");
+			}
+			break;
+
+		case 6772:
+			if (player.barrowsNpcs[1][1] == 0) {
+				NpcHandler.spawnNpc(player, 2029, player.getX() + 1,
+						player.getY(), 3, 0, 120, 20, 200, 200, true, true);
+				player.barrowsNpcs[1][1] = 1;
+			} else {
+				player.getActionSender().sendMessage(
+						"You have already searched in this sarcophagus.");
+			}
+			break;
+
+		case 6822:
+			if (player.barrowsNpcs[2][1] == 0) {
+				NpcHandler.spawnNpc(player, 2028, player.getX(),
+						player.getY() - 1, 3, 0, 90, 17, 200, 200, true, true);
+				player.barrowsNpcs[2][1] = 1;
+			} else {
+				player.getActionSender().sendMessage(
+						"You have already searched in this sarcophagus.");
+			}
+			break;
+
+		case 6773:
+			if (player.barrowsNpcs[3][1] == 0) {
+				NpcHandler.spawnNpc(player, 2027, player.getX(),
+						player.getY() - 1, 3, 0, 120, 23, 200, 200, true, true);
+				player.barrowsNpcs[3][1] = 1;
+			} else {
+				player.getActionSender().sendMessage(
+						"You have already searched in this sarcophagus.");
+			}
+			break;
+
+		case 6771:
 			player.getDialogueHandler().sendDialogues(3222, 2026);
-		break;
-		
-	case 6821:
-		if(player.barrowsNpcs[5][1] == 0) {
-			NpcHandler.spawnNpc(player, 2025, player.getX()-1, player.getY(), 3, 0, 90, 19, 200, 200, true, true);
-			player.barrowsNpcs[5][1] = 1;
-		} else {
-			player.getActionSender().sendMessage("You have already searched in this sarcophagus.");
-		}
-		break;
-		
+			break;
+
+		case 6821:
+			if (player.barrowsNpcs[5][1] == 0) {
+				NpcHandler.spawnNpc(player, 2025, player.getX() - 1,
+						player.getY(), 3, 0, 90, 19, 200, 200, true, true);
+				player.barrowsNpcs[5][1] = 1;
+			} else {
+				player.getActionSender().sendMessage(
+						"You have already searched in this sarcophagus.");
+			}
+			break;
+
 		case 2145:
-		if (player.objectX == 3249 && player.objectY == 3192) {
-			player.getActionSender().object(2146, 3249, 3192, 0, 0, 10);
-			Region.addObject(2146, 3249, 3192, 0, 10, 0, false);
-		}
-		break;
-		
+			if (player.objectX == 3249 && player.objectY == 3192) {
+				player.getActionSender().object(2146, 3249, 3192, 0, 0, 10);
+				Region.addObject(2146, 3249, 3192, 0, 10, 0, false);
+			}
+			break;
+
 		case 2146:
-		if (player.objectX == 3249 && player.objectY == 3192) {
-			player.getActionSender().object(2145, 3249, 3192, 0, 0, 10);
-		}
-		break;
-		
+			if (player.objectX == 3249 && player.objectY == 3192) {
+				player.getActionSender().object(2145, 3249, 3192, 0, 0, 10);
+			}
+			break;
+
 		case 399:
-		if (player.objectX == 3096 && player.objectY == 3469) {
-			player.getActionSender().object(398, 3096, 3469, 0, 3, 10);
-			Region.addObject(398, 3096, 3469, 0, 10, 3, false);
-		}
-		break;
-		
+			if (player.objectX == 3096 && player.objectY == 3469) {
+				player.getActionSender().object(398, 3096, 3469, 0, 3, 10);
+				Region.addObject(398, 3096, 3469, 0, 10, 3, false);
+			}
+			break;
+
 		case 398:
-		if (player.objectX == 3096 && player.objectY == 3469) {
-			player.getActionSender().object(399, 3096, 3469, 0, 3, 10);
-		}
-		break;
-		
+			if (player.objectX == 3096 && player.objectY == 3469) {
+				player.getActionSender().object(399, 3096, 3469, 0, 3, 10);
+			}
+			break;
+
 		case 3828:
-		if (player.objectX == 3509 && player.objectY == 9497) {
-			player.getPlayerAssistant().movePlayer(3507, 9494, 0);
-		} else {
-			player.getPlayerAssistant().movePlayer(3484, 9509, 2);
-		}
-		break;
-		
+			if (player.objectX == 3509 && player.objectY == 9497) {
+				player.getPlayerAssistant().movePlayer(3507, 9494, 0);
+			} else {
+				player.getPlayerAssistant().movePlayer(3484, 9509, 2);
+			}
+			break;
+
 		case 2271:
 			player.getActionSender().object(2272, 2984, 3336, 1, 10);
 			Region.addObject(2272, 2984, 336, 0, 10, 1, false);
 			player.getActionSender().sendMessage("You open the cupboard.");
-		break;
-		
+			break;
+
 		case 2272:
-		if (player.knightS == 5) {
-			player.getActionSender().sendMessage("You search the cupboard...");
-			player.getDialogueHandler().sendDialogues(659, -1);
-			player.knightS = 6;
-		} else {
-			player.getActionSender().sendMessage("You search the cupboard...");
-			player.getActionSender().sendMessage("and don't find anything interesting.");
-		}
-		break;
-		
+			if (player.knightS == 5) {
+				player.getActionSender()
+						.sendMessage("You search the cupboard...");
+				player.getDialogueHandler().sendDialogues(659, -1);
+				player.knightS = 6;
+			} else {
+				player.getActionSender()
+						.sendMessage("You search the cupboard...");
+				player.getActionSender()
+						.sendMessage("and don't find anything interesting.");
+			}
+			break;
+
 		case 9038:
 		case 9039:
-		if (!player.getItemAssistant().playerHasItem(6306, 100) && player.absX == 2816) {
-			player.getDialogueHandler().sendStatement("You need 100 trading sticks to enter here.");
-			player.nextChat = 0;
-			return;
-		}
-		if (player.absY == 3082 || player.absY == 3085) {
-			player.getDialogueHandler().sendStatement("You can't enter from here.");
-			player.nextChat = 0;
-			return;
-		}
-		if (player.absX == 2816 && player.getItemAssistant().playerHasItem(6306, 100)) {
-			player.getPlayerAssistant().movePlayer(player.absX+1, player.absY, 0);
-			player.getItemAssistant().deleteItem2(6306, 100);
-		} else if (player.absX == 2817) {
-			player.getPlayerAssistant().movePlayer(player.absX+1, player.absY, 0);
-		}
-		break;
-		
-		case 12047:
-		case 12045:
-		if (player.absY == 4439 || player.absY == 4436 || player.absX == 2467 || player.absX == 2464) {
-			player.getDialogueHandler().sendStatement("You can't enter the gate from here.");
-			player.nextChat = 0;
-			return;
-		}
-		if (!player.getItemAssistant().playerHasItem(1601, 1)) {
-			if (player.absX == 2469 || player.absY == 4434) {
-				player.getDialogueHandler().sendStatement("You need 1 cut diamond to enter.");
+			if (!player.getItemAssistant().playerHasItem(6306, 100)
+					&& player.absX == 2816) {
+				player.getDialogueHandler().sendStatement(
+						"You need 100 trading sticks to enter here.");
 				player.nextChat = 0;
 				return;
 			}
-		} else if (player.absX == 2470) {
-			player.getPlayerAssistant().movePlayer(player.absX-1, player.absY, 0);
-			player.getActionSender().sendMessage("You pass through the gate.");
-		} else if (player.absY == 4433) {
-			player.getPlayerAssistant().movePlayer(player.absX, player.absY+1, 0);
-			player.getActionSender().sendMessage("You pass through the gate.");
-		} else if (player.absX == 2469) {
-			player.getItemAssistant().deleteItem(1601, 1);
-			player.getPlayerAssistant().movePlayer(player.absX+1, player.absY, 0);
-			player.getActionSender().sendMessage("You pass through the gate.");
-		} else if (player.absY == 4434) {
-			player.getItemAssistant().deleteItem(1601, 1);
-			player.getPlayerAssistant().movePlayer(player.absX, player.absY-1, 0);
-			player.getActionSender().sendMessage("You pass through the gate.");
-		}
-		break;
-		
-		case 69:
-	        case 2178:
-	            //if (c.objectX == 2675 && c.objectY == 3170) {
-	                //c.getDH().sendDialogues(79, 0);
-	            //} else {
-	                if (player.playerLevel[player.playerFishing] <= 50) {
-	                    player.getActionSender().sendMessage("You need a fishing level of 50 or higher to play Fishing Trawler.");
-	                    return;
-	                }
-	                Server.trawler.getWaitingRoom().join(player);
-	            //}
-	            break;
+			if (player.absY == 3082 || player.absY == 3085) {
+				player.getDialogueHandler()
+						.sendStatement("You can't enter from here.");
+				player.nextChat = 0;
+				return;
+			}
+			if (player.absX == 2816
+					&& player.getItemAssistant().playerHasItem(6306, 100)) {
+				player.getPlayerAssistant().movePlayer(player.absX + 1,
+						player.absY, 0);
+				player.getItemAssistant().deleteItem2(6306, 100);
+			} else if (player.absX == 2817) {
+				player.getPlayerAssistant().movePlayer(player.absX + 1,
+						player.absY, 0);
+			}
+			break;
 
-	        case 2179:
-	        case 70:
-	            Server.trawler.getWaitingRoom().leave(player);
-	            break;
-	        case 2167:
-	            Server.trawler.fixHole(player, objectX, objectY);
-	            break;
-	        case 2166:
-	            Server.trawler.showReward(player);
-	            break;
-	        case 2159:
-	        case 2160:
-	            player.trawlerFade(2676, 3170, 0);
-	            break;
-	        case 2175:
-	            Server.trawler.downLadder(player, objectX, objectY);
-	            break;
-	        case 2174:
-	            Server.trawler.upLadder(player, objectX, objectY);
-	            break;
-		
+		case 12047:
+		case 12045:
+			if (player.absY == 4439 || player.absY == 4436
+					|| player.absX == 2467 || player.absX == 2464) {
+				player.getDialogueHandler()
+						.sendStatement("You can't enter the gate from here.");
+				player.nextChat = 0;
+				return;
+			}
+			if (!player.getItemAssistant().playerHasItem(1601, 1)) {
+				if (player.absX == 2469 || player.absY == 4434) {
+					player.getDialogueHandler()
+							.sendStatement("You need 1 cut diamond to enter.");
+					player.nextChat = 0;
+					return;
+				}
+			} else if (player.absX == 2470) {
+				player.getPlayerAssistant().movePlayer(player.absX - 1,
+						player.absY, 0);
+				player.getActionSender()
+						.sendMessage("You pass through the gate.");
+			} else if (player.absY == 4433) {
+				player.getPlayerAssistant().movePlayer(player.absX,
+						player.absY + 1, 0);
+				player.getActionSender()
+						.sendMessage("You pass through the gate.");
+			} else if (player.absX == 2469) {
+				player.getItemAssistant().deleteItem(1601, 1);
+				player.getPlayerAssistant().movePlayer(player.absX + 1,
+						player.absY, 0);
+				player.getActionSender()
+						.sendMessage("You pass through the gate.");
+			} else if (player.absY == 4434) {
+				player.getItemAssistant().deleteItem(1601, 1);
+				player.getPlayerAssistant().movePlayer(player.absX,
+						player.absY - 1, 0);
+				player.getActionSender()
+						.sendMessage("You pass through the gate.");
+			}
+			break;
+
+		case 69:
+		case 2178:
+			// if (c.objectX == 2675 && c.objectY == 3170) {
+			// c.getDH().sendDialogues(79, 0);
+			// } else {
+			if (player.playerLevel[player.playerFishing] <= 50) {
+				player.getActionSender().sendMessage(
+						"You need a fishing level of 50 or higher to play Fishing Trawler.");
+				return;
+			}
+			Server.trawler.getWaitingRoom().join(player);
+			// }
+			break;
+
+		case 2179:
+		case 70:
+			Server.trawler.getWaitingRoom().leave(player);
+			break;
+		case 2167:
+			Server.trawler.fixHole(player, objectX, objectY);
+			break;
+		case 2166:
+			Server.trawler.showReward(player);
+			break;
+		case 2159:
+		case 2160:
+			player.trawlerFade(2676, 3170, 0);
+			break;
+		case 2175:
+			Server.trawler.downLadder(player, objectX, objectY);
+			break;
+		case 2174:
+			Server.trawler.upLadder(player, objectX, objectY);
+			break;
+
 		case 2230:
 		case 2265:
 			player.getActionSender().sendMessage("You look at hajedys cart.");
-		break;
-		
+			break;
+
 		case 10041:
 			player.getActionSender().sendMessage("You can't chop this tree.");
-		break;
-		
+			break;
+
 		case 12163:
 		case 12164:
 		case 12165:
@@ -410,8 +465,8 @@ public class ObjectsActions {
 				player.getPlayerAssistant().movePlayer(3168, 9572, 0);
 				return;
 			} else {
-				player.getActionSender().sendMessage(
-						"You need a rope to go down there.");
+				player.getActionSender()
+						.sendMessage("You need a rope to go down there.");
 			}
 			break;
 
@@ -453,12 +508,11 @@ public class ObjectsActions {
 		case 3832:
 			player.getPlayerAssistant().movePlayer(3509, 9496, 2);
 			break;
-			
+
 		case 2896:
 		case 2897:
 			if (player.playerRights < 3) {
-				player.getActionSender()
-						.sendMessage("You can't open that!");
+				player.getActionSender().sendMessage("You can't open that!");
 				player.getPlayerAssistant().movePlayer(2728, 3349, 0);
 			}
 			break;
@@ -471,16 +525,14 @@ public class ObjectsActions {
 			if (player.absY == 9756
 					&& player.playerLevel[player.playerMining] >= 60) {
 				player.getPlayerAssistant().movePlayer(3046, 9757, 0);
-				player.getActionSender()
-						.sendMessage("You enter the guild.");
+				player.getActionSender().sendMessage("You enter the guild.");
 			} else if (player.absY == 9757
 					&& player.playerLevel[player.playerMining] >= 60) {
 				player.getPlayerAssistant().movePlayer(3046, 9756, 0);
-				player.getActionSender()
-						.sendMessage("You enter the guild.");
+				player.getActionSender().sendMessage("You enter the guild.");
 			} else if (player.playerLevel[player.playerMining] < 60) {
-				player.getActionSender().sendMessage(
-						"You need 60 mining to enter this guild");
+				player.getActionSender()
+						.sendMessage("You need 60 mining to enter this guild");
 			}
 			break;
 
@@ -495,186 +547,188 @@ public class ObjectsActions {
 		case 7258:
 			player.getPlayerAssistant().movePlayer(2906, 3537, 0);
 			break;
-        
-        case 10177:
-            player.getPlayerAssistant().movePlayer(1798, 4407, 3);
-        break;    
-        
-        case 10193:
-            player.getPlayerAssistant().movePlayer(2545, 10143, 0);
-        break;
-        
-        case 8966:
-        	player.getPlayerAssistant().movePlayer(2523, 3740, 0);
-        break;
-        
-        case 10194:
-            player.getPlayerAssistant().movePlayer(2542, 3740, 0);
-        break;
-        
-        case 10195: 
-            player.getPlayerAssistant().movePlayer(1809, 4405, 2);
-        break;
-        
-        case 10196:
-            player.getPlayerAssistant().movePlayer(1807, 4405, 3);
-        break;
-        
-        case 10197:
-            player.getPlayerAssistant().movePlayer(1823, 4404, 2);
-        break;
-        
-        case 10198:
-            player.getPlayerAssistant().movePlayer(1825, 4404, 3);
-        break;
-        
-        case 10199:
-            player.getPlayerAssistant().movePlayer(1834, 4388, 2);
-        break;
-        
-        case 10200:
-            player.getPlayerAssistant().movePlayer(1834, 4390, 3);
-        break;
-    
-        case 10201:
-            player.getPlayerAssistant().movePlayer(1811, 4394, 1);
-        break;
-        
-        case 10202:
-            player.getPlayerAssistant().movePlayer(1812, 4394, 2);
-        break;
-        
-        case 10203:
-            player.getPlayerAssistant().movePlayer(1799, 4386, 2);
-        break;
-        
-        case 10204:
-            player.getPlayerAssistant().movePlayer(1799, 4388, 1);
-        break;
-        
-        case 10205:
-            player.getPlayerAssistant().movePlayer(1796, 4382, 1);
-        break;
-        
-        case 10206:
-            player.getPlayerAssistant().movePlayer(1796, 4382, 2);
-        break;
-        
-        case 10207:
-            player.getPlayerAssistant().movePlayer(1800, 4369, 2);
-        break;
-        
-        case 10208:
-            player.getPlayerAssistant().movePlayer(1802, 4370, 1);
-        break;
-        
-        case 10209:
-            player.getPlayerAssistant().movePlayer(1827, 4362, 1);
-        break;
-        
-        case 10210:
-            player.getPlayerAssistant().movePlayer(1825, 4362, 2);
-        break;
-        
-        case 10211:
-            player.getPlayerAssistant().movePlayer(1863, 4373, 2);
-        break;
-        
-        case 10212:
-            player.getPlayerAssistant().movePlayer(1863, 4371, 1);
-        break;
-        
-        case 10213:
-            player.getPlayerAssistant().movePlayer(1864, 4389, 1);
-        break;
-        
-        case 10214:
-            player.getPlayerAssistant().movePlayer(1864, 4387, 2);
-        break;
-        
-        case 10215:
-            player.getPlayerAssistant().movePlayer(1890, 4407, 0);
-        break;
-        
-        case 10216:
-            player.getPlayerAssistant().movePlayer(1890, 4406, 1);
-        break;
-        
-        case 10217:
-            player.getPlayerAssistant().movePlayer(1957, 4373, 1);
-        break;
-        
-        case 10218:
-            player.getPlayerAssistant().movePlayer(1957, 4371, 0);
-        break;
-        
-        case 10219:
-            player.getPlayerAssistant().movePlayer(1824, 4379, 3);
-        break;
-        
-        case 10220:
-            player.getPlayerAssistant().movePlayer(1824, 4381, 2);
-        break;
-        
-        case 10221:
-            player.getPlayerAssistant().movePlayer(1838, 4375, 2);
-        break;
-        
-        case 10222:
-            player.getPlayerAssistant().movePlayer(1838, 4377, 3);
-        break;
-        
-        case 10223:
-            player.getPlayerAssistant().movePlayer(1850, 4386, 1);
-        break;
-        
-        case 10224:
-            player.getPlayerAssistant().movePlayer(1850, 4387, 2);
-        break;
-        
-        case 10225:
-            player.getPlayerAssistant().movePlayer(1932, 4378, 1);
-        break;
-        
-        case 10226:
-            player.getPlayerAssistant().movePlayer(1932, 4380, 2);
-        break;
-        
-        case 10227:
-            if (player.objectX == 1961 && player.objectY == 4392)
-                player.getPlayerAssistant().movePlayer(1961, 4392, 2);
-            else 
-                player.getPlayerAssistant().movePlayer(1932, 4377, 1);
-        break;
-        
-        case 10228:
-            player.getPlayerAssistant().movePlayer(1961, 4393, 3);
-        break;
-        
-        case 10229:
-            player.getPlayerAssistant().movePlayer(1912, 4367, 0);
-        break;
-        
-        case 10230:
-            player.getPlayerAssistant().movePlayer(2899, 4449, 0);
-        break;
+
+		case 10177:
+			player.getPlayerAssistant().movePlayer(1798, 4407, 3);
+			break;
+
+		case 10193:
+			player.getPlayerAssistant().movePlayer(2545, 10143, 0);
+			break;
+
+		case 8966:
+			player.getPlayerAssistant().movePlayer(2523, 3740, 0);
+			break;
+
+		case 10194:
+			player.getPlayerAssistant().movePlayer(2542, 3740, 0);
+			break;
+
+		case 10195:
+			player.getPlayerAssistant().movePlayer(1809, 4405, 2);
+			break;
+
+		case 10196:
+			player.getPlayerAssistant().movePlayer(1807, 4405, 3);
+			break;
+
+		case 10197:
+			player.getPlayerAssistant().movePlayer(1823, 4404, 2);
+			break;
+
+		case 10198:
+			player.getPlayerAssistant().movePlayer(1825, 4404, 3);
+			break;
+
+		case 10199:
+			player.getPlayerAssistant().movePlayer(1834, 4388, 2);
+			break;
+
+		case 10200:
+			player.getPlayerAssistant().movePlayer(1834, 4390, 3);
+			break;
+
+		case 10201:
+			player.getPlayerAssistant().movePlayer(1811, 4394, 1);
+			break;
+
+		case 10202:
+			player.getPlayerAssistant().movePlayer(1812, 4394, 2);
+			break;
+
+		case 10203:
+			player.getPlayerAssistant().movePlayer(1799, 4386, 2);
+			break;
+
+		case 10204:
+			player.getPlayerAssistant().movePlayer(1799, 4388, 1);
+			break;
+
+		case 10205:
+			player.getPlayerAssistant().movePlayer(1796, 4382, 1);
+			break;
+
+		case 10206:
+			player.getPlayerAssistant().movePlayer(1796, 4382, 2);
+			break;
+
+		case 10207:
+			player.getPlayerAssistant().movePlayer(1800, 4369, 2);
+			break;
+
+		case 10208:
+			player.getPlayerAssistant().movePlayer(1802, 4370, 1);
+			break;
+
+		case 10209:
+			player.getPlayerAssistant().movePlayer(1827, 4362, 1);
+			break;
+
+		case 10210:
+			player.getPlayerAssistant().movePlayer(1825, 4362, 2);
+			break;
+
+		case 10211:
+			player.getPlayerAssistant().movePlayer(1863, 4373, 2);
+			break;
+
+		case 10212:
+			player.getPlayerAssistant().movePlayer(1863, 4371, 1);
+			break;
+
+		case 10213:
+			player.getPlayerAssistant().movePlayer(1864, 4389, 1);
+			break;
+
+		case 10214:
+			player.getPlayerAssistant().movePlayer(1864, 4387, 2);
+			break;
+
+		case 10215:
+			player.getPlayerAssistant().movePlayer(1890, 4407, 0);
+			break;
+
+		case 10216:
+			player.getPlayerAssistant().movePlayer(1890, 4406, 1);
+			break;
+
+		case 10217:
+			player.getPlayerAssistant().movePlayer(1957, 4373, 1);
+			break;
+
+		case 10218:
+			player.getPlayerAssistant().movePlayer(1957, 4371, 0);
+			break;
+
+		case 10219:
+			player.getPlayerAssistant().movePlayer(1824, 4379, 3);
+			break;
+
+		case 10220:
+			player.getPlayerAssistant().movePlayer(1824, 4381, 2);
+			break;
+
+		case 10221:
+			player.getPlayerAssistant().movePlayer(1838, 4375, 2);
+			break;
+
+		case 10222:
+			player.getPlayerAssistant().movePlayer(1838, 4377, 3);
+			break;
+
+		case 10223:
+			player.getPlayerAssistant().movePlayer(1850, 4386, 1);
+			break;
+
+		case 10224:
+			player.getPlayerAssistant().movePlayer(1850, 4387, 2);
+			break;
+
+		case 10225:
+			player.getPlayerAssistant().movePlayer(1932, 4378, 1);
+			break;
+
+		case 10226:
+			player.getPlayerAssistant().movePlayer(1932, 4380, 2);
+			break;
+
+		case 10227:
+			if (player.objectX == 1961 && player.objectY == 4392)
+				player.getPlayerAssistant().movePlayer(1961, 4392, 2);
+			else
+				player.getPlayerAssistant().movePlayer(1932, 4377, 1);
+			break;
+
+		case 10228:
+			player.getPlayerAssistant().movePlayer(1961, 4393, 3);
+			break;
+
+		case 10229:
+			player.getPlayerAssistant().movePlayer(1912, 4367, 0);
+			break;
+
+		case 10230:
+			player.getPlayerAssistant().movePlayer(2899, 4449, 0);
+			break;
 
 		case 2620:
 			if (player.gertCat == 6) {
-				player.getActionSender().sendMessage("You have already found fluffs kitten.");
+				player.getActionSender()
+						.sendMessage("You have already found fluffs kitten.");
 				return;
 			}
 			if (player.gertCat == 5) {
-			player.getActionSender().sendMessage("You search the crate...");
-			if (Misc.random(25) == 1) {
-				player.getItemAssistant().addItem(1554, 1);
-				player.gertCat = 6;
-				player.getActionSender().sendMessage("You find the kitten you should go back to fluffs.");
-			} else {
+				player.getActionSender().sendMessage("You search the crate...");
+				if (Misc.random(25) == 1) {
+					player.getItemAssistant().addItem(1554, 1);
+					player.gertCat = 6;
+					player.getActionSender().sendMessage(
+							"You find the kitten you should go back to fluffs.");
+				} else {
+					player.getActionSender().sendMessage("and find nothing...");
+				}
 				player.getActionSender().sendMessage("and find nothing...");
 			}
-			player.getActionSender().sendMessage("and find nothing...");
-			}	
 			break;
 
 		case 14921:
@@ -710,19 +764,18 @@ public class ObjectsActions {
 
 		case 10596:
 			if (player.playerLevel[player.playerSlayer] < 72) {
-				player.getActionSender().sendMessage(
-						"You need 72 slayer to enter.");
+				player.getActionSender()
+						.sendMessage("You need 72 slayer to enter.");
 				return;
 			} else {
-				player.getActionSender().sendMessage(
-						"You enter the icy cavern.");
+				player.getActionSender()
+						.sendMessage("You enter the icy cavern.");
 				player.getPlayerAssistant().movePlayer(3056, 9555, 0);
 			}
 			break;
 
 		case 10595:
-			player.getActionSender().sendMessage(
-					"You leave the icy cavern.");
+			player.getActionSender().sendMessage("You leave the icy cavern.");
 			player.getPlayerAssistant().movePlayer(3056, 9562, 0);
 			break;
 
@@ -735,7 +788,7 @@ public class ObjectsActions {
 						player.absY + 3, 0);
 			}
 			break;
-			
+
 		case 2266:
 			if (player.absY == 2963) {
 				player.getPlayerAssistant().movePlayer(player.absX,
@@ -766,7 +819,8 @@ public class ObjectsActions {
 				player.getPlayerAssistant().movePlayer(player.absX - 3,
 						player.absY, 0);
 			} else if (player.playerLevel[player.playerMining] < 50) {
-				player.getDialogueHandler().sendStatement("You need 50 mining to pass to this rock slide.");
+				player.getDialogueHandler().sendStatement(
+						"You need 50 mining to pass to this rock slide.");
 				player.nextChat = 0;
 				return;
 			}
@@ -828,7 +882,8 @@ public class ObjectsActions {
 				player.getPlayerAssistant().movePlayer(player.absX,
 						player.absY - 1, 0);
 			} else if (!player.getItemAssistant().playerHasItem(983, 1)) {
-				player.getDialogueHandler().sendStatement("You need a brass key to enter here.");
+				player.getDialogueHandler()
+						.sendStatement("You need a brass key to enter here.");
 				player.nextChat = 0;
 			}
 			break;
@@ -859,8 +914,8 @@ public class ObjectsActions {
 		case 89:
 		case 5812:
 		case 2341:
-			player.getActionSender().sendMessage(
-					"Will be added later with the quest!");
+			player.getActionSender()
+					.sendMessage("Will be added later with the quest!");
 			break;
 
 		case 8689:
@@ -934,20 +989,19 @@ public class ObjectsActions {
 			player.getActionSender().object(2613, 3096, 3269, 1, 0, 10);
 			Region.addObject(2613, 3096, 3269, 1, 10, 0, false);
 			player.getActionSender().sendMessage("You open the cupboard.");
-		break;
-			
+			break;
+
 		case 2613:
-		player.getItemAssistant().addItem(1550, 1);
-		break;
-			
+			player.getItemAssistant().addItem(1550, 1);
+			break;
 
 		case 9391:
 		case 62:
 		case 416:
 		case 6545:
 		case 3500:
-			player.getActionSender().sendMessage(
-					"This feature is currently disabled.");
+			player.getActionSender()
+					.sendMessage("This feature is currently disabled.");
 			break;
 
 		case 2670:
@@ -986,8 +1040,8 @@ public class ObjectsActions {
 							player.absY, 0);
 					player.getDialogueHandler().sendDialogues(3020, -1);
 				} else {
-					player.getActionSender().sendMessage(
-							"You aren't on this part yet.");
+					player.getActionSender()
+							.sendMessage("You aren't on this part yet.");
 					return;
 				}
 			}
@@ -1010,16 +1064,22 @@ public class ObjectsActions {
 
 		case 3017:// door tutorial island
 			if (player.tutorialProgress > 6 || player.diedOnTut) {
-				if (player.diedOnTut && Position.checkPosition(player, 3079, 3084, 0)) {
+				if (player.diedOnTut
+						&& Position.checkPosition(player, 3079, 3084, 0)) {
 					PassDoor.passThroughDoor(player, 3017, 3, 0, 0, -1, 0, 0);
-					player.getDialogueHandler().sendStatement2("You have died and have already beat this step", "you may continue.");
-					player.getActionSender().createArrow(3072, 3090, player.getH(), 2);
-				} else if (player.diedOnTut == false && Position.checkPosition(player, 3079, 3084, 0)) {
+					player.getDialogueHandler().sendStatement2(
+							"You have died and have already beat this step",
+							"you may continue.");
+					player.getActionSender().createArrow(3072, 3090,
+							player.getH(), 2);
+				} else if (player.diedOnTut == false
+						&& Position.checkPosition(player, 3079, 3084, 0)) {
 					PassDoor.passThroughDoor(player, 3017, 3, 0, 0, -1, 0, 0);
 					player.getActionSender().drawHeadicon(1, 3, 0, 0);
 				}
 			} else {
-				player.getActionSender().sendMessage("You aren't on this part yet.");
+				player.getActionSender()
+						.sendMessage("You aren't on this part yet.");
 				return;
 			}
 			break;
@@ -1032,17 +1092,15 @@ public class ObjectsActions {
 				// client.getPacketDispatcher().tutorialIslandInterface(70,
 				// 15);
 				player.getActionSender().chatbox(6180);
-				player.getDialogueHandler()
-						.chatboxText(
-								player,
-								"Follow the path to the chapel and enter it.",
-								"Once inside talk to the monk. He'll tell you all about the skill.",
-								"", "", "Prayer");
+				player.getDialogueHandler().chatboxText(player,
+						"Follow the path to the chapel and enter it.",
+						"Once inside talk to the monk. He'll tell you all about the skill.",
+						"", "", "Prayer");
 				player.getActionSender().chatbox(6179);
 				player.getActionSender().drawHeadicon(1, 8, 0, 0); // sends
-																		// to
-																		// prayer
-																		// dude
+																	// to
+																	// prayer
+																	// dude
 			}
 
 			break;
@@ -1051,9 +1109,9 @@ public class ObjectsActions {
 				// client.getPacketDispatcher().tutorialIslandInterface(80,
 				// 17);
 				player.getActionSender().drawHeadicon(1, 9, 0, 0); // sends
-																		// to
-																		// prayer
-																		// dude
+																	// to
+																	// prayer
+																	// dude
 				if (Position.checkPosition(player, 3122, 3103, 0)) {
 					PassDoor.passThroughDoor(player, 3026, 0, 1, 0, 0, -1, 0);
 				}
@@ -1068,12 +1126,10 @@ public class ObjectsActions {
 				// client.getPacketDispatcher().tutorialIslandInterface(65,
 				// 14);
 				player.getActionSender().chatbox(6180);
-				player.getDialogueHandler()
-						.chatboxText(
-								player,
-								"The guide here will tell you all about making cash. Just click on",
-								"him to hear what he's got to say.", "", "",
-								"Financial advice");
+				player.getDialogueHandler().chatboxText(player,
+						"The guide here will tell you all about making cash. Just click on",
+						"him to hear what he's got to say.", "", "",
+						"Financial advice");
 				player.getActionSender().chatbox(6179);
 				player.getActionSender().drawHeadicon(1, 7, 0, 0);
 			}
@@ -1084,17 +1140,15 @@ public class ObjectsActions {
 				player.getPlayerAssistant().openUpBank();
 				// client.getPacketDispatcher().tutorialIslandInterface(60,
 				// 13);
-				player.getActionSender().createArrow(3125, 3124,
-						player.getH(), 2);
+				player.getActionSender().createArrow(3125, 3124, player.getH(),
+						2);
 				player.getActionSender().chatbox(6180);
-				player.getDialogueHandler()
-						.chatboxText(
-								player,
-								"You can store stuff here for safekeeping. If you die anything",
-								"in your bank will be saved. To deposit something, rich click it",
-								"and select 'store'. Once you've had a good look, close the",
-								"window and move on through the door indicated.",
-								"This is your bank box");
+				player.getDialogueHandler().chatboxText(player,
+						"You can store stuff here for safekeeping. If you die anything",
+						"in your bank will be saved. To deposit something, rich click it",
+						"and select 'store'. Once you've had a good look, close the",
+						"window and move on through the door indicated.",
+						"This is your bank box");
 				player.getActionSender().chatbox(6179);
 				player.tutorialProgress = 27;
 				player.getActionSender().createArrow(1, 7);
@@ -1104,7 +1158,8 @@ public class ObjectsActions {
 			break;
 
 		case 3039:
-			if (player.getItemAssistant().playerHasItem(2307) && player.tutorialProgress >= 8) {
+			if (player.getItemAssistant().playerHasItem(2307)
+					&& player.tutorialProgress >= 8) {
 				player.startAnimation(896);
 				player.getPlayerAssistant().requestUpdates();
 				player.getItemAssistant().deleteItem(2307, 1);
@@ -1115,7 +1170,8 @@ public class ObjectsActions {
 
 		case 3019:
 			if (player.tutorialProgress >= 11 || player.diedOnTut) {
-				if (player.diedOnTut && Position.checkPosition(player, 3086, 3126, 0)) {
+				if (player.diedOnTut
+						&& Position.checkPosition(player, 3086, 3126, 0)) {
 					PassDoor.passThroughDoor(player, 3019, 2, 3, 0, 0, -1, 0);
 					player.getDialogueHandler().sendStatement2(
 							"You have died and have already beat this step",
@@ -1130,21 +1186,27 @@ public class ObjectsActions {
 			}
 			break;
 
-
 		case 3014:
-			if (Position.checkPosition(player, 3097, 3107, 0) && player.tutorialProgress >= 2) {
+			if (Position.checkPosition(player, 3097, 3107, 0)
+					&& player.tutorialProgress >= 2) {
 				PassDoor.passThroughDoor(player, 3014, 1, 0, 0, 1, 0, 0);
 				player.getDialogueHandler().sendDialogues(3011, -1);
 				player.getActionSender().createArrow(1, 2);
-			} else if (Position.checkPosition(player, 3097, 3107, 0) && player.diedOnTut) {
-				player.getActionSender().createArrow(3089, 3092, player.getH(), 2);
-				player.getDialogueHandler().sendStatement2("You have died and have already beat this step", "you may continue.");
-			} else if (player.tutorialProgress < 2 && player.diedOnTut != true) {
-				player.getActionSender().sendMessage("You aren't on this step yet.");
+			} else if (Position.checkPosition(player, 3097, 3107, 0)
+					&& player.diedOnTut) {
+				player.getActionSender().createArrow(3089, 3092, player.getH(),
+						2);
+				player.getDialogueHandler().sendStatement2(
+						"You have died and have already beat this step",
+						"you may continue.");
+			} else if (player.tutorialProgress < 2
+					&& player.diedOnTut != true) {
+				player.getActionSender()
+						.sendMessage("You aren't on this step yet.");
 				return;
 			}
 			break;
-			
+
 		case 9299:
 			if (player.absX == 3240) {
 				if (player.absY == 3191) {
@@ -1152,51 +1214,53 @@ public class ObjectsActions {
 					player.getPlayerAssistant().sendFrame36(173, 0);
 					player.playerWalkIndex = 749;
 					player.getPlayerAssistant().requestUpdates();
-					//PlayerAssistant.sendFrame36(c, 173,1);
-					
+					// PlayerAssistant.sendFrame36(c, 173,1);
+
 				} else {
 					player.getPlayerAssistant().walkTo(0, 1);
 					player.playerWalkIndex = 749;
 					player.getPlayerAssistant().requestUpdates();
 				}
-				   CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
-			            @Override
-			            public void execute(CycleEventContainer container) {
-						// TODO Auto-generated method stub
-						player.getPlayerAssistant().setAnimationBack();
-						player.stopPlayerPacket = false;
-						container.stop();
-					}
-	
-						@Override
-						public void stop() {
-							// TODO Auto-generated method stub
-							
-						}
-					
-				}, 1);
+				CycleEventHandler.getSingleton().addEvent(player,
+						new CycleEvent() {
+							@Override
+							public void execute(CycleEventContainer container) {
+								// TODO Auto-generated method stub
+								player.getPlayerAssistant().setAnimationBack();
+								player.stopPlayerPacket = false;
+								container.stop();
+							}
+
+							@Override
+							public void stop() {
+								// TODO Auto-generated method stub
+
+							}
+
+						}, 1);
 			} else {
-				player.getActionSender().sendMessage("You can't do that from here.");
+				player.getActionSender()
+						.sendMessage("You can't do that from here.");
 			}
 			break;
 
-				case 3020:
-				case 3021:
-				if (player.diedOnTut == true && (player.getY() == 9502 || player.getY() == 9503)) {
-					player.getDialogueHandler()
-							.sendStatement2(
-									"You have died so now all you need to do is continue",
-									"onto the next step.");
-					player.getActionSender().createArrow(3111, 9518,
-							player.getH(), 2);
-				} else if (player.diedOnTut == false && player.tutorialProgress >= 21  && (player.getY() == 9502 || player.getY() == 9503)) {
+		case 3020:
+		case 3021:
+			if (player.diedOnTut == true
+					&& (player.getY() == 9502 || player.getY() == 9503)) {
+				player.getDialogueHandler().sendStatement2(
+						"You have died so now all you need to do is continue",
+						"onto the next step.");
+				player.getActionSender().createArrow(3111, 9518, player.getH(),
+						2);
+			} else if (player.diedOnTut == false
+					&& player.tutorialProgress >= 21
+					&& (player.getY() == 9502 || player.getY() == 9503)) {
 				player.getActionSender().chatbox(6180);
-				player.getDialogueHandler()
-						.chatboxText(
-								player,
-								"In this area you will find out about combat with swords and",
-								"bows. Speak to the guide and he will tell you all about it.",
-								"", "", "Combat");
+				player.getDialogueHandler().chatboxText(player,
+						"In this area you will find out about combat with swords and",
+						"bows. Speak to the guide and he will tell you all about it.",
+						"", "", "Combat");
 				player.getActionSender().chatbox(6179);
 				player.getActionSender().object(-1, 3094, 9502, 0, 0);
 				player.getActionSender().object(3021, 3095, 9502, 7, 0);
@@ -1205,30 +1269,32 @@ public class ObjectsActions {
 				player.getActionSender().object(3020, 3095, 9503, 1, 0);
 
 				player.getPlayerAssistant().walkTo(1, 0);
-				   CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
-			            @Override
-			            public void execute(CycleEventContainer container) {
-						player.getActionSender().object(3020, 3094, 9503,
-								2, 0);
-						player.getActionSender().object(3021, 3094, 9502,
-								2, 0);
-						// others
-						player.getActionSender().object(-1, 3095, 9502, 0,
-								0);
-						player.getActionSender().object(-1, 3095, 9503, 0,
-								0);
-						player.getActionSender().createArrow(1, 6); // draws
-																		// headicon
-																		// to
-						// combat dude
+				CycleEventHandler.getSingleton().addEvent(player,
+						new CycleEvent() {
+							@Override
+							public void execute(CycleEventContainer container) {
+								player.getActionSender().object(3020, 3094,
+										9503, 2, 0);
+								player.getActionSender().object(3021, 3094,
+										9502, 2, 0);
+								// others
+								player.getActionSender().object(-1, 3095, 9502,
+										0, 0);
+								player.getActionSender().object(-1, 3095, 9503,
+										0, 0);
+								player.getActionSender().createArrow(1, 6); // draws
+																			// headicon
+																			// to
+								// combat dude
 
-						container.stop();
-					}
-					@Override
-						public void stop() {
-							
-						}
-				}, 2);
+								container.stop();
+							}
+
+							@Override
+							public void stop() {
+
+							}
+						}, 2);
 			}
 			break;
 
@@ -1238,18 +1304,15 @@ public class ObjectsActions {
 					&& (player.getY() == 9519 || player.getY() == 9518)
 					|| player.diedOnTut == true) {
 				if (player.diedOnTut == true) {
-					player.getDialogueHandler()
-							.sendStatement2("Be more careful this time",
-									"now continue to kill the rat and talk to the guide.");
+					player.getDialogueHandler().sendStatement2(
+							"Be more careful this time",
+							"now continue to kill the rat and talk to the guide.");
 				}
 				player.getActionSender().chatbox(6180);
-				player.getDialogueHandler()
-						.chatboxText(
-								player,
-								"",
-								"To attack the rat, right click it and select the attack option. you",
-								"will then walk over to it and start hitting it.",
-								"", "Attacking");
+				player.getDialogueHandler().chatboxText(player, "",
+						"To attack the rat, right click it and select the attack option. you",
+						"will then walk over to it and start hitting it.", "",
+						"Attacking");
 				player.getActionSender().chatbox(6179);
 				player.getActionSender().object(-1, 3111, 9518, 0, 0);
 				player.getActionSender().object(3022, 3110, 9518, 7, 0);
@@ -1257,30 +1320,32 @@ public class ObjectsActions {
 				player.getActionSender().object(-1, 3111, 9519, 0, 0);
 				player.getActionSender().object(3023, 3110, 9519, 1, 0);
 
-				   CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
-			            @Override
-			            public void execute(CycleEventContainer container) {
+				CycleEventHandler.getSingleton().addEvent(player,
+						new CycleEvent() {
+							@Override
+							public void execute(CycleEventContainer container) {
 
-						player.getActionSender().object(3022, 3111, 9518,
-								0, 0);
-						player.getActionSender().object(3023, 3111, 9519,
-								0, 0);
-						// others
-						player.getActionSender().object(-1, 3110, 9518, 7,
-								0);
-						player.getActionSender().object(-1, 3110, 9519, 1,
-								0);
-						player.getActionSender().createArrow(1, 6); // draws
-																		// headicon
-						// to combat ude
+								player.getActionSender().object(3022, 3111,
+										9518, 0, 0);
+								player.getActionSender().object(3023, 3111,
+										9519, 0, 0);
+								// others
+								player.getActionSender().object(-1, 3110, 9518,
+										7, 0);
+								player.getActionSender().object(-1, 3110, 9519,
+										1, 0);
+								player.getActionSender().createArrow(1, 6); // draws
+																			// headicon
+								// to combat ude
 
-						container.stop();
-					}
-					@Override
-						public void stop() {
-							
-						}
-				}, 4);
+								container.stop();
+							}
+
+							@Override
+							public void stop() {
+
+							}
+						}, 4);
 			} else if (player.tutorialProgress >= 25
 					&& (player.getY() == 9519 || player.getY() == 9518)) {
 				player.getActionSender().object(-1, 3111, 9518, 0, 0);
@@ -1289,27 +1354,29 @@ public class ObjectsActions {
 				player.getActionSender().object(-1, 3111, 9519, 0, 0);
 				player.getActionSender().object(3023, 3110, 9519, 1, 0);
 
-				   CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
-			            @Override
-			            public void execute(CycleEventContainer container) {
+				CycleEventHandler.getSingleton().addEvent(player,
+						new CycleEvent() {
+							@Override
+							public void execute(CycleEventContainer container) {
 
-						player.getActionSender().object(3022, 3111, 9518,
-								0, 0);
-						player.getActionSender().object(3023, 3111, 9519,
-								0, 0);
-						// others
-						player.getActionSender().object(-1, 3110, 9518, 7,
-								0);
-						player.getActionSender().object(-1, 3110, 9519, 1,
-								0);
+								player.getActionSender().object(3022, 3111,
+										9518, 0, 0);
+								player.getActionSender().object(3023, 3111,
+										9519, 0, 0);
+								// others
+								player.getActionSender().object(-1, 3110, 9518,
+										7, 0);
+								player.getActionSender().object(-1, 3110, 9519,
+										1, 0);
 
-						container.stop();
-					}
-					@Override
-						public void stop() {
-							
-						}
-				}, 4);
+								container.stop();
+							}
+
+							@Override
+							public void stop() {
+
+							}
+						}, 4);
 			}
 			break;
 
@@ -1319,12 +1386,14 @@ public class ObjectsActions {
 		case 12350:
 			if (player.absX == 3213) {
 				if (player.absY == 3221 || player.absY == 3222) {
-					player.getPlayerAssistant().movePlayer(player.absX - 1, player.absY, 0);
+					player.getPlayerAssistant().movePlayer(player.absX - 1,
+							player.absY, 0);
 				}
 			} else if (player.absX == 3212) {
-				 if (player.absY == 3221 || player.absY == 3222) {
-					 player.getPlayerAssistant().movePlayer(player.absX + 1, player.absY, 0);
-				 }
+				if (player.absY == 3221 || player.absY == 3222) {
+					player.getPlayerAssistant().movePlayer(player.absX + 1,
+							player.absY, 0);
+				}
 			}
 			break;
 
@@ -1399,9 +1468,8 @@ public class ObjectsActions {
 			break;
 
 		case 8717:
-			player.getActionSender()
-					.sendMessage(
-							"Feature currently disabled will be added in a later release.");
+			player.getActionSender().sendMessage(
+					"Feature currently disabled will be added in a later release.");
 			break;
 
 		case 7057:
@@ -1440,8 +1508,8 @@ public class ObjectsActions {
 					player.startAnimation(828);
 					player.getPlayerAssistant().movePlayer(3088, 9520, 0);
 				} else {
-					player.getActionSender().sendMessage(
-							"You aren't on this part yet.");
+					player.getActionSender()
+							.sendMessage("You aren't on this part yet.");
 					return;
 				}
 			}
@@ -1449,8 +1517,8 @@ public class ObjectsActions {
 
 		case 3028:
 			if (player.tutorialProgress >= 14) {
-				player.getActionSender().sendMessage(
-						"You have already completed this step.");
+				player.getActionSender()
+						.sendMessage("You have already completed this step.");
 				return;
 			}
 			break;
@@ -1496,8 +1564,8 @@ public class ObjectsActions {
 
 		case 2287:
 			if (player.playerLevel[16] < 35) {
-				player.getActionSender().sendMessage(
-						"You need 35 agility to enter here!");
+				player.getActionSender()
+						.sendMessage("You need 35 agility to enter here!");
 				return;
 			}
 			if (player.absX == 2552 && player.absY == 3561) {
@@ -1526,10 +1594,13 @@ public class ObjectsActions {
 			break;
 
 		case 14315:
-			if (!PestControl.waitingBoat.containsKey(player) && player.absX == 2657 && player.absY > 2638 && player.absY < 264) {
+			if (!PestControl.waitingBoat.containsKey(player)
+					&& player.absX == 2657 && player.absY > 2638
+					&& player.absY < 264) {
 				PestControl.addToWaitRoom(player);
 			} else {
-				if (player.absX == 2657 && player.absY > 2638 && player.absY < 2641) {
+				if (player.absX == 2657 && player.absY > 2638
+						&& player.absY < 2641) {
 					player.getPlayerAssistant().movePlayer(2661, 2639, 0);
 				}
 			}
@@ -1539,7 +1610,8 @@ public class ObjectsActions {
 				if (PestControl.waitingBoat.containsKey(player)) {
 					PestControl.leaveWaitingBoat(player);
 				} else {
-					if (player.absX == 2661 && player.absY > 2637 && player.absY < 2641) {
+					if (player.absX == 2661 && player.absY > 2637
+							&& player.absY < 2641) {
 						player.getPlayerAssistant().movePlayer(2657, 2639, 0);
 					}
 				}
@@ -1554,15 +1626,16 @@ public class ObjectsActions {
 			break;
 
 		case 9368:
-			if (player.absX > 2397 && player.absX < 2401 && player.absY == 5167) {
+			if (player.absX > 2397 && player.absX < 2401
+					&& player.absY == 5167) {
 				FightPits.removePlayer(player, false);
 			}
 			break;
 
 		case 3031:
 			if (player.tutorialProgress == 26) {
-				player.getActionSender().sendMessage(
-						"You have already completed this step.");
+				player.getActionSender()
+						.sendMessage("You have already completed this step.");
 				return;
 			} else if (player.tutorialProgress > 35) {
 				UseOther.useDown(player, objectType);
@@ -1583,8 +1656,7 @@ public class ObjectsActions {
 
 		case 5493:
 			player.getPlayerAssistant().movePlayer(3165, 3251, 0);
-			player.getActionSender()
-					.sendMessage("You climb up the ladder.");
+			player.getActionSender().sendMessage("You climb up the ladder.");
 			player.startAnimation(828);
 			player.getPlayerAssistant().removeAllWindows();
 			break;
@@ -1621,7 +1693,8 @@ public class ObjectsActions {
 		case 4377:
 		case 4378:
 			if (!CastleWars.isInCw(player)) {
-				player.getActionSender().sendMessage("You have to be in castle wars to use these objects.");
+				player.getActionSender().sendMessage(
+						"You have to be in castle wars to use these objects.");
 				CastleWars.resetPlayer(player);
 				return;
 			}
@@ -1630,7 +1703,8 @@ public class ObjectsActions {
 
 		case 1757:
 			if (CastleWars.isInCw(player)) {
-				CastleWarObjects.handleObject(player, objectType, objectX, objectY);
+				CastleWarObjects.handleObject(player, objectType, objectX,
+						objectY);
 			} else if (player.objectX == 2892 && player.objectY == 9907) {
 				player.getPlayerAssistant().movePlayer(2893, 3507, 0);
 			} else {
@@ -1643,8 +1717,8 @@ public class ObjectsActions {
 			break;
 
 		case 2693:
-			SpecialObjects.openShantayChest(player, objectType, objectX, objectY,
-					"open");
+			SpecialObjects.openShantayChest(player, objectType, objectX,
+					objectY, "open");
 			break;
 
 		case 2883:
@@ -1654,24 +1728,34 @@ public class ObjectsActions {
 
 		case 2320:
 			long clickTimer = 0;
-			if (player.absY <= 9963 && player.playerLevel[player.playerAgility] > 14 && System.currentTimeMillis() - clickTimer > 2000) {
+			if (player.absY <= 9963
+					&& player.playerLevel[player.playerAgility] > 14
+					&& System.currentTimeMillis() - clickTimer > 2000) {
 				player.getPlayerAssistant().movePlayer(3120, 9970, 0);
 				player.startAnimation(744);
 				player.turnPlayerTo(player.objectX, player.objectY);
-				player.getActionSender().sendMessage("You swing on the monkey bars.");
-				player.getPlayerAssistant().addSkillXP(25, player.playerAgility);
+				player.getActionSender()
+						.sendMessage("You swing on the monkey bars.");
+				player.getPlayerAssistant().addSkillXP(25,
+						player.playerAgility);
 				clickTimer = System.currentTimeMillis();
-			} else if (player.absY <= 9970 && player.playerLevel[player.playerAgility] > 14 && System.currentTimeMillis() - clickTimer > 2000) {
+			} else if (player.absY <= 9970
+					&& player.playerLevel[player.playerAgility] > 14
+					&& System.currentTimeMillis() - clickTimer > 2000) {
 				player.getPlayerAssistant().movePlayer(3120, 9963, 0);
 				player.startAnimation(744);
 				player.turnPlayerTo(player.objectX, player.objectY);
-				player.getActionSender().sendMessage("You swing on the monkey bars.");
-				player.getPlayerAssistant().addSkillXP(25, player.playerAgility);
+				player.getActionSender()
+						.sendMessage("You swing on the monkey bars.");
+				player.getPlayerAssistant().addSkillXP(25,
+						player.playerAgility);
 				clickTimer = System.currentTimeMillis();
 			} else if (player.playerLevel[player.playerAgility] < 15) {
-				player.getActionSender().sendMessage("You need 15 agility to use these monkey bars.");
+				player.getActionSender().sendMessage(
+						"You need 15 agility to use these monkey bars.");
 			} else {
-				player.getActionSender().sendMessage("You can't do the monkey bars here.");
+				player.getActionSender()
+						.sendMessage("You can't do the monkey bars here.");
 			}
 			break;
 
@@ -1686,13 +1770,13 @@ public class ObjectsActions {
 			PartyRoom.dropAll();
 			break;
 
-	case 9356:
+		case 9356:
 			player.getPlayerAssistant().enterCaves();
 			break;
 
 		case 9357:
 			player.getPlayerAssistant().resetTzhaar();
-			break;	
+			break;
 
 		case 492:
 			player.getPlayerAssistant().movePlayer(2856, 9570, 0);
@@ -1757,14 +1841,15 @@ public class ObjectsActions {
 			break;
 
 		case 6481:
-				player.getPlayerAssistant().movePlayer(3233, 9317, 0);
+			player.getPlayerAssistant().movePlayer(3233, 9317, 0);
 			break;
 
 		case 2258:
 			if (player.playerLevel[20] >= 35) {
 				player.getPlayerAssistant().spellTeleport(3027, 4852, 0);
 			} else {
-				player.getActionSender().sendMessage("You need a Runecrafting level of 35 to enter the Abyss.");
+				player.getActionSender().sendMessage(
+						"You need a Runecrafting level of 35 to enter the Abyss.");
 			}
 			break;
 
@@ -1787,21 +1872,21 @@ public class ObjectsActions {
 			break;
 
 		case 4465:
-			player.getPlayerAssistant().movePlayer(
-					player.absX == 2414 ? 2415 : 2414, 3073, 0);
+			player.getPlayerAssistant()
+					.movePlayer(player.absX == 2414 ? 2415 : 2414, 3073, 0);
 			break;
 
 		case 4424:
 		case 4423:
 			if (!CastleWars.isInCw(player)) {
-				player.getActionSender().sendMessage("You have to be in castle wars to use these objects.");
+				player.getActionSender().sendMessage(
+						"You have to be in castle wars to use these objects.");
 				CastleWars.resetPlayer(player);
 				return;
 			}
 			player.getPlayerAssistant().movePlayer(2427,
 					player.absY == 3087 ? 3088 : 3087, 0);
 			break;
-
 
 		/**
 		 * End
@@ -1810,69 +1895,77 @@ public class ObjectsActions {
 		case 2079:
 			if (player.getItemAssistant().playerHasItem(432, 1)) {
 				player.getItemAssistant().addItem(433, 1);
-				player.getActionSender().sendMessage(
-						"All that's in the chest is a message...");
+				player.getActionSender()
+						.sendMessage("All that's in the chest is a message...");
 				player.pirateTreasure = 4;
 			} else {
-				player.getActionSender().sendMessage(
-						"You need a key to open this chest.");
+				player.getActionSender()
+						.sendMessage("You need a key to open this chest.");
 			}
 			break;
 
 		case 2071:
 			if (player.pirateTreasure == 2) {
-				player.getDialogueHandler().sendStatement("You search the crate...");
+				player.getDialogueHandler()
+						.sendStatement("You search the crate...");
 				player.getActionSender().sendMessage(
 						"You find a bottle of rum and 10 bananas.");
 				player.getItemAssistant().addItem(431, 1);
 				player.getItemAssistant().addItem(1963, 10);
 				player.nextChat = 0;
 			} else {
-				player.getActionSender().sendMessage(
-						"You aren't on this step right now.");
+				player.getActionSender()
+						.sendMessage("You aren't on this step right now.");
 			}
 			break;
 
 		case 2593:
-			player.getActionSender().sendMessage(
-					"Disabled for dragon slayer.");
+			player.getActionSender().sendMessage("Disabled for dragon slayer.");
 			break;
 
 		case 2024: // WP quest
 			if (player.witchspot == 2) {
-				// c.getDH().sendStatement("You drink from the cauldron, it tastes horrible!",
+				// c.getDH().sendStatement("You drink from the cauldron, it
+				// tastes horrible!",
 				// "You feel yourself imbued with power.");
 				player.witchspot = 3;
 				QuestRewards.witchFinish(player);
 			} else {
-				player.getActionSender().sendMessage(
-						"You are not on this part of the quest.");
+				player.getActionSender()
+						.sendMessage("You are not on this part of the quest.");
 			}
 			break;
 
 		case 2614:
 			if (player.vampSlayer == 3 && player.clickedVamp == false) {
-				NpcHandler.spawnNpc(player, 757, player.getX(), player.getY(), 0, 0, 50, 10, 30, 30, true, true);
-				player.getActionSender().sendMessage("You will need a stake and hammer to attack count draynor.");
+				NpcHandler.spawnNpc(player, 757, player.getX(), player.getY(),
+						0, 0, 50, 10, 30, 30, true, true);
+				player.getActionSender().sendMessage(
+						"You will need a stake and hammer to attack count draynor.");
 				player.clickedVamp = true;
 			} else if (player.vampSlayer == 3 && player.clickedVamp == true) {
-				player.getActionSender().sendMessage("You have already spawned the vampyre.");
+				player.getActionSender()
+						.sendMessage("You have already spawned the vampyre.");
 				return;
 			} else if (player.vampSlayer > 3) {
-				player.getActionSender().sendMessage("You have already killed the vampire.");
+				player.getActionSender()
+						.sendMessage("You have already killed the vampire.");
 			} else if (player.vampSlayer < 3) {
-				player.getActionSender().sendMessage("You still need to progress into vampire slayer to fight this monster.");
+				player.getActionSender().sendMessage(
+						"You still need to progress into vampire slayer to fight this monster.");
 			}
 			break;
 
 		case 2617:
-			if (player.absX > 3076 && player.absX < 3079 && player.absY == 9771) {
+			if (player.absX > 3076 && player.absX < 3079
+					&& player.absY == 9771) {
 				player.getPlayerAssistant().movePlayer(3115, 3356, 0);
 			}
 			break;
 
 		case 2616:
-			if (player.absX > 3114 && player.absX < 3117 && player.absY == 3356) {
+			if (player.absX > 3114 && player.absX < 3117
+					&& player.absY == 3356) {
 				player.getPlayerAssistant().movePlayer(3077, 9771, 0);
 			}
 			break;
@@ -1884,11 +1977,11 @@ public class ObjectsActions {
 				player.startAnimation(883);
 				player.getItemAssistant().addItem(2130, 1);
 				player.getItemAssistant().deleteItem2(1927, 1);
-				player.getPlayerAssistant()
-						.addSkillXP(18, player.playerCooking);
+				player.getPlayerAssistant().addSkillXP(18,
+						player.playerCooking);
 			} else {
-				player.getActionSender().sendMessage(
-						"You need a bucket of milk to do this.");
+				player.getActionSender()
+						.sendMessage("You need a bucket of milk to do this.");
 			}
 			break;
 
@@ -1896,32 +1989,34 @@ public class ObjectsActions {
 			if (player.getItemAssistant().playerHasItem(1963, 10)
 					&& player.luthas == true) {
 				player.getItemAssistant().deleteItem2(1963, 10);
-				player.getDialogueHandler().sendStatement(
-						"You pack your bananas in the crate...");
-				player.getActionSender().sendMessage(
-						"Talk to luthas for your reward.");
+				player.getDialogueHandler()
+						.sendStatement("You pack your bananas in the crate...");
+				player.getActionSender()
+						.sendMessage("Talk to luthas for your reward.");
 				player.bananas = 2;
 			} else if (player.getItemAssistant().playerHasItem(431, 1)
 					&& player.pirateTreasure == 1) {
 				player.getItemAssistant().deleteItem2(431, 1);
-				player.getDialogueHandler().sendStatement(
-						"You stash your rum in the crate");
+				player.getDialogueHandler()
+						.sendStatement("You stash your rum in the crate");
 				player.pirateTreasure = 2;
 			} else if (player.objectX == 2746) {
 				player.getActionSender().sendMessage("You search the crate...");
 				player.stopPlayerPacket = true;
-				   CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
-			            @Override
-			            public void execute(CycleEventContainer container) {
-						player.getActionSender().sendMessage("You find nothing of interest.");
-						container.stop();
-					}
+				CycleEventHandler.getSingleton().addEvent(player,
+						new CycleEvent() {
+							@Override
+							public void execute(CycleEventContainer container) {
+								player.getActionSender().sendMessage(
+										"You find nothing of interest.");
+								container.stop();
+							}
 
-					@Override
-					public void stop() {
-						player.stopPlayerPacket = false;
-					}
-				}, 2);
+							@Override
+							public void stop() {
+								player.stopPlayerPacket = false;
+							}
+						}, 2);
 			} else {
 				player.getDialogueHandler().sendStatement(
 						"I should talk to luthas and see what to do.");
@@ -1941,7 +2036,8 @@ public class ObjectsActions {
 				player.getItemAssistant().addItem(1963, 1);
 				player.waitTime = System.currentTimeMillis();
 			} else {
-				player.getActionSender().sendMessage("You must wait two seconds before grabbing another banana.");
+				player.getActionSender().sendMessage(
+						"You must wait two seconds before grabbing another banana.");
 			}
 			break;
 
@@ -1949,21 +2045,20 @@ public class ObjectsActions {
 			if (player.playerEquipment[player.playerWeapon] == 772) {
 				player.getPlayerAssistant().startTeleport(2452, 4470, 0,
 						"modern");
-				player.getActionSender().sendMessage(
-						"You are suddenly teleported away.");
-			} else {
 				player.getActionSender()
-						.sendMessage("This door is locked.");
+						.sendMessage("You are suddenly teleported away.");
+			} else {
+				player.getActionSender().sendMessage("This door is locked.");
 			}
 			break;
 
-		case 3759://entrance
+		case 3759:// entrance
 			if (player.absX == 2893 && player.absY == 3671) {
 				player.getPlayerAssistant().movePlayer(2893, 10074, 0);
 			}
 			break;
 
-		case 3760://exit
+		case 3760:// exit
 			if (player.absX == 2893 && player.absY == 10074) {
 				player.getPlayerAssistant().movePlayer(2893, 3671, 0);
 			}
@@ -1971,15 +2066,19 @@ public class ObjectsActions {
 
 		case 1568:
 			if (player.absX == 3098) {
-				player.getActionSender().sendMessage("You can't use the trapdoor here.");
+				player.getActionSender()
+						.sendMessage("You can't use the trapdoor here.");
 				return;
 			}
-			/*if (objectX == 3097 && objectY == 3468) {
-				player.getPlayerAssistant().movePlayer(3097, 9868, 0);*/
+			/*
+			 * if (objectX == 3097 && objectY == 3468) {
+			 * player.getPlayerAssistant().movePlayer(3097, 9868, 0);
+			 */
 			if (CastleWars.isInCw(player)) {
-				CastleWarObjects.handleObject(player, objectY, objectY, objectY);
-			//} else {
-				//OtherObjects.useDown(c, c.objectId);
+				CastleWarObjects.handleObject(player, objectY, objectY,
+						objectY);
+				// } else {
+				// OtherObjects.useDown(c, c.objectId);
 			}
 			break;
 
@@ -2049,25 +2148,25 @@ public class ObjectsActions {
 		case 1767:
 			Climbing.handleClimbing(player);
 			break;
-			
+
 		case 190:
 			if (player.absY == 3385) {
 				player.getPlayerAssistant().movePlayer(player.absX, 3382, 0);
 			} else if (player.absY == 3382) {
 				player.getPlayerAssistant().movePlayer(player.absX, 3385, 0);
 			}
-		break;
-			
+			break;
+
 		case 1754:
-		if (player.objectX == 2696 && player.objectY == 3282) {
-			player.startAnimation(827);
-			player.getPlayerAssistant().removeAllWindows();
-			player.getPlayerAssistant().movePlayer(2696, 9683, 0);
-			player.getActionSender().sendMessage("You climb down.");
-		} else {
-			UseOther.useDown(player, player.objectId);
-		}
-		break;
+			if (player.objectX == 2696 && player.objectY == 3282) {
+				player.startAnimation(827);
+				player.getPlayerAssistant().removeAllWindows();
+				player.getPlayerAssistant().movePlayer(2696, 9683, 0);
+				player.getActionSender().sendMessage("You climb down.");
+			} else {
+				UseOther.useDown(player, player.objectId);
+			}
+			break;
 
 		case 1759:
 		case 9472:
@@ -2077,18 +2176,18 @@ public class ObjectsActions {
 			break;
 
 		case 1739:
-				Climbing.handleLadder(player);
-				player.dialogueAction = 147;
-			break;
-			
-		case 1748:
-		if (player.objectX == 3286 && player.objectY == 3192) {
-			Climbing.climbDown(player);
-		} else {
 			Climbing.handleLadder(player);
 			player.dialogueAction = 147;
-		}
-		break;
+			break;
+
+		case 1748:
+			if (player.objectX == 3286 && player.objectY == 3192) {
+				Climbing.climbDown(player);
+			} else {
+				Climbing.handleLadder(player);
+				player.dialogueAction = 147;
+			}
+			break;
 
 		case 12537:
 		case 2884:
@@ -2112,10 +2211,12 @@ public class ObjectsActions {
 			break;
 
 		case 1747:
-			if (player.objectX == 2642 && player.objectY == 3428 && player.absX == 2643 && player.absY == 3429) { 
+			if (player.objectX == 2642 && player.objectY == 3428
+					&& player.absX == 2643 && player.absY == 3429) {
 				return;
 			}
-			if (player.absX > 3081 && player.absX < 3085 && player.absY == 3514) {
+			if (player.absX > 3081 && player.absX < 3085
+					&& player.absY == 3514) {
 				return;
 			}
 			if (player.objectX == 2532 && player.objectY == 3545) {
@@ -2137,25 +2238,27 @@ public class ObjectsActions {
 		case 14746:
 		case 9559:
 			Climbing.climbDown(player);
-		break;
+			break;
 
 		/**
 		 * Bank Booths
 		 */
-		case 11338: 
-		case 2214: 
+		case 11338:
+		case 2214:
 		case 10517:
-		// case 3045: 
-		case 5276: 
+			// case 3045:
+		case 5276:
 		case 6084:
 		case 11758:
-		case 14367: 
+		case 14367:
 		case 2213:
 			player.getDialogueHandler().sendDialogues(1013, 494);
-		break;
+			break;
 
 		case 9398:// deposit box
-			player.getPlayerAssistant().sendFrame126("The Bank of " + Constants.SERVER_NAME + " - Deposit Box", 7421);
+			player.getPlayerAssistant().sendFrame126(
+					"The Bank of " + Constants.SERVER_NAME + " - Deposit Box",
+					7421);
 			player.getPlayerAssistant().sendFrame248(4465, 197);
 			player.getItemAssistant().resetItems(7423);
 			break;
@@ -2175,7 +2278,8 @@ public class ObjectsActions {
 			break;
 
 		case 2403:// should be 2418 but not working
-			Server.objectHandler.createAnObject(player, 2604, objectX, objectY, -1);
+			Server.objectHandler.createAnObject(player, 2604, objectX, objectY,
+					-1);
 			break;
 
 		case 3193:
@@ -2186,59 +2290,62 @@ public class ObjectsActions {
 				player.getActionSender().object(3194, 3381, 3269, 0, 2, 10);
 				Region.addObject(3194, 3381, 3269, 0, 10, 2, false);
 			} else {
-				Server.objectHandler.createAnObject(player, 3194, objectX, objectY, -1);
+				Server.objectHandler.createAnObject(player, 3194, objectX,
+						objectY, -1);
 			}
-		break;
+			break;
 
 		case 2412:
-		if (player.objectX == 3048 && player.objectY == 3233) {
-			player.getPlayerAssistant().movePlayer(3048, 3231, 1);
-			player.getActionSender().sendMessage("You cross the Gangplank.");
-		}
-		break;
-		
+			if (player.objectX == 3048 && player.objectY == 3233) {
+				player.getPlayerAssistant().movePlayer(3048, 3231, 1);
+				player.getActionSender()
+						.sendMessage("You cross the Gangplank.");
+			}
+			break;
+
 		case 2413:
-		if (player.objectX == 3048 && player.objectY == 3232) {
-			player.getPlayerAssistant().movePlayer(3048, 3234, 0);
-		}
-		break;
-		
+			if (player.objectX == 3048 && player.objectY == 3232) {
+				player.getPlayerAssistant().movePlayer(3048, 3234, 0);
+			}
+			break;
+
 		case 2083:
-		if (player.objectX == 3030 && player.objectY == 3217) {
-			player.getPlayerAssistant().movePlayer(3032, 3217, 1);
-			player.getActionSender().sendMessage("You cross the Gangplank.");
-		}
-		break;
-			
+			if (player.objectX == 3030 && player.objectY == 3217) {
+				player.getPlayerAssistant().movePlayer(3032, 3217, 1);
+				player.getActionSender()
+						.sendMessage("You cross the Gangplank.");
+			}
+			break;
+
 		case 2084:
-		if (player.objectX == 3031 && player.objectY == 3217) {
-			player.getPlayerAssistant().movePlayer(3029, 3217, 0);
-		}
-		break;
+			if (player.objectX == 3031 && player.objectY == 3217) {
+				player.getPlayerAssistant().movePlayer(3029, 3217, 0);
+			}
+			break;
 
 		case 2081:
-		if (player.objectX == 2956 && player.objectY == 3145) {
-			player.getPlayerAssistant().movePlayer(2956, 3143, 1);
-		}
-		break;
-		
+			if (player.objectX == 2956 && player.objectY == 3145) {
+				player.getPlayerAssistant().movePlayer(2956, 3143, 1);
+			}
+			break;
+
 		case 2082:
-		if (player.objectX == 2956 && player.objectY == 3144) {
-			player.getPlayerAssistant().movePlayer(2956, 3146, 0);
-		}
-		break;
-		
+			if (player.objectX == 2956 && player.objectY == 3144) {
+				player.getPlayerAssistant().movePlayer(2956, 3146, 0);
+			}
+			break;
+
 		case 2415:
-		if (player.objectX == 2834 && player.objectY == 3333) {
-			player.getPlayerAssistant().movePlayer(2834, 3335, 0);
-		}
-		break;
-		
+			if (player.objectX == 2834 && player.objectY == 3333) {
+				player.getPlayerAssistant().movePlayer(2834, 3335, 0);
+			}
+			break;
+
 		case 2414:
-		if (player.objectX == 2834 && player.objectY == 3334) {
-			player.getPlayerAssistant().movePlayer(2834, 3332, 1);
-		}
-		break;
+			if (player.objectX == 2834 && player.objectY == 3334) {
+				player.getPlayerAssistant().movePlayer(2834, 3332, 1);
+			}
+			break;
 
 		case 14304:
 			// Sailing.startTravel(c, 14);
@@ -2268,51 +2375,58 @@ public class ObjectsActions {
 			}
 			break;
 
-		case 1765://down
+		case 1765:// down
 			if (player.inWild() && player.absX > 3015 && player.absX < 3019) {
 				player.getPlayerAssistant().movePlayer(3067, 10256, 0);
 			}
 			break;
-	
-		case 1766://up
+
+		case 1766:// up
 			if (player.inWild() && player.absX > 3067 && player.absX < 3070) {
 				player.getPlayerAssistant().movePlayer(3016, 3849, 0);
 			}
 			break;
-			
+
 		case 6552:
 			if (player.playerMagicBook == 0) {
 				player.playerMagicBook = 1;
 				player.getActionSender().setSidebarInterface(6, 12855);
-				player.getActionSender().sendMessage("An ancient wisdomin fills your mind.");
+				player.getActionSender()
+						.sendMessage("An ancient wisdomin fills your mind.");
 				player.getPlayerAssistant().resetAutocast();
 			} else {
 				player.getActionSender().setSidebarInterface(6, 1151); // modern
 				player.playerMagicBook = 0;
-				player.getActionSender().sendMessage(
-						"You feel a drain on your memory.");
+				player.getActionSender()
+						.sendMessage("You feel a drain on your memory.");
 				player.autocastId = -1;
 				player.getPlayerAssistant().resetAutocast();
 			}
 			break;
-			
+
 		case 8958:
-		if (player.getX() == 2490 && (player.getY() == 10162 || player.getY() == 10164)) {
-			new Object(6951, player.objectX, player.objectY, player.heightLevel, 1, 10, 8958, 15);
-		}
-		break;
+			if (player.getX() == 2490
+					&& (player.getY() == 10162 || player.getY() == 10164)) {
+				new Object(6951, player.objectX, player.objectY,
+						player.heightLevel, 1, 10, 8958, 15);
+			}
+			break;
 
 		case 8959:
-		if (player.getX() == 2490 && (player.getY() == 10146 || player.getY() == 10148)) {
-			new Object(6951, player.objectX, player.objectY, player.heightLevel, 1, 10, 8959, 15);
-		}
-		break;
-			
+			if (player.getX() == 2490
+					&& (player.getY() == 10146 || player.getY() == 10148)) {
+				new Object(6951, player.objectX, player.objectY,
+						player.heightLevel, 1, 10, 8959, 15);
+			}
+			break;
+
 		case 8960:
-		if (player.getX() == 2490 && (player.getY() == 10132 || player.getY() == 10130)) {
-			new Object(6951, player.objectX, player.objectY, player.heightLevel, 1, 10, 8960, 15);
-		}	
-		break;
+			if (player.getX() == 2490
+					&& (player.getY() == 10132 || player.getY() == 10130)) {
+				new Object(6951, player.objectX, player.objectY,
+						player.heightLevel, 1, 10, 8960, 15);
+			}
+			break;
 
 		case 14235:
 		case 14233:
@@ -2378,14 +2492,14 @@ public class ObjectsActions {
 			break;
 		case 6727:
 			if (objectX == 3551 && objectY == 9684) {
-				player.getActionSender().sendMessage(
-						"You cant open this door..");
+				player.getActionSender()
+						.sendMessage("You cant open this door..");
 			}
 			break;
 		case 6746:
 			if (objectX == 3552 && objectY == 9684) {
-				player.getActionSender().sendMessage(
-						"You cant open this door..");
+				player.getActionSender()
+						.sendMessage("You cant open this door..");
 			}
 			break;
 		case 6748:
@@ -2469,21 +2583,21 @@ public class ObjectsActions {
 
 		case 9319:
 			if (player.heightLevel == 0) {
-				player.getPlayerAssistant().movePlayer(player.absX,
-						player.absY, 1);
+				player.getPlayerAssistant().movePlayer(player.absX, player.absY,
+						1);
 			} else if (player.heightLevel == 1) {
-				player.getPlayerAssistant().movePlayer(player.absX,
-						player.absY, 2);
+				player.getPlayerAssistant().movePlayer(player.absX, player.absY,
+						2);
 			}
 			break;
 
 		case 9320:
 			if (player.heightLevel == 1) {
-				player.getPlayerAssistant().movePlayer(player.absX,
-						player.absY, 0);
+				player.getPlayerAssistant().movePlayer(player.absX, player.absY,
+						0);
 			} else if (player.heightLevel == 2) {
-				player.getPlayerAssistant().movePlayer(player.absX,
-						player.absY, 1);
+				player.getPlayerAssistant().movePlayer(player.absX, player.absY,
+						1);
 			}
 			break;
 
@@ -2499,16 +2613,21 @@ public class ObjectsActions {
 			break;
 
 		case 4493:
-			if (player.heightLevel == 0 && player.absY > 3536 && player.absY < 3539 && player.absX == 3438) {
-				player.getPlayerAssistant().movePlayer(player.absX - 5, player.absY, 1);
-			} else if (player.heightLevel == 1 && player.absY > 3536 && player.absY < 3539 && player.absX == 3433) {
-				player.getPlayerAssistant().movePlayer(player.absX + 5, player.absY, 2);
+			if (player.heightLevel == 0 && player.absY > 3536
+					&& player.absY < 3539 && player.absX == 3438) {
+				player.getPlayerAssistant().movePlayer(player.absX - 5,
+						player.absY, 1);
+			} else if (player.heightLevel == 1 && player.absY > 3536
+					&& player.absY < 3539 && player.absX == 3433) {
+				player.getPlayerAssistant().movePlayer(player.absX + 5,
+						player.absY, 2);
 			}
 			break;
 
 		case 4495:
 			if (player.heightLevel == 1 && player.absX == 3412) {
-				player.getPlayerAssistant().movePlayer(player.absX + 5, player.absY, 2);
+				player.getPlayerAssistant().movePlayer(player.absX + 5,
+						player.absY, 2);
 			}
 			break;
 
@@ -2531,19 +2650,19 @@ public class ObjectsActions {
 				player.startAnimation(645);
 				player.playerLevel[5] = player.getPlayerAssistant()
 						.getLevelForXP(player.playerXP[5]);
-				player.getActionSender().sendMessage(
-						"You recharge your prayer points.");
+				player.getActionSender()
+						.sendMessage("You recharge your prayer points.");
 				player.getPlayerAssistant().refreshSkill(5);
 			} else {
-				player.getActionSender().sendMessage(
-						"You already have full prayer points.");
+				player.getActionSender()
+						.sendMessage("You already have full prayer points.");
 			}
 			break;
 
 		case 2640:
 			if (player.inWild()) {
-				player.getActionSender().sendMessage(
-						"You can't use this in the wilderness.");
+				player.getActionSender()
+						.sendMessage("You can't use this in the wilderness.");
 				return;
 			}
 			if (player.playerLevel[5] < player.getPlayerAssistant()
@@ -2551,19 +2670,19 @@ public class ObjectsActions {
 				player.startAnimation(645);
 				player.playerLevel[5] = player.getPlayerAssistant()
 						.getLevelForXP(player.playerXP[5]) + 2;
-				player.getActionSender().sendMessage(
-						"You recharge your prayer points.");
+				player.getActionSender()
+						.sendMessage("You recharge your prayer points.");
 				player.getPlayerAssistant().refreshSkill(5);
 			} else {
-				player.getActionSender().sendMessage(
-						"You already have full prayer points.");
+				player.getActionSender()
+						.sendMessage("You already have full prayer points.");
 			}
 			break;
 
 		case 2407:
 			if (player.inWild()) {
-				player.getActionSender().sendMessage(
-						"You can't use this in the wilderness.");
+				player.getActionSender()
+						.sendMessage("You can't use this in the wilderness.");
 				return;
 			} else {
 				player.getActionSender().sendMessage(
@@ -2578,8 +2697,8 @@ public class ObjectsActions {
 			break;
 		case 2878:
 			if (player.inWild()) {
-				player.getActionSender().sendMessage(
-						"You can't use this in the wilderness.");
+				player.getActionSender()
+						.sendMessage("You can't use this in the wilderness.");
 				return;
 			} else {
 				player.getPlayerAssistant().movePlayer(2509, 4689, 0);
@@ -2614,80 +2733,100 @@ public class ObjectsActions {
 		player.clickObjectType = 0;
 		player.turnPlayerTo(obX, obY);
 		if (!Region.objectExists(objectType, obX, obY, player.heightLevel)) {
-			player.getActionSender().sendMessage("This object does not exist. Please report this to a staff member.");
-		    return;
+			player.getActionSender().sendMessage(
+					"This object does not exist. Please report this to a staff member.");
+			return;
 		}
 		if (player.isBotting == true) {
-			player.getActionSender().sendMessage("You can't click any objects until you confirm you are not botting.");
-			player.getActionSender().sendMessage("If you need to you can type ::amibotting, to see if your botting.");
+			player.getActionSender().sendMessage(
+					"You can't click any objects until you confirm you are not botting.");
+			player.getActionSender().sendMessage(
+					"If you need to you can type ::amibotting, to see if your botting.");
 			return;
 		}
 		LogCutting.resetFletching(player);
 		switch (objectType) {
 		case 6:
 			player.getCannon().loadCannon(obX, obY);
-		break;
-		
+			break;
+
 		case 389:
 		case 378:
 			Searching.searchObject(player, objectType);
-		break;
+			break;
 
 		case 2145:
-			if (player.restGhost == 2 && player.playerEquipment[player.playerAmulet] == 552) {
-				NpcHandler.spawnNpc(player, 457, player.getX(), player.getY() + 2, 0, 0, 0, 0, 0, 0, false, false);
+			if (player.restGhost == 2
+					&& player.playerEquipment[player.playerAmulet] == 552) {
+				NpcHandler.spawnNpc(player, 457, player.getX(),
+						player.getY() + 2, 0, 0, 0, 0, 0, 0, false, false);
 				player.getActionSender().sendMessage("You search the coffin.");
-			} else if (player.restGhost == 4 && player.getItemAssistant().playerHasItem(553, 1)) {
+			} else if (player.restGhost == 4
+					&& player.getItemAssistant().playerHasItem(553, 1)) {
 				player.getItemAssistant().deleteItem2(553, 1);
-				player.getActionSender().sendMessage("You have freed the ghost!");
+				player.getActionSender()
+						.sendMessage("You have freed the ghost!");
 				QuestRewards.restFinish(player);
-				NpcHandler.spawnNpc(player, 457, player.getX(), player.getY() + 2, 0, 0, 0, 0, 0, 0, false, false);
-			} else if (player.restGhost == 2 && player.playerEquipment[player.playerAmulet] != 552) {
-				player.getDialogueHandler().sendStatement("You need the ghost speak amulet for this part.");
+				NpcHandler.spawnNpc(player, 457, player.getX(),
+						player.getY() + 2, 0, 0, 0, 0, 0, 0, false, false);
+			} else if (player.restGhost == 2
+					&& player.playerEquipment[player.playerAmulet] != 552) {
+				player.getDialogueHandler().sendStatement(
+						"You need the ghost speak amulet for this part.");
 				player.nextChat = 0;
-			} else if (player.restGhost == 4 && !player.getItemAssistant().playerHasItem(553, 1)) {
-				player.getDialogueHandler().sendStatement("You need the skull for this part.");
+			} else if (player.restGhost == 4
+					&& !player.getItemAssistant().playerHasItem(553, 1)) {
+				player.getDialogueHandler()
+						.sendStatement("You need the skull for this part.");
 				player.nextChat = 0;
 			} else if (player.restGhost == 0) {
-				player.getActionSender().sendMessage("You have not started this quest yet.");
+				player.getActionSender()
+						.sendMessage("You have not started this quest yet.");
 			} else if (player.restGhost == 5) {
-				player.getActionSender().sendMessage("You have already finished this quest.");
+				player.getActionSender()
+						.sendMessage("You have already finished this quest.");
 			}
 			break;
 		case 2550:
 			ThieveOther.pickLock(player, 1, 3.5, 2674, 3306, 1, false);
-		break;
-		
+			break;
+
 		case 2551:
 			ThieveOther.pickLock(player, 14, 15, 2674, 3303, 2, false);
-		break;
+			break;
 		case 2272:
 			player.getActionSender().object(2271, 2984, 3336, 1, 10);
 			player.getActionSender().sendMessage("You close the cupboard.");
-		break;
+			break;
 		case 2613:
 			player.getActionSender().object(2612, 3096, 3269, 0, 10);
 			player.getActionSender().sendMessage("You close the cupboard.");
-		break;
+			break;
 		case 9038:
 		case 9039:
-		if (!player.getItemAssistant().playerHasItem(6306, 100) && player.absX == 2816) {
-			player.getDialogueHandler().sendStatement("You need 100 trading sticks to enter here.");
-			player.nextChat = 0;
-			return;
-		}
-		if (player.absY == 3082 || player.absY == 3085) {
-			player.getDialogueHandler().sendStatement("You can't enter from here.");
-			player.nextChat = 0;
-			return;
-		}
-		if (player.absX == 2816 && player.getItemAssistant().playerHasItem(6306, 100)) {
-			player.getPlayerAssistant().movePlayer(player.absX+1, player.absY, 0);
-			player.getItemAssistant().deleteItem2(6306, 100);
-		} else if (player.absX == 2817) {
-			player.getPlayerAssistant().movePlayer(player.absX+1, player.absY, 0);
-		}
-		break;
+			if (!player.getItemAssistant().playerHasItem(6306, 100)
+					&& player.absX == 2816) {
+				player.getDialogueHandler().sendStatement(
+						"You need 100 trading sticks to enter here.");
+				player.nextChat = 0;
+				return;
+			}
+			if (player.absY == 3082 || player.absY == 3085) {
+				player.getDialogueHandler()
+						.sendStatement("You can't enter from here.");
+				player.nextChat = 0;
+				return;
+			}
+			if (player.absX == 2816
+					&& player.getItemAssistant().playerHasItem(6306, 100)) {
+				player.getPlayerAssistant().movePlayer(player.absX + 1,
+						player.absY, 0);
+				player.getItemAssistant().deleteItem2(6306, 100);
+			} else if (player.absX == 2817) {
+				player.getPlayerAssistant().movePlayer(player.absX + 1,
+						player.absY, 0);
+			}
+			break;
 		case 4569:
 			if (player.objectX == 2506 && player.objectY == 3640) {
 				Climbing.climbUp(player);
@@ -2700,13 +2839,13 @@ public class ObjectsActions {
 			} else {
 				player.getDialogueHandler().sendDialogues(3178, 510);
 			}
-		break;
+			break;
 		case 10041:
 			player.getActionSender().sendMessage("You can't chop this tree.");
-		break;
-		 case 10177:
-	            player.getPlayerAssistant().movePlayer(2544, 3743, 0);
-	        break;  
+			break;
+		case 10177:
+			player.getPlayerAssistant().movePlayer(2544, 3743, 0);
+			break;
 
 		case 11889:
 			Climbing.handleClimbing(player);
@@ -2735,14 +2874,14 @@ public class ObjectsActions {
 		case 12100:
 		case 12809:
 			Smelting.startSmelting(player, objectType);
-		break;
+			break;
 
 		case 2644:
 			Spinning.showSpinning(player);
 			break;
 
 		case 1739:
-				Climbing.climbUp(player);
+			Climbing.climbUp(player);
 			break;
 
 		case 1748:
@@ -2813,7 +2952,7 @@ public class ObjectsActions {
 		case 10517:
 		case 2213:
 			player.getPlayerAssistant().openUpBank();
-		break;
+			break;
 
 		case 1161:
 		case 2646:
@@ -2834,8 +2973,8 @@ public class ObjectsActions {
 			if (player.getItemAssistant().playerHasItem(1523, 1)) {
 				player.lastLockPick = System.currentTimeMillis();
 				if (Misc.random(10) <= 3) {
-					player.getActionSender().sendMessage(
-							"You fail to pick the lock.");
+					player.getActionSender()
+							.sendMessage("You fail to pick the lock.");
 					break;
 				}
 				if (player.objectX == 3044 && player.objectY == 3956) {
@@ -2859,7 +2998,8 @@ public class ObjectsActions {
 					}
 				}
 			} else {
-				player.getActionSender().sendMessage("I need a lockpick to pick this lock.");
+				player.getActionSender()
+						.sendMessage("I need a lockpick to pick this lock.");
 			}
 			break;
 
@@ -2872,12 +3012,15 @@ public class ObjectsActions {
 			player.getActionSender().sendMessage("Object type: " + objectType);
 		}
 		if (!Region.objectExists(objectType, obX, obY, player.heightLevel)) {
-			player.getActionSender().sendMessage("This object does not exist. Please report this to a staff member.");
-		    return;
+			player.getActionSender().sendMessage(
+					"This object does not exist. Please report this to a staff member.");
+			return;
 		}
 		if (player.isBotting == true) {
-			player.getActionSender().sendMessage("You can't click any objects until you confirm you are not botting.");
-			player.getActionSender().sendMessage("If you need to you can type ::amibotting, to see if your botting.");
+			player.getActionSender().sendMessage(
+					"You can't click any objects until you confirm you are not botting.");
+			player.getActionSender().sendMessage(
+					"If you need to you can type ::amibotting, to see if your botting.");
 			return;
 		}
 		if (Stalls.isObject(objectType)) {
@@ -2887,7 +3030,7 @@ public class ObjectsActions {
 		switch (objectType) {
 		case 6:
 			player.getCannon().pickup(obX, obY);
-		break;
+			break;
 		case 3194:
 			if (player.objectX == 3382 && player.objectY == 3270) {
 				player.getActionSender().object(3193, 3382, 3270, 0, 1, 10);
@@ -2900,9 +3043,9 @@ public class ObjectsActions {
 				Climbing.climbDown(player);
 			}
 			break;
-		 case 10177:
-	            player.getPlayerAssistant().movePlayer(1798, 4407, 3);
-	        break;  
+		case 10177:
+			player.getPlayerAssistant().movePlayer(1798, 4407, 3);
+			break;
 		case 11890:
 			Climbing.handleClimbing(player);
 			break;
@@ -2916,24 +3059,27 @@ public class ObjectsActions {
 			break;
 		}
 	}
-		
+
 	public void fourthClickObject(int objectType, int obX, int obY) {
 		player.clickObjectType = 0;
 		if (player.playerRights == 3) {
 			player.getActionSender().sendMessage("Object type: " + objectType);
 		}
 		if (!Region.objectExists(objectType, obX, obY, player.heightLevel)) {
-			player.getActionSender().sendMessage("This object does not exist. Please report this to a staff member.");
-		    return;
+			player.getActionSender().sendMessage(
+					"This object does not exist. Please report this to a staff member.");
+			return;
 		}
 		if (player.isBotting == true) {
-			player.getActionSender().sendMessage("You can't click any objects until you confirm you are not botting.");
-			player.getActionSender().sendMessage("If you need to you can type ::amibotting, to see if your botting.");
+			player.getActionSender().sendMessage(
+					"You can't click any objects until you confirm you are not botting.");
+			player.getActionSender().sendMessage(
+					"If you need to you can type ::amibotting, to see if your botting.");
 			return;
 		}
 		Farming.openGuide(player, player.objectId);
 		switch (objectType) {
-		
+
 		}
 	}
 }

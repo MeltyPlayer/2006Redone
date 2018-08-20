@@ -28,57 +28,71 @@ public class Sailing {
 			{ 2659, 2676, 12 }, // 14 - From Port Sarim to Pest Control
 			{ 3041, 3202, 12 }, // 15 - From Pest Control to Port Sarim
 			{ 2763, 2956, 10 }, // 16 - To Cairn Isle from Feldip Hills
-			{ 2551, 3759, 20}, // 17 - To Waterbirth from Relleka
-			{ 2620, 3686, 20}, //18 - To Relleka from Waterbirth
+			{ 2551, 3759, 20 }, // 17 - To Waterbirth from Relleka
+			{ 2620, 3686, 20 }, // 18 - To Relleka from Waterbirth
 	};
-	
-	//2620, 3686 - relleka
-	//2551, 3759 - waterbirth
-	
+
+	// 2620, 3686 - relleka
+	// 2551, 3759 - waterbirth
+
 	public static boolean checkForCash(Client player) {
 		if (!player.getItemAssistant().playerHasItem(995, 1000)) {
-			player.getDialogueHandler().sendNpcChat1("You need 1000 coins to to travel on this ship!", 2437, NpcHandler.getNpcListName(player.npcType));
+			player.getDialogueHandler().sendNpcChat1(
+					"You need 1000 coins to to travel on this ship!", 2437,
+					NpcHandler.getNpcListName(player.npcType));
 			player.nextChat = 0;
 			return false;
 		}
 		player.getItemAssistant().deleteItem2(995, 1000);
-		player.getActionSender().sendMessage("Your free to go and pay the 1000 coins.");
+		player.getActionSender()
+				.sendMessage("Your free to go and pay the 1000 coins.");
 		return true;
 	}
 
 	public static boolean checkForCoins(Client player) {
 		if (!player.getItemAssistant().playerHasItem(995, 30)) {
-			player.getDialogueHandler().sendNpcChat1("You need 30 coins to to travel on this ship!", 381, NpcHandler.getNpcListName(player.npcType));
+			player.getDialogueHandler().sendNpcChat1(
+					"You need 30 coins to to travel on this ship!", 381,
+					NpcHandler.getNpcListName(player.npcType));
 			player.nextChat = 0;
 			return false;
 		}
 		player.getItemAssistant().deleteItem2(995, 30);
-		player.getActionSender().sendMessage("Your free to go and pay the 30 coins.");
+		player.getActionSender()
+				.sendMessage("Your free to go and pay the 30 coins.");
 		return true;
 	}
 
 	public static boolean searchForAlcohol(Client player) {
 		for (int element : Constants.ALCOHOL_RELATED_ITEMS) {
 			if (player.getItemAssistant().playerHasItem(element, 1)) {
-				player.getDialogueHandler().sendNpcChat1("You can't bring intoxicating items to Asgarnia!", player.npcType, NpcHandler.getNpcListName(player.npcType));
+				player.getDialogueHandler().sendNpcChat1(
+						"You can't bring intoxicating items to Asgarnia!",
+						player.npcType,
+						NpcHandler.getNpcListName(player.npcType));
 				player.nextChat = 0;
 				return false;
 			}
 		}
-		player.getActionSender().sendMessage(
-				"Your clean of any possible alchohol.");
+		player.getActionSender()
+				.sendMessage("Your clean of any possible alchohol.");
 		return true;
 	}
 
 	public static boolean quickSearch(Client player) {
 		for (int element : Constants.COMBAT_RELATED_ITEMS) {
-			if (player.getItemAssistant().playerHasItem(element, 1) || player.getItemAssistant().playerHasEquipped(element)) {
-				player.getDialogueHandler().sendNpcChat2("Grr! I see you brought some illegal items! Get", "out of my sight immediately!", 657, NpcHandler.getNpcListName(player.npcType));
+			if (player.getItemAssistant().playerHasItem(element, 1)
+					|| player.getItemAssistant().playerHasEquipped(element)) {
+				player.getDialogueHandler().sendNpcChat2(
+						"Grr! I see you brought some illegal items! Get",
+						"out of my sight immediately!", 657,
+						NpcHandler.getNpcListName(player.npcType));
 				player.nextChat = 0;
 				return false;
 			}
 		}
-		player.getActionSender().sendMessage("Your clean of any possible weapons.");
+		player.getActionSender()
+				.sendMessage("Your clean of any possible weapons.");
 		return true;
 	}
 
@@ -112,9 +126,10 @@ public class Sailing {
 				player.getPlayerAssistant().movePlayer(getX(i), getY(i), 0);
 				container.stop();
 			}
+
 			@Override
 			public void stop() {
-				
+
 			}
 		}, getTime(i) - 1);
 
@@ -128,12 +143,13 @@ public class Sailing {
 				player.nextChat = 0;
 				container.stop();
 			}
+
 			@Override
 			public void stop() {
-				
+
 			}
 		}, getTime(i));
-	
+
 	}
 
 	public static int getX(int i) {

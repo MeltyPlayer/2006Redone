@@ -43,11 +43,11 @@ public class ShopHandler {
 		TotalShops = 0;
 		loadShops("shops.cfg");
 	}
-	
+
 	public static int restockTimeItem(int itemId) {
-		switch(itemId) {
-		
-			default:
+		switch (itemId) {
+
+		default:
 			return 86400000;
 		}
 
@@ -59,13 +59,18 @@ public class ShopHandler {
 			for (int j = 0; j < MaxShopItems; j++) {
 				if (ShopItems[i][j] > 0) {
 					if (ShopItemsDelay[i][j] >= MaxShowDelay) {
-						if (j <= ShopItemsStandard[i] && ShopItemsN[i][j] <= ShopItemsSN[i][j]) {
-							if (ShopItemsN[i][j] < ShopItemsSN[i][j] && System.currentTimeMillis() - ShopItemsRestock[i][j] > restockTimeItem(ShopItems[i][j])) {
+						if (j <= ShopItemsStandard[i]
+								&& ShopItemsN[i][j] <= ShopItemsSN[i][j]) {
+							if (ShopItemsN[i][j] < ShopItemsSN[i][j] && System
+									.currentTimeMillis()
+									- ShopItemsRestock[i][j] > restockTimeItem(
+											ShopItems[i][j])) {
 								ShopItemsN[i][j] += 1;
 								ShopItemsDelay[i][j] = 1;
 								ShopItemsDelay[i][j] = 0;
 								DidUpdate = true;
-								ShopItemsRestock[i][j] = System.currentTimeMillis();
+								ShopItemsRestock[i][j] = System
+										.currentTimeMillis();
 							}
 						} else if (ShopItemsDelay[i][j] >= MaxSpecShowDelay) {
 							DiscountItem(i, j);
@@ -79,7 +84,8 @@ public class ShopHandler {
 			if (DidUpdate) {
 				for (int k = 1; k < PlayerHandler.players.length; k++) {
 					if (PlayerHandler.players[k] != null) {
-						if (PlayerHandler.players[k].isShopping && PlayerHandler.players[k].myShopId == i) {
+						if (PlayerHandler.players[k].isShopping
+								&& PlayerHandler.players[k].myShopId == i) {
 							PlayerHandler.players[k].updateShop = true;
 							PlayerHandler.players[k].updateshop(i);
 						}
@@ -104,7 +110,6 @@ public class ShopHandler {
 		ShopItemsDelay[ShopID][ArrayID] = 0;
 	}
 
-
 	public boolean loadShops(String FileName) {
 		String line = "";
 		String token = "";
@@ -114,7 +119,8 @@ public class ShopHandler {
 		boolean EndOfFile = false;
 		BufferedReader characterfile = null;
 		try {
-			characterfile = new BufferedReader(new FileReader("./Data/CFG/" + FileName));
+			characterfile = new BufferedReader(
+					new FileReader("./Data/CFG/" + FileName));
 		} catch (FileNotFoundException fileex) {
 			Misc.println(FileName + ": file not found.");
 			return false;
@@ -145,9 +151,12 @@ public class ShopHandler {
 					ShopBModifier[ShopID] = Integer.parseInt(token3[3]);
 					for (int i = 0; i < ((token3.length - 4) / 2); i++) {
 						if (token3[(4 + (i * 2))] != null) {
-							ShopItems[ShopID][i] = (Integer.parseInt(token3[(4 + (i * 2))]) + 1);
-							ShopItemsN[ShopID][i] = Integer.parseInt(token3[(5 + (i * 2))]);
-							ShopItemsSN[ShopID][i] = Integer.parseInt(token3[(5 + (i * 2))]);
+							ShopItems[ShopID][i] = (Integer
+									.parseInt(token3[(4 + (i * 2))]) + 1);
+							ShopItemsN[ShopID][i] = Integer
+									.parseInt(token3[(5 + (i * 2))]);
+							ShopItemsSN[ShopID][i] = Integer
+									.parseInt(token3[(5 + (i * 2))]);
 							ShopItemsStandard[ShopID]++;
 						} else {
 							break;

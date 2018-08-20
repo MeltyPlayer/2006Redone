@@ -19,8 +19,8 @@ public class Potatoes extends SkillHandler {
 		// first item, new item, xp, level required
 		// BUTTERED(6701, 6703, 6697, 95, 39),
 		CHILLI(7062, 7054, 165, 41), CHEESE(1985, 6705, 199, 47), EGG(7064,
-				7056, 195, 51), MUSHROOM(7066, 7058, 27, 64), TUNA(7068, 7060,
-				309, 68);
+				7056, 195,
+				51), MUSHROOM(7066, 7058, 27, 64), TUNA(7068, 7060, 309, 68);
 
 		/**
 		 * Seperate integers for the id's.
@@ -93,8 +93,8 @@ public class Potatoes extends SkillHandler {
 			return false;
 		}
 		if (!COOKING) {
-			c.getActionSender().sendMessage(
-					"This skill is currently disabled.");
+			c.getActionSender()
+					.sendMessage("This skill is currently disabled.");
 			return false;
 		}
 		if (c.getItemAssistant().playerHasItem(potato.getIngredient(), 1)) {
@@ -107,9 +107,8 @@ public class Potatoes extends SkillHandler {
 						potato.getXP() * COOKING_EXPERIENCE, c.playerCooking);
 				RandomEventHandler.addRandom(c);
 			} else {
-				c.getActionSender().sendMessage(
-						"You need a cooking level of " + potato.getReq()
-								+ " to make this potato.");
+				c.getActionSender().sendMessage("You need a cooking level of "
+						+ potato.getReq() + " to make this potato.");
 			}
 		}
 		return false;

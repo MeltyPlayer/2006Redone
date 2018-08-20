@@ -1,5 +1,4 @@
-package 
-redone.game.content.randomevents;
+package redone.game.content.randomevents;
 
 import redone.game.npcs.NpcHandler;
 import redone.game.players.Client;
@@ -7,16 +6,20 @@ import redone.util.Misc;
 
 /**
  * Swarm Event
- * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape & Runelocus)
+ * 
+ * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape &
+ *         Runelocus)
  */
 
 public class Swarm {
 
 	private static int checkStats(Client client, boolean bot) {
 		if (bot) {
-			return client.getPlayerAssistant().getLevelForXP(client.playerXP[client.playerHitpoints]) * 3;
+			return client.getPlayerAssistant()
+					.getLevelForXP(client.playerXP[client.playerHitpoints]) * 3;
 		} else {
-			return client.getPlayerAssistant().getLevelForXP(client.playerXP[client.playerHitpoints]) * 2;
+			return client.getPlayerAssistant()
+					.getLevelForXP(client.playerXP[client.playerHitpoints]) * 2;
 		}
 	}
 
@@ -34,8 +37,7 @@ public class Swarm {
 				0, // walkingtype
 				1, // HP
 				2, // maxhit
-				checkStats(client, false),
-				3 * client.combatLevel, // defence
+				checkStats(client, false), 3 * client.combatLevel, // defence
 				true, // attackplayer
 				false); // headicon
 		client.autoRet = 0;

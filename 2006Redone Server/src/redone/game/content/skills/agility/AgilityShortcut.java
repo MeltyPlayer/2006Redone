@@ -4,16 +4,20 @@ import redone.game.players.Client;
 
 /**
  * Agility Shortcuts
- * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape & Runelocus)
+ * 
+ * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape &
+ *         Runelocus)
  */
 
 public class AgilityShortcut {
 
 	private static final int WALK = 1, MOVE = 2, AGILITY = 3;
 
-	private static void handleAgility(Client client, int x, int y, int levelReq, int anim, int walk, String message) {
+	private static void handleAgility(Client client, int x, int y, int levelReq,
+			int anim, int walk, String message) {
 		if (client.playerLevel[client.playerAgility] < levelReq) {
-			client.getActionSender().sendMessage("You need " + levelReq + " agility to use this shortcut.");
+			client.getActionSender().sendMessage(
+					"You need " + levelReq + " agility to use this shortcut.");
 			return;
 		}
 		switch (walk) {
@@ -36,26 +40,32 @@ public class AgilityShortcut {
 	public static void processAgilityShortcut(Client client) {
 		switch (client.objectId) {
 		case 993:
-		if (client.absY == 3435) {
-			handleAgility(client, 2761, 3438, 1, 3067, MOVE, "You jump over the stile.");
-		} else if (client.absY == 3438) {
-			handleAgility(client, 2761, 3435, 1, 3067, MOVE, "You jump over the stile.");
-		}
-		break;
+			if (client.absY == 3435) {
+				handleAgility(client, 2761, 3438, 1, 3067, MOVE,
+						"You jump over the stile.");
+			} else if (client.absY == 3438) {
+				handleAgility(client, 2761, 3435, 1, 3067, MOVE,
+						"You jump over the stile.");
+			}
+			break;
 		case 9326:
-		if (client.absX == 2773) {
-			handleAgility(client, 2, 0, 81, 3067, WALK, "You jump over the strange floor.");
-		} else if (client.absX == 2775) {
-			handleAgility(client, -2, 0, 81, 3067, WALK, "You jump over the strange floor.");
-		}
-		break;
+			if (client.absX == 2773) {
+				handleAgility(client, 2, 0, 81, 3067, WALK,
+						"You jump over the strange floor.");
+			} else if (client.absX == 2775) {
+				handleAgility(client, -2, 0, 81, 3067, WALK,
+						"You jump over the strange floor.");
+			}
+			break;
 		case 9321:
-		if (client.absX == 2735) {
-			handleAgility(client, -5, 0, 62, 2240, WALK, "You squeeze through the crevice.");
-		} else if (client.absX == 2730) {
-			handleAgility(client, 5, 0, 62, 2240, WALK, "You squeeze through the crevice.");
-		}
-		break;
+			if (client.absX == 2735) {
+				handleAgility(client, -5, 0, 62, 2240, WALK,
+						"You squeeze through the crevice.");
+			} else if (client.absX == 2730) {
+				handleAgility(client, 5, 0, 62, 2240, WALK,
+						"You squeeze through the crevice.");
+			}
+			break;
 		case 12127:
 			if (client.absY == 4403) {
 				handleAgility(client, 0, -2, 66, 2240, WALK,
@@ -122,9 +132,9 @@ public class AgilityShortcut {
 			break;
 		case 9330:
 			if (client.objectX == 2601 && client.objectY == 3336) {
-				handleAgility(client, -4, 0, 33, client.getAgility()
-						.getAnimation(Agility.PIPES_EMOTE), AGILITY,
-						"You pass through the agility shortcut.");
+				handleAgility(client, -4, 0, 33,
+						client.getAgility().getAnimation(Agility.PIPES_EMOTE),
+						AGILITY, "You pass through the agility shortcut.");
 			}
 		case 5100:
 			if (client.absY == 9566) {
@@ -137,21 +147,21 @@ public class AgilityShortcut {
 			break;
 		case 9328:
 			if (client.objectX == 2599 && client.objectY == 3336) {
-				handleAgility(client, 4, 0, 33, client.getAgility()
-						.getAnimation(Agility.PIPES_EMOTE), AGILITY,
-						"You pass through the agility shortcut.");
+				handleAgility(client, 4, 0, 33,
+						client.getAgility().getAnimation(Agility.PIPES_EMOTE),
+						AGILITY, "You pass through the agility shortcut.");
 			}
 			break;
 
 		case 9293:
 			if (client.absX < client.objectX) {
-				handleAgility(client, 2892, 9799, 70, client.getAgility()
-						.getAnimation(Agility.PIPES_EMOTE), MOVE,
-						"You pass through the agility shortcut.");
+				handleAgility(client, 2892, 9799, 70,
+						client.getAgility().getAnimation(Agility.PIPES_EMOTE),
+						MOVE, "You pass through the agility shortcut.");
 			} else {
-				handleAgility(client, 2886, 9799, 70, client.getAgility()
-						.getAnimation(Agility.PIPES_EMOTE), MOVE,
-						"You pass through the agility shortcut.");
+				handleAgility(client, 2886, 9799, 70,
+						client.getAgility().getAnimation(Agility.PIPES_EMOTE),
+						MOVE, "You pass through the agility shortcut.");
 			}
 			break;
 

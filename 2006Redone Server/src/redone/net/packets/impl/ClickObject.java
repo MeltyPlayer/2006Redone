@@ -36,19 +36,27 @@ public class ClickObject implements PacketType {
 			player.objectDistance = 1;
 			player.turnPlayerTo(player.objectX, player.objectY);
 			if (player.playerRights == 3) {
-				player.getActionSender().sendMessage("ObjectId: " + player.objectId + " ObjectX: " + player.objectX + " ObjectY: " + player.objectY + " Objectclick = 1, Xoff: " + (player.getX() - player.objectX) + " Yoff: " + (player.getY() - player.objectY));
+				player.getActionSender()
+						.sendMessage("ObjectId: " + player.objectId
+								+ " ObjectX: " + player.objectX + " ObjectY: "
+								+ player.objectY + " Objectclick = 1, Xoff: "
+								+ (player.getX() - player.objectX) + " Yoff: "
+								+ (player.getY() - player.objectY));
 			}
-			if(player.goodDistance(player.getX(), player.getY(), player.objectX, player.objectY, 1)) {
-				if (Doors.getSingleton().handleDoor(player.objectId, player.objectX, player.objectY, player.heightLevel)) {
+			if (player.goodDistance(player.getX(), player.getY(),
+					player.objectX, player.objectY, 1)) {
+				if (Doors.getSingleton().handleDoor(player.objectId,
+						player.objectX, player.objectY, player.heightLevel)) {
 				}
 			}
-			
-			/*if (client.performingAction) {
-				return;
-			}*/
+
+			/*
+			 * if (client.performingAction) { return; }
+			 */
 
 			if (Stalls.isObject(player.objectId)) {
-				Stalls.attemptStall(player, player.objectId, player.objectX, player.objectX);
+				Stalls.attemptStall(player, player.objectId, player.objectX,
+						player.objectX);
 				return;
 			}
 
@@ -57,7 +65,8 @@ public class ClickObject implements PacketType {
 						"You cannot use objects while teleporting.");
 				return;
 			}
-			if (Math.abs(player.getX() - player.objectX) > 25 || Math.abs(player.getY() - player.objectY) > 25) {
+			if (Math.abs(player.getX() - player.objectX) > 25
+					|| Math.abs(player.getY() - player.objectY) > 25) {
 				player.resetWalkingQueue();
 				break;
 			}
@@ -69,80 +78,105 @@ public class ClickObject implements PacketType {
 			}
 			switch (player.objectId) {
 			case 1276:
-				Woodcutting.startWoodcutting(player, 0, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 0, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 1278:
-				Woodcutting.startWoodcutting(player, 1, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 1, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 1286:
-				Woodcutting.startWoodcutting(player, 2, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 2, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 1281:
-				Woodcutting.startWoodcutting(player, 3, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 3, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 1308:
-				Woodcutting.startWoodcutting(player, 4, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 4, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 5552:
-				Woodcutting.startWoodcutting(player, 5, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 5, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 1307:
-				Woodcutting.startWoodcutting(player, 6, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 6, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 1309:
-				Woodcutting.startWoodcutting(player, 7, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 7, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 1306:
-				Woodcutting.startWoodcutting(player, 8, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 8, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 5551:
-				Woodcutting.startWoodcutting(player, 9, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 9, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 5553:
-				Woodcutting.startWoodcutting(player, 10, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 10, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 3033:
-				Woodcutting.startWoodcutting(player, 11, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 11, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 3037:
-				Woodcutting.startWoodcutting(player, 12, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 12, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 1282:
-				Woodcutting.startWoodcutting(player, 13, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 13, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 1383:
-				Woodcutting.startWoodcutting(player, 14, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 14, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 2023:
-				Woodcutting.startWoodcutting(player, 15, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 15, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 1319:
-				Woodcutting.startWoodcutting(player, 16, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 16, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 1318:
-				Woodcutting.startWoodcutting(player, 17, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 17, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 1315:
-				Woodcutting.startWoodcutting(player, 18, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 18, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 1316:
-				Woodcutting.startWoodcutting(player, 19, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 19, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
 			case 1332:
-				Woodcutting.startWoodcutting(player, 20, player.objectX, player.objectY, player.clickObjectType);
+				Woodcutting.startWoodcutting(player, 20, player.objectX,
+						player.objectY, player.clickObjectType);
 				break;
-				
+
 			case 1292:
 				if (player.spiritTree == false && player.clickedTree == true) {
-					player.getActionSender().sendMessage("You have already spawned a tree spirit.");
+					player.getActionSender().sendMessage(
+							"You have already spawned a tree spirit.");
 					return;
 				}
 				if (player.spiritTree == false && player.clickedTree == false) {
-					player.getActionSender().sendMessage("You attempt to chop the tree, and a tree spirit appears.");
-					NpcHandler.spawnNpc(player, 655, player.getX(), player.getY(), 0, 0, 225, 20, 80, 80, true, false);
+					player.getActionSender().sendMessage(
+							"You attempt to chop the tree, and a tree spirit appears.");
+					NpcHandler.spawnNpc(player, 655, player.getX(),
+							player.getY(), 0, 0, 225, 20, 80, 80, true, false);
 					player.clickedTree = true;
 				} else if (player.spiritTree == true) {
-					Woodcutting.startWoodcutting(player, 21, player.objectX, player.objectY, player.clickObjectType);
+					Woodcutting.startWoodcutting(player, 21, player.objectX,
+							player.objectY, player.clickObjectType);
 				}
 				break;
 
@@ -151,11 +185,11 @@ public class ClickObject implements PacketType {
 			case 1317:
 				player.getPlayerAssistant().spiritTree();
 				break;
-				
-		      case 2164:
-              case 2165:
-                  Server.trawler.fixNet(player);
-                  break;
+
+			case 2164:
+			case 2165:
+				Server.trawler.fixNet(player);
+				break;
 
 			case 4462:
 			case 4460:
@@ -164,30 +198,32 @@ public class ClickObject implements PacketType {
 			case 4464:
 			case 4459:
 				if (!CastleWars.isInCw(player)) {
-					player.getActionSender().sendMessage("You have to be in castle wars to use these objects.");
+					player.getActionSender().sendMessage(
+							"You have to be in castle wars to use these objects.");
 					CastleWars.resetPlayer(player);
 					return;
 				}
-				CastleWarObjects.handleObject(player, player.objectId, player.objectX, player.objectY);
-			break;
-			
+				CastleWarObjects.handleObject(player, player.objectId,
+						player.objectX, player.objectY);
+				break;
+
 			case 2513:
 				player.getRangersGuild().fireAtTarget();
-			break;
-			
+				break;
+
 			case 12163:
 			case 12164:
 			case 12165:
 			case 12166:
 				player.objectDistance = 4;
-			break;
-			
-	        case 8930:
-                player.fade(1975, 4409, 3);
-            break;
-            case 8929:
-                player.fade(2442, 10147, 0);
-            break;
+				break;
+
+			case 8930:
+				player.fade(1975, 4409, 3);
+				break;
+			case 8929:
+				player.fade(2442, 10147, 0);
+				break;
 
 			case 12982:
 				if (player.absY == 3278) {
@@ -240,7 +276,6 @@ public class ClickObject implements PacketType {
 			case 3828:
 				player.objectDistance = 2;
 				break;
-				
 
 			case 2617:
 				if (player.objectX == 3077 && player.objectY == 9768) {
@@ -408,121 +443,136 @@ public class ClickObject implements PacketType {
 
 			case 1568:
 				if (player.objectX == 2399 && player.objectY == 3099) {
-					player.getActionSender()
-							.object(9472, 2399, 3099, 0, 10);
+					player.getActionSender().object(9472, 2399, 3099, 0, 10);
 				}
 				if (player.objectX == 2400 && player.objectY == 3108) {
-					player.getActionSender()
-							.object(9472, 2400, 3108, 2, 10);
+					player.getActionSender().object(9472, 2400, 3108, 2, 10);
 				}
 				break;
 
 			case 4437:
 				if (player.getItemAssistant().playerHasItem(1265, 1)) {
-					player.getActionSender().sendMessage(
-							"You start to break up the rocks...");
+					player.getActionSender()
+							.sendMessage("You start to break up the rocks...");
 					player.startAnimation(625);
-					   CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
-				            @Override
-				            public void execute(CycleEventContainer container) {
-							container.stop();
-							player.startAnimation(65535);
-						}
+					CycleEventHandler.getSingleton().addEvent(player,
+							new CycleEvent() {
+								@Override
+								public void execute(
+										CycleEventContainer container) {
+									container.stop();
+									player.startAnimation(65535);
+								}
 
-						@Override
-						public void stop() {
-							player.getActionSender().object(-1,
-									player.objectX, player.objectY, 0, 10);
-							player.getActionSender().object(4438,
-									player.objectX, player.objectY, 0, 10);
-							player.getActionSender().sendMessage(
-									"You break up the rocks.");
-						}
-					}, 3);
+								@Override
+								public void stop() {
+									player.getActionSender().object(-1,
+											player.objectX, player.objectY, 0,
+											10);
+									player.getActionSender().object(4438,
+											player.objectX, player.objectY, 0,
+											10);
+									player.getActionSender().sendMessage(
+											"You break up the rocks.");
+								}
+							}, 3);
 				}
 				break;
 
 			case 4438:
 				if (player.getItemAssistant().playerHasItem(1265, 1)) {
-					player.getActionSender().sendMessage(
-							"You start to break up the rocks...");
+					player.getActionSender()
+							.sendMessage("You start to break up the rocks...");
 					player.startAnimation(625);
-					   CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
-				            @Override
-				            public void execute(CycleEventContainer container) {
-							stop();
-							player.startAnimation(65535);
-						}
+					CycleEventHandler.getSingleton().addEvent(player,
+							new CycleEvent() {
+								@Override
+								public void execute(
+										CycleEventContainer container) {
+									stop();
+									player.startAnimation(65535);
+								}
 
-						@Override
-						public void stop() {
-							player.getActionSender().object(-1,
-									player.objectX, player.objectY, 0, 10);
-							player.getActionSender().sendMessage(
-									"You break up the rocks.");
-						}
-					}, 3);
+								@Override
+								public void stop() {
+									player.getActionSender().object(-1,
+											player.objectX, player.objectY, 0,
+											10);
+									player.getActionSender().sendMessage(
+											"You break up the rocks.");
+								}
+							}, 3);
 				}
 				break;
 
 			case 4448:
 				if (player.getItemAssistant().playerHasItem(1265, 1)) {
-					player.getActionSender().sendMessage(
-							"You start to mine the wall...");
+					player.getActionSender()
+							.sendMessage("You start to mine the wall...");
 					player.startAnimation(625);
-					   CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
-				            @Override
-				            public void execute(CycleEventContainer container) {
-							stop();
-							player.startAnimation(65535);
-							player.getActionSender().sendMessage(
-									"You collapse the cave wall.");
-						}
+					CycleEventHandler.getSingleton().addEvent(player,
+							new CycleEvent() {
+								@Override
+								public void execute(
+										CycleEventContainer container) {
+									stop();
+									player.startAnimation(65535);
+									player.getActionSender().sendMessage(
+											"You collapse the cave wall.");
+								}
 
-						@Override
-						public void stop() {
-							if ((player.objectX == 2390 || player.objectX == 2393)
-									&& (player.objectY == 9503 || player.objectY == 9500)) { // east
-								// cave
-								// side
-								player.getActionSender().object(-1, 2391,
-										9501, 0, 10);
-								player.getActionSender().object(4437, 2391,
-										9501, 0, 10);
-								CastleWars.collapseCave(1);
-							}
-							if ((player.objectX == 2399 || player.objectX == 2402)
-									&& (player.objectY == 9511 || player.objectY == 9514)) { // north
-								// cave
-								// side
-								player.getActionSender().object(-1, 2400,
-										9512, 1, 10);
-								player.getActionSender().object(4437, 2400,
-										9512, 1, 10);
-								CastleWars.collapseCave(0);
-							}
-							if ((player.objectX == 2408 || player.objectX == 2411)
-									&& (player.objectY == 9502 || player.objectY == 9505)) { // west
-								// cave
-								// side
-								player.getActionSender().object(-1, 2409,
-										9503, 0, 10);
-								player.getActionSender().object(4437, 2409,
-										9503, 0, 10);
-								CastleWars.collapseCave(3);
-							}
-							if ((player.objectX == 2400 || player.objectX == 2403)
-									&& (player.objectY == 9496 || player.objectY == 9493)) { // south
-								// cave
-								// side
-								player.getActionSender().object(-1, 2401,
-										9494, 1, 10);
-								player.getActionSender().object(4437, 2401,
-										9494, 1, 10);
-								CastleWars.collapseCave(2);
-							}
-						}
-					}, 3);
+								@Override
+								public void stop() {
+									if ((player.objectX == 2390
+											|| player.objectX == 2393)
+											&& (player.objectY == 9503
+													|| player.objectY == 9500)) { // east
+										// cave
+										// side
+										player.getActionSender().object(-1,
+												2391, 9501, 0, 10);
+										player.getActionSender().object(4437,
+												2391, 9501, 0, 10);
+										CastleWars.collapseCave(1);
+									}
+									if ((player.objectX == 2399
+											|| player.objectX == 2402)
+											&& (player.objectY == 9511
+													|| player.objectY == 9514)) { // north
+										// cave
+										// side
+										player.getActionSender().object(-1,
+												2400, 9512, 1, 10);
+										player.getActionSender().object(4437,
+												2400, 9512, 1, 10);
+										CastleWars.collapseCave(0);
+									}
+									if ((player.objectX == 2408
+											|| player.objectX == 2411)
+											&& (player.objectY == 9502
+													|| player.objectY == 9505)) { // west
+										// cave
+										// side
+										player.getActionSender().object(-1,
+												2409, 9503, 0, 10);
+										player.getActionSender().object(4437,
+												2409, 9503, 0, 10);
+										CastleWars.collapseCave(3);
+									}
+									if ((player.objectX == 2400
+											|| player.objectX == 2403)
+											&& (player.objectY == 9496
+													|| player.objectY == 9493)) { // south
+										// cave
+										// side
+										player.getActionSender().object(-1,
+												2401, 9494, 1, 10);
+										player.getActionSender().object(4437,
+												2401, 9494, 1, 10);
+										CastleWars.collapseCave(2);
+									}
+								}
+							}, 3);
 				}
 				break;
 
@@ -548,20 +598,22 @@ public class ClickObject implements PacketType {
 					player.resetWalkingQueue();
 					player.getPlayerAssistant().requestUpdates();
 					player.getPlayerAssistant().removeAllWindows();
-					   CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
-				            @Override
-				            public void execute(CycleEventContainer container) {
-							container.stop();
-							player.startAnimation(65535);
-							player.getPlayerAssistant().movePlayer(2400, 9507,
-									0);
-						}
+					CycleEventHandler.getSingleton().addEvent(player,
+							new CycleEvent() {
+								@Override
+								public void execute(
+										CycleEventContainer container) {
+									container.stop();
+									player.startAnimation(65535);
+									player.getPlayerAssistant().movePlayer(2400,
+											9507, 0);
+								}
 
-							@Override
-							public void stop() {
-								
-							}
-					}, 1);
+								@Override
+								public void stop() {
+
+								}
+							}, 1);
 				}
 				if (player.objectX == 2400 && player.objectY == 3108) {
 					player.startAnimation(828);
@@ -569,19 +621,22 @@ public class ClickObject implements PacketType {
 					player.resetWalkingQueue();
 					player.getPlayerAssistant().requestUpdates();
 					player.getPlayerAssistant().removeAllWindows();
-					   CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
-				            @Override
-				            public void execute(CycleEventContainer container) {
-							stop();
-							player.startAnimation(65535);
-							player.getPlayerAssistant().movePlayer(2399, 9500, 0);
-						}
+					CycleEventHandler.getSingleton().addEvent(player,
+							new CycleEvent() {
+								@Override
+								public void execute(
+										CycleEventContainer container) {
+									stop();
+									player.startAnimation(65535);
+									player.getPlayerAssistant().movePlayer(2399,
+											9500, 0);
+								}
 
-						@Override
-							public void stop() {
-								
-							}
-					}, 1);
+								@Override
+								public void stop() {
+
+								}
+							}, 1);
 				}
 				break;
 
@@ -718,19 +773,24 @@ public class ClickObject implements PacketType {
 				break;
 
 			case 1738:
-				if (player.objectX == 3204 && player.objectY == 3207 || player.objectX == 2648 && player.objectY == 3310) {
+				if (player.objectX == 3204 && player.objectY == 3207
+						|| player.objectX == 2648 && player.objectY == 3310) {
 					player.objectXOffset = 1;
 					player.objectYOffset = 2;
 				} else if (player.objectX == 3204 && player.objectY == 3229) {
 					player.objectXOffset = 2;
-				} else if (player.objectX == 2839 && player.objectY == 3537 || player.objectX == 2673 && player.objectY == 3300 || player.objectX == 2728 && player.objectY == 3460) {
+				} else if (player.objectX == 2839 && player.objectY == 3537
+						|| player.objectX == 2673 && player.objectY == 3300
+						|| player.objectX == 2728 && player.objectY == 3460) {
 					player.objectXOffset = 2;
 					player.objectYOffset = 1;
 				} else if (player.absX == 2746) {
 					player.objectXOffset = 2;
-				} else if (player.objectX == 3010 && player.objectY == 3515 || player.objectX == 2648 && player.objectY == 3310) {
+				} else if (player.objectX == 3010 && player.objectY == 3515
+						|| player.objectX == 2648 && player.objectY == 3310) {
 					player.objectDistance = 2;
-				} else if (player.objectX == 2895 && player.objectY == 3513 || player.objectX == 3144 && player.objectY == 3447) {
+				} else if (player.objectX == 2895 && player.objectY == 3513
+						|| player.objectX == 3144 && player.objectY == 3447) {
 					player.objectDistance = 3;
 				}
 				break;
@@ -786,7 +846,7 @@ public class ClickObject implements PacketType {
 					player.objectYOffset = 1;
 				}
 				break;
-				
+
 			case 4493:
 			case 4494:
 			case 4495:
@@ -798,7 +858,7 @@ public class ClickObject implements PacketType {
 			case 10229:
 				player.objectDistance = 2;
 				break;
-				
+
 			case 4417:
 				if (player.objectX == 2425 && player.objectY == 3074) {
 					player.objectYOffset = 2;
@@ -957,30 +1017,34 @@ public class ClickObject implements PacketType {
 						player.objectX, player.objectY);
 			} else {
 				player.clickObjectType = 1;
-				   CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
-			            @Override
-			            public void execute(CycleEventContainer container) {
-						if (player.clickObjectType == 1
-								&& player.goodDistance(player.objectX
-										+ player.objectXOffset, player.objectY
-										+ player.objectYOffset, player.getX(),
-										player.getY(), player.objectDistance)) {
-							player.getObjects().firstClickObject(
-									player.objectId, player.objectX,
-									player.objectY);
-							container.stop();
-						}
-						if (player.clickObjectType > 1
-								|| player.clickObjectType == 0) {
-							container.stop();
-						}
-					}
+				CycleEventHandler.getSingleton().addEvent(player,
+						new CycleEvent() {
+							@Override
+							public void execute(CycleEventContainer container) {
+								if (player.clickObjectType == 1
+										&& player.goodDistance(
+												player.objectX
+														+ player.objectXOffset,
+												player.objectY
+														+ player.objectYOffset,
+												player.getX(), player.getY(),
+												player.objectDistance)) {
+									player.getObjects().firstClickObject(
+											player.objectId, player.objectX,
+											player.objectY);
+									container.stop();
+								}
+								if (player.clickObjectType > 1
+										|| player.clickObjectType == 0) {
+									container.stop();
+								}
+							}
 
-					@Override
-					public void stop() {
-						player.clickObjectType = 0;
-					}
-				}, 1);
+							@Override
+							public void stop() {
+								player.clickObjectType = 0;
+							}
+						}, 1);
 			}
 			break;
 
@@ -990,10 +1054,16 @@ public class ClickObject implements PacketType {
 			player.objectX = player.getInStream().readUnsignedWordA();
 			player.objectDistance = 1;
 			if (player.playerRights == 3) {
-				player.getActionSender().sendMessage("ObjectId: " + player.objectId + " ObjectX: " + player.objectX + " ObjectY: " + player.objectY + " Objectclick = 2, Xoff: " + (player.getX() - player.objectX) + " Yoff: " + (player.getY() - player.objectY));
+				player.getActionSender()
+						.sendMessage("ObjectId: " + player.objectId
+								+ " ObjectX: " + player.objectX + " ObjectY: "
+								+ player.objectY + " Objectclick = 2, Xoff: "
+								+ (player.getX() - player.objectX) + " Yoff: "
+								+ (player.getY() - player.objectY));
 			}
 			if (Stalls.isObject(player.objectId)) {
-				Stalls.attemptStall(player, player.objectId, player.objectX, player.objectX);
+				Stalls.attemptStall(player, player.objectId, player.objectX,
+						player.objectX);
 				return;
 			}
 			switch (player.objectId) {
@@ -1005,7 +1075,7 @@ public class ClickObject implements PacketType {
 			case 9390:
 				player.objectDistance = 2;
 				break;
-				
+
 			case 12537:
 				player.objectDistance = 2;
 				break;
@@ -1033,26 +1103,40 @@ public class ClickObject implements PacketType {
 				player.objectYOffset = 0;
 				break;
 			}
-			if (player.goodDistance(player.objectX + player.objectXOffset, player.objectY + player.objectYOffset, player.getX(), player.getY(), player.objectDistance)) {
-				player.getObjects().secondClickObject(player.objectId, player.objectX, player.objectY);
+			if (player.goodDistance(player.objectX + player.objectXOffset,
+					player.objectY + player.objectYOffset, player.getX(),
+					player.getY(), player.objectDistance)) {
+				player.getObjects().secondClickObject(player.objectId,
+						player.objectX, player.objectY);
 			} else {
 				player.clickObjectType = 2;
-				   CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
-			            @Override
-			            public void execute(CycleEventContainer container) {
-						if (player.clickObjectType == 2 && player.goodDistance(player.objectX + player.objectXOffset, player.objectY + player.objectYOffset, player.getX(), player.getY(), player.objectDistance)) {
-							player.getObjects().secondClickObject(player.objectId, player.objectX, player.objectY);
-							container.stop();
-						}
-						if (player.clickObjectType != 2) {
-							container.stop();
-						}
-					}
-					@Override
-					public void stop() {
-						player.clickObjectType = 0;
-					}
-				}, 1);
+				CycleEventHandler.getSingleton().addEvent(player,
+						new CycleEvent() {
+							@Override
+							public void execute(CycleEventContainer container) {
+								if (player.clickObjectType == 2
+										&& player.goodDistance(
+												player.objectX
+														+ player.objectXOffset,
+												player.objectY
+														+ player.objectYOffset,
+												player.getX(), player.getY(),
+												player.objectDistance)) {
+									player.getObjects().secondClickObject(
+											player.objectId, player.objectX,
+											player.objectY);
+									container.stop();
+								}
+								if (player.clickObjectType != 2) {
+									container.stop();
+								}
+							}
+
+							@Override
+							public void stop() {
+								player.clickObjectType = 0;
+							}
+						}, 1);
 			}
 			break;
 
@@ -1061,7 +1145,12 @@ public class ClickObject implements PacketType {
 			player.objectY = player.getInStream().readUnsignedWord();
 			player.objectId = player.getInStream().readUnsignedWordBigEndianA();
 			if (player.playerRights == 3) {
-				player.getActionSender().sendMessage("ObjectId: " + player.objectId + " ObjectX: " + player.objectX + " ObjectY: " + player.objectY + " Objectclick = 3, Xoff: " + (player.getX() - player.objectX) + " Yoff: " + (player.getY() - player.objectY));
+				player.getActionSender()
+						.sendMessage("ObjectId: " + player.objectId
+								+ " ObjectX: " + player.objectX + " ObjectY: "
+								+ player.objectY + " Objectclick = 3, Xoff: "
+								+ (player.getX() - player.objectX) + " Yoff: "
+								+ (player.getY() - player.objectY));
 			}
 			switch (player.objectId) {
 			case 12537:
@@ -1083,37 +1172,54 @@ public class ClickObject implements PacketType {
 			}
 			player.objectXOffset = 0;
 			player.objectYOffset = 0;
-			if (player.goodDistance(player.objectX + player.objectXOffset, player.objectY + player.objectYOffset, player.getX(), player.getY(), player.objectDistance)) {
-				player.getObjects().thirdClickObject(player.objectId, player.objectX, player.objectY);
+			if (player.goodDistance(player.objectX + player.objectXOffset,
+					player.objectY + player.objectYOffset, player.getX(),
+					player.getY(), player.objectDistance)) {
+				player.getObjects().thirdClickObject(player.objectId,
+						player.objectX, player.objectY);
 			} else {
 				player.clickObjectType = 3;
-				   CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
-			            @Override
-			            public void execute(CycleEventContainer container) {
-						if (player.clickObjectType == 3 && player.goodDistance(player.objectX + player.objectXOffset, player.objectY + player.objectYOffset, player.getX(), player.getY(), player.objectDistance)) {
-							player.getObjects().thirdClickObject(player.objectId, player.objectX, player.objectY);
-							container.stop();
-						}
-						if (player.clickObjectType < 3) {
-							container.stop();
-						}
-					}
+				CycleEventHandler.getSingleton().addEvent(player,
+						new CycleEvent() {
+							@Override
+							public void execute(CycleEventContainer container) {
+								if (player.clickObjectType == 3
+										&& player.goodDistance(
+												player.objectX
+														+ player.objectXOffset,
+												player.objectY
+														+ player.objectYOffset,
+												player.getX(), player.getY(),
+												player.objectDistance)) {
+									player.getObjects().thirdClickObject(
+											player.objectId, player.objectX,
+											player.objectY);
+									container.stop();
+								}
+								if (player.clickObjectType < 3) {
+									container.stop();
+								}
+							}
 
-					@Override
-					public void stop() {
-						player.clickObjectType = 0;
-					}
-				}, 1);
+							@Override
+							public void stop() {
+								player.clickObjectType = 0;
+							}
+						}, 1);
 			}
 			break;
-			
 
 		case FOURTH_CLICK:
 			player.objectX = player.getInStream().readSignedWordBigEndianA();
 			player.objectId = player.getInStream().readUnsignedWordA();
 			player.objectY = player.getInStream().readUnsignedWordBigEndianA();
 			if (player.playerRights == 3) {
-				player.getActionSender().sendMessage("ObjectId: " + player.objectId + " ObjectX: " + player.objectX + " ObjectY: " + player.objectY + " Objectclick = 4, Xoff: " + (player.getX() - player.objectX) + " Yoff: " + (player.getY() - player.objectY));
+				player.getActionSender()
+						.sendMessage("ObjectId: " + player.objectId
+								+ " ObjectX: " + player.objectX + " ObjectY: "
+								+ player.objectY + " Objectclick = 4, Xoff: "
+								+ (player.getX() - player.objectX) + " Yoff: "
+								+ (player.getY() - player.objectY));
 			}
 			switch (player.objectId) {
 			default:
@@ -1122,27 +1228,40 @@ public class ClickObject implements PacketType {
 			}
 			player.objectXOffset = 0;
 			player.objectYOffset = 0;
-			if (player.goodDistance(player.objectX + player.objectXOffset, player.objectY + player.objectYOffset, player.getX(), player.getY(), player.objectDistance)) {
-				player.getObjects().fourthClickObject(player.objectId, player.objectX, player.objectY);
+			if (player.goodDistance(player.objectX + player.objectXOffset,
+					player.objectY + player.objectYOffset, player.getX(),
+					player.getY(), player.objectDistance)) {
+				player.getObjects().fourthClickObject(player.objectId,
+						player.objectX, player.objectY);
 			} else {
 				player.clickObjectType = 4;
-				   CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
-			            @Override
-			            public void execute(CycleEventContainer container) {
-						if (player.clickObjectType == 4 && player.goodDistance(player.objectX + player.objectXOffset, player.objectY + player.objectYOffset, player.getX(), player.getY(), player.objectDistance)) {
-							player.getObjects().fourthClickObject(player.objectId, player.objectX, player.objectY);
-							container.stop();
-						}
-						if (player.clickObjectType < 4) {
-							container.stop();
-						}
-					}
+				CycleEventHandler.getSingleton().addEvent(player,
+						new CycleEvent() {
+							@Override
+							public void execute(CycleEventContainer container) {
+								if (player.clickObjectType == 4
+										&& player.goodDistance(
+												player.objectX
+														+ player.objectXOffset,
+												player.objectY
+														+ player.objectYOffset,
+												player.getX(), player.getY(),
+												player.objectDistance)) {
+									player.getObjects().fourthClickObject(
+											player.objectId, player.objectX,
+											player.objectY);
+									container.stop();
+								}
+								if (player.clickObjectType < 4) {
+									container.stop();
+								}
+							}
 
-					@Override
-					public void stop() {
-						player.clickObjectType = 0;
-					}
-				}, 1);
+							@Override
+							public void stop() {
+								player.clickObjectType = 0;
+							}
+						}, 1);
 			}
 			break;
 		}

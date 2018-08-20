@@ -97,15 +97,15 @@ public class FightPits {
 	public static void removePlayer(Client c, boolean forceRemove) {
 		c.inPits = false;
 		if (forceRemove) {
-			c.getPlayerAssistant()
-					.movePlayer(EXIT_WAITING_X, EXIT_WAITING_Y, 0);
+			c.getPlayerAssistant().movePlayer(EXIT_WAITING_X, EXIT_WAITING_Y,
+					0);
 			playerMap.remove(c);
 			return;
 		}
 		String state = playerMap.get(c);
 		if (state == null) {
-			c.getPlayerAssistant()
-					.movePlayer(EXIT_WAITING_X, EXIT_WAITING_Y, 0);
+			c.getPlayerAssistant().movePlayer(EXIT_WAITING_X, EXIT_WAITING_Y,
+					0);
 			return;
 		}
 
@@ -114,14 +114,14 @@ public class FightPits {
 				pitsChampion = c.playerName;
 				c.headIcon = 21;
 				c.updateRequired = true;
-				c.getItemAssistant()
-						.addItem(TOKKUL_ID, 1500 + Misc.random(500));
+				c.getItemAssistant().addItem(TOKKUL_ID,
+						1500 + Misc.random(500));
 
 			}
 			c.getPlayerAssistant().movePlayer(EXIT_GAME_X, EXIT_GAME_Y, 0);
 		} else if (state.equals(WAITING)) {
-			c.getPlayerAssistant()
-					.movePlayer(EXIT_WAITING_X, EXIT_WAITING_Y, 0);
+			c.getPlayerAssistant().movePlayer(EXIT_WAITING_X, EXIT_WAITING_Y,
+					0);
 			c.getPlayerAssistant().walkableInterface(-1);
 		}
 		playerMap.remove(c);
@@ -162,10 +162,10 @@ public class FightPits {
 	 * @note Updates waiting room interfaces etc.
 	 */
 	public static boolean updateWaitingRoom(Client c) {
-		c.getPlayerAssistant().sendFrame126(
-				"Next Game Begins In : " + gameStartTimer, 2805);
-		c.getPlayerAssistant().sendFrame126(
-				"Champion: JalYt-Ket-" + pitsChampion, 2806);
+		c.getPlayerAssistant()
+				.sendFrame126("Next Game Begins In : " + gameStartTimer, 2805);
+		c.getPlayerAssistant()
+				.sendFrame126("Champion: JalYt-Ket-" + pitsChampion, 2806);
 		c.getPlayerAssistant().sendConfig(560, 1);
 		c.getPlayerAssistant().walkableInterface(2804);
 		return true;
@@ -175,10 +175,10 @@ public class FightPits {
 	 * @note Updates players in game interfaces etc.
 	 */
 	public static boolean updateGame(Client c) {
-		c.getPlayerAssistant().sendFrame126(
-				"Foes Remaining: " + getListCount(PLAYING), 2805);
-		c.getPlayerAssistant().sendFrame126(
-				"Champion: JalYt-Ket-" + pitsChampion, 2806);
+		c.getPlayerAssistant()
+				.sendFrame126("Foes Remaining: " + getListCount(PLAYING), 2805);
+		c.getPlayerAssistant()
+				.sendFrame126("Champion: JalYt-Ket-" + pitsChampion, 2806);
 		c.getPlayerAssistant().sendConfig(560, 1);
 		c.getPlayerAssistant().walkableInterface(2804);
 		return true;

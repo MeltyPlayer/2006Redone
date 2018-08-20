@@ -31,7 +31,8 @@ public class MeleeMaxHit {
 				&& c.playerEquipment[c.playerHat] == 4716
 				&& c.playerEquipment[c.playerChest] == 4720
 				&& c.playerEquipment[c.playerLegs] == 4722) {
-			maxHit += (c.getPlayerAssistant().getLevelForXP(c.playerXP[3]) - c.playerLevel[3]) / 2;
+			maxHit += (c.getPlayerAssistant().getLevelForXP(c.playerXP[3])
+					- c.playerLevel[3]) / 2;
 		}
 		if (c.specDamage > 1) {
 			maxHit = (int) (maxHit * c.specDamage);

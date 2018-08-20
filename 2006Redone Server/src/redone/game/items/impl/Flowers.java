@@ -16,8 +16,8 @@ public class Flowers {
 	/**
 	 * Constants & boolean checker
 	 */
-	private final int FLOWER_IDS[] = { 2980, 2981, 2982, 2983, 2984, 2985,
-			2986, 2987, 2988 };
+	private final int FLOWER_IDS[] = { 2980, 2981, 2982, 2983, 2984, 2985, 2986,
+			2987, 2988 };
 
 	/**
 	 * Checks weather user is currently interacting with flower
@@ -51,16 +51,17 @@ public class Flowers {
 		}
 		c.setBusy(true);
 		executeAction(c);
-		   CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
-	            @Override
-	            public void execute(CycleEventContainer container) {
+		CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+			@Override
+			public void execute(CycleEventContainer container) {
 				c.setBusy(false);
 				container.stop();
 			}
+
 			@Override
-				public void stop() {
-					
-				}
+			public void stop() {
+
+			}
 		}, 1);
 	}
 
@@ -83,18 +84,20 @@ public class Flowers {
 		clientFlowering = true;
 		moveOneStep(c);
 		c.turnPlayerTo(coords[0], coords[1]);
-		   CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
-	            @Override
-	            public void execute(CycleEventContainer container) {
-				Server.objectHandler.createAnObject(c, -1, coords[0], coords[1], 1);
-				c.getActionSender().sendMessage(	"Your flower is no longer flourishing.");
+		CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+			@Override
+			public void execute(CycleEventContainer container) {
+				Server.objectHandler.createAnObject(c, -1, coords[0], coords[1],
+						1);
+				c.getActionSender()
+						.sendMessage("Your flower is no longer flourishing.");
 				container.stop();
 			}
 
-				@Override
-				public void stop() {
-					
-				}
+			@Override
+			public void stop() {
+
+			}
 
 		}, 10);
 	}

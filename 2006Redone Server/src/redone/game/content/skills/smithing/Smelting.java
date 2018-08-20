@@ -80,15 +80,13 @@ public class Smelting extends SkillHandler {
 				}
 
 				if (data[i][3] > 0 && data[i][4] > 0) { // All OTHER bars
-					if (!c.getItemAssistant().playerHasItem(data[i][3])
-							|| !c.getItemAssistant().playerHasItem(data[i][4])) {
-						c.getActionSender().sendMessage(
-								"You need an "
+					if (!c.getItemAssistant().playerHasItem(data[i][3]) || !c
+							.getItemAssistant().playerHasItem(data[i][4])) {
+						c.getActionSender()
+								.sendMessage("You need an "
 										+ ItemAssistant.getItemName(data[i][3])
 												.toLowerCase()
-										+ " and "
-										+ data[i][5]
-										+ " "
+										+ " and " + data[i][5] + " "
 										+ ItemAssistant.getItemName(data[i][4])
 												.toLowerCase()
 										+ " to make this bar.");
@@ -100,8 +98,8 @@ public class Smelting extends SkillHandler {
 
 				if (data[i][4] < 0) { // Iron bar, Gold & Silver requirements
 					if (!c.getItemAssistant().playerHasItem(data[i][3])) {
-						c.getActionSender().sendMessage(
-								"You need an "
+						c.getActionSender()
+								.sendMessage("You need an "
 										+ ItemAssistant.getItemName(data[i][3])
 												.toLowerCase()
 										+ " to make this bar.");
@@ -113,12 +111,11 @@ public class Smelting extends SkillHandler {
 				if (data[i][5] > 0) { // Bars with more than 1 coal requirement
 					if (!c.getItemAssistant().playerHasItem(data[i][4],
 							data[i][5])) {
-						c.getActionSender().sendMessage(
-								"You need an "
-										+ ItemAssistant.getItemName(data[i][3])
-												.toLowerCase() + " and "
-										+ data[i][5]
-										+ " coal ores to make this bar.");
+						c.getActionSender().sendMessage("You need an "
+								+ ItemAssistant.getItemName(data[i][3])
+										.toLowerCase()
+								+ " and " + data[i][5]
+								+ " coal ores to make this bar.");
 						c.getPlayerAssistant().removeAllWindows();
 						return;
 					}
@@ -147,11 +144,11 @@ public class Smelting extends SkillHandler {
 					@Override
 					public void execute(CycleEventContainer container) {
 						deleteTime(c);
-						c.getItemAssistant().deleteItem(
-								c.playerSkillProp[13][3], 1);
+						c.getItemAssistant()
+								.deleteItem(c.playerSkillProp[13][3], 1);
 						if (c.playerSkillProp[13][5] == -1) {
-							c.getItemAssistant().deleteItem(
-									c.playerSkillProp[13][4], 1);
+							c.getItemAssistant()
+									.deleteItem(c.playerSkillProp[13][4], 1);
 						}
 						if (c.playerSkillProp[13][5] > 0) {// if coal amount is
 															// >0
@@ -160,11 +157,11 @@ public class Smelting extends SkillHandler {
 									c.playerSkillProp[13][5]);
 						}
 
-						c.getActionSender().sendMessage(
-								"You receive an " // Message
-										+ ItemAssistant.getItemName(
-												c.playerSkillProp[13][6])
-												.toLowerCase() + ".");
+						c.getActionSender().sendMessage("You receive an " // Message
+								+ ItemAssistant
+										.getItemName(c.playerSkillProp[13][6])
+										.toLowerCase()
+								+ ".");
 						if (c.playerSkillProp[13][3] == GOLD
 								&& c.playerSkillProp[13][4] == -1
 								&& c.playerEquipment[c.playerHands] == 776) {
@@ -178,20 +175,18 @@ public class Smelting extends SkillHandler {
 								1);// item
 
 						// ///////////////////////////////CHECKING//////////////////////
-						if (!c.getItemAssistant().playerHasItem(
-								c.playerSkillProp[13][3], 1)) {
-							c.getActionSender()
-									.sendMessage(
-											"You don't have enough ores to continue smelting!");
+						if (!c.getItemAssistant()
+								.playerHasItem(c.playerSkillProp[13][3], 1)) {
+							c.getActionSender().sendMessage(
+									"You don't have enough ores to continue smelting!");
 							resetSmelting(c);
 							container.stop();
 						}
 						if (c.playerSkillProp[13][4] > 0) {
 							if (!c.getItemAssistant().playerHasItem(
 									c.playerSkillProp[13][4], 1)) {
-								c.getActionSender()
-										.sendMessage(
-												"You don't have enough ores to continue smelting!");
+								c.getActionSender().sendMessage(
+										"You don't have enough ores to continue smelting!");
 								resetSmelting(c);
 								container.stop();
 							}
@@ -219,25 +214,25 @@ public class Smelting extends SkillHandler {
 
 				CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {// animation
 
-							@Override
-							public void execute(CycleEventContainer container) {
-								if (!c.playerSkilling[13]) {
-									resetSmelting(c);
-									container.stop();
-									return;
-								}
-								c.startAnimation(899);
-								c.getActionSender().sendSound(352, 100, 1);
-								if (!c.stopPlayerSkill) {
-									container.stop();
-								}
-							}
+					@Override
+					public void execute(CycleEventContainer container) {
+						if (!c.playerSkilling[13]) {
+							resetSmelting(c);
+							container.stop();
+							return;
+						}
+						c.startAnimation(899);
+						c.getActionSender().sendSound(352, 100, 1);
+						if (!c.stopPlayerSkill) {
+							container.stop();
+						}
+					}
 
-							@Override
-							public void stop() {
+					@Override
+					public void stop() {
 
-							}
-						}, (int) 5.8);
+					}
+				}, (int) 5.8);
 
 			}
 		}

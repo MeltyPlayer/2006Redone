@@ -14,19 +14,19 @@ public class CastleWarObjects {
 			}
 			if (x == 2426) {
 				if (c.getY() == 3080) {
-					c.getPlayerAssistant()
-							.movePlayer(2426, 3081, c.heightLevel);
+					c.getPlayerAssistant().movePlayer(2426, 3081,
+							c.heightLevel);
 				} else if (c.getY() == 3081) {
-					c.getPlayerAssistant()
-							.movePlayer(2426, 3080, c.heightLevel);
+					c.getPlayerAssistant().movePlayer(2426, 3080,
+							c.heightLevel);
 				}
 			} else if (x == 2422) {
 				if (c.getX() == 2422) {
-					c.getPlayerAssistant()
-							.movePlayer(2423, 3076, c.heightLevel);
+					c.getPlayerAssistant().movePlayer(2423, 3076,
+							c.heightLevel);
 				} else if (c.getX() == 2423) {
-					c.getPlayerAssistant()
-							.movePlayer(2422, 3076, c.heightLevel);
+					c.getPlayerAssistant().movePlayer(2422, 3076,
+							c.heightLevel);
 				}
 			}
 			break;
@@ -83,7 +83,8 @@ public class CastleWarObjects {
 			break;
 		case 4411: // castle wars jumping stones
 			if (x == c.getX() && y == c.getY()) {
-				c.getActionSender().sendMessage("You are standing on the rock you clicked.");
+				c.getActionSender().sendMessage(
+						"You are standing on the rock you clicked.");
 			} else if (x > c.getX() && y == c.getY()) {
 				c.getPlayerAssistant().walkTo(1, 0);
 			} else if (x < c.getX() && y == c.getY()) {
@@ -196,13 +197,13 @@ public class CastleWarObjects {
 			CastleWars.removePlayerFromCw(c);
 			break;
 		case 4458:
-		if (System.currentTimeMillis() - c.miscTimer > 1200) {
-			c.startAnimation(881);
-			c.getItemAssistant().addItem(4049, 1);
-			c.getActionSender().sendMessage("You get some bandages");
-			c.miscTimer = System.currentTimeMillis();
-		}
-		break;
+			if (System.currentTimeMillis() - c.miscTimer > 1200) {
+				c.startAnimation(881);
+				c.getItemAssistant().addItem(4049, 1);
+				c.getActionSender().sendMessage("You get some bandages");
+				c.miscTimer = System.currentTimeMillis();
+			}
+			break;
 		case 4902: // sara flag
 		case 4377:
 			switch (CastleWars.getTeamNumber(c)) {
@@ -234,16 +235,15 @@ public class CastleWarObjects {
 			break;
 		case 4463: // explosive potion!
 			if (System.currentTimeMillis() - c.miscTimer > 1200) {
-				c.getActionSender().sendMessage(
-						"You get an explosive potion!");
+				c.getActionSender().sendMessage("You get an explosive potion!");
 				c.getItemAssistant().addItem(4045, 1);
 				c.miscTimer = System.currentTimeMillis();
 			}
 			break;
 		case 4464: // pickaxe table
 			if (System.currentTimeMillis() - c.miscTimer > 1200) {
-				c.getActionSender().sendMessage(
-						"You get a bronzen pickaxe for mining.");
+				c.getActionSender()
+						.sendMessage("You get a bronzen pickaxe for mining.");
 				c.getItemAssistant().addItem(1265, 1);
 				c.miscTimer = System.currentTimeMillis();
 			}

@@ -28,8 +28,8 @@ public class PrayerDrain {
 		if (c.playerLevel[5] - 1 > 0) {
 			c.playerLevel[5] -= 1;
 		} else {
-			c.getActionSender().sendMessage(
-					"You have run out of prayer points!");
+			c.getActionSender()
+					.sendMessage("You have run out of prayer points!");
 			c.playerLevel[5] = 0;
 			resetPrayers(c);
 			c.getPrayer().prayerId = -1;

@@ -21,7 +21,8 @@ public class TileControl {
 		else {
 			for (int x = 0; x < size; x++)
 				for (int y = 0; y < size; y++)
-					tiles[tileCount++] = generate(client.absX + x, client.absY + y, client.heightLevel);
+					tiles[tileCount++] = generate(client.absX + x,
+							client.absY + y, client.heightLevel);
 		}
 		return tiles;
 	}
@@ -38,7 +39,8 @@ public class TileControl {
 		else {
 			for (int x = 0; x < size; x++)
 				for (int y = 0; y < size; y++)
-					tiles[tileCount++] = generate(npc.absX + x, npc.absY + y, npc.heightLevel);
+					tiles[tileCount++] = generate(npc.absX + x, npc.absY + y,
+							npc.heightLevel);
 		}
 		return tiles;
 	}

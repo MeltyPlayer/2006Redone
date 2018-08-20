@@ -90,14 +90,14 @@ public class SpecialObjects {
 			c.getPlayerAssistant().movePlayer(c.absX, c.absY + 2, 0);
 			return true;
 		}
-		c.getActionSender().sendMessage(
-				"Move closer so you can use the gate.");
+		c.getActionSender().sendMessage("Move closer so you can use the gate.");
 		return false;
 	}
 
 	public static void initShantay(Client c, int objectId) {
 		if (!c.getItemAssistant().playerHasItem(1854, 1) && c.absY == 3117) {
-			c.getDialogueHandler().sendStatement("You need a Shantay pass to go through.");
+			c.getDialogueHandler()
+					.sendStatement("You need a Shantay pass to go through.");
 			return;
 		}
 		final int[] coords = new int[2];
@@ -112,7 +112,8 @@ public class SpecialObjects {
 			c.desertWarning = true;
 		}
 		if (c.absY == 3117) {
-			c.getItemAssistant().deleteItem(1854, c.getItemAssistant().getItemSlot(1854), 1);
+			c.getItemAssistant().deleteItem(1854,
+					c.getItemAssistant().getItemSlot(1854), 1);
 		}
 	}
 

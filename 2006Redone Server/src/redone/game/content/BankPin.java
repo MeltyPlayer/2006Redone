@@ -46,8 +46,8 @@ public class BankPin {
 	}
 
 	public void pinSettingFrames() {
-		int pinSendFrames[] = { 15075, 15080, 15110, 15171, 15076, 15176,
-				15104, 15082, 15079 };
+		int pinSendFrames[] = { 15075, 15080, 15110, 15171, 15076, 15176, 15104,
+				15082, 15079 };
 		for (int j = 0; j < 9; j++) {
 			client.getPlayerAssistant().sendFrame126("", pinSendFrames[j]);
 		}
@@ -55,8 +55,8 @@ public class BankPin {
 		client.getPlayerAssistant().sendFrame126("recovery system.", 15039);
 		client.getPlayerAssistant().sendFrame126("Remember, it's important",
 				15040);
-		client.getPlayerAssistant()
-				.sendFrame126("to change your recovery", 15041);
+		client.getPlayerAssistant().sendFrame126("to change your recovery",
+				15041);
 		client.getPlayerAssistant().sendFrame126("pin and password", 15042);
 		client.getPlayerAssistant().sendFrame126("every 1-3 months", 15043);
 		if (!client.hasBankpin) {
@@ -65,12 +65,14 @@ public class BankPin {
 		} else {
 			client.getPlayerAssistant().sendFrame126("Delete your PIN", 15078);
 			if (client.requestPinDelete) {
-				client.getPlayerAssistant().sendFrame126("Pending delete", 15105);
+				client.getPlayerAssistant().sendFrame126("Pending delete",
+						15105);
 			} else {
 				client.getPlayerAssistant().sendFrame126("Has Bank PIN", 15105);
 			}
 		}
-		client.getPlayerAssistant().sendFrame126(recovery_Delay + " days", 15107);
+		client.getPlayerAssistant().sendFrame126(recovery_Delay + " days",
+				15107);
 	}
 
 	public void bankPinSettings() {
@@ -93,22 +95,14 @@ public class BankPin {
 		if (allowTimer > 0 && allowTimer <= 300000) {
 			int time = allowTimer / 6000;
 			if (time >= 2) {
-				client.getActionSender()
-						.sendMessage(
-								"Please wait "
-										+ time
-										+ " minutes before attempting your bank pin again.");
+				client.getActionSender().sendMessage("Please wait " + time
+						+ " minutes before attempting your bank pin again.");
 			} else if (time == 1) {
-				client.getActionSender()
-						.sendMessage(
-								"Please wait "
-										+ time
-										+ " minute before attempting your bank pin again.");
+				client.getActionSender().sendMessage("Please wait " + time
+						+ " minute before attempting your bank pin again.");
 			} else if (time <= 0) {
-				client.getActionSender()
-						.sendMessage(
-								"Please wait less "
-										+ "than a minute before attempting your bank pin again.");
+				client.getActionSender().sendMessage("Please wait less "
+						+ "than a minute before attempting your bank pin again.");
 			}
 			return;
 		}
@@ -213,11 +207,11 @@ public class BankPin {
 			client.thirdPin = client.bankPin3 = thirdPin;
 			client.fourthPin = client.bankPin4 = fourthPin;
 			client.hasBankpin = client.enterdBankpin = true;
-			client.getActionSender().sendMessage(
-					"You have just created a bank pin.");
-			client.getActionSender().sendMessage(
-					"Your new Bank PIN is: " + firstPin + " - " + secondPin
-							+ " - " + thirdPin + " - " + fourthPin);
+			client.getActionSender()
+					.sendMessage("You have just created a bank pin.");
+			client.getActionSender()
+					.sendMessage("Your new Bank PIN is: " + firstPin + " - "
+							+ secondPin + " - " + thirdPin + " - " + fourthPin);
 			client.saveCharacter = true;
 		}
 
@@ -240,17 +234,14 @@ public class BankPin {
 				allowTimer = 2000000;
 			}
 			if (client.attemptsRemaining > 1) {
-				client.getActionSender().sendMessage(
-						"Invalid pin. You have " + client.attemptsRemaining
-								+ " attempts remaining.");
+				client.getActionSender().sendMessage("Invalid pin. You have "
+						+ client.attemptsRemaining + " attempts remaining.");
 			} else if (client.attemptsRemaining == 1) {
-				client.getActionSender().sendMessage(
-						"Invalid pin. You have " + client.attemptsRemaining
-								+ " attempt remaining.");
+				client.getActionSender().sendMessage("Invalid pin. You have "
+						+ client.attemptsRemaining + " attempt remaining.");
 			} else if (client.attemptsRemaining <= 0) {
-				client.getActionSender()
-						.sendMessage(
-								"Invalid pin. You must wait 5 minutes before attempting again.");
+				client.getActionSender().sendMessage(
+						"Invalid pin. You must wait 5 minutes before attempting again.");
 			}
 			client.getPlayerAssistant().removeAllWindows();
 			falseButtons();

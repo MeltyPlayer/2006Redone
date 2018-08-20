@@ -13,7 +13,11 @@ public class SmithingInterface {
 	public void showSmithInterface(int itemId) {
 		if (itemId == 2349 && c.tutorialProgress == 20) {
 			c.getActionSender().chatbox(6180);
-			c.getDialogueHandler().chatboxText(c, "Now you have the Smithing menu open, you will see a list of all", "the things you can make. Only the dagger can be made at your", "skill level, this is shown by the white text under it. You'll need", "to select the dagger to continue.", "Smithing a dagger");
+			c.getDialogueHandler().chatboxText(c,
+					"Now you have the Smithing menu open, you will see a list of all",
+					"the things you can make. Only the dagger can be made at your",
+					"skill level, this is shown by the white text under it. You'll need",
+					"to select the dagger to continue.", "Smithing a dagger");
 			c.getActionSender().chatbox(6179);
 			makeBronzeInterface(c);
 			c.isSmithing = true;
@@ -31,7 +35,7 @@ public class SmithingInterface {
 			makeRuneInterface(c);
 		}
 	}
-	
+
 	private void makeRuneInterface(Client c) {
 		String fiveb = GetForBars(2363, 5, c);
 		String threeb = GetForBars(2363, 3, c);
@@ -102,8 +106,8 @@ public class SmithingInterface {
 				GetForlvl(87, c) + "Mace" + GetForlvl(2, c), 1093);
 		c.getPlayerAssistant().sendFrame126(
 				GetForlvl(85, c) + "Dagger" + GetForlvl(1, c), 1094);
-		c.getPlayerAssistant().sendFrame126(
-				GetForlvl(86, c) + "Axe" + GetForlvl(1, c), 1091);
+		c.getPlayerAssistant()
+				.sendFrame126(GetForlvl(86, c) + "Axe" + GetForlvl(1, c), 1091);
 		c.getPlayerAssistant().sendFrame34(1213, 0, 1119, 1); // dagger
 		c.getPlayerAssistant().sendFrame34(1359, 0, 1120, 1); // axe
 		c.getPlayerAssistant().sendFrame34(1113, 0, 1121, 1); // chain body
@@ -207,8 +211,8 @@ public class SmithingInterface {
 				GetForlvl(72, c) + "Mace" + GetForlvl(2, c), 1093);
 		c.getPlayerAssistant().sendFrame126(
 				GetForlvl(70, c) + "Dagger" + GetForlvl(1, c), 1094);
-		c.getPlayerAssistant().sendFrame126(
-				GetForlvl(71, c) + "Axe" + GetForlvl(1, c), 1091);
+		c.getPlayerAssistant()
+				.sendFrame126(GetForlvl(71, c) + "Axe" + GetForlvl(1, c), 1091);
 		c.getPlayerAssistant().sendFrame34(1211, 0, 1119, 1); // dagger
 		c.getPlayerAssistant().sendFrame34(1357, 0, 1120, 1); // axe
 		c.getPlayerAssistant().sendFrame34(1111, 0, 1121, 1); // chain body
@@ -311,8 +315,8 @@ public class SmithingInterface {
 				GetForlvl(52, c) + "Mace" + GetForlvl(2, c), 1093);
 		c.getPlayerAssistant().sendFrame126(
 				GetForlvl(50, c) + "Dagger" + GetForlvl(1, c), 1094);
-		c.getPlayerAssistant().sendFrame126(
-				GetForlvl(51, c) + "Axe" + GetForlvl(1, c), 1091);
+		c.getPlayerAssistant()
+				.sendFrame126(GetForlvl(51, c) + "Axe" + GetForlvl(1, c), 1091);
 		c.getPlayerAssistant().sendFrame34(1209, 0, 1119, 1); // dagger
 		c.getPlayerAssistant().sendFrame34(1355, 0, 1120, 1); // axe
 		c.getPlayerAssistant().sendFrame34(1109, 0, 1121, 1); // chain body
@@ -418,8 +422,8 @@ public class SmithingInterface {
 				GetForlvl(32, c) + "Mace" + GetForlvl(2, c), 1093);
 		c.getPlayerAssistant().sendFrame126(
 				GetForlvl(30, c) + "Dagger" + GetForlvl(1, c), 1094);
-		c.getPlayerAssistant().sendFrame126(
-				GetForlvl(31, c) + "Axe" + GetForlvl(1, c), 1091);
+		c.getPlayerAssistant()
+				.sendFrame126(GetForlvl(31, c) + "Axe" + GetForlvl(1, c), 1091);
 		c.getPlayerAssistant().sendFrame126(
 				GetForlvl(35, c) + "Cannon Ball" + GetForlvl(35, c), 1096);
 		c.getPlayerAssistant().sendFrame126(
@@ -524,8 +528,8 @@ public class SmithingInterface {
 				GetForlvl(17, c) + "Mace" + GetForlvl(2, c), 1093);
 		c.getPlayerAssistant().sendFrame126(
 				GetForlvl(15, c) + "Dagger" + GetForlvl(1, c), 1094);
-		c.getPlayerAssistant().sendFrame126(
-				GetForlvl(16, c) + "Axe" + GetForlvl(1, c), 1091);
+		c.getPlayerAssistant()
+				.sendFrame126(GetForlvl(16, c) + "Axe" + GetForlvl(1, c), 1091);
 		c.getPlayerAssistant().sendFrame34(1203, 0, 1119, 1);
 		c.getPlayerAssistant().sendFrame34(1349, 0, 1120, 1);
 		c.getPlayerAssistant().sendFrame34(1101, 0, 1121, 1);
@@ -622,12 +626,12 @@ public class SmithingInterface {
 				GetForlvl(4, c) + "Nails" + GetForlvl(4, c), 13358);
 		c.getPlayerAssistant().sendFrame126(
 				GetForlvl(3, c) + "Medium Helm" + GetForlvl(3, c), 1102);
-		c.getPlayerAssistant().sendFrame126(
-				GetForlvl(2, c) + "Mace" + GetForlvl(2, c), 1093);
+		c.getPlayerAssistant()
+				.sendFrame126(GetForlvl(2, c) + "Mace" + GetForlvl(2, c), 1093);
 		c.getPlayerAssistant().sendFrame126(
 				GetForlvl(1, c) + "Dagger" + GetForlvl(1, c), 1094);
-		c.getPlayerAssistant().sendFrame126(
-				GetForlvl(1, c) + "Axe" + GetForlvl(1, c), 1091);
+		c.getPlayerAssistant()
+				.sendFrame126(GetForlvl(1, c) + "Axe" + GetForlvl(1, c), 1091);
 		c.getPlayerAssistant().sendFrame34(1205, 0, 1119, 1);
 		c.getPlayerAssistant().sendFrame34(1351, 0, 1120, 1);
 		c.getPlayerAssistant().sendFrame34(1103, 0, 1121, 1);

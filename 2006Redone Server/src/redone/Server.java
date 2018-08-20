@@ -45,10 +45,9 @@ import redone.world.clip.Region;
  */
 public class Server {
 
-
-	public static int[] cannonsX = new int [50];
-	public static int[] cannonsY = new int [50];
-	public static String[] cannonsO = new String [50];
+	public static int[] cannonsX = new int[50];
+	public static int[] cannonsY = new int[50];
+	public static String[] cannonsO = new String[50];
 	public static boolean sleeping;
 	public static final int cycleRate;
 	public static boolean UpdateServer = false;
@@ -71,7 +70,7 @@ public class Server {
 	public static Trawler trawler = new Trawler();
 	private static final TaskScheduler scheduler = new TaskScheduler();
 	public static ClanChatHandler clanChat = new ClanChatHandler();
-	
+
 	public static TaskScheduler getTaskScheduler() {
 		return scheduler;
 	}
@@ -136,7 +135,7 @@ public class Server {
 		 */
 		try {
 			while (!Server.shutdownServer) {
-					Thread.sleep(600);
+				Thread.sleep(600);
 				itemHandler.process();
 				playerHandler.process();
 				npcHandler.process();
@@ -152,12 +151,12 @@ public class Server {
 							continue;
 						}
 						PlayerSave.saveGame((Client) p);
-						System.out.println("Saved game for " + p.playerName
-								+ ".");
+						System.out.println(
+								"Saved game for " + p.playerName + ".");
 						lastMassSave = System.currentTimeMillis();
-					   }
-                }
-            }
+					}
+				}
+			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			System.out.println("A fatal exception has been thrown!");
@@ -166,10 +165,10 @@ public class Server {
 					continue;
 				}
 				if (p.inTrade) {
-					((Client)p).getTrading().declineTrade();
-	            }
-				if(p.duelStatus == 6) {
-					((Client)p).getDueling().claimStakedItems();
+					((Client) p).getTrading().declineTrade();
+				}
+				if (p.duelStatus == 6) {
+					((Client) p).getDueling().claimStakedItems();
 				}
 				PlayerSave.saveGame((Client) p);
 				System.out.println("Saved game for " + p.playerName + ".");

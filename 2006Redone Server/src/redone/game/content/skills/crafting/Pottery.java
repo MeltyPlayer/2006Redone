@@ -18,7 +18,8 @@ public class Pottery {
 
 	public static void showUnfire(Client c) {
 		c.getPlayerAssistant().sendChatInterface(8938);
-		c.getPlayerAssistant().sendFrame126("What would you like to make?", 8879);
+		c.getPlayerAssistant().sendFrame126("What would you like to make?",
+				8879);
 		c.getPlayerAssistant().sendFrame246(8941, 120, 1787); // first
 		c.getPlayerAssistant().sendFrame246(8942, 150, 1789); // second
 		c.getPlayerAssistant().sendFrame246(8943, 150, 1791); // third
@@ -34,7 +35,8 @@ public class Pottery {
 
 	public static void showFire(Client c) {
 		c.getPlayerAssistant().sendChatInterface(8938);
-		c.getPlayerAssistant().sendFrame126("What would you like to make?", 8879);
+		c.getPlayerAssistant().sendFrame126("What would you like to make?",
+				8879);
 		c.getPlayerAssistant().sendFrame246(8941, 120, 1931); // first
 		c.getPlayerAssistant().sendFrame246(8942, 150, 2313); // second
 		c.getPlayerAssistant().sendFrame246(8943, 150, 1923); // third
@@ -48,8 +50,8 @@ public class Pottery {
 		c.showedFire = true;
 	}
 
-	public static void makeUnfire(final Client c, final int id,
-			final double xp, final int level, int amount) {
+	public static void makeUnfire(final Client c, final int id, final double xp,
+			final int level, int amount) {
 		c.getPlayerAssistant().closeAllWindows();
 		c.doAmount = amount;
 		c.isPotCrafting = true;
@@ -58,9 +60,8 @@ public class Pottery {
 			c.startAnimation(unFire);
 			c.getItemAssistant().deleteItem2(softClay, 1);
 			c.getItemAssistant().addItem(id, 1);
-			c.getActionSender().sendMessage(
-					"You make the soft clay into a "
-							+ ItemAssistant.getItemName(id) + ".");
+			c.getActionSender().sendMessage("You make the soft clay into a "
+					+ ItemAssistant.getItemName(id) + ".");
 			c.getPlayerAssistant().addSkillXP(xp, c.playerCrafting);
 			c.doAmount--;
 		}
@@ -74,8 +75,8 @@ public class Pottery {
 					c.startAnimation(unFire);
 					c.getItemAssistant().deleteItem2(softClay, 1);
 					c.getItemAssistant().addItem(id, 1);
-					c.getActionSender().sendMessage(
-							"You make the soft clay into a "
+					c.getActionSender()
+							.sendMessage("You make the soft clay into a "
 									+ ItemAssistant.getItemName(id) + ".");
 					c.getPlayerAssistant().addSkillXP(xp, c.playerCrafting);
 					c.doAmount--;
@@ -83,15 +84,15 @@ public class Pottery {
 
 				if (c.playerLevel[12] < level) {
 					container.stop();
-					c.getActionSender().sendMessage(
-							"You need a crafting level of " + level
+					c.getActionSender()
+							.sendMessage("You need a crafting level of " + level
 									+ " to make this.");
 				}
 
 				if (!c.getItemAssistant().playerHasItem(softClay)) {
 					container.stop();
-					c.getActionSender().sendMessage(
-							"You need soft clay to do this.");
+					c.getActionSender()
+							.sendMessage("You need soft clay to do this.");
 				}
 
 				if (c.isPotCrafting == false) {
@@ -123,12 +124,10 @@ public class Pottery {
 			c.getItemAssistant().addItem(finishId, 1);
 			c.startAnimation(Fire);
 			c.getActionSender().sendSound(469, 100, 0);
-			c.getActionSender().sendMessage(
-					"You put a " + ItemAssistant.getItemName(startId)
-							+ " into the oven.");
-			c.getActionSender().sendMessage(
-					"You retrieve the " + ItemAssistant.getItemName(finishId)
-							+ " from the oven.");
+			c.getActionSender().sendMessage("You put a "
+					+ ItemAssistant.getItemName(startId) + " into the oven.");
+			c.getActionSender().sendMessage("You retrieve the "
+					+ ItemAssistant.getItemName(finishId) + " from the oven.");
 			c.getPlayerAssistant().addSkillXP(xp, c.playerCrafting);
 			c.doAmount--;
 		}
@@ -140,9 +139,8 @@ public class Pottery {
 
 		if (!c.getItemAssistant().playerHasItem(startId)
 				&& c.playerLevel[12] >= level) {
-			c.getActionSender().sendMessage(
-					"You need an " + ItemAssistant.getItemName(startId)
-							+ " to do this.");
+			c.getActionSender().sendMessage("You need an "
+					+ ItemAssistant.getItemName(startId) + " to do this.");
 		}
 
 		CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
@@ -150,17 +148,18 @@ public class Pottery {
 			@Override
 			public void execute(CycleEventContainer container) {
 				if (c.getItemAssistant().playerHasItem(startId)
-						&& c.playerLevel[12] >= level
-						&& c.isPotCrafting == true && !(c.doAmount <= 0)) {
+						&& c.playerLevel[12] >= level && c.isPotCrafting == true
+						&& !(c.doAmount <= 0)) {
 					c.getItemAssistant().deleteItem2(startId, 1);
 					c.getItemAssistant().addItem(finishId, 1);
 					c.startAnimation(Fire);
 					c.getActionSender().sendSound(469, 100, 0);
-					c.getActionSender().sendMessage(
-							"You put a " + ItemAssistant.getItemName(startId)
+					c.getActionSender()
+							.sendMessage("You put a "
+									+ ItemAssistant.getItemName(startId)
 									+ " into the oven.");
-					c.getActionSender().sendMessage(
-							"You retrieve the "
+					c.getActionSender()
+							.sendMessage("You retrieve the "
 									+ ItemAssistant.getItemName(finishId)
 									+ " from the oven.");
 					c.getPlayerAssistant().addSkillXP(xp, c.playerCrafting);

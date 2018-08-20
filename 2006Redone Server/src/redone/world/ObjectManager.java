@@ -25,12 +25,15 @@ public class ObjectManager {
 
 	public ArrayList<Object> objects = new ArrayList<Object>();
 	private final ArrayList<Object> toRemove = new ArrayList<Object>();
-	
-	public static void objectTicks(final Client player, final int objectId, final int objectX, final int objectY, final int objectH, final int face, final int objectType, int ticks) {
+
+	public static void objectTicks(final Client player, final int objectId,
+			final int objectX, final int objectY, final int objectH,
+			final int face, final int objectType, int ticks) {
 		CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
 			@Override
 			public void execute(CycleEventContainer container) {
-				player.getActionSender().object(objectId, objectX, objectY, objectH, face, objectType);
+				player.getActionSender().object(objectId, objectX, objectY,
+						objectH, face, objectType);
 				container.stop();
 			}
 
@@ -40,8 +43,10 @@ public class ObjectManager {
 			}
 		}, ticks);
 	}
-	
-	public static void singleGateTicks(final Client player, final int objectId, final int objectX, final int objectY, final int x1, final int y1, final int objectH, final int face, int ticks) {
+
+	public static void singleGateTicks(final Client player, final int objectId,
+			final int objectX, final int objectY, final int x1, final int y1,
+			final int objectH, final int face, int ticks) {
 		CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
 			@Override
 			public void execute(CycleEventContainer container) {
@@ -49,8 +54,10 @@ public class ObjectManager {
 					container.stop();
 					return;
 				}
-				Server.objectHandler.placeObject(new Objects(-1, x1, y1, objectH, face, 0, 0));
-				Server.objectHandler.placeObject(new Objects(objectId, objectX, objectY, objectH, face, 0, 0));
+				Server.objectHandler.placeObject(
+						new Objects(-1, x1, y1, objectH, face, 0, 0));
+				Server.objectHandler.placeObject(new Objects(objectId, objectX,
+						objectY, objectH, face, 0, 0));
 				container.stop();
 			}
 
@@ -62,8 +69,11 @@ public class ObjectManager {
 			}
 		}, ticks);
 	}
-	
-	public static void doubleGateTicks(final Client player, final int objectId, final int objectX, final int objectY, final int x1, final int y1, final int x2, final int y2, final int objectH, final int face, int ticks) {
+
+	public static void doubleGateTicks(final Client player, final int objectId,
+			final int objectX, final int objectY, final int x1, final int y1,
+			final int x2, final int y2, final int objectH, final int face,
+			int ticks) {
 		CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
 			@Override
 			public void execute(CycleEventContainer container) {
@@ -71,9 +81,12 @@ public class ObjectManager {
 					container.stop();
 					return;
 				}
-				Server.objectHandler.placeObject(new Objects(-1, x1, y1, objectH, face, 0, 0));
-				Server.objectHandler.placeObject(new Objects(-1, x2, y2, objectH, face, 0, 0));
-				Server.objectHandler.placeObject(new Objects(objectId, objectX, objectY, objectH, face, 0, 0));
+				Server.objectHandler.placeObject(
+						new Objects(-1, x1, y1, objectH, face, 0, 0));
+				Server.objectHandler.placeObject(
+						new Objects(-1, x2, y2, objectH, face, 0, 0));
+				Server.objectHandler.placeObject(new Objects(objectId, objectX,
+						objectY, objectH, face, 0, 0));
 				container.stop();
 			}
 
@@ -88,7 +101,6 @@ public class ObjectManager {
 		}, ticks);
 	}
 
- 
 	public boolean objectExists(final int x, final int y) {
 		for (Object o : objects) {
 			if (o.objectX == x && o.objectY == y) {
@@ -108,17 +120,13 @@ public class ObjectManager {
 			}
 		}
 		for (final Object o : toRemove) {
-			/*if (o.objectId == 2732) {
-				for (final Player player : PlayerHandler.players) {
-					if (player != null) {
-						final Client c = (Client) player;
-						Server.itemHandler.createGroundItem(c, 592, o.objectX, o.objectY, 1, c.playerId);
-						if (c.playerIsCooking) {
-							Cooking.resetCooking(c);
-						}
-					}
-				}
-			}*/
+			/*
+			 * if (o.objectId == 2732) { for (final Player player :
+			 * PlayerHandler.players) { if (player != null) { final Client c =
+			 * (Client) player; Server.itemHandler.createGroundItem(c, 592,
+			 * o.objectX, o.objectY, 1, c.playerId); if (c.playerIsCooking) {
+			 * Cooking.resetCooking(c); } } } }
+			 */
 			if (isObelisk(o.newId)) {
 				final int index = getObeliskIndex(o.newId);
 				if (activated[index]) {
@@ -155,8 +163,8 @@ public class ObjectManager {
 			if (player != null) {
 				Client c = (Client) player;
 				if (c.distanceToPoint(o.objectX, o.objectY) <= 60) {
-					c.getActionSender().object(o.objectId, o.objectX,
-							o.objectY, o.face, o.type);
+					c.getActionSender().object(o.objectId, o.objectX, o.objectY,
+							o.face, o.type);
 				}
 			}
 		}
@@ -177,7 +185,8 @@ public class ObjectManager {
 		}
 		for (Object o : objects) {
 			if (loadForPlayer(o, c)) {
-				c.getActionSender().object(o.objectId, o.objectX, o.objectY, o.face, o.type);
+				c.getActionSender().object(o.objectId, o.objectX, o.objectY,
+						o.face, o.type);
 			}
 		}
 		loadCustomSpawns(c);
@@ -188,7 +197,7 @@ public class ObjectManager {
 		if (client.rope == true) {
 			client.getActionSender().object(3828, 3227, 3108, 0, 0, 10);
 			Region.addObject(3828, 3227, 3108, 0, 10, 0, false);
-		} 
+		}
 		if (client.rope2 == true) {
 			client.getActionSender().object(3828, 3509, 9497, 2, 0, 10);
 			Region.addObject(3828, 3509, 9497, 2, 10, 0, false);
@@ -200,7 +209,8 @@ public class ObjectManager {
 		}
 		// CHEST
 		if (client.flourAmount > 0 && client.heightLevel == 0) {
-			client.getActionSender().checkObjectSpawn(FlourMill.FULL_FLOUR_BIN, 3166, 3306, 0, 10);
+			client.getActionSender().checkObjectSpawn(FlourMill.FULL_FLOUR_BIN,
+					3166, 3306, 0, 10);
 		}
 	}
 
@@ -272,7 +282,8 @@ public class ObjectManager {
 			return false;
 		}
 
-		return c.distanceToPoint(o.objectX, o.objectY) <= 60 && c.heightLevel == o.height;
+		return c.distanceToPoint(o.objectX, o.objectY) <= 60
+				&& c.heightLevel == o.height;
 	}
 
 	public void addObject(Object o) {

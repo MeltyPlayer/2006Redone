@@ -12,7 +12,9 @@ public class ItemOnItem implements PacketType {
 		int itemUsedSlot = player.getInStream().readUnsignedWordA();
 		int useWith = player.playerItems[usedWithSlot] - 1;
 		int itemUsed = player.playerItems[itemUsedSlot] - 1;
-		if (!player.getItemAssistant().playerHasItem(useWith, 1, usedWithSlot)|| !player.getItemAssistant().playerHasItem(itemUsed, 1, itemUsedSlot)) {
+		if (!player.getItemAssistant().playerHasItem(useWith, 1, usedWithSlot)
+				|| !player.getItemAssistant().playerHasItem(itemUsed, 1,
+						itemUsedSlot)) {
 			return;
 		}
 		UseItem.ItemonItem(player, itemUsed, useWith);

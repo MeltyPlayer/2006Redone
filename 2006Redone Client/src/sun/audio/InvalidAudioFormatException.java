@@ -24,6 +24,7 @@
  */
 
 package sun.audio;
+
 import java.io.IOException;
 
 /**
@@ -31,18 +32,17 @@ import java.io.IOException;
  */
 final class InvalidAudioFormatException extends IOException {
 
+  /**
+   * Constructor.
+   */
+  InvalidAudioFormatException() {
+    super();
+  }
 
-    /**
-     * Constructor.
-     */
-    InvalidAudioFormatException() {
-        super();
-    }
-
-    /**
-     * Constructor with a detail message.
-     */
-    InvalidAudioFormatException(String s) {
-        super(s);
-    }
+  /**
+   * Constructor with a detail message.
+   */
+  InvalidAudioFormatException(String s) {
+    super(s);
+  }
 }

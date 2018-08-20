@@ -85,7 +85,8 @@ public class Agility {
 			return;
 		}
 		if (c.playerLevel[c.playerAgility] < 12) {
-			c.getDialogueHandler().sendStatement("You need 12 agility to use these stepping stones");
+			c.getDialogueHandler().sendStatement(
+					"You need 12 agility to use these stepping stones");
 			c.nextChat = 0;
 			return;
 		}
@@ -141,57 +142,62 @@ public class Agility {
 
 	public void destinationReached(int x2, int y2, final int endingEmote) {
 		if (x2 >= 0 && y2 >= 0 && x2 != y2) {
-			  CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
-		            @Override
-		            public void execute(CycleEventContainer container) {
+			CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+				@Override
+				public void execute(CycleEventContainer container) {
 					if (c.disconnected) {
 						container.stop();
 						return;
 					}
 					if (moveHeight >= 0) {
-						c.getPlayerAssistant().movePlayer(c.getX(), c.getY(), moveHeight);
+						c.getPlayerAssistant().movePlayer(c.getX(), c.getY(),
+								moveHeight);
 						moveHeight = -1;
 					}
 					stopEmote();
 					c.startAnimation(endingEmote);
 					container.stop();
 				}
+
 				@Override
-					public void stop() {
-						
-					}
+				public void stop() {
+
+				}
 			}, x2 + y2);
 		} else if (x2 == y2) {
-			  CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
-		            @Override
-		            public void execute(CycleEventContainer container) {
+			CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+				@Override
+				public void execute(CycleEventContainer container) {
 					if (c.disconnected) {
 						container.stop();
 						return;
 					}
 					if (moveHeight >= 0) {
-						c.getPlayerAssistant().movePlayer(c.getX(), c.getY(), moveHeight);
+						c.getPlayerAssistant().movePlayer(c.getX(), c.getY(),
+								moveHeight);
 						moveHeight = -1;
 					}
 					stopEmote();
 					c.startAnimation(endingEmote);
 					container.stop();
 				}
-					@Override
-					public void stop() {
-						
-					}
+
+				@Override
+				public void stop() {
+
+				}
 			}, x2);
 		} else if (x2 < 0) {
-			  CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
-		            @Override
-		            public void execute(CycleEventContainer container) {
+			CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+				@Override
+				public void execute(CycleEventContainer container) {
 					if (c.disconnected) {
 						container.stop();
 						return;
 					}
 					if (moveHeight >= 0) {
-						c.getPlayerAssistant().movePlayer(c.getX(), c.getY(), moveHeight);
+						c.getPlayerAssistant().movePlayer(c.getX(), c.getY(),
+								moveHeight);
 						moveHeight = -1;
 
 					}
@@ -199,21 +205,23 @@ public class Agility {
 					c.startAnimation(endingEmote);
 					container.stop();
 				}
+
 				@Override
-					public void stop() {
-						
-					}
+				public void stop() {
+
+				}
 			}, -x2 + y2);
 		} else if (y2 < 0) {
-			  CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
-		            @Override
-		            public void execute(CycleEventContainer container) {
+			CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+				@Override
+				public void execute(CycleEventContainer container) {
 					if (c.disconnected) {
 						container.stop();
 						return;
 					}
 					if (moveHeight >= 0) {
-						c.getPlayerAssistant().movePlayer(c.getX(), c.getY(), moveHeight);
+						c.getPlayerAssistant().movePlayer(c.getX(), c.getY(),
+								moveHeight);
 						moveHeight = -1;
 
 					}
@@ -221,10 +229,11 @@ public class Agility {
 					c.startAnimation(endingEmote);
 					container.stop();
 				}
+
 				@Override
-					public void stop() {
-						
-					}
+				public void stop() {
+
+				}
 			}, x2 - y2);
 		}
 	}
@@ -407,13 +416,14 @@ public class Agility {
 	 * to add a little timer to make it work
 	 */
 
-	public void climbUpTropicalTree(final int moveX, final int moveY, final int moveH) {
+	public void climbUpTropicalTree(final int moveX, final int moveY,
+			final int moveH) {
 		c.startAnimation(CLIMB_UP_MONKEY_EMOTE);
 		c.getPlayerAction().setAction(true);
 		c.getPlayerAction().canWalk(false);
-		  CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
-	            @Override
-	            public void execute(CycleEventContainer container) {
+		CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+			@Override
+			public void execute(CycleEventContainer container) {
 				if (c.disconnected) {
 					container.stop();
 					return;
@@ -423,10 +433,11 @@ public class Agility {
 				c.getPlayerAssistant().movePlayer(moveX, moveY, moveH);
 				container.stop();
 			}
+
 			@Override
-				public void stop() {
-					
-				}
+			public void stop() {
+
+			}
 		}, 2);
 	}
 
@@ -439,9 +450,9 @@ public class Agility {
 		c.startAnimation(CLIMB_UP_EMOTE);
 		c.getPlayerAction().setAction(true);
 		c.getPlayerAction().canWalk(false);
-		  CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
-	            @Override
-	            public void execute(CycleEventContainer container) {
+		CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+			@Override
+			public void execute(CycleEventContainer container) {
 				if (c.disconnected) {
 					stop();
 					return;
@@ -451,10 +462,11 @@ public class Agility {
 				c.getPlayerAssistant().movePlayer(moveX, moveY, moveH);
 				container.stop();
 			}
+
 			@Override
-				public void stop() {
-					
-				}
+			public void stop() {
+
+			}
 		}, 1);
 	}
 
@@ -467,9 +479,9 @@ public class Agility {
 		c.startAnimation(CLIMB_DOWN_EMOTE);
 		c.getPlayerAction().setAction(true);
 		c.getPlayerAction().canWalk(false);
-		  CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
-	            @Override
-	            public void execute(CycleEventContainer container) {
+		CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+			@Override
+			public void execute(CycleEventContainer container) {
 				if (c.disconnected) {
 					stop();
 					return;
@@ -479,10 +491,11 @@ public class Agility {
 				c.getPlayerAssistant().movePlayer(moveX, moveY, moveH);
 				container.stop();
 			}
+
 			@Override
-				public void stop() {
-					
-				}
+			public void stop() {
+
+			}
 		}, 1);
 	}
 
@@ -503,7 +516,8 @@ public class Agility {
 	public void lapFinished() {
 		if (agilityProgress[5]) {
 			c.getPlayerAssistant().addSkillXP(lapBonus, c.playerAgility);
-			c.getActionSender().sendMessage("You received some bonus experience for completing the track!");
+			c.getActionSender().sendMessage(
+					"You received some bonus experience for completing the track!");
 			resetAgilityProgress();
 		}
 	}
@@ -518,9 +532,9 @@ public class Agility {
 			tropicalTreeUpdate--;
 		}
 		if (tropicalTreeUpdate == 0) {
-			walk(13,
-					13,
-					getAnimation(ApeAtollAgility.APE_ATOLL_BIG_TROPICAL_TREE_OBJECT),
+			walk(13, 13,
+					getAnimation(
+							ApeAtollAgility.APE_ATOLL_BIG_TROPICAL_TREE_OBJECT),
 					-1);
 			tropicalTreeUpdate = -1;
 		}
@@ -535,9 +549,9 @@ public class Agility {
 		}
 
 		if (steppingStone > 0 && steppingStoneTimer == 0) {
-			walk(-1,
-					0,
-					getAnimation(WildernessAgility.WILDERNESS_STEPPING_STONE_OBJECT),
+			walk(-1, 0,
+					getAnimation(
+							WildernessAgility.WILDERNESS_STEPPING_STONE_OBJECT),
 					-1);
 			steppingStone--;
 			steppingStoneTimer = 2;
@@ -653,9 +667,8 @@ public class Agility {
 
 	public boolean checkLevel(int objectId) {
 		if (getLevelRequired(objectId) > c.playerLevel[c.playerAgility]) {
-			c.getActionSender().sendMessage(
-					"You need atleast " + getLevelRequired(objectId)
-							+ " agility to do this.");
+			c.getActionSender().sendMessage("You need atleast "
+					+ getLevelRequired(objectId) + " agility to do this.");
 			return true;
 		}
 		return false;

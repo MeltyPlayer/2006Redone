@@ -28,10 +28,11 @@ import redone.util.ISAACRandomGen;
  */
 
 public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
-	
-	private static final BigInteger RSA_MODULUS = new BigInteger("91553247461173033466542043374346300088148707506479543786501537350363031301992107112953015516557748875487935404852620239974482067336878286174236183516364787082711186740254168914127361643305190640280157664988536979163450791820893999053469529344247707567448479470137716627440246788713008490213212272520901741443");
-	private static final BigInteger RSA_EXPONENT = new BigInteger("33280025241734061313051117678670856264399753710527826596057587687835856000539511539311834363046145710983857746766009612538140077973762171163294453513440619295457626227183742315140865830778841533445402605660729039310637444146319289077374748018792349647460850308384280105990607337322160553135806205784213241305");
 
+	private static final BigInteger RSA_MODULUS = new BigInteger(
+			"91553247461173033466542043374346300088148707506479543786501537350363031301992107112953015516557748875487935404852620239974482067336878286174236183516364787082711186740254168914127361643305190640280157664988536979163450791820893999053469529344247707567448479470137716627440246788713008490213212272520901741443");
+	private static final BigInteger RSA_EXPONENT = new BigInteger(
+			"33280025241734061313051117678670856264399753710527826596057587687835856000539511539311834363046145710983857746766009612538140077973762171163294453513440619295457626227183742315140865830778841533445402605660729039310637444146319289077374748018792349647460850308384280105990607337322160553135806205784213241305");
 
 	/**
 	 * Parses the data in the provided byte buffer and writes it to
@@ -63,12 +64,11 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 					@SuppressWarnings("unused")
 					int nameHash = in.get() & 0xff;
 					if (protocol == 14) {
-						long serverSessionKey = ((long) (java.lang.Math
-								.random() * 99999999D) << 32)
+						long serverSessionKey = ((long) (java.lang.Math.random()
+								* 99999999D) << 32)
 								+ (long) (java.lang.Math.random() * 99999999D);
 						StaticPacketBuilder s1Response = new StaticPacketBuilder();
-						s1Response
-								.setBare(true)
+						s1Response.setBare(true)
 								.addBytes(new byte[] { 0, 0, 0, 0, 0, 0, 0, 0 })
 								.addByte((byte) 0).addLong(serverSessionKey);
 						session.setAttribute("SERVER_SESSION_KEY",
@@ -83,9 +83,8 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 				}
 			case 1:
 				@SuppressWarnings("unused")
-				int loginType = -1,
-				loginPacketSize = -1,
-				loginEncryptPacketSize = -1;
+				int loginType = -1, loginPacketSize = -1,
+						loginEncryptPacketSize = -1;
 				if (2 <= in.remaining()) {
 					loginType = in.get() & 0xff; // should be 16 or 18
 					loginPacketSize = in.get() & 0xff;
@@ -116,15 +115,18 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 						in.getInt();
 					}
 					loginEncryptPacketSize--;
-					if(loginEncryptPacketSize != (in.get() & 0xff)) {
+					if (loginEncryptPacketSize != (in.get() & 0xff)) {
 						System.out.println("Encrypted size mismatch.");
 						session.close();
 						return false;
 					}
-                    byte[] encryptionBytes = new byte[loginEncryptPacketSize];
-                    in.get(encryptionBytes);
-                    ByteBuffer rsaBuffer = ByteBuffer.wrap(new BigInteger(encryptionBytes).modPow(RSA_EXPONENT, RSA_MODULUS).toByteArray());
-					if((rsaBuffer.get() & 0xff) != 10) {
+					byte[] encryptionBytes = new byte[loginEncryptPacketSize];
+					in.get(encryptionBytes);
+					ByteBuffer rsaBuffer = ByteBuffer
+							.wrap(new BigInteger(encryptionBytes)
+									.modPow(RSA_EXPONENT, RSA_MODULUS)
+									.toByteArray());
+					if ((rsaBuffer.get() & 0xff) != 10) {
 						System.out.println("Encrypted id != 10.");
 						session.close();
 						return false;
@@ -132,7 +134,7 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 					long clientSessionKey = rsaBuffer.getLong();
 					long serverSessionKey = rsaBuffer.getLong();
 					int uid = rsaBuffer.getInt();
-					if(uid != 314268572) {
+					if (uid != 314268572) {
 						session.close();
 						return false;
 					}
@@ -149,7 +151,8 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 					ISAACRandomGen outC = new ISAACRandomGen(sessionKey);
 					load(session, uid, name, pass, inC, outC, version);
 					session.getFilterChain().remove("protocolFilter");
-					session.getFilterChain().addLast("protocolFilter", new ProtocolCodecFilter(new GameCodecFactory(inC)));
+					session.getFilterChain().addLast("protocolFilter",
+							new ProtocolCodecFilter(new GameCodecFactory(inC)));
 					return true;
 				} else {
 					in.rewind();
@@ -160,7 +163,6 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 		return false;
 	}
 
-
 	private synchronized void load(final IoSession session, final int uid,
 			String name, String pass, final ISAACRandomGen inC,
 			ISAACRandomGen outC, int version) {
@@ -170,14 +172,14 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 
 		name = name.trim();
 		name = name.toLowerCase();
-	//	pass = pass.toLowerCase();
+		// pass = pass.toLowerCase();
 
 		String hostName = ((InetSocketAddress) session.getRemoteAddress())
 				.getAddress().getHostName();
 
-		//if (version != 1) {
-			//returnCode = 31;
-		//d}
+		// if (version != 1) {
+		// returnCode = 31;
+		// d}
 
 		if (HostBlacklist.isBlocked(hostName)) {
 			returnCode = 11;
@@ -207,7 +209,6 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
 		if (Connection.isNamedBanned(cl.playerName)) {
 			returnCode = 4;
 		}
-
 
 		if (PlayerHandler.isPlayerOn(name)) {
 			returnCode = 5;

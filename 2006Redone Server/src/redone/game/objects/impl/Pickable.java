@@ -9,20 +9,22 @@ import redone.game.players.Client;
 
 /**
  * Pickables
- * @author Andrew (I'm A Boss on Rune-Server and Mr Extremez on Mopar & Runelocus)
+ * 
+ * @author Andrew (I'm A Boss on Rune-Server and Mr Extremez on Mopar &
+ *         Runelocus)
  */
 
 public class Pickable {
 
-	private final static int[][] PICKABLE_ITEMS = { 
-			{ 1161, 1965 }, // Cabbage
+	private final static int[][] PICKABLE_ITEMS = { { 1161, 1965 }, // Cabbage
 			{ 2646, 1779 }, // Flax
 			{ 313, 1947 }, // Wheat
 			{ 5585, 1947 }, { 5584, 1947 }, { 5585, 1947 }, { 312, 1942 }, // Potato
 			{ 3366, 1957 }, // Onion
 	};
 
-	public static void pickObject(final Client player, final int objectType, final int objectX, final int objectY) {
+	public static void pickObject(final Client player, final int objectType,
+			final int objectX, final int objectY) {
 		if (player.miscTimer + 1800 > System.currentTimeMillis()) {
 			return;
 		}
@@ -39,25 +41,32 @@ public class Pickable {
 			player.startAnimation(827);
 			if (objectType == 2646 && random(3) == 0 || objectType != 2646) {
 				if (player.outStream != null) {
-					Server.objectHandler.createAnObject(player, -1, objectX, objectY);
-					CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
-						@Override
-						public void execute(CycleEventContainer container) {
-							container.stop();
-						}
-						@Override
-						public void stop() {
-							if (player.outStream != null) {
-								Server.objectHandler.createAnObject(player,objectType, objectX, objectY);
-							}
-						}
-					}, 5);
+					Server.objectHandler.createAnObject(player, -1, objectX,
+							objectY);
+					CycleEventHandler.getSingleton().addEvent(player,
+							new CycleEvent() {
+								@Override
+								public void execute(
+										CycleEventContainer container) {
+									container.stop();
+								}
+
+								@Override
+								public void stop() {
+									if (player.outStream != null) {
+										Server.objectHandler.createAnObject(
+												player, objectType, objectX,
+												objectY);
+									}
+								}
+							}, 5);
 				}
 			}
 			player.getActionSender().sendSound(SoundList.PICKABLE, 100, 1);
 			player.miscTimer = System.currentTimeMillis();
 		} else {
-			player.getActionSender().sendMessage("Your inventory is too full to hold any more items!");
+			player.getActionSender().sendMessage(
+					"Your inventory is too full to hold any more items!");
 		}
 	}
 

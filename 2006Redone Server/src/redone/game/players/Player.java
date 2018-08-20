@@ -16,19 +16,16 @@ import redone.util.Stream;
 public abstract class Player {
 
 	public String currentTime, date, creationAddress = "", slayerMaster;
-	
+
 	public boolean lostCannon = false;
 
 	public ArrayList<String> killedPlayers = new ArrayList<String>();
 	public ArrayList<Integer> attackedPlayers = new ArrayList<Integer>();
 	public ArrayList<String> lastKilledPlayers = new ArrayList<String>();
-	
-	public int CraftInt, Dcolor, FletchInt,  clanId = -1;
-	
-	public int[][] barrowCrypt = {
-			{4921, 0},
-			{2035, 0}
-	};
+
+	public int CraftInt, Dcolor, FletchInt, clanId = -1;
+
+	public int[][] barrowCrypt = { { 4921, 0 }, { 2035, 0 } };
 
 	public long lastCast = 0, homeTele, lastDesert, eventTimer, lastRunRecovery,
 			lastButton, lastFire, lastLight, muteTime, waitTime, miscTimer,
@@ -36,22 +33,25 @@ public abstract class Player {
 			lastPlayerMove, lastPoison, lastPoisonSip, poisonImmune, lastSpear,
 			lastProtItem, dfsDelay, lastVeng, lastYell, teleGrabDelay,
 			protMageDelay, protMeleeDelay, protRangeDelay, lastAction,
-			lastThieve, lastLockPick, alchDelay, specDelay = System.currentTimeMillis(), duelDelay, teleBlockDelay,
+			lastThieve, lastLockPick, alchDelay,
+			specDelay = System.currentTimeMillis(), duelDelay, teleBlockDelay,
 			godSpellDelay, singleCombatDelay, singleCombatDelay2, reduceStat,
 			restoreStatsDelay, logoutDelay, buryDelay, foodDelay, potDelay,
-			doorDelay, doubleDoorDelay, buySlayerTimer, lastIncrease,
-			boneDelay, botAttempts, leverDelay = 0, farmTime, searchObjectDelay = 0;
-	
-	private Npc specialTarget = null;
-	public void setSpecialTarget(Npc target) {
-			this.specialTarget = target;
-		}
-		public Npc getSpecialTarget() {
-			return specialTarget;
-		}
+			doorDelay, doubleDoorDelay, buySlayerTimer, lastIncrease, boneDelay,
+			botAttempts, leverDelay = 0, farmTime, searchObjectDelay = 0;
 
-	public boolean initialized = false, musicOn = true, luthas,
-			playerIsCooking, disconnected = false, ruleAgreeButton = false,
+	private Npc specialTarget = null;
+
+	public void setSpecialTarget(Npc target) {
+		this.specialTarget = target;
+	}
+
+	public Npc getSpecialTarget() {
+		return specialTarget;
+	}
+
+	public boolean initialized = false, musicOn = true, luthas, playerIsCooking,
+			disconnected = false, ruleAgreeButton = false,
 			RebuildNPCList = false, isActive = false, isKicked = false,
 			isSkulled = false, friendUpdate = false, newPlayer = false,
 			hasMultiSign = false, saveCharacter = false, mouseButton = false,
@@ -69,18 +69,21 @@ public abstract class Player {
 			playerStun, playerFletch, isWoodcutting, playerIsFiremaking,
 			hasNpc = false, playerIsFishing = false, isOperate, below459 = true,
 			splitChat, strongHold, village, needsNewTask = false,
-			canSpeak = true, ignoreFrog, ratdied2 = false,
-			fishingWhirlPool, lostDuel, diedOnTut = false, storing = false, rope, rope2,
+			canSpeak = true, ignoreFrog, ratdied2 = false, fishingWhirlPool,
+			lostDuel, diedOnTut = false, storing = false, rope, rope2,
 			canWalkTutorial, closeTutorialInterface, isCrafting, showedUnfire,
 			showedFire, isPotCrafting, isFiremaking, playerIsFletching, milking,
 			stopPlayerPacket, spiritTree = false, isSmelting,
 			hasPaifAnTeleport = false, isSmithing, doingAgility = false,
 			hasPaid, canTeleport, magicCharge, isBanned = false, fletchNerfed,
-			clickedVamp = false, allowFading, isBotting = false, otherBank = false,
-			recievedReward = false, poison, golemSpawned = false, zombieSpawned = false, shadeSpawned = false,
-			treeSpiritSpawned = false, chickenSpawned = false, clickedTree = false, filter = true,
-			stopPlayer = false, npcCanAttack = true, gliderOpen = false, hasSandwhichLady = false,
-			isHarvesting, openDuel = false,  killedJad = false, canHealersRespawn = true, playerIsBusy = false, miningRock;
+			clickedVamp = false, allowFading, isBotting = false,
+			otherBank = false, recievedReward = false, poison,
+			golemSpawned = false, zombieSpawned = false, shadeSpawned = false,
+			treeSpiritSpawned = false, chickenSpawned = false,
+			clickedTree = false, filter = true, stopPlayer = false,
+			npcCanAttack = true, gliderOpen = false, hasSandwhichLady = false,
+			isHarvesting, openDuel = false, killedJad = false,
+			canHealersRespawn = true, playerIsBusy = false, miningRock;
 
 	public int thankedForDonation, saveDelay, playerKilled, gertCat, restGhost,
 			romeojuliet, runeMist, vampSlayer, cookAss, doricQuest,
@@ -105,16 +108,15 @@ public abstract class Player {
 			rememberNpcIndex, lastLoginDate, selectedSkill, log = -1, newHerb,
 			newItem, newXp, doingHerb, herbAmount, treeX, treeY, lastH,
 			cookingItem, cookingObject, summonId, npcId2 = 0, leatherType = -1,
-			weightCarried, teleotherType, rockX, rockY, itemUsing, tzKekTimer, 
-			bananas, flourAmount, grain, questPoints, questStages,
-			teleGrabItem, teleGrabX, teleGrabY, duelCount, underAttackBy,
-			underAttackBy2, wildLevel, teleTimer, respawnTimer, saveTimer = 0,
-			teleBlockLength, poisonDelay, slayerPoints, blackMarks,
-			playerEnergy = 100, SlayerMaster, teleOtherTimer = 0,
-			teleOtherSlot = -1, tutorialProgress, Cookstage1 = 1,
-			woodcuttingTree, smeltAmount, knightS, otherDirection,
-			brightness = 3, recoilHits, droppedItem = -1,
-					spawnedHealers, cannonX = 0, cannonY = 0;
+			weightCarried, teleotherType, rockX, rockY, itemUsing, tzKekTimer,
+			bananas, flourAmount, grain, questPoints, questStages, teleGrabItem,
+			teleGrabX, teleGrabY, duelCount, underAttackBy, underAttackBy2,
+			wildLevel, teleTimer, respawnTimer, saveTimer = 0, teleBlockLength,
+			poisonDelay, slayerPoints, blackMarks, playerEnergy = 100,
+			SlayerMaster, teleOtherTimer = 0, teleOtherSlot = -1,
+			tutorialProgress, Cookstage1 = 1, woodcuttingTree, smeltAmount,
+			knightS, otherDirection, brightness = 3, recoilHits,
+			droppedItem = -1, spawnedHealers, cannonX = 0, cannonY = 0;
 
 	public Pets getSummon() {
 		return pets;
@@ -272,10 +274,10 @@ public abstract class Player {
 	public int[] autocastIds = { 51133, 32, 51185, 33, 51091, 34, 24018, 35,
 			51159, 36, 51211, 37, 51111, 38, 51069, 39, 51146, 40, 51198, 41,
 			51102, 42, 51058, 43, 51172, 44, 51224, 45, 51122, 46, 51080, 47,
-			7038, 0, 7039, 1, 7040, 2, 7041, 3, 7042, 4, 7043, 5, 7044, 6,
-			7045, 7, 7046, 8, 7047, 9, 7048, 10, 7049, 11, 7050, 12, 7051, 13,
-			7052, 14, 7053, 15, 47019, 27, 47020, 25, 47021, 12, 47022, 13,
-			47023, 14, 47024, 15 };
+			7038, 0, 7039, 1, 7040, 2, 7041, 3, 7042, 4, 7043, 5, 7044, 6, 7045,
+			7, 7046, 8, 7047, 9, 7048, 10, 7049, 11, 7050, 12, 7051, 13, 7052,
+			14, 7053, 15, 47019, 27, 47020, 25, 47021, 12, 47022, 13, 47023, 14,
+			47024, 15 };
 
 	// public String spellName = "Select Spell";
 	public void assignAutocast(int button) {
@@ -358,7 +360,6 @@ public abstract class Player {
 	public int gameInterface;
 	public int lastGame;
 
-
 	public int[][] barrowsNpcs = { { 2030, 0 }, // verac
 			{ 2029, 0 }, // toarg
 			{ 2028, 0 }, // karil
@@ -375,7 +376,8 @@ public abstract class Player {
 	// the spell
 	public long[] reduceSpellDelay = new long[6];
 	public final int[] REDUCE_SPELLS = { 1153, 1157, 1161, 1542, 1543, 1562 };
-	public boolean[] canUseReducingSpell = { true, true, true, true, true, true };
+	public boolean[] canUseReducingSpell = { true, true, true, true, true,
+			true };
 
 	public int slayerTask, taskAmount;
 
@@ -440,42 +442,43 @@ public abstract class Player {
 	public int[] farmData = new int[2];
 
 	public boolean antiFirePot = false;
-	
+
 	public boolean underWater = false;
-    public boolean prevRunning2;
-    public int prevPrevPlayerRunIndex;
-    public int prevPlayerStandIndex;
-    public int prevplayerWalkIndex;
-    public int prevPlayerTurnIndex;
-    public int prevPlayerTurn90CWIndex;
-    public int prevPlayerTurn90CCWIndex;
-    public int prevPlayerTurn180Index;
+	public boolean prevRunning2;
+	public int prevPrevPlayerRunIndex;
+	public int prevPlayerStandIndex;
+	public int prevplayerWalkIndex;
+	public int prevPlayerTurnIndex;
+	public int prevPlayerTurn90CWIndex;
+	public int prevPlayerTurn90CCWIndex;
+	public int prevPlayerTurn180Index;
 
-   public Client asClient() {
-       return (Client) this;
-   }
-   
-   private Player player;
-   public Player asPlayer() {
-       return (Player) player;
-   }
+	public Client asClient() {
+		return (Client) this;
+	}
 
-   public boolean inTrawlerBoat() {
-       if(inArea(2808, 2811,3415,3425)) {
-           return true;
-       }
-       return false;
-   }
-   
-   public boolean inTrawlerGame() {
-       if(inArea(2808, 2811,3415,3425)) {
-           return true;
-       }
-       return false;
-   }
+	private Player player;
 
-   public long lastFishingTrawlerInteraction;
-   public boolean inFishingTrawlerRewardsInterface;
+	public Player asPlayer() {
+		return (Player) player;
+	}
+
+	public boolean inTrawlerBoat() {
+		if (inArea(2808, 2811, 3415, 3425)) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean inTrawlerGame() {
+		if (inArea(2808, 2811, 3415, 3425)) {
+			return true;
+		}
+		return false;
+	}
+
+	public long lastFishingTrawlerInteraction;
+	public boolean inFishingTrawlerRewardsInterface;
 
 	/**
 	 * Castle Wars
@@ -536,37 +539,23 @@ public abstract class Player {
 	}
 
 	public boolean inMulti() {
-		if (absX >= 3136
-				&& absX <= 3327
-				&& absY >= 3519
-				&& absY <= 3607// duel?
-				|| absX >= 2360
-				&& absX <= 2445
-				&& absY >= 5045
-				&& absY <= 5125
-				|| absX >= 3190
-				&& absX <= 3327
-				&& absY >= 3648
-				&& absY <= 3839// duel?
+		if (absX >= 3136 && absX <= 3327 && absY >= 3519 && absY <= 3607// duel?
+				|| absX >= 2360 && absX <= 2445 && absY >= 5045 && absY <= 5125
+				|| absX >= 3190 && absX <= 3327 && absY >= 3648 && absY <= 3839// duel?
 				|| absX >= 3200 && absX <= 3390 && absY >= 3840 && absY <= 3967
 				|| absX >= 2992 && absX <= 3007 && absY >= 3912 && absY <= 3967
 				|| absX >= 2946 && absX <= 2959 && absY >= 3816 && absY <= 3831
 				|| absX >= 3008 && absX <= 3199 && absY >= 3856 && absY <= 3903
 				|| absX >= 3008 && absX <= 3071 && absY >= 3600 && absY <= 3711
 				|| absX >= 3072 && absX <= 3327 && absY >= 3608 && absY <= 3647
-				|| absX >= 2624
-				&& absX <= 2690
-				&& absY >= 2550
-				&& absY <= 2619
-				|| absX >= 2667
-				&& absX <= 2685
-				&& absY >= 3712
-				&& absY <= 3730 // rock
-								// crabs
+				|| absX >= 2624 && absX <= 2690 && absY >= 2550 && absY <= 2619
+				|| absX >= 2667 && absX <= 2685 && absY >= 3712 && absY <= 3730 // rock
+																				// crabs
 				|| absX >= 2371 && absX <= 2422 && absY >= 5062 && absY <= 5117
 				|| absX >= 2896 && absX <= 2927 && absY >= 3595 && absY <= 3630
 				|| absX >= 2892 && absX <= 2932 && absY >= 4435 && absY <= 4464
-				|| absX >= 2256 && absX <= 2287 && absY >= 4680 && absY <= 4711) {
+				|| absX >= 2256 && absX <= 2287 && absY >= 4680
+						&& absY <= 4711) {
 			return true;
 		}
 		return false;
@@ -593,24 +582,23 @@ public abstract class Player {
 		}
 		return false;
 	}
-	
-	
-	 public boolean playerIsBusy() {
-	        if(isShopping || inTrade || openDuel || isBanking || duelStatus == 1) {
-	            return true;
-	        }
-	        return false;
-	    }
-	
-	public boolean isInBarrows() {		
-		if(absX > 3543 && absX < 3584 && absY > 3265 && absY < 3311) {
+
+	public boolean playerIsBusy() {
+		if (isShopping || inTrade || openDuel || isBanking || duelStatus == 1) {
 			return true;
 		}
 		return false;
 	}
-	
-	public boolean isInBarrows2() {		
-		if(absX > 3529 && absX < 3581 && absY > 9673 && absY < 9722) {
+
+	public boolean isInBarrows() {
+		if (absX > 3543 && absX < 3584 && absY > 3265 && absY < 3311) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean isInBarrows2() {
+		if (absX > 3529 && absX < 3581 && absY > 9673 && absY < 9722) {
 			return true;
 		}
 		return false;
@@ -625,32 +613,48 @@ public abstract class Player {
 	}
 
 	public boolean inDuelArena() {
-		if (absX > 3322 && absX < 3394 && absY > 3195 && absY < 3291 || absX > 3311 && absX < 3323 && absY > 3223 && absY < 3248) {
+		if (absX > 3322 && absX < 3394 && absY > 3195 && absY < 3291
+				|| absX > 3311 && absX < 3323 && absY > 3223 && absY < 3248) {
 			return true;
 		}
 		return false;
 	}
 
-	public boolean inBank() { // Area(top left X, bottom right X, bottom right Y, top left Y)
-		   return Area(3090, 3099, 3487, 3500) || Area(3089, 3090, 3492, 3498) || Area(3249, 3258, 3413, 3428) || Area(3180, 3191, 3432, 3448) || Area(2945, 2948, 3365, 3374) || 
-			   Area(2943, 2948, 3367, 3374) || Area(2945, 2950, 3365, 3370) || Area(3009, 3018, 3352, 3359) || Area(3017, 3022, 3353, 3357);
+	public boolean inBank() { // Area(top left X, bottom right X, bottom right
+								// Y, top left Y)
+		return Area(3090, 3099, 3487, 3500) || Area(3089, 3090, 3492, 3498)
+				|| Area(3249, 3258, 3413, 3428) || Area(3180, 3191, 3432, 3448)
+				|| Area(2945, 2948, 3365, 3374) || Area(2943, 2948, 3367, 3374)
+				|| Area(2945, 2950, 3365, 3370) || Area(3009, 3018, 3352, 3359)
+				|| Area(3017, 3022, 3353, 3357);
 	}
-	
+
 	public boolean inLumbBuilding() {
-		return Area(3205, 3216, 3209, 3228) || Area(3229, 3233, 3206, 3208) || Area(3228, 3233, 3201, 3205) || Area(3230, 3237, 3195, 3198) || Area(3238, 3229, 3209, 3211) ||
-			   Area(3240, 3247, 3204, 3215) || Area(3247, 3252, 3190, 3195) || Area(3227, 3230, 3212, 3216) || Area(3227, 3230, 3221, 3225) || Area(3229, 3232, 3236, 3241) ||
-			   Area(3209, 3213, 3243, 3250) || Area(3222, 3229, 3252, 3257) || Area(3184, 3192, 3270, 3275) || Area(3222, 3224, 3292, 3294) || Area(3225, 3230, 3287, 3228) ||
-			   Area(3243, 3248, 3244, 3248) || Area(3202, 3205, 3167, 3170) || Area(3231, 3238, 3151, 3155) || Area(3233, 3234, 3156, 3156) || Area(3163, 3170, 3305, 3308) ||
-			   Area(3165, 3168, 3303, 3310);
+		return Area(3205, 3216, 3209, 3228) || Area(3229, 3233, 3206, 3208)
+				|| Area(3228, 3233, 3201, 3205) || Area(3230, 3237, 3195, 3198)
+				|| Area(3238, 3229, 3209, 3211) || Area(3240, 3247, 3204, 3215)
+				|| Area(3247, 3252, 3190, 3195) || Area(3227, 3230, 3212, 3216)
+				|| Area(3227, 3230, 3221, 3225) || Area(3229, 3232, 3236, 3241)
+				|| Area(3209, 3213, 3243, 3250) || Area(3222, 3229, 3252, 3257)
+				|| Area(3184, 3192, 3270, 3275) || Area(3222, 3224, 3292, 3294)
+				|| Area(3225, 3230, 3287, 3228) || Area(3243, 3248, 3244, 3248)
+				|| Area(3202, 3205, 3167, 3170) || Area(3231, 3238, 3151, 3155)
+				|| Area(3233, 3234, 3156, 3156) || Area(3163, 3170, 3305, 3308)
+				|| Area(3165, 3168, 3303, 3310);
 	}
 
-     	public boolean inDraynorBuilding() {
-			return Area(3097, 3102, 3277, 3281) || Area(3088, 3092, 3273, 3276) || Area(3096, 3102, 3266, 3270) || Area(3089, 3095, 3265, 3268) || Area(3083, 3088, 3256, 3261) ||
-				   Area(3087, 3094, 3251, 3255) || Area(3121, 3130, 3240, 3246) || Area(3102, 3112, 3162, 3165) || Area(3107, 3111, 3166, 3166) || Area(3103, 3115, 3157, 3161) ||
-				   Area(3105, 3114, 3156, 3156) || Area(3105, 3113, 3155, 3155) || Area(3106, 3112, 3154, 3154) || Area(3092, 3097, 3240, 3246);
+	public boolean inDraynorBuilding() {
+		return Area(3097, 3102, 3277, 3281) || Area(3088, 3092, 3273, 3276)
+				|| Area(3096, 3102, 3266, 3270) || Area(3089, 3095, 3265, 3268)
+				|| Area(3083, 3088, 3256, 3261) || Area(3087, 3094, 3251, 3255)
+				|| Area(3121, 3130, 3240, 3246) || Area(3102, 3112, 3162, 3165)
+				|| Area(3107, 3111, 3166, 3166) || Area(3103, 3115, 3157, 3161)
+				|| Area(3105, 3114, 3156, 3156) || Area(3105, 3113, 3155, 3155)
+				|| Area(3106, 3112, 3154, 3154) || Area(3092, 3097, 3240, 3246);
 	}
 
-	public boolean Area(final int x1, final int x2, final int y1, final int y2) {
+	public boolean Area(final int x1, final int x2, final int y1,
+			final int y2) {
 		return absX >= x1 && absX <= x2 && absY >= y1 && absY <= y2;
 	}
 
@@ -884,8 +888,8 @@ public abstract class Player {
 	}
 
 	public int distanceToPoint(int pointX, int pointY) {
-		return (int) Math.sqrt(Math.pow(absX - pointX, 2)
-				+ Math.pow(absY - pointY, 2));
+		return (int) Math
+				.sqrt(Math.pow(absX - pointX, 2) + Math.pow(absY - pointY, 2));
 	}
 
 	public int mapRegionX, mapRegionY;
@@ -937,17 +941,17 @@ public abstract class Player {
 						|| objectId == 4493 || objectId == 12164
 						|| objectId == 1721 || objectId == 1722
 						|| objectId == 4304 && playerX == 2619
-						&& playerY == 3667) {
+								&& playerY == 3667) {
 					return true;
 				}
-				if (objectX + i == playerX
-						&& (objectY + j == playerY || objectY - j == playerY || objectY == playerY)) {
+				if (objectX + i == playerX && (objectY + j == playerY
+						|| objectY - j == playerY || objectY == playerY)) {
 					return true;
-				} else if (objectX - i == playerX
-						&& (objectY + j == playerY || objectY - j == playerY || objectY == playerY)) {
+				} else if (objectX - i == playerX && (objectY + j == playerY
+						|| objectY - j == playerY || objectY == playerY)) {
 					return true;
-				} else if (objectX == playerX
-						&& (objectY + j == playerY || objectY - j == playerY || objectY == playerY)) {
+				} else if (objectX == playerX && (objectY + j == playerY
+						|| objectY - j == playerY || objectY == playerY)) {
 					return true;
 				}
 			}
@@ -977,8 +981,10 @@ public abstract class Player {
 		dir >>= 1;
 		currentX += Misc.directionDeltaX[dir];
 		currentY += Misc.directionDeltaY[dir];
-		/*if (!Region.canMove(absX, absY, (absX + Misc.directionDeltaX[dir]), (absY + Misc.directionDeltaY[dir]), heightLevel, 1, 1))
-			return -1;*/
+		/*
+		 * if (!Region.canMove(absX, absY, (absX + Misc.directionDeltaX[dir]),
+		 * (absY + Misc.directionDeltaY[dir]), heightLevel, 1, 1)) return -1;
+		 */
 		absX += Misc.directionDeltaX[dir];
 		absY += Misc.directionDeltaY[dir];
 		updateWalkEntities();
@@ -999,8 +1005,8 @@ public abstract class Player {
 		if (teleportToX != -1 && teleportToY != -1) {
 			mapRegionDidChange = true;
 			if (mapRegionX != -1 && mapRegionY != -1) {
-				int relX = teleportToX - mapRegionX * 8, relY = teleportToY
-						- mapRegionY * 8;
+				int relX = teleportToX - mapRegionX * 8,
+						relY = teleportToY - mapRegionY * 8;
 				if (relX >= 2 * 8 && relX < 11 * 8 && relY >= 2 * 8
 						&& relY < 11 * 8) {
 					mapRegionDidChange = false;
@@ -1151,20 +1157,21 @@ public abstract class Player {
 			str.writeBits(1, 1);
 			str.writeBits(2, 1);
 			str.writeBits(3, Misc.xlateDirectionToClient[dir1]);
-			str.writeBits(1, updateRequired || isChatTextUpdateRequired() ? 1
-					: 0);
+			str.writeBits(1,
+					updateRequired || isChatTextUpdateRequired() ? 1 : 0);
 		} else {
 
 			str.writeBits(1, 1);
 			str.writeBits(2, 2);
 			str.writeBits(3, Misc.xlateDirectionToClient[dir1]);
 			str.writeBits(3, Misc.xlateDirectionToClient[dir2]);
-			str.writeBits(1, updateRequired || isChatTextUpdateRequired() ? 1
-					: 0);
+			str.writeBits(1,
+					updateRequired || isChatTextUpdateRequired() ? 1 : 0);
 		}
 	}
 
-	public byte cachedPropertiesBitmap[] = new byte[Constants.MAX_PLAYERS + 7 >> 3];
+	public byte cachedPropertiesBitmap[] = new byte[Constants.MAX_PLAYERS
+			+ 7 >> 3];
 
 	public void addNewNPC(Npc npc, Stream str, Stream updateBlock) {
 		int id = npc.npcId;
@@ -1367,8 +1374,8 @@ public abstract class Player {
 		} else {
 			int points = 0;
 			for (int lvl = 1; lvl <= 99; ++lvl) {
-				points = (int) (points + Math.floor(lvl + 300.0D
-						* Math.pow(2.0D, lvl / 7.0D)));
+				points = (int) (points + Math
+						.floor(lvl + 300.0D * Math.pow(2.0D, lvl / 7.0D)));
 				int var5 = (int) Math.floor(points / 4);
 				if (var5 >= exp) {
 					return lvl;
@@ -1386,7 +1393,8 @@ public abstract class Player {
 	private int chatTextEffects = 0;
 
 	protected void appendPlayerChatText(Stream str) {
-		str.writeWordBigEndian(((getChatTextColor() & 0xFF) << 8) + (getChatTextEffects() & 0xFF));
+		str.writeWordBigEndian(((getChatTextColor() & 0xFF) << 8)
+				+ (getChatTextEffects() & 0xFF));
 		str.writeByte(playerRights);
 		str.writeByteC(getChatTextSize());
 		str.writeBytes_reverse(getChatText(), getChatTextSize(), 0);
@@ -1468,8 +1476,8 @@ public abstract class Player {
 	}
 
 	public void appendAnimationRequest(Stream str) {
-		str.writeWordBigEndian(animationRequest == -1 ? 65535
-				: animationRequest);
+		str.writeWordBigEndian(
+				animationRequest == -1 ? 65535 : animationRequest);
 		str.writeByteC(animationWaitCycles);
 	}
 
@@ -1674,8 +1682,8 @@ public abstract class Player {
 
 					travelBackX[numTravelBackSteps] = walkingQueueX[ptr];
 					travelBackY[numTravelBackSteps++] = walkingQueueY[ptr];
-					dir = Misc.direction(walkingQueueX[ptr],
-							walkingQueueY[ptr], firstX, firstY);
+					dir = Misc.direction(walkingQueueX[ptr], walkingQueueY[ptr],
+							firstX, firstY);
 					if (var13 != dir) {
 						found = true;
 						break;
@@ -1716,36 +1724,29 @@ public abstract class Player {
 						while (x != i || y != wayPointY2) {
 							x += Misc.directionDeltaX[dir];
 							y += Misc.directionDeltaY[dir];
-							if ((Misc.direction(x, y, firstX, firstY) & 1) == 0) {
+							if ((Misc.direction(x, y, firstX, firstY)
+									& 1) == 0) {
 								found = true;
 								break;
 							}
 						}
 
 						if (!found) {
-							println_debug("Fatal: Internal error: unable to determine connection vertex!  wp1=("
-									+ wayPointX1
-									+ ", "
-									+ wayPointY1
-									+ "), wp2=("
-									+ i
-									+ ", "
-									+ wayPointY2
-									+ "), "
-									+ "first=("
-									+ firstX
-									+ ", "
-									+ firstY + ")");
+							println_debug(
+									"Fatal: Internal error: unable to determine connection vertex!  wp1=("
+											+ wayPointX1 + ", " + wayPointY1
+											+ "), wp2=(" + i + ", " + wayPointY2
+											+ "), " + "first=(" + firstX + ", "
+											+ firstY + ")");
 						} else {
 							addToWalkingQueue(wayPointX1, wayPointY1);
 						}
 					} else {
-						println_debug("Fatal: The walking queue is corrupt! wp1=("
-								+ wayPointX1
-								+ ", "
-								+ wayPointY1
-								+ "), "
-								+ "wp2=(" + i + ", " + wayPointY2 + ")");
+						println_debug(
+								"Fatal: The walking queue is corrupt! wp1=("
+										+ wayPointX1 + ", " + wayPointY1 + "), "
+										+ "wp2=(" + i + ", " + wayPointY2
+										+ ")");
 					}
 				} else {
 					for (i = 0; i < numTravelBackSteps; ++i) {

@@ -44,12 +44,11 @@ public class Kebabs {
 		float eff5 = chances("effect5");
 
 		if (Misc.random(100.0f) <= eff1) { // 8.71%
-			c.getActionSender().sendMessage(
-					"That kebab didn't seem to do a lot.");
+			c.getActionSender()
+					.sendMessage("That kebab didn't seem to do a lot.");
 
 		} else if (Misc.random(100.0f) <= eff2) { // 61.24% heals 10% of HP
-			c.getActionSender()
-					.sendMessage("It restores some life points.");
+			c.getActionSender().sendMessage("It restores some life points.");
 			if (c.playerLevel[3] < c.getLevelForXP(c.playerXP[3])) {
 				c.playerLevel[3] += c.getLevelForXP(c.playerXP[3]) * 0.10;
 				if (c.playerLevel[3] > c.getLevelForXP(c.playerXP[3])) {
@@ -70,9 +69,8 @@ public class Kebabs {
 
 		} else if (Misc.random(100.0f) <= eff4) {// 3.65% + attk,str,def +
 													// 2-3 + heal 0-300
-			c.getActionSender()
-					.sendMessage(
-							"Wow, that was an amazing kebab! You feel really invigorated.");
+			c.getActionSender().sendMessage(
+					"Wow, that was an amazing kebab! You feel really invigorated.");
 			c.playerLevel[1] += 2 + Misc.random(1); // def
 			c.playerLevel[2] += 2 + Misc.random(1); // str
 			c.playerLevel[0] += 2 + Misc.random(1); // atk
@@ -87,8 +85,8 @@ public class Kebabs {
 			}
 
 		} else if (Misc.random(100.0f) <= eff5) {// 6.3%. lower STAT
-			c.getActionSender().sendMessage(
-					"That tasted very dodgy. You feel very ill.");
+			c.getActionSender()
+					.sendMessage("That tasted very dodgy. You feel very ill.");
 			c.getActionSender().sendMessage(
 					"Eating the kebab has done damage to some of your stats.");
 			for (int j = 0; j < 2; j++) {

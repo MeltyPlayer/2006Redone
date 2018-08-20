@@ -136,6 +136,7 @@ public class RS2ProtocolDecoder extends CumulativeProtocolDecoder {
 	@Override
 	/**
 	 * Releases resources used by this decoder.
+	 * 
 	 * @param session
 	 */
 	public void dispose(IoSession session) throws Exception {

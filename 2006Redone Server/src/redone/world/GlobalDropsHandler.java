@@ -37,8 +37,8 @@ public class GlobalDropsHandler {
 		String Data;
 		BufferedReader Checker;
 		try {
-			Checker = new BufferedReader(new FileReader(
-					"./Data/cfg/globaldrops.txt"));
+			Checker = new BufferedReader(
+					new FileReader("./Data/cfg/globaldrops.txt"));
 			while ((Data = Checker.readLine()) != null) {
 				if (Data.startsWith("#")) {
 					continue;
@@ -54,28 +54,40 @@ public class GlobalDropsHandler {
 		}
 		Misc.println("Loaded " + globalDrops.size() + " global drops.");
 
-	for (Player player : PlayerHandler.players) {
-		final Client client = (Client) player;
-		if (client != null) {
-		   CycleEventHandler.getSingleton().addEvent(client, new CycleEvent() {
-	            @Override
-	            public void execute(CycleEventContainer container) {
-				for (GlobalDrop drop : globalDrops) {
-					if (drop.isTaken()) {
-						if (System.currentTimeMillis() - drop.getTakenAt() >= TIME_TO_RESPAWN * 1000) {
-							drop.setTaken(false);
-								if (client.distanceToPoint(drop.getX(), drop.getY()) <= 60) {
-									client.getActionSender().createGroundItem(drop.getId(), drop.getX(), drop.getY(), drop.getAmount(), 0);
+		for (Player player : PlayerHandler.players) {
+			final Client client = (Client) player;
+			if (client != null) {
+				CycleEventHandler.getSingleton().addEvent(client,
+						new CycleEvent() {
+							@Override
+							public void execute(CycleEventContainer container) {
+								for (GlobalDrop drop : globalDrops) {
+									if (drop.isTaken()) {
+										if (System.currentTimeMillis() - drop
+												.getTakenAt() >= TIME_TO_RESPAWN
+														* 1000) {
+											drop.setTaken(false);
+											if (client.distanceToPoint(
+													drop.getX(),
+													drop.getY()) <= 60) {
+												client.getActionSender()
+														.createGroundItem(
+																drop.getId(),
+																drop.getX(),
+																drop.getY(),
+																drop.getAmount(),
+																0);
+											}
+										}
+									}
 								}
 							}
-						}
-					}
-				}
-	            @Override
-				public void stop() {
-					// TODO Auto-generated method stub
-				}
-				}, 1);
+
+							@Override
+							public void stop() {
+								// TODO Auto-generated method stub
+							}
+						}, 1);
 			}
 		}
 	}
@@ -132,7 +144,8 @@ public class GlobalDropsHandler {
 				if (cl.distanceToPoint(drop.getX(), drop.getY()) <= 60) {
 					// cl.getItems().removeGroundItem(drop.getId(), drop.getX(),
 					// drop.getY(), drop.getAmount());
-					cl.getActionSender().removeGroundItem(drop.getId(), drop.getX(), drop.getY(), drop.getAmount());
+					cl.getActionSender().removeGroundItem(drop.getId(),
+							drop.getX(), drop.getY(), drop.getAmount());
 				}
 			}
 		}
@@ -148,7 +161,8 @@ public class GlobalDropsHandler {
 		for (GlobalDrop drop : globalDrops) {
 			if (!drop.isTaken()) {
 				if (client.distanceToPoint(drop.getX(), drop.getY()) <= 60) {
-					client.getActionSender().createGroundItem(drop.getId(), drop.getX(), drop.getY(), drop.getAmount(), 0);
+					client.getActionSender().createGroundItem(drop.getId(),
+							drop.getX(), drop.getY(), drop.getAmount(), 0);
 				}
 			}
 		}

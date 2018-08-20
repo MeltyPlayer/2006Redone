@@ -29,12 +29,18 @@ public class Superheat {
 					if (itemID == 440 && smelt[2] == 453) {
 						continue;
 					} else {
-						c.getActionSender().sendMessage("You haven't got enough " + ItemAssistant.getItemName(smelt[2]).toLowerCase() + " to cast this spell!");
+						c.getActionSender()
+								.sendMessage("You haven't got enough "
+										+ ItemAssistant.getItemName(smelt[2])
+												.toLowerCase()
+										+ " to cast this spell!");
 						return false;
 					}
 				}
-				if (!c.getItemAssistant().playerHasItem(554, 4) || !c.getItemAssistant().playerHasItem(561, 1)) {
-					c.getActionSender().sendMessage("You don't have the correct runes to cast this spell.");
+				if (!c.getItemAssistant().playerHasItem(554, 4)
+						|| !c.getItemAssistant().playerHasItem(561, 1)) {
+					c.getActionSender().sendMessage(
+							"You don't have the correct runes to cast this spell.");
 					return false;
 				}
 				if (itemID == 444 && c.playerEquipment[c.playerHands] == 776) {
@@ -44,15 +50,14 @@ public class Superheat {
 							c.playerSmithing);
 				}
 				if (c.playerLevel[c.playerSmithing] < smelt[6]) {
-					c.getActionSender().sendMessage(
-							"You need a smithing level of " + smelt[6]
-									+ " to superheat this ore.");
+					c.getActionSender()
+							.sendMessage("You need a smithing level of "
+									+ smelt[6] + " to superheat this ore.");
 					return false;
 				}
 				if (c.playerLevel[c.playerMagic] < 43) {
-					c.getActionSender()
-							.sendMessage(
-									"You need a magic level of 43 to superheat this ore.");
+					c.getActionSender().sendMessage(
+							"You need a magic level of 43 to superheat this ore.");
 					return false;
 				}
 				c.getItemAssistant().deleteItem(itemID, 1);
@@ -65,14 +70,15 @@ public class Superheat {
 				c.gfx0(148);
 				c.getActionSender().sendSound(SoundList.SUPERHEAT, 100, 0);
 				if (itemID != 444) {
-					c.getPlayerAssistant().addSkillXP(smelt[7], c.playerSmithing);
+					c.getPlayerAssistant().addSkillXP(smelt[7],
+							c.playerSmithing);
 				}
 				c.getPlayerAssistant().sendFrame106(6);
 				return true;
 			}
 		}
-		c.getActionSender().sendMessage(
-				"You can only cast superheat item on ores!");
+		c.getActionSender()
+				.sendMessage("You can only cast superheat item on ores!");
 		c.getActionSender().sendSound(SoundList.SUPERHEAT_FAIL, 100, 0);
 		return false;
 	}

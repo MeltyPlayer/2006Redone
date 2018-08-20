@@ -31,31 +31,30 @@ public class ObjectHandler {
 		loadGlobalObjects("./Data/cfg/global-objects.cfg");
 		// Ladders.loadGlobalLadders("./Data/Ladders/AdvancedLadders.cfg");
 	}
-	
-	 public Objects getObjectByPosition(int x, int y) {
-			for (Objects o : globalObjects) {
-			    for(int j = 0; j < globalObjects.size(); j++) {
-	            globalObjects.get(j);
-	            globalObjects.get(j);
-	            if(o.objectX == x && o.objectY == y) {
-	                return globalObjects.get(j);
-	            }	
+
+	public Objects getObjectByPosition(int x, int y) {
+		for (Objects o : globalObjects) {
+			for (int j = 0; j < globalObjects.size(); j++) {
+				globalObjects.get(j);
+				globalObjects.get(j);
+				if (o.objectX == x && o.objectY == y) {
+					return globalObjects.get(j);
+				}
 			}
 		}
-	    return null;
-	 }
+		return null;
+	}
 
-	    public void createAnObject(int id, int x, int y, int face) {
-	        Objects OBJECT = new Objects(id, x, y, 0, face, 10, 0);
-	        if (id == -1) {
-	            removeObject(OBJECT);
-	        } else {
-	            addObject(OBJECT);
-	        }
-	        //Server.canLoadObjects = true;
-	        Server.objectHandler.placeObject(OBJECT);
-	    }
-		
+	public void createAnObject(int id, int x, int y, int face) {
+		Objects OBJECT = new Objects(id, x, y, 0, face, 10, 0);
+		if (id == -1) {
+			removeObject(OBJECT);
+		} else {
+			addObject(OBJECT);
+		}
+		// Server.canLoadObjects = true;
+		Server.objectHandler.placeObject(OBJECT);
+	}
 
 	public void createAnObject(Client c, int id, int x, int y) {
 		Objects OBJECT = new Objects(id, x, y, c.heightLevel, 0, 10, 0);
@@ -120,13 +119,25 @@ public class ObjectHandler {
 	public void updateObjects(Client c) {
 		for (Objects o : globalObjects) {
 			if (c != null) {
-				if (c.heightLevel == 0 && o.objectTicks == 0 && c.distanceToPoint(o.getObjectX(), o.getObjectY()) <= 60) {
-					if (Woodcutting.playerTrees(c, o.getObjectId()) || Mining.rockExists(c, o.getObjectId())) {
-						c.getActionSender().object(o.getObjectId(), o.getObjectX(), o.getObjectY(), 0, o.getObjectFace(), o.getObjectType());
+				if (c.heightLevel == 0 && o.objectTicks == 0
+						&& c.distanceToPoint(o.getObjectX(),
+								o.getObjectY()) <= 60) {
+					if (Woodcutting.playerTrees(c, o.getObjectId())
+							|| Mining.rockExists(c, o.getObjectId())) {
+						c.getActionSender().object(o.getObjectId(),
+								o.getObjectX(), o.getObjectY(), 0,
+								o.getObjectFace(), o.getObjectType());
 					}
 				}
-				if (c.heightLevel == o.getObjectHeight() && !Woodcutting.playerTrees(c, o.getObjectId()) && !Mining.rockExists(c, o.getObjectId()) && o.objectTicks == 0 && c.distanceToPoint(o.getObjectX(), o.getObjectY()) <= 60) {
-					c.getActionSender().object(o.getObjectId(), o.getObjectX(), o.getObjectY(), c.heightLevel, o.getObjectFace(), o.getObjectType());
+				if (c.heightLevel == o.getObjectHeight()
+						&& !Woodcutting.playerTrees(c, o.getObjectId())
+						&& !Mining.rockExists(c, o.getObjectId())
+						&& o.objectTicks == 0
+						&& c.distanceToPoint(o.getObjectX(),
+								o.getObjectY()) <= 60) {
+					c.getActionSender().object(o.getObjectId(), o.getObjectX(),
+							o.getObjectY(), c.heightLevel, o.getObjectFace(),
+							o.getObjectType());
 				}
 			}
 		}
@@ -146,11 +157,12 @@ public class ObjectHandler {
 								o.getObjectY()) <= 60) {
 							removeAllObjects(o);
 							globalObjects.add(o);
-							person.getActionSender().object(
-									o.getObjectId(), o.getObjectX(),
-									o.getObjectY(), o.getObjectFace(),
-									o.getObjectType());
-							//Region.addObject(o.getObjectId(), o.getObjectX(), o.getObjectY(), o.getObjectHeight(), o.getObjectType(), o.getObjectFace(), true);
+							person.getActionSender().object(o.getObjectId(),
+									o.getObjectX(), o.getObjectY(),
+									o.getObjectFace(), o.getObjectType());
+							// Region.addObject(o.getObjectId(), o.getObjectX(),
+							// o.getObjectY(), o.getObjectHeight(),
+							// o.getObjectType(), o.getObjectFace(), true);
 						}
 					}
 				}
@@ -249,7 +261,7 @@ public class ObjectHandler {
 						objectFile.close();
 					} catch (IOException ioexception) {
 					}
-					//return true;
+					// return true;
 				}
 			}
 			try {
@@ -304,14 +316,14 @@ public class ObjectHandler {
 				Server.objectHandler.placeObject(obby3);
 				Server.objectHandler.placeObject(obby4);
 				Objects obby5 = new Objects(obeliskIds[index],
-						obeliskCoords[index][0], obeliskCoords[index][1], 0,
-						-1, 10, 10);
+						obeliskCoords[index][0], obeliskCoords[index][1], 0, -1,
+						10, 10);
 				Objects obby6 = new Objects(obeliskIds[index],
-						obeliskCoords[index][0] + 4, obeliskCoords[index][1],
-						0, -1, 10, 10);
+						obeliskCoords[index][0] + 4, obeliskCoords[index][1], 0,
+						-1, 10, 10);
 				Objects obby7 = new Objects(obeliskIds[index],
-						obeliskCoords[index][0], obeliskCoords[index][1] + 4,
-						0, -1, 10, 10);
+						obeliskCoords[index][0], obeliskCoords[index][1] + 4, 0,
+						-1, 10, 10);
 				Objects obby8 = new Objects(obeliskIds[index],
 						obeliskCoords[index][0] + 4,
 						obeliskCoords[index][1] + 4, 0, -1, 10, 10);

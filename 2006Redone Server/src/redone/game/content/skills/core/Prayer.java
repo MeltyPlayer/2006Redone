@@ -13,6 +13,7 @@ import redone.util.Misc;
 
 /**
  * Class Prayer Handles Prayer
+ * 
  * @author 2012 23:56 29/12/2010
  */
 
@@ -63,7 +64,8 @@ public class Prayer {
 		for (final int[] element : data) {
 			if (i == element[0]) {
 				if (!SkillHandler.PRAYER) {
-					c.getActionSender().sendMessage("This skill is currently disabled.");
+					c.getActionSender()
+							.sendMessage("This skill is currently disabled.");
 				}
 				if (System.currentTimeMillis() - c.buryDelay > 800) {
 					c.getItemAssistant().deleteItem(element[0], slot, 1);
@@ -71,18 +73,28 @@ public class Prayer {
 					c.buryDelay = System.currentTimeMillis();
 					c.startAnimation(827);
 					c.getActionSender().sendSound(SoundList.BONE_BURY, 100, 0);
-					c.getActionSender().sendMessage("You dig a hole in the ground...");
-					CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
-						@Override
-						public void execute(CycleEventContainer container) {
-							c.getActionSender().sendMessage("You bury the " + ItemAssistant.getItemName(element[0]).toLowerCase() + ".");
-							container.stop();
-						}
-						@Override
-						public void stop() {
-							
-						}
-					}, 1);
+					c.getActionSender()
+							.sendMessage("You dig a hole in the ground...");
+					CycleEventHandler.getSingleton().addEvent(c,
+							new CycleEvent() {
+								@Override
+								public void execute(
+										CycleEventContainer container) {
+									c.getActionSender()
+											.sendMessage("You bury the "
+													+ ItemAssistant
+															.getItemName(
+																	element[0])
+															.toLowerCase()
+													+ ".");
+									container.stop();
+								}
+
+								@Override
+								public void stop() {
+
+								}
+							}, 1);
 				}
 			}
 		}

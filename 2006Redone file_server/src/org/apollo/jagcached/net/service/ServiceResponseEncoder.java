@@ -8,18 +8,19 @@ import org.jboss.netty.handler.codec.oneone.OneToOneEncoder;
 
 /**
  * A {@link OneToOneEncoder} which encodes {@link ServiceResponse} messages.
+ * 
  * @author Graham
  */
 public final class ServiceResponseEncoder extends OneToOneEncoder {
 
-	@Override
-	protected Object encode(ChannelHandlerContext ctx, Channel c, Object msg) throws Exception {
-		if (msg instanceof ServiceResponse) {
-			ChannelBuffer buf = ChannelBuffers.buffer(8);
-			buf.writeLong(0);
-			return buf;
-		}
-		return msg;
-	}
+  @Override
+  protected Object encode(ChannelHandlerContext ctx, Channel c, Object msg) throws Exception {
+    if (msg instanceof ServiceResponse) {
+      ChannelBuffer buf = ChannelBuffers.buffer(8);
+      buf.writeLong(0);
+      return buf;
+    }
+    return msg;
+  }
 
 }

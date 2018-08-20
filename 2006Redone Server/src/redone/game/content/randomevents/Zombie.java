@@ -14,13 +14,15 @@ public class Zombie {
 	public static void spawnZombie(Client c) {
 		for (int[] element : zombie) {
 			if (c.zombieSpawned == false) {
-			if (c.combatLevel >= element[0] && c.combatLevel <= element[1]) {
-				NpcHandler.spawnNpc(c, element[2], c.absX + Misc.random(1),
-						c.absY + Misc.random(1), c.heightLevel, 0, element[3],
-						element[4], element[5], element[6], true, false);
-				c.randomActions = 0;
-				c.zombieSpawned = true;
-				NpcHandler.npcs[element[2]].forceChat("Braaaainssss!");
+				if (c.combatLevel >= element[0]
+						&& c.combatLevel <= element[1]) {
+					NpcHandler.spawnNpc(c, element[2], c.absX + Misc.random(1),
+							c.absY + Misc.random(1), c.heightLevel, 0,
+							element[3], element[4], element[5], element[6],
+							true, false);
+					c.randomActions = 0;
+					c.zombieSpawned = true;
+					NpcHandler.npcs[element[2]].forceChat("Braaaainssss!");
 				}
 			}
 		}

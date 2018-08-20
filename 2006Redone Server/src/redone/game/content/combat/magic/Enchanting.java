@@ -15,13 +15,13 @@ public class Enchanting {
 
 	public enum Enchant {
 
-		SAPPHIRERING(1637, 2550, 7, 18, 719, 114, 1), SAPPHIREAMULET(1694,
-				1727, 7, 18, 719, 114, 1), SAPPHIRENECKLACE(1656, 3853, 7, 18,
-				719, 114, 1),
+		SAPPHIRERING(1637, 2550, 7, 18, 719, 114, 1), SAPPHIREAMULET(1694, 1727,
+				7, 18, 719, 114,
+				1), SAPPHIRENECKLACE(1656, 3853, 7, 18, 719, 114, 1),
 
 		EMERALDRING(1639, 2552, 27, 37, 719, 114, 2), EMERALDAMULET(1696, 1729,
-				27, 37, 719, 114, 2), EMERALDNECKLACE(1658, 5521, 27, 37, 719,
-				114, 2),
+				27, 37, 719, 114,
+				2), EMERALDNECKLACE(1658, 5521, 27, 37, 719, 114, 2),
 
 		RUBYRING(1641, 2568, 47, 59, 720, 115, 3), RUBYAMULET(1698, 1725, 47,
 				59, 720, 115, 3),
@@ -31,8 +31,8 @@ public class Enchanting {
 				57, 67, 720, 115, 4),
 		// DIAMONDNECKLACE(1662, 11090, 57, 67, 720, 115, 4),
 
-		DRAGONSTONERING(1645, 2572, 68, 78, 721, 116, 5), 
-		DRAGONSTONEAMULET(1702, 1704, 68, 78, 721, 116, 5),
+		DRAGONSTONERING(1645, 2572, 68, 78, 721, 116,
+				5), DRAGONSTONEAMULET(1702, 1704, 68, 78, 721, 116, 5),
 		// DRAGONSTONENECKLACE(1664, 11105, 68, 78, 721, 116, 5),
 
 		ONYXRING(6575, 6583, 87, 97, 721, 452, 6), ONYXAMULET(6581, 6585, 87,
@@ -97,10 +97,10 @@ public class Enchanting {
 
 	private enum EnchantSpell {
 
-		SAPPHIRE(1155, 555, 1, 564, 1, -1, 0), EMERALD(1165, 556, 3, 564, 1,
-				-1, 0), RUBY(1176, 554, 5, 564, 1, -1, 0), DIAMOND(1180, 557,
-				10, 564, 1, -1, 0), DRAGONSTONE(1187, 555, 15, 557, 15, 564, 1), ONYX(
-				6003, 557, 20, 554, 20, 564, 1);
+		SAPPHIRE(1155, 555, 1, 564, 1, -1, 0), EMERALD(1165, 556, 3, 564, 1, -1,
+				0), RUBY(1176, 554, 5, 564, 1, -1, 0), DIAMOND(1180, 557, 10,
+						564, 1, -1, 0), DRAGONSTONE(1187, 555, 15, 557, 15, 564,
+								1), ONYX(6003, 557, 20, 554, 20, 564, 1);
 
 		int spell, reqRune1, reqAmtRune1, reqRune2, reqAmtRune2, reqRune3,
 				reqAmtRune3;
@@ -204,29 +204,24 @@ public class Enchanting {
 			if (c.getItemAssistant().playerHasItem(enc.getUnenchanted(), 1)) {
 				if (hasRunes(spellID)) {
 					if (getEnchantmentLevel(spellID) == enc.getELevel()) {
-						c.getItemAssistant().deleteItem(enc.getUnenchanted(), 1);
+						c.getItemAssistant().deleteItem(enc.getUnenchanted(),
+								1);
 						c.getItemAssistant().addItem(enc.getEnchanted(), 1);
 						c.getPlayerAssistant().addSkillXP(enc.getXp(),
 								c.playerMagic);
-						c.getItemAssistant()
-								.deleteItem(
-										ens.getReq1(),
-										c.getItemAssistant().getItemSlot(
-												ens.getReq1()),
-										ens.getReqAmt1());
-						c.getItemAssistant()
-								.deleteItem(
-										ens.getReq2(),
-										c.getItemAssistant().getItemSlot(
-												ens.getReq2()),
-										ens.getReqAmt2());
+						c.getItemAssistant().deleteItem(ens.getReq1(),
+								c.getItemAssistant().getItemSlot(ens.getReq1()),
+								ens.getReqAmt1());
+						c.getItemAssistant().deleteItem(ens.getReq2(),
+								c.getItemAssistant().getItemSlot(ens.getReq2()),
+								ens.getReqAmt2());
 						c.startAnimation(enc.getAnim());
 						c.gfx100(enc.getGFX());
 						if (ens.getReq3() != -1) {
 							c.getItemAssistant().deleteItem(
-									ens.getReq3(),
-									c.getItemAssistant().getItemSlot(
-											ens.getReq3()), ens.getReqAmt3());
+									ens.getReq3(), c.getItemAssistant()
+											.getItemSlot(ens.getReq3()),
+									ens.getReqAmt3());
 						}
 						c.getPlayerAssistant().sendFrame106(6);
 					} else {
@@ -241,9 +236,9 @@ public class Enchanting {
 				}
 			}
 		} else {
-			c.getActionSender().sendMessage(
-					"You need a magic level of at least " + enc.getLevelReq()
-							+ " to cast this spell.");
+			c.getActionSender()
+					.sendMessage("You need a magic level of at least "
+							+ enc.getLevelReq() + " to cast this spell.");
 		}
 	}
 }

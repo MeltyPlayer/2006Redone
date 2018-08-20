@@ -25,7 +25,8 @@ public class GameLogger {
 		month = MONTH < 10 ? "0" + MONTH : "" + MONTH;
 		hour = HOUR < 10 ? "0" + HOUR : "" + HOUR;
 		minute = MIN < 10 ? "0" + MIN : "" + MIN;
-		return "[" + YEAR + "/" + month + "/" + day + "] " + hour + ":" + minute + " ";
+		return "[" + YEAR + "/" + month + "/" + day + "] " + hour + ":" + minute
+				+ " ";
 	}
 
 	/**
@@ -41,7 +42,8 @@ public class GameLogger {
 		}
 		if (s.length() > 8) {
 
-			s = s.substring(0, s.length() - 8).replace(",", ".") + " million (" + s + ")";
+			s = s.substring(0, s.length() - 8).replace(",", ".") + " million ("
+					+ s + ")";
 		} else if (s.length() > 4) {
 			s = s.substring(0, s.length() - 4) + "K (" + s + ")";
 		}
@@ -73,9 +75,11 @@ public class GameLogger {
 		} else if (logType.equalsIgnoreCase("commands")) {
 			log = new File("./Data/logs/commands/" + player + ".txt");
 		} else if (logType.equalsIgnoreCase("pmsent")) {
-			log = new File("./Data/logs/privatemessages/pmsent/" + player + ".txt");
+			log = new File(
+					"./Data/logs/privatemessages/pmsent/" + player + ".txt");
 		} else if (logType.equalsIgnoreCase("pmrecieved")) {
-			log = new File("./Data/logs/privatemessages/pmrecieved/" + player + ".txt");
+			log = new File("./Data/logs/privatemessages/pmrecieved/" + player
+					+ ".txt");
 		} else if (logType.equalsIgnoreCase("tradesgave")) {
 			log = new File("./Data/logs/trades/gave/" + player + ".txt");
 		} else if (logType.equalsIgnoreCase("tradesrecieved")) {

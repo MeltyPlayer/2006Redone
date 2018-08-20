@@ -15,9 +15,8 @@ public class Herblore extends SkillHandler {
 
 	private static final int[][] CLEAN_DATA = { { 199, 249, 1, 3 },
 			{ 201, 251, 5, 4 }, { 203, 253, 11, 5 }, { 205, 255, 20, 6 },
-			{ 207, 257, 25, 8 }, { 3049, 2998, 30, 8 },
-			{ 12174, 12172, 35, 8 }, { 209, 259, 40, 9 },
-			{ 14836, 14854, 30, 8 }, { 211, 261, 48, 10 },
+			{ 207, 257, 25, 8 }, { 3049, 2998, 30, 8 }, { 12174, 12172, 35, 8 },
+			{ 209, 259, 40, 9 }, { 14836, 14854, 30, 8 }, { 211, 261, 48, 10 },
 			{ 213, 263, 54, 11 }, { 3051, 3000, 59, 12 }, { 215, 265, 65, 13 },
 			{ 2485, 2481, 67, 13 }, { 217, 267, 70, 14 }, { 219, 269, 75, 15 },
 
@@ -28,19 +27,22 @@ public class Herblore extends SkillHandler {
 		for (int[] element : CLEAN_DATA) {
 			if (itemId == element[0]) {
 				if (c.playerLevel[15] < element[2]) {
-					c.getActionSender().sendMessage("You cannot clean this herb.");
-					c.getActionSender().sendMessage("You need a higher Herblore level.");
+					c.getActionSender()
+							.sendMessage("You cannot clean this herb.");
+					c.getActionSender()
+							.sendMessage("You need a higher Herblore level.");
 					return;
 				}
 				c.getItemAssistant().deleteItem(itemId, itemSlot, 1);
 				c.getItemAssistant().addItem(element[1], 1);
-				c.getActionSender().sendMessage("The herb is a " + ItemAssistant.getItemName(element[1]) + ".");
+				c.getActionSender().sendMessage("The herb is a "
+						+ ItemAssistant.getItemName(element[1]) + ".");
 				c.getPlayerAssistant().addSkillXP(element[3], 15);
 			}
 		}
 	}
 
-	//potion, item, finished, level req, exp
+	// potion, item, finished, level req, exp
 	private static final int[][] POTION_DATA = { { 91, 221, 121, 1, 25 },
 			{ 93, 235, 175, 5, 38 }, { 95, 225, 115, 12, 50 },
 			{ 97, 223, 127, 22, 63 }, { 99, 239, 133, 30, 75 },
@@ -50,9 +52,9 @@ public class Herblore extends SkillHandler {
 			{ 107, 239, 163, 66, 150 }, { 2483, 241, 2454, 69, 158 },
 			{ 109, 245, 169, 72, 163 }, { 2483, 3138, 3042, 76, 173 },
 			{ 111, 247, 189, 78, 175 }, { 3002, 6693, 6687, 81, 180 },
-			{ 5935, 6016, 5936, 73, 0}, { 5936, 223, 5937, 73, 165},
-			{ 5935, 2398, 5939, 82, 0}, { 5939, 6018, 5940, 82, 190},
-			{ 227, 263, 105, 55, 0}, { 105, 241, 187, 60, 137 },
+			{ 5935, 6016, 5936, 73, 0 }, { 5936, 223, 5937, 73, 165 },
+			{ 5935, 2398, 5939, 82, 0 }, { 5939, 6018, 5940, 82, 190 },
+			{ 227, 263, 105, 55, 0 }, { 105, 241, 187, 60, 137 },
 			{ 227, 249, 91, 1, 0 }, { 227, 251, 93, 5, 0 },
 			{ 227, 253, 95, 12, 0 }, { 227, 255, 97, 22, 0 },
 			{ 227, 257, 99, 30, 0 }, { 227, 259, 101, 34, 0 },
@@ -67,9 +69,9 @@ public class Herblore extends SkillHandler {
 			if (useItem == element[0] && itemUsed == element[1]
 					|| useItem == element[1] && itemUsed == element[0]) {
 				if (c.playerLevel[c.playerHerblore] < element[3]) {
-					c.getActionSender().sendMessage(
-							"You need an herblore level of " + element[3]
-									+ " to mix this potion.");
+					c.getActionSender()
+							.sendMessage("You need an herblore level of "
+									+ element[3] + " to mix this potion.");
 					return;
 				}
 				send1Item(c, element[2]);
@@ -102,10 +104,9 @@ public class Herblore extends SkillHandler {
 				c.getItemAssistant().deleteItem(itemToDelete2,
 						c.getItemAssistant().getItemSlot(itemToDelete2), 1);
 				c.getItemAssistant().addItem(itemToAdd, 1);
-				c.getActionSender().sendMessage(
-						"You make a "
-								+ ItemAssistant.getItemName(itemToAdd)
-										.toLowerCase() + ".");
+				c.getActionSender().sendMessage("You make a "
+						+ ItemAssistant.getItemName(itemToAdd).toLowerCase()
+						+ ".");
 				c.getPlayerAssistant().addSkillXP(potExp, c.playerHerblore);
 				deleteTime(c);
 				if (!c.getItemAssistant().playerHasItem(itemToDelete2, 1)

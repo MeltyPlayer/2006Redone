@@ -8,7 +8,9 @@ import redone.util.Misc;
 
 /**
  * CombatSounds
- * @author Andrew (I'm A Boss on Rune-Server and Mr Extremez on Mopar & Runelocus)
+ * 
+ * @author Andrew (I'm A Boss on Rune-Server and Mr Extremez on Mopar &
+ *         Runelocus)
  */
 
 public class CombatSounds {
@@ -185,34 +187,29 @@ public class CombatSounds {
 			blockSound = 14;// Robe sound
 		} else if (c.playerEquipment[c.playerShield] == 4224) {// Crystal Shield
 			blockSound = 30;// Crystal sound
-		} else if (c.playerEquipment[c.playerChest] == 1101
-				|| // Chains
+		} else if (c.playerEquipment[c.playerChest] == 1101 || // Chains
 				c.playerEquipment[c.playerChest] == 1103
 				|| c.playerEquipment[c.playerChest] == 1105
 				|| c.playerEquipment[c.playerChest] == 1107
 				|| c.playerEquipment[c.playerChest] == 1109
 				|| c.playerEquipment[c.playerChest] == 1111
 				|| c.playerEquipment[c.playerChest] == 1113
-				|| c.playerEquipment[c.playerChest] == 1115
-				|| // Plates
+				|| c.playerEquipment[c.playerChest] == 1115 || // Plates
 				c.playerEquipment[c.playerChest] == 1117
 				|| c.playerEquipment[c.playerChest] == 1119
 				|| c.playerEquipment[c.playerChest] == 1121
 				|| c.playerEquipment[c.playerChest] == 1123
 				|| c.playerEquipment[c.playerChest] == 1125
 				|| c.playerEquipment[c.playerChest] == 1127
-				|| c.playerEquipment[c.playerChest] == 4720
-				|| // Barrows armour
+				|| c.playerEquipment[c.playerChest] == 4720 || // Barrows armour
 				c.playerEquipment[c.playerChest] == 4728
 				|| c.playerEquipment[c.playerChest] == 4749
 				|| c.playerEquipment[c.playerChest] == 4712
-				|| c.playerEquipment[c.playerChest] == 11720
-				|| // Godwars armour
+				|| c.playerEquipment[c.playerChest] == 11720 || // Godwars
+																// armour
 				c.playerEquipment[c.playerChest] == 11724
-				|| c.playerEquipment[c.playerChest] == 3140
-				|| // Dragon
-				c.playerEquipment[c.playerChest] == 2615
-				|| // Fancy
+				|| c.playerEquipment[c.playerChest] == 3140 || // Dragon
+				c.playerEquipment[c.playerChest] == 2615 || // Fancy
 				c.playerEquipment[c.playerChest] == 2653
 				|| c.playerEquipment[c.playerChest] == 2661
 				|| c.playerEquipment[c.playerChest] == 2669

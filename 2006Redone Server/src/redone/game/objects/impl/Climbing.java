@@ -18,7 +18,7 @@ import redone.util.Misc;
 public class Climbing {
 
 	private static final int CLIMB_UP = 828, CLIMB_DOWN = CLIMB_UP;
-	
+
 	public static void handleClimbing(final Client client) {
 		if (System.currentTimeMillis() - client.climbDelay < 1200) {
 			return;
@@ -40,7 +40,7 @@ public class Climbing {
 			}
 		}, 1);
 	}
-	
+
 	public static void processClimbing(Client client) {
 		switch (client.objectId) {
 		case 9584:
@@ -48,32 +48,40 @@ public class Climbing {
 				client.getPlayerAssistant().movePlayer(2933, 3282, 0);
 			}
 			break;
-			
+
 		case 272:
 			client.getPlayerAssistant().movePlayer(client.absX, client.absY, 1);
 			break;
-			
-				
-			case 273:
-				client.getPlayerAssistant().movePlayer(client.absX, client.absY, 0);
+
+		case 273:
+			client.getPlayerAssistant().movePlayer(client.absX, client.absY, 0);
 			break;
-			
-			case 245:
+
+		case 245:
 			if (client.objectY == 3224) {
-				client.getPlayerAssistant().movePlayer(client.absX, client.absY+2, 2);
-			} else if (client.objectY == 3139 || client.objectX == 2835 || client.objectX == 2963) {
-				client.getPlayerAssistant().movePlayer(client.absX+2, client.absY, 2);
+				client.getPlayerAssistant().movePlayer(client.absX,
+						client.absY + 2, 2);
+			} else if (client.objectY == 3139 || client.objectX == 2835
+					|| client.objectX == 2963) {
+				client.getPlayerAssistant().movePlayer(client.absX + 2,
+						client.absY, 2);
 			} else {
-				client.getPlayerAssistant().movePlayer(client.absX-2, client.absY, 2);
+				client.getPlayerAssistant().movePlayer(client.absX - 2,
+						client.absY, 2);
 			}
 			break;
-			case 246:
+		case 246:
 			if (client.objectY == 3224) {
-				client.getPlayerAssistant().movePlayer(client.absX, client.absY-2, 1);
-			} else if (client.objectY == 3139 || client.objectX == 2835 || client.objectX == 2963) {
-				client.getPlayerAssistant().movePlayer(client.absX-2, client.absY, 1);;
+				client.getPlayerAssistant().movePlayer(client.absX,
+						client.absY - 2, 1);
+			} else if (client.objectY == 3139 || client.objectX == 2835
+					|| client.objectX == 2963) {
+				client.getPlayerAssistant().movePlayer(client.absX - 2,
+						client.absY, 1);
+				;
 			} else {
-				client.getPlayerAssistant().movePlayer(client.absX+2, client.absY, 1);
+				client.getPlayerAssistant().movePlayer(client.absX + 2,
+						client.absY, 1);
 			}
 			break;
 
@@ -119,12 +127,16 @@ public class Climbing {
 			}
 			break;
 		case 1722:
-			if (client.objectX == 2590 && client.objectY == 3089 && client.heightLevel == 0 && client.absY == 3088) {
+			if (client.objectX == 2590 && client.objectY == 3089
+					&& client.heightLevel == 0 && client.absY == 3088) {
 				client.getPlayerAssistant().movePlayer(client.absX, 3092, 1);
-			} else if (client.objectX == 2590 && client.objectY == 3089 && client.heightLevel == 0 && client.absY != 3088) {
+			} else if (client.objectX == 2590 && client.objectY == 3089
+					&& client.heightLevel == 0 && client.absY != 3088) {
 				return;
 			}
-			if (client.objectX == 3175 && client.objectY == 3420 && client.heightLevel == 0 && client.absX == 3177 && client.absX > 3418 && client.absX < 3425) {
+			if (client.objectX == 3175 && client.objectY == 3420
+					&& client.heightLevel == 0 && client.absX == 3177
+					&& client.absX > 3418 && client.absX < 3425) {
 				return;
 			} else if (client.absY == 3423) {
 				client.getPlayerAssistant().movePlayer(client.absX, 3419, 1);
@@ -209,8 +221,8 @@ public class Climbing {
 			} else if (client.absX == 3190) {
 				client.getPlayerAssistant().movePlayer(3186, 3434, 0);
 			} else if (client.objectX == 3059 && client.objectY == 9776) {
-				client.getPlayerAssistant().movePlayer(3061,
-						client.absY - 6400, 0);
+				client.getPlayerAssistant().movePlayer(3061, client.absY - 6400,
+						0);
 			} else if (client.absX != 3190) {
 				client.getPlayerAssistant().movePlayer(client.absX,
 						client.absY - 6396, 0);
@@ -260,8 +272,8 @@ public class Climbing {
 			if (client.objectX == 2445 && client.objectY == 3434) {
 				client.getPlayerAssistant().movePlayer(2445, 3433, 0);
 				client.startAnimation(CLIMB_DOWN);
-			} else if (client.objectX == 2444 || client.objectX == 2445
-					&& client.objectY == 3415) {
+			} else if (client.objectX == 2444
+					|| client.objectX == 2445 && client.objectY == 3415) {
 				client.getPlayerAssistant().movePlayer(2444, 3413, 0);
 				client.startAnimation(CLIMB_DOWN);
 			} else if (client.objectX == 2456 && client.objectY == 3417) {
@@ -286,8 +298,8 @@ public class Climbing {
 				client.startAnimation(827);
 				client.getActionSender().sendMessage("You climb down.");
 			} else {
-				client.getActionSender().sendMessage(
-						"You need a rope to enter.");
+				client.getActionSender()
+						.sendMessage("You need a rope to enter.");
 				return;
 			}
 			break;
@@ -300,10 +312,10 @@ public class Climbing {
 			UseOther.useDown(client, client.objectId);
 			break;
 		case 1767:
-		if (client.objectX == 3069 && client.objectY == 3856) {
-			UseOther.useDown(client, client.objectId);
-		}
-		break;
+			if (client.objectX == 3069 && client.objectY == 3856) {
+				UseOther.useDown(client, client.objectId);
+			}
+			break;
 		case 6439:
 			client.getPlayerAssistant().movePlayer(3309, 2963, 0);
 			client.getActionSender().sendMessage("You climb up.");
@@ -325,8 +337,8 @@ public class Climbing {
 			if (Constants.EXPERIMENTS) {
 				UseOther.useDown(client, client.objectId);
 			} else {
-				client.getActionSender().sendMessage(
-						"Experiments are currently disabled.");
+				client.getActionSender()
+						.sendMessage("Experiments are currently disabled.");
 			}
 			break;
 		case 2147:
@@ -377,7 +389,9 @@ public class Climbing {
 				client.getPlayerAssistant().movePlayer(3205, 3228, 1);
 			} else if (client.objectX == 3258 && client.objectY == 3487) {
 				client.getPlayerAssistant().movePlayer(3257, 3487, 1);
-			} else if (client.objectX == 3144 && client.objectY == 3447 && client.playerLevel[client.playerCooking] > 31 && client.playerEquipment[client.playerHat] == 1949) {
+			} else if (client.objectX == 3144 && client.objectY == 3447
+					&& client.playerLevel[client.playerCooking] > 31
+					&& client.playerEquipment[client.playerHat] == 1949) {
 				client.getPlayerAssistant().movePlayer(3143, 3448, 1);
 			} else if (client.objectX == 3010 && client.objectY == 3515) {
 				client.getPlayerAssistant().movePlayer(3012, 3515, 1);
@@ -468,8 +482,7 @@ public class Climbing {
 
 		case 4879:
 			client.getPlayerAssistant().movePlayer(2807, 9200, 0);
-			client.getActionSender().sendMessage(
-					"You go down the trapdoor.");
+			client.getActionSender().sendMessage("You go down the trapdoor.");
 			client.startAnimation(827);
 			client.getPlayerAssistant().removeAllWindows();
 			break;
@@ -478,8 +491,8 @@ public class Climbing {
 			if (client.getItemAssistant().playerHasItem(1523, 1)
 					&& Misc.random(4) < 3) {
 				client.getPlayerAssistant().movePlayer(3149, 9652, 0);
-				client.getActionSender().sendMessage(
-						"You go down the trapdoor.");
+				client.getActionSender()
+						.sendMessage("You go down the trapdoor.");
 				client.startAnimation(827);
 				client.getPlayerAssistant().addSkillXP(.5,
 						client.playerThieving);
@@ -487,30 +500,28 @@ public class Climbing {
 			} else if (!client.getItemAssistant().playerHasItem(1523, 1)
 					&& Misc.random(5) < 2) {
 				client.getPlayerAssistant().movePlayer(3149, 9652, 0);
-				client.getActionSender().sendMessage(
-						"You go down the trapdoor.");
+				client.getActionSender()
+						.sendMessage("You go down the trapdoor.");
 				client.startAnimation(827);
 				client.getPlayerAssistant().addSkillXP(.5,
 						client.playerThieving);
 				client.getPlayerAssistant().removeAllWindows();
 			} else if (client.getItemAssistant().playerHasItem(1523, 1)
 					&& Misc.random(4) > 3) {
-				client.getActionSender().sendMessage(
-						"You fail to pick the lock.");
 				client.getActionSender()
-						.sendMessage(
-								"Your thieving has been drained, your fingers feel numb.");
+						.sendMessage("You fail to pick the lock.");
+				client.getActionSender().sendMessage(
+						"Your thieving has been drained, your fingers feel numb.");
 				client.playerLevel[17] = client.getPlayerAssistant()
 						.getLevelForXP(client.playerXP[17]) - 1;
 				client.getPlayerAssistant().refreshSkill(17);
 				client.getItemAssistant().deleteItem2(1523, 1);
 			} else if (!client.getItemAssistant().playerHasItem(1523, 1)
 					&& Misc.random(5) > 2) {
-				client.getActionSender().sendMessage(
-						"You fail to pick the lock.");
 				client.getActionSender()
-						.sendMessage(
-								"Your thieving has been drained, your fingers feel numb.");
+						.sendMessage("You fail to pick the lock.");
+				client.getActionSender().sendMessage(
+						"Your thieving has been drained, your fingers feel numb.");
 				client.playerLevel[17] = client.getPlayerAssistant()
 						.getLevelForXP(client.playerXP[17]) - 1;
 				client.getPlayerAssistant().refreshSkill(17);
@@ -536,8 +547,8 @@ public class Climbing {
 			break;
 
 		case 1725:
-			if (client.absX == 3285 || client.absX == 3286
-					&& client.heightLevel == 0) {
+			if (client.absX == 3285
+					|| client.absX == 3286 && client.heightLevel == 0) {
 				client.getPlayerAssistant().movePlayer(client.absX, 3492, 1);
 			} else if (client.absY == 3509) {
 				client.getPlayerAssistant().movePlayer(2751, 3513, 1);
@@ -545,18 +556,18 @@ public class Climbing {
 				client.getPlayerAssistant().movePlayer(3230, 3394, 1);
 			}
 			break;
-			
+
 		case 5096:
 			client.getPlayerAssistant().movePlayer(2649, 9591, 0);
-		break;
+			break;
 
 		case 1726:
 			if (client.absY == 3513) {
 				client.getPlayerAssistant().movePlayer(2751, 3509, 0);
 			} else if (client.absX == 3230) {
 				client.getPlayerAssistant().movePlayer(3226, 3394, 0);
-			} else if (client.absX == 3285 || client.absX == 3286
-					&& client.heightLevel == 1) {
+			} else if (client.absX == 3285
+					|| client.absX == 3286 && client.heightLevel == 1) {
 				client.getPlayerAssistant().movePlayer(client.absX, 3496, 0);
 			}
 			break;
@@ -667,7 +678,7 @@ public class Climbing {
 		if (System.currentTimeMillis() - client.climbDelay < 1200) {
 			return;
 		}
-		
+
 		switch (client.heightLevel) {
 		case -1:
 			client.getPlayerAssistant().movePlayer(client.absX, client.absY, 0);
@@ -701,8 +712,11 @@ public class Climbing {
 			if (client.heightLevel > 3) {
 				climbDown(client);
 			}
-			client.getActionSender().sendMessage("This object is currently not supported.");
-			System.out.println("Bug detected with climbing up object " + client.objectId + " objectX " + client.objectX + " objectY " + client.objectY + ".");
+			client.getActionSender()
+					.sendMessage("This object is currently not supported.");
+			System.out.println("Bug detected with climbing up object "
+					+ client.objectId + " objectX " + client.objectX
+					+ " objectY " + client.objectY + ".");
 			break;
 		}
 	}
@@ -744,8 +758,11 @@ public class Climbing {
 			if (client.heightLevel < 0) {
 				climbUp(client);
 			}
-			client.getActionSender().sendMessage("This object is currently not supported.");
-			System.out.println("Bug detected with climbing down object " + client.objectId + " objectX " + client.objectX + " objectY " + client.objectY + ".");
+			client.getActionSender()
+					.sendMessage("This object is currently not supported.");
+			System.out.println("Bug detected with climbing down object "
+					+ client.objectId + " objectX " + client.objectX
+					+ " objectY " + client.objectY + ".");
 			break;
 		}
 	}
@@ -754,7 +771,7 @@ public class Climbing {
 		client.getDialogueHandler().sendOption2("Climb Up.", "Climb Down.");
 		client.dialogueAction = 147;
 	}
-	
+
 	private static void close(Client client, int actionButtonId) {
 		if (actionButtonId == 9157) {
 			client.getActionSender().sendMessage("You climb up.");
@@ -766,7 +783,7 @@ public class Climbing {
 		client.getPlayerAssistant().closeAllWindows();
 		client.nextChat = 0;
 	}
-	
+
 	public static void handleLadderButtons(Client client, int actionButtonId) {
 		if (client.dialogueAction != 147) {
 			return;
@@ -774,22 +791,26 @@ public class Climbing {
 		switch (actionButtonId) {
 		case 9157:
 			if (client.heightLevel == 1) {
-				client.getPlayerAssistant().movePlayer(client.absX, client.absY, 2);
+				client.getPlayerAssistant().movePlayer(client.absX, client.absY,
+						2);
 				close(client, actionButtonId);
 			} else if (client.heightLevel == 2) {
-				client.getPlayerAssistant().movePlayer(client.absX, client.absY, 3);
+				client.getPlayerAssistant().movePlayer(client.absX, client.absY,
+						3);
 				close(client, actionButtonId);
 			}
 			break;
-			case 9158:
+		case 9158:
 			if (client.heightLevel == 2) {
-				client.getPlayerAssistant().movePlayer(client.absX, client.absY, 1);
+				client.getPlayerAssistant().movePlayer(client.absX, client.absY,
+						1);
 				close(client, actionButtonId);
 			} else if (client.heightLevel == 1) {
-				client.getPlayerAssistant().movePlayer(client.absX, client.absY, 0);
+				client.getPlayerAssistant().movePlayer(client.absX, client.absY,
+						0);
 				close(client, actionButtonId);
 			}
 			break;
 		}
-	}	
+	}
 }

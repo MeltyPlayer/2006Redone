@@ -1,7 +1,7 @@
 package redone.game.content.skills.farming;
 
 public class FarmingConstants {
-	
+
 	public static final int WATERING_CAN_ANIM = 2293;
 	public static final int RAKING_ANIM = 2273;
 	public static final int SPADE_ANIM = 830;
@@ -21,5 +21,6 @@ public class FarmingConstants {
 	public static final int SECATEURS = 5329;
 	public static final int MAGIC_SECATEURS = 7409;
 
-	public static final int[] WATERED_SAPPLING = {5364, 5365, 5366, 5367, 5368, 5369, 5488, 5489, 5490, 5491, 5492, 5493, 5494, 5495};
+	public static final int[] WATERED_SAPPLING = { 5364, 5365, 5366, 5367, 5368,
+			5369, 5488, 5489, 5490, 5491, 5492, 5493, 5494, 5495 };
 }

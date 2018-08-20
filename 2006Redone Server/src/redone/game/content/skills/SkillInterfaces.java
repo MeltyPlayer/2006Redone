@@ -79,8 +79,8 @@ public class SkillInterfaces {
 			String op7, String op8, String op9, String op10, String op11,
 			String op12, String op13) {
 		if (SkillHandler.isSkilling(c)) {
-			c.getActionSender().sendMessage(
-					"You can't open this while skilling!");
+			c.getActionSender()
+					.sendMessage("You can't open this while skilling!");
 			return;
 		}
 		c.getPlayerAssistant().sendFrame126(title, 8716);
@@ -377,15 +377,15 @@ public class SkillInterfaces {
 			menuLine("60", "TzHaar-Ket-Om(Obsidian Maul)", 6528, 7);
 			menuLine("70", "Dharok's Greataxe(With 70 Attack)", 4718, 8);
 			menuLine("70", "Torag's Hammers(With 70 Attack)", 4747, 9);
-			optionTab("Strength", "Weaponry", "Weaponry", "Armor",
-					"", "", "", "", "", "", "", "", "", "", "");
+			optionTab("Strength", "Weaponry", "Weaponry", "Armor", "", "", "",
+					"", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 2) {
 			clearMenu();
 			menuLine("50", "Granite Shield(With 50 Defence)", 3122, 0);
-			optionTab("Strength", "Armor", "Weaponry", "Armor", "",
-					"", "", "", "", "", "", "", "", "", "");
+			optionTab("Strength", "Armor", "Weaponry", "Armor", "", "", "", "",
+					"", "", "", "", "", "", "");
 		}
 	}
 
@@ -669,9 +669,8 @@ public class SkillInterfaces {
 			menuLine("50", "Magic Bow", 859, 7);
 			menuLine("50", "Seercull", 6724, 8);
 			menuLine("70", "Crystal Bow(With 50 Agility)", 4212, 9);
-			optionTab("Ranged", "Bows", "Bows", "Thrown", "Armour",
-					"Crossbows", "Other", "", "", "", "", "", "", "",
-					"");
+			optionTab("Ranged", "Bows", "Bows", "Thrown", "Armour", "Crossbows",
+					"Other", "", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 2) {
@@ -704,8 +703,7 @@ public class SkillInterfaces {
 			menuLine("40", "Rune Throwing Knife", 868, 25);
 			menuLine("60", "TokTz-Xil-Ul(Obsidian Rings)", 6522, 26);
 			optionTab("Ranged", "Thrown", "Bows", "Thrown", "Armour",
-					"Crossbows", "Other", "", "", "", "", "", "", "",
-					"");
+					"Crossbows", "Other", "", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 3) {
@@ -744,8 +742,7 @@ public class SkillInterfaces {
 			menuLine("70", "Karil's Leathertop(With 70 Defence)", 4736, 31);
 			menuLine("70", "Karil's Leatherskirt(With 70 Defence)", 4738, 32);
 			optionTab("Ranged", "Armour", "Bows", "Thrown", "Armour",
-					"Crossbows", "Other", "", "", "", "", "", "", "",
-					"");
+					"Crossbows", "Other", "", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 4) {
@@ -754,16 +751,14 @@ public class SkillInterfaces {
 			menuLine("1", "Pheonix Crossbow", 767, 1);
 			menuLine("70", "Karil's Crossbow", 4734, 2);
 			optionTab("Ranged", "Crossbows", "Bows", "Thrown", "Armour",
-					"Crossbows", "Other", "", "", "", "", "", "", "",
-					"");
+					"Crossbows", "Other", "", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 5) {
 			clearMenu();
 			menuLine("50", "Broad Arrow(With 55 Slayer)", 4150, 0);
 			optionTab("Ranged", "Other", "Bows", "Thrown", "Armour",
-					"Crossbows", "Other", "", "", "", "", "", "", "",
-					"");
+					"Crossbows", "Other", "", "", "", "", "", "", "", "");
 		}
 	}
 
@@ -801,8 +796,8 @@ public class SkillInterfaces {
 			menuLine("46", "Retribution", 1714, 21);
 			menuLine("49", "Redemption", 1714, 22);
 			menuLine("52", "Smite", 1714, 23);
-			optionTab("Prayer", "Prayers", "Prayers", "Equipment",
-					"", "", "", "", "", "", "", "", "", "", "");
+			optionTab("Prayer", "Prayers", "Prayers", "Equipment", "", "", "",
+					"", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 2) {
@@ -811,8 +806,8 @@ public class SkillInterfaces {
 			menuLine("10", "Initiate Platemail(With 20 Defence)", 5575, 1);
 			menuLine("10", "Initiate Platelegs(With 20 Defence)", 5576, 2);
 			menuLine("50", "Enchant Unholy And Holy Symbols", 1724, 3);
-			optionTab("Prayer", "Equipment", "Prayers", "Equipment",
-					"", "", "", "", "", "", "", "", "", "", "");
+			optionTab("Prayer", "Equipment", "Prayers", "Equipment", "", "", "",
+					"", "", "", "", "", "", "", "");
 		}
 	}
 
@@ -832,8 +827,7 @@ public class SkillInterfaces {
 			menuLine("", "magicks, visit the Dark Mage near the bank", 0, 3);
 			menuLine("", "in Camelot.", 0, 4);
 			optionTab("Magic", "Spells", "Spells", "Ancients", "Armour",
-					"Weapons", "Special", "", "", "", "", "", "", "",
-					"");
+					"Weapons", "Special", "", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 2) {
@@ -865,8 +859,7 @@ public class SkillInterfaces {
 			menuLine("94", "Ice Barrage", 0, 24);
 			menuLine("96", "Teleport to Ghorrock", 0, 25);
 			optionTab("Magic", "Ancients", "Spells", "Ancients", "Armour",
-					"Weapons", "Special", "", "", "", "", "", "", "",
-					"");
+					"Weapons", "Special", "", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 3) {
@@ -901,8 +894,7 @@ public class SkillInterfaces {
 			menuLine("70", "Ahrim's Robe Top(With 70 Defence)", 4712, 27);
 			menuLine("70", "Ahrim's Robeskirt(With 70 Defence)", 4714, 28);
 			optionTab("Magic", "Armour", "Spells", "Ancients", "Armour",
-					"Weapons", "Special", "", "", "", "", "", "", "",
-					"");
+					"Weapons", "Special", "", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 4) {
@@ -934,8 +926,7 @@ public class SkillInterfaces {
 			menuLine("60", "TokTz-Mej-Tal(Obsidian Staff)", 6526, 24);
 			menuLine("70", "Ahrim's Staff(With 70 Attack)", 4710, 25);
 			optionTab("Magic", "Weapons", "Spells", "Ancients", "Armour",
-					"Weapons", "Special", "", "", "", "", "", "", "",
-					"");
+					"Weapons", "Special", "", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 5) {
@@ -946,8 +937,7 @@ public class SkillInterfaces {
 			menuLine("60", "Master Wand", 6914, 3);
 			menuLine("60", "Mage's Book", 6889, 4);
 			optionTab("Magic", "Special", "Spells", "Ancients", "Armour",
-					"Weapons", "Special", "", "", "", "", "", "", "",
-					"");
+					"Weapons", "Special", "", "", "", "", "", "", "", "");
 		}
 	}
 
@@ -980,8 +970,7 @@ public class SkillInterfaces {
 			menuLine("65", "Death runes", 560, 16);
 			menuLine("77", "Blood runes", 565, 17);
 			optionTab("RuneCrafting", "Runes", "Runes", "Multiples",
-					"Equipment", "", "", "", "", "", "", "", "", "",
-					"");
+					"Equipment", "", "", "", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 2) {
@@ -1018,8 +1007,7 @@ public class SkillInterfaces {
 			menuLine("98", "8 Mind runes per essence", 558, 29);
 			menuLine("99", "10 Air runes per essence", 556, 30);
 			optionTab("RuneCrafting", "Multiples", "Runes", "Multiples",
-					"Equipment", "", "", "", "", "", "", "", "", "",
-					"");
+					"Equipment", "", "", "", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 3) {
@@ -1029,8 +1017,7 @@ public class SkillInterfaces {
 			menuLine("50", "Large Pouch(9 Essence)", 5512, 2);
 			menuLine("75", "Giant Pouch(12 Essence)", 5514, 3);
 			optionTab("RuneCrafting", "Equipment", "Runes", "Multiples",
-					"Equipment", "", "", "", "", "", "", "", "", "",
-					"");
+					"Equipment", "", "", "", "", "", "", "", "", "", "");
 		}
 	}
 
@@ -1060,8 +1047,8 @@ public class SkillInterfaces {
 			menuLine("", "Green hitspats are poison damage", 4049, 13);
 			menuLine("", "", 0, 14);
 			menuLine("", "Yellow hitsplats are disease damage", 4049, 15);
-			optionTab("Hitpoints", "Hitpoints", "Hitpoints", "", "",
-					"", "", "", "", "", "", "", "", "", "");
+			optionTab("Hitpoints", "Hitpoints", "Hitpoints", "", "", "", "", "",
+					"", "", "", "", "", "", "");
 		}
 	}
 
@@ -1088,8 +1075,8 @@ public class SkillInterfaces {
 			menuLine("48", "Ape Atoll Agility Course", 4024, 8);// greegree
 			menuLine("52", "Wilderness Agility Course", 964, 9);// skull
 			menuLine("60", "Werewolf Agility Course", 6465, 19);// charos
-			optionTab("Agility", "Courses", "Courses", "Areas", "Shortcuts",
-					"", "", "", "", "", "", "", "", "", "");
+			optionTab("Agility", "Courses", "Courses", "Areas", "Shortcuts", "",
+					"", "", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 2) {
@@ -1105,8 +1092,8 @@ public class SkillInterfaces {
 			menuLine("49", "Yanille Dungeon Contortion", 6520, 8);
 			menuLine("50", "Rogues' Den(With 50 Thieving)", 6518, 9);
 			menuLine("67", "Yanille Dungeon Rubble Climb", 6521, 10);
-			optionTab("Agility", "Areas", "Courses", "Areas", "Shortcuts",
-					"", "", "", "", "", "", "", "", "", "");
+			optionTab("Agility", "Areas", "Courses", "Areas", "Shortcuts", "",
+					"", "", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 3) {
@@ -1120,8 +1107,8 @@ public class SkillInterfaces {
 			menuLine("21", "Varrock Agility Shortcut", 6516, 6);
 			menuLine("26", "Falador wall Crawl", 6516, 7);
 			menuLine("28", "Draynor Manor Broken Railing", 6516, 8);
-			menuLine("29", "Draynor Manor Stones To The Champions' Guild",
-					6516, 9);
+			menuLine("29", "Draynor Manor Stones To The Champions' Guild", 6516,
+					9);
 			menuLine("31", "Catherby Cliff", 6515, 10);
 			menuLine("32", "Ardougne Log Balance Shortcut", 6517, 11);
 			menuLine("33", "Water Obelisk Island Escape", 6516, 12);
@@ -1135,7 +1122,8 @@ public class SkillInterfaces {
 			menuLine("44", "Cosmic Temple Medium Narrow Walkway", 6517, 20);
 			menuLine("46", "Trollheim Hard Cliffside Scramble", 6516, 21);
 			menuLine("47", "Log Balance To The Fremennik Province", 6517, 22);
-			menuLine("48", "Edgeville Dungeon To Varrock Sewers Pipe", 6515, 23);
+			menuLine("48", "Edgeville Dungeon To Varrock Sewers Pipe", 6515,
+					23);
 			menuLine("51", "Karamja Crossing, South Of The Volcano", 6516, 24);
 			menuLine("53", "Port Phasmatys Ectopool Shortcut", 6517, 25);
 			menuLine("58", "Elven Overpass Easy Cliffside Scramble", 6517, 26);
@@ -1144,9 +1132,11 @@ public class SkillInterfaces {
 			menuLine("62", "Trollheim Wilderness Route", 6516, 29);
 			menuLine("64", "Paterdomus Temple To Morytania Shortcut", 6517, 30);
 			menuLine("66", "Cosmic Temple Advanced Narrow Walkway", 6517, 31);
-			menuLine("68", "Elven Overpass Medium Cliffside Scramble", 6517, 32);
+			menuLine("68", "Elven Overpass Medium Cliffside Scramble", 6517,
+					32);
 			menuLine("70", "Taverly Dungeon Pipe Squeeze", 6516, 33);
-			menuLine("71", "Slayer Tower Advanced Spiked Chain Climb", 6517, 34);
+			menuLine("71", "Slayer Tower Advanced Spiked Chain Climb", 6517,
+					34);
 			menuLine("74", "Shilo Village Stepping Stone", 6514, 35);
 			menuLine("80", "Taverly Dungeon Spiked Blade Jump", 6514, 36);
 			menuLine("81", "Slayer Dungeon Chasm Jump", 6514, 37);
@@ -1158,8 +1148,8 @@ public class SkillInterfaces {
 		else if (screen == 4) {
 			clearMenu();
 			menuLine("50", "Crystal Equipment", 4207, 0);
-			optionTab("Agility", "", "Courses", "Areas", "Shortcuts",
-					"", "", "", "", "", "", "", "", "", "");
+			optionTab("Agility", "", "Courses", "Areas", "Shortcuts", "", "",
+					"", "", "", "", "", "", "", "");
 		}
 	}
 
@@ -1198,8 +1188,8 @@ public class SkillInterfaces {
 			menuLine("79", "Antidote++", 5954, 22);
 			menuLine("81", "Saradomin brew", 6687, 23);
 			menuLine("82", "Weapon poison++", 5940, 24);
-			optionTab("Herblore", "Potions", "Potions", "Herbs", "",
-					"", "", "", "", "", "", "", "", "", "");
+			optionTab("Herblore", "Potions", "Potions", "Herbs", "", "", "", "",
+					"", "", "", "", "", "", "");
 		}
 
 		else if (screen == 2) {
@@ -1218,8 +1208,8 @@ public class SkillInterfaces {
 			menuLine("67", "Lantadyme", 2481, 11);
 			menuLine("70", "Dwarf Weed", 267, 12);
 			menuLine("75", "Torstol", 269, 13);
-			optionTab("Herblore", "Herbs", "Potions", "Herbs", "",
-					"", "", "", "", "", "", "", "", "", "");
+			optionTab("Herblore", "Herbs", "Potions", "Herbs", "", "", "", "",
+					"", "", "", "", "", "", "");
 		}
 	}
 
@@ -1306,8 +1296,8 @@ public class SkillInterfaces {
 			menuLine("10", "Cloth", 3224, 0);
 			menuLine("21", "Vegetable Sack", 5418, 1);
 			optionTab("Crafting", "Weaving", "Weaving", "Armour", "Spinning",
-					"Pottery", "Glass", "Jewellery", "Weaponry", "",
-					"", "", "", "", "");
+					"Pottery", "Glass", "Jewellery", "Weaponry", "", "", "", "",
+					"", "");
 		}
 
 		else if (screen == 2) {
@@ -1341,8 +1331,8 @@ public class SkillInterfaces {
 			menuLine("82", "Black Dragonhide Chaps", 2497, 26);
 			menuLine("84", "Black Dragonhide Body", 2503, 27);
 			optionTab("Crafting", "Armour", "Weaving", "Armour", "Spinning",
-					"Pottery", "Glass", "Jewellery", "Weaponry", "",
-					"", "", "", "", "");
+					"Pottery", "Glass", "Jewellery", "Weaponry", "", "", "", "",
+					"", "");
 		}
 
 		else if (screen == 3) {
@@ -1350,8 +1340,8 @@ public class SkillInterfaces {
 			menuLine("1", "Wool", 1759, 0);
 			menuLine("10", "Flax into Bow Strings", 1777, 1);
 			optionTab("Crafting", "Spinning", "Weaving", "Armour", "Spinning",
-					"Pottery", "Glass", "Jewellery", "Weaponry", "",
-					"", "", "", "", "");
+					"Pottery", "Glass", "Jewellery", "Weaponry", "", "", "", "",
+					"", "");
 		}
 
 		else if (screen == 4) {
@@ -1362,8 +1352,8 @@ public class SkillInterfaces {
 			menuLine("19", "Plant Pot", 5350, 3);
 			menuLine("25", "Pot Lid", 4440, 4);
 			optionTab("Crafting", "Pottery", "Weaving", "Armour", "Spinning",
-					"Pottery", "Glass", "Jewellery", "Weaponry", "",
-					"", "", "", "", "");
+					"Pottery", "Glass", "Jewellery", "Weaponry", "", "", "", "",
+					"", "");
 		}
 
 		else if (screen == 5) {
@@ -1377,8 +1367,8 @@ public class SkillInterfaces {
 			menuLine("46", "Glass Orb", 567, 6);
 			menuLine("49", "Bullseye Lantern Lens", 4542, 7);
 			optionTab("Crafting", "Glass", "Weaving", "Armour", "Spinning",
-					"Pottery", "Glass", "Jewellery", "Weaponry", "",
-					"", "", "", "", "");
+					"Pottery", "Glass", "Jewellery", "Weaponry", "", "", "", "",
+					"", "");
 		}
 
 		else if (screen == 6) {
@@ -1416,8 +1406,8 @@ public class SkillInterfaces {
 			menuLine("82", "Onyx Necklace", 6577, 30);
 			menuLine("90", "Onyx Amulet", 6579, 31);
 			optionTab("Crafting", "Jewellery", "Weaving", "Armour", "Spinning",
-					"Pottery", "Glass", "Jewellery", "Weaponry", "",
-					"", "", "", "", "");
+					"Pottery", "Glass", "Jewellery", "Weaponry", "", "", "", "",
+					"", "");
 		}
 
 		else if (screen == 7) {
@@ -1427,8 +1417,8 @@ public class SkillInterfaces {
 			menuLine("62", "Fire battlestaff", 1393, 2);
 			menuLine("66", "Air battlestaff", 1397, 3);
 			optionTab("Crafting", "Weaponry", "Weaving", "Armour", "Spinning",
-					"Pottery", "Glass", "Jewellery", "Weaponry", "",
-					"", "", "", "", "");
+					"Pottery", "Glass", "Jewellery", "Weaponry", "", "", "", "",
+					"", "");
 		}
 	}
 
@@ -1456,8 +1446,8 @@ public class SkillInterfaces {
 			menuLine("62", "Adamant 'brutal' arrow", 4798, 11);
 			menuLine("75", "Rune arrow", 892, 12);
 			menuLine("77", "Rune 'brutal' arrow", 4803, 13);
-			optionTab("Fletching", "Arrows", "Arrows", "Bows", "Darts",
-					"", "", "", "", "", "", "", "", "", "");
+			optionTab("Fletching", "Arrows", "Arrows", "Bows", "Darts", "", "",
+					"", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 2) {
@@ -1466,8 +1456,8 @@ public class SkillInterfaces {
 			menuLine("10", "Longbow", 839, 1);
 			menuLine("20", "Oak Shortbow", 843, 2);
 			menuLine("25", "Oak Longbow", 845, 3);
-			menuLine("30", "Ogre Composite Bow(After Zogre Flesh Eaters)",
-					4827, 4);
+			menuLine("30", "Ogre Composite Bow(After Zogre Flesh Eaters)", 4827,
+					4);
 			menuLine("35", "Willow Shortbow", 849, 5);
 			menuLine("40", "Willow Longbow", 847, 6);
 			menuLine("50", "Maple Shortbow", 853, 7);
@@ -1476,8 +1466,8 @@ public class SkillInterfaces {
 			menuLine("70", "Yew Longbow", 855, 10);
 			menuLine("80", "Magic Shortbow", 861, 11);
 			menuLine("85", "Magic Longbow", 859, 12);
-			optionTab("Fletching", "Bows", "Arrows", "Bows", "Darts",
-					"", "", "", "", "", "", "", "", "", "");
+			optionTab("Fletching", "Bows", "Arrows", "Bows", "Darts", "", "",
+					"", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 3) {
@@ -1488,8 +1478,8 @@ public class SkillInterfaces {
 			menuLine("52", "Mithril Dart", 809, 3);
 			menuLine("67", "Adamant Dart", 810, 4);
 			menuLine("81", "Rune Dart", 811, 5);
-			optionTab("Fletching", "Darts", "Arrows", "Bows", "Darts",
-					"", "", "", "", "", "", "", "", "", "");
+			optionTab("Fletching", "Darts", "Arrows", "Bows", "Darts", "", "",
+					"", "", "", "", "", "", "", "");
 		}
 	}
 
@@ -1524,9 +1514,10 @@ public class SkillInterfaces {
 			menuLine("80", "Nechrael", 4148, 18);
 			menuLine("85", "Abyssal Demon", 4149, 19);
 			menuLine("90", "Dark Beast", 6637, 20);
-			optionTab("Slayer", "Monsters", "Monsters", "Equipment", "", "", "", "", "", "", "", "", "", "", "");
+			optionTab("Slayer", "Monsters", "Monsters", "Equipment", "", "", "",
+					"", "", "", "", "", "", "", "");
 		}
-		
+
 		else if (screen == 2) {
 			clearMenu();
 			menuLine("1", "Enchanted Gem", 4155, 0);
@@ -1546,7 +1537,8 @@ public class SkillInterfaces {
 			menuLine("55", "Slayer's staff(With 50 Magic)", 4170, 14);
 			menuLine("57", "Fungicide Spray", 7421, 15);
 			menuLine("60", "Nose Peg", 4168, 16);
-			optionTab("Slayer", "Equipment", "Monsters", "Equipment", "", "", "", "", "", "", "", "", "", "", "");
+			optionTab("Slayer", "Equipment", "Monsters", "Equipment", "", "",
+					"", "", "", "", "", "", "", "", "");
 		}
 	}
 
@@ -1567,7 +1559,8 @@ public class SkillInterfaces {
 			menuLine("10", "Limestone", 3211, 4);
 			menuLine("10", "Blurite Ore", 668, 5);
 			menuLine("15", "Iron Ore", 440, 6);
-			menuLine("20", "Elemental Ore(After Starting Elemental Workshop)", 2892, 7);
+			menuLine("20", "Elemental Ore(After Starting Elemental Workshop)",
+					2892, 7);
 			menuLine("20", "Silver Ore", 442, 8);
 			menuLine("30", "Coal", 453, 9);
 			menuLine("30", "Pure Essence(After Rune Mysteries)", 7936, 10);
@@ -1578,8 +1571,8 @@ public class SkillInterfaces {
 			menuLine("55", "Mithril Ore", 447, 15);
 			menuLine("70", "Adamantite Ore", 449, 16);
 			menuLine("85", "Runite Ore", 451, 17);
-			optionTab("Mining", "Ores", "Ores", "Pickaxes", "", "",
-					"", "", "", "", "", "", "", "", "");
+			optionTab("Mining", "Ores", "Ores", "Pickaxes", "", "", "", "", "",
+					"", "", "", "", "", "");
 		}
 
 		else if (screen == 2) {
@@ -1590,15 +1583,15 @@ public class SkillInterfaces {
 			menuLine("21", "Mithril Pickaxe", 1273, 3);
 			menuLine("31", "Adamant Pickaxe", 1271, 4);
 			menuLine("41", "Rune Pickaxe", 1275, 5);
-			optionTab("Mining", "Pickaxes", "Ores", "Pickaxes", "",
-					"", "", "", "", "", "", "", "", "", "");
+			optionTab("Mining", "Pickaxes", "Ores", "Pickaxes", "", "", "", "",
+					"", "", "", "", "", "", "");
 		}
 
 		else if (screen == 3) {
 			clearMenu();
 			menuLine("60", "Mining Guild", 447, 0);
-			optionTab("Mining", "", "Ores", "Pickaxes", "",
-					"", "", "", "", "", "", "", "", "", "");
+			optionTab("Mining", "", "Ores", "Pickaxes", "", "", "", "", "", "",
+					"", "", "", "", "");
 		}
 	}
 
@@ -1614,7 +1607,8 @@ public class SkillInterfaces {
 			clearMenu();
 			menuLine("1", "Bronze(1 Tin Ore + 1 Copper Ore)", 2349, 0);
 			menuLine("15", "Iron(50% Chance of Success)", 2351, 1);
-			menuLine("20", "Elemental Metal(After Elemental Workshop)", 2893, 2);
+			menuLine("20", "Elemental Metal(After Elemental Workshop)", 2893,
+					2);
 			menuLine("20", "Silver", 2355, 3);
 			menuLine("30", "Steel(2 Coal + 1 Iron Ore)", 2353, 4);
 			menuLine("40", "Gold", 2357, 5);
@@ -1686,9 +1680,9 @@ public class SkillInterfaces {
 			menuLine("31", type + " Platelegs - 3 Bars", 1067, 22);
 			menuLine("31", type + " Plateskirt - 3 Bars", 1081, 23);
 			menuLine("33", type + " Platebody - 5 Bars", 1115, 24);
-			optionTab("Smithing", "Iron", "Smelting", "Bronze", "Iron",
-					"Steel", "Mithril", "Adamantite", "Runite", "Gold",
-					"Elemental", "Other", "", "", "");
+			optionTab("Smithing", "Iron", "Smelting", "Bronze", "Iron", "Steel",
+					"Mithril", "Adamantite", "Runite", "Gold", "Elemental",
+					"Other", "", "", "");
 		}
 
 		else if (screen == 4) {
@@ -1815,10 +1809,11 @@ public class SkillInterfaces {
 		} else if (screen == 8) {
 			clearMenu();
 			menuLine("50", "Gold Bowl(After Starting Legends' Quest)", 721, 0);
-			menuLine("50", "Gold Helmet(After starting Between a Rock)", 	4567, 1);
-			optionTab("Smithing", "Gold", "Smelting", "Bronze", "Iron",
-					"Steel", "Mithril", "Adamantite", "Runite", "Gold",
-					"Elemental", "Other", "", "", "");
+			menuLine("50", "Gold Helmet(After starting Between a Rock)", 4567,
+					1);
+			optionTab("Smithing", "Gold", "Smelting", "Bronze", "Iron", "Steel",
+					"Mithril", "Adamantite", "Runite", "Gold", "Elemental",
+					"Other", "", "", "");
 		} else if (screen == 9) {
 			clearMenu();
 			menuLine("20", "Elemental Shield(After Elemental Workshop)", 2890,
@@ -1852,8 +1847,8 @@ public class SkillInterfaces {
 			menuLine("35", "Harpoon", 311, 4);
 			menuLine("40", "Lobster Pot", 301, 5);
 			menuLine("65", "Vessel Fishing", 3157, 6);
-			optionTab("Fishing", "Techniques", "Techniques", "Catches",
-					"", "", "", "", "", "", "", "", "", "", "");
+			optionTab("Fishing", "Techniques", "Techniques", "Catches", "", "",
+					"", "", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 2) {
@@ -1883,15 +1878,15 @@ public class SkillInterfaces {
 			menuLine("76", "Shark - Harpoon Fishing", 383, 22);
 			menuLine("79", "Sea Turtle - Fishing Trawler", 395, 23);
 			menuLine("81", "Manta Ray - Fishing Trawler", 389, 24);
-			optionTab("Fishing", "Catches", "Techniques", "Catches",
-					"", "", "", "", "", "", "", "", "", "", "");
+			optionTab("Fishing", "Catches", "Techniques", "Catches", "", "", "",
+					"", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 3) {
 			clearMenu();
 			menuLine("68", "Fishing Guild", 385, 0);
-			optionTab("Fishing", "", "Techniques", "Catches",
-					"", "", "", "", "", "", "", "", "", "", "");
+			optionTab("Fishing", "", "Techniques", "Catches", "", "", "", "",
+					"", "", "", "", "", "", "");
 		}
 	}
 
@@ -1951,7 +1946,8 @@ public class SkillInterfaces {
 			menuLine("", "To make bread:", 0, 2);
 			menuLine("", "1.Pick some grain and use a hopper to make flour", 0,
 					3);
-			menuLine("", "2.Use a pot to collect the flour you have made", 0, 4);
+			menuLine("", "2.Use a pot to collect the flour you have made", 0,
+					4);
 			menuLine("", "3.Fill a bucket or jug with water from a sink", 0, 5);
 			menuLine("", "4.Mix the flour and water to make some dough", 0, 6);
 			menuLine("", "5.Cook the dough by using it with a stove", 0, 7);
@@ -2023,8 +2019,8 @@ public class SkillInterfaces {
 			menuLine("40", "Cake", 1891, 0);
 			menuLine("50", "Chocolate Cake", 1897, 1);
 			menuLine("", "To make a cake:", 0, 2);
-			menuLine("", "1.Mix flour, eggs and milk together in a cake tin",
-					0, 3);
+			menuLine("", "1.Mix flour, eggs and milk together in a cake tin", 0,
+					3);
 			menuLine("", "2.Cook the cake by using it with a stove", 0, 4);
 			menuLine("", "3.Optional:Buy some chocolate and add", 0, 5);
 			menuLine("", "it to the cake to make a choclate cake", 0, 6);
@@ -2059,8 +2055,8 @@ public class SkillInterfaces {
 			menuLine("", "4.Use the bowl of nettle tea with a cup", 0, 5);
 			menuLine("", "5.If you take milk, use some milk on the tea", 0, 6);
 			optionTab("Cooking", "Hot Drinks", "Meats", "Bread", "Pies",
-					"Stews", "Pizzas", "Cakes", "Wine", "Hot Drinks",
-					"Brewing", "Potatoes", "Diary", "Gnome", "");
+					"Stews", "Pizzas", "Cakes", "Wine", "Hot Drinks", "Brewing",
+					"Potatoes", "Diary", "Gnome", "");
 		}
 
 		else if (screen == 9) {
@@ -2073,8 +2069,8 @@ public class SkillInterfaces {
 			menuLine("39", "Dragon Bitter(4 Krandorian Hops)", 1911, 5);
 			menuLine("44", "Moonlight Mead(4 Bittercap Mushrooms)", 2955, 6);
 			menuLine("49", "Axeman's Folly(1 Oak Root)", 5751, 7);
-			menuLine("54", "Chef's Delight(4 Portions of Chocolate Dust)",
-					5755, 8);
+			menuLine("54", "Chef's Delight(4 Portions of Chocolate Dust)", 5755,
+					8);
 			menuLine("59", "Slayer's Respite(4 Wildblood Hops)", 5759, 9);
 			optionTab("Cooking", "Brewing", "Meats", "Bread", "Pies", "Stews",
 					"Pizzas", "Cakes", "Wine", "Hot Drinks", "Brewing",
@@ -2108,7 +2104,8 @@ public class SkillInterfaces {
 			menuLine("", "1.Chilli con carne: Meat & spicy sauce", 0, 22);
 			menuLine("", "2.Egg and tomato: Scrambled egg & tomato", 0, 23);
 			menuLine("", "3.Mushroom and onion: Fried mushroom & onion", 0, 24);
-			menuLine("", "4.Tuna and sweetcorn: Tuna & cooked sweetcorn", 0, 25);
+			menuLine("", "4.Tuna and sweetcorn: Tuna & cooked sweetcorn", 0,
+					25);
 			optionTab("Cooking", "Potatoes", "Meats", "Bread", "Pies", "Stews",
 					"Pizzas", "Cakes", "Wine", "Hot Drinks", "Brewing",
 					"Potatoes", "Diary", "Gnome", "");
@@ -2161,9 +2158,9 @@ public class SkillInterfaces {
 		else if (screen == 13) {
 			clearMenu();
 			menuLine("32", "Chefs' Guild", 1949, 0);
-			optionTab("Cooking", "", "Meats", "Bread", "Pies",
-					"Stews", "Pizzas", "Cakes", "Wine", "Hot Drinks",
-					"Brewing", "Potatoes", "Diary", "Gnome", "");
+			optionTab("Cooking", "", "Meats", "Bread", "Pies", "Stews",
+					"Pizzas", "Cakes", "Wine", "Hot Drinks", "Brewing",
+					"Potatoes", "Diary", "Gnome", "");
 		}
 	}
 
@@ -2204,15 +2201,15 @@ public class SkillInterfaces {
 			menuLine("65", "Yew Pyre Logs", 3446, 24);
 			menuLine("75", "Magic Logs", 1513, 25);
 			menuLine("80", "Magic Pyre Logs", 3448, 26);
-			optionTab("Firemaking", "Firemaking", "Firemaking", "Equipment",
-					"", "", "", "", "", "", "", "", "", "", "");
+			optionTab("Firemaking", "Firemaking", "Firemaking", "Equipment", "",
+					"", "", "", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 2) {
 			clearMenu();
 			menuLine("1", "Tinderbox", 590, 0);
-			optionTab("Firemaking", "Equipment", "Firemaking", "Equipment",
-					"", "", "", "", "", "", "", "", "", "", "");
+			optionTab("Firemaking", "Equipment", "Firemaking", "Equipment", "",
+					"", "", "", "", "", "", "", "", "", "");
 		}
 	}
 
@@ -2239,8 +2236,8 @@ public class SkillInterfaces {
 			menuLine("50", "Mahogany Tree", 6332, 10);
 			menuLine("60", "Yew Tree", 1515, 11);
 			menuLine("75", "Magic Tree", 1513, 12);
-			optionTab("Woodcutting", "Trees", "Trees", "Hatchets", "Canoes",
-					"", "", "", "", "", "", "", "", "", "");
+			optionTab("Woodcutting", "Trees", "Trees", "Hatchets", "Canoes", "",
+					"", "", "", "", "", "", "", "", "");
 		}
 
 		else if (screen == 2) {

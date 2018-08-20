@@ -37,18 +37,18 @@ import java.io.*;
  */
 public class AudioDataStream extends ByteArrayInputStream {
 
-    private final AudioData ad;
+  private final AudioData ad;
 
-    /**
-     * Constructor
-     */
-    public AudioDataStream(final AudioData data) {
+  /**
+   * Constructor
+   */
+  public AudioDataStream(final AudioData data) {
 
-        super(data.buffer);
-        this.ad = data;
-    }
+    super(data.buffer);
+    this.ad = data;
+  }
 
-    final AudioData getAudioData() {
-        return ad;
-    }
+  final AudioData getAudioData() {
+    return ad;
+  }
 }

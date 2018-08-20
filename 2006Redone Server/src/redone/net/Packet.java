@@ -39,7 +39,8 @@ public final class Packet {
 	private final boolean bare;
 	private Size size = Size.Fixed;
 
-	public Packet(IoSession session, int pID, byte[] pData, boolean bare, Size s) {
+	public Packet(IoSession session, int pID, byte[] pData, boolean bare,
+			Size s) {
 		this.session = session;
 		this.pID = pID;
 		this.pData = pData;
@@ -160,7 +161,8 @@ public final class Packet {
 	 * @return A <code>short</code>
 	 */
 	public short readShort() {
-		return (short) ((short) ((pData[caret++] & 0xff) << 8) | (short) (pData[caret++] & 0xff));
+		return (short) ((short) ((pData[caret++] & 0xff) << 8)
+				| (short) (pData[caret++] & 0xff));
 	}
 
 	public int readLEShortA() {

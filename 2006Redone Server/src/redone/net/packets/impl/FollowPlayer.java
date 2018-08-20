@@ -13,17 +13,18 @@ public class FollowPlayer implements PacketType {
 			return;
 		}
 		if (c.isBotting == true) {
-			c.getActionSender().sendMessage("You can't follow players, until you confirm you are not botting.");
-			c.getActionSender().sendMessage("If you need to you can type ::amibotting, to see if your botting.");
+			c.getActionSender().sendMessage(
+					"You can't follow players, until you confirm you are not botting.");
+			c.getActionSender().sendMessage(
+					"If you need to you can type ::amibotting, to see if your botting.");
 			c.stopMovement();
 			c.getPlayerAssistant().resetFollow();
 			return;
 		}
-		/*if (c.performingAction) {
-			c.stopMovement();
-			c.getPlayerAssistant().resetFollow();
-			return;
-		}*/
+		/*
+		 * if (c.performingAction) { c.stopMovement();
+		 * c.getPlayerAssistant().resetFollow(); return; }
+		 */
 		c.playerIndex = 0;
 		c.npcIndex = 0;
 		c.mageFollow = false;

@@ -4,10 +4,12 @@ public class Constants {
 
 	public final static boolean SERVER_DEBUG = false;
 
-	public final static String SERVER_NAME = "2006Redone", SERVER_VERSION = "Server Stage v " + Constants.TEST_VERSION + ".";
+	public final static String SERVER_NAME = "2006Redone",
+			SERVER_VERSION = "Server Stage v " + Constants.TEST_VERSION + ".";
 	public final static double TEST_VERSION = 1.13;
 	public static int BANK_SIZE = 352;
-	public final static int ITEM_LIMIT = 15000, MAXITEM_AMOUNT = Integer.MAX_VALUE, CLIENT_VERSION = 999999,
+	public final static int ITEM_LIMIT = 15000,
+			MAXITEM_AMOUNT = Integer.MAX_VALUE, CLIENT_VERSION = 999999,
 			WORLD = 1, IPS_ALLOWED = 3, CONNECTION_DELAY = 100,
 			MESSAGE_DELAY = 6000, MAX_PLAYERS = 100, REQ_AMOUNT = 150;
 	public final static boolean SOUND = true, MEMBERS_AREAS = true,
@@ -18,7 +20,7 @@ public class Constants {
 			18128, 5065, 5715, 2449, 904, 147, 962 };
 	public static boolean TUTORIAL_ISLAND = true, HOLIDAYS = true,
 			MEMBERS_ONLY = false, sendServerPackets = false, HALLOWEEN = false;
-	
+
 	public final static int HAT = 0, CAPE = 1, AMULET = 2, WEAPON = 3,
 			CHEST = 4, SHIELD = 5, LEGS = 7, HANDS = 9, FEET = 10, RING = 12,
 			ARROWS = 13;
@@ -115,27 +117,28 @@ public class Constants {
 			290, 666, 667 };
 	public final static int[] ITEM_TRADEABLE = { 3842, 3844, 3840, 8844, 8845,
 			8846, 8847, 8848, 8849, 8850, 10551, 6570, 7462, 7461, 7460, 7459,
-			7458, 7457, 7456, 7455, 7454, 8839, 8840, 8842, 11663, 11664,
-			11665, 10499, 9748, 9754, 9751, 9769, 9757, 9760, 9763, 9802, 9808,
-			9784, 9799, 9805, 9781, 9796, 9793, 9775, 9772, 9778, 9787, 9811,
-			9766, 9749, 9755, 9752, 9770, 9758, 9761, 9764, 9803, 9809, 9785,
-			9800, 9806, 9782, 9797, 9794, 9776, 9773, 9779, 9788, 9812, 9767,
-			9747, 9753, 9750, 9768, 9756, 9759, 9762, 9801, 9807, 9783, 9798,
-			9804, 9780, 9795, 9792, 9774, 9771, 9777, 9786, 9810, 9765, 2528,
-			4447, 772, 6180, 6181, 6182, 6183, 6184, 6185, 6186, 6187, 6188,
-			775, 776, 777, 300, 88, 2415, 2416, 2417, 4214, 4215, 4216, 4217,
-			4218, 4219, 4220, 4221, 4222, 4223, 4224, 1555, 1556, 1557, 1558,
-			1559, 1560, 1561, 1562, 1563, 1564, 1565, 7585, 7584, 2714, 432,
-			433, 290, 5075, 5074, 5073, 5071, 5070, 7413, 6529, 4067, 2996, 1464, 666, 667 };
+			7458, 7457, 7456, 7455, 7454, 8839, 8840, 8842, 11663, 11664, 11665,
+			10499, 9748, 9754, 9751, 9769, 9757, 9760, 9763, 9802, 9808, 9784,
+			9799, 9805, 9781, 9796, 9793, 9775, 9772, 9778, 9787, 9811, 9766,
+			9749, 9755, 9752, 9770, 9758, 9761, 9764, 9803, 9809, 9785, 9800,
+			9806, 9782, 9797, 9794, 9776, 9773, 9779, 9788, 9812, 9767, 9747,
+			9753, 9750, 9768, 9756, 9759, 9762, 9801, 9807, 9783, 9798, 9804,
+			9780, 9795, 9792, 9774, 9771, 9777, 9786, 9810, 9765, 2528, 4447,
+			772, 6180, 6181, 6182, 6183, 6184, 6185, 6186, 6187, 6188, 775, 776,
+			777, 300, 88, 2415, 2416, 2417, 4214, 4215, 4216, 4217, 4218, 4219,
+			4220, 4221, 4222, 4223, 4224, 1555, 1556, 1557, 1558, 1559, 1560,
+			1561, 1562, 1563, 1564, 1565, 7585, 7584, 2714, 432, 433, 290, 5075,
+			5074, 5073, 5071, 5070, 7413, 6529, 4067, 2996, 1464, 666, 667 };
 
 	public final static int[] ITEM_UNALCHABLE = { 995, 1555, 1556, 1557, 1558,
 			1559, 1560, 1561, 1562, 1563, 1564, 1565, 7583, 1566, 7585, 2528,
 			4214, 4212, 2714, 432, 433, 300, 775, 776, 777, 6180, 6181, 6182,
-			6183, 6184, 6185, 6186, 6187, 6188, 2528, 4447, 290, 666, 667};
-	
-	public final static int[] ITEM_BANKABLE = {2528, 4447};
-	
-	public final static int[] DESTROYABLE_ITEMS = {775, 776, 777, 2528, 6570, 2714, 432, 433, 300, 666};
+			6183, 6184, 6185, 6186, 6187, 6188, 2528, 4447, 290, 666, 667 };
+
+	public final static int[] ITEM_BANKABLE = { 2528, 4447 };
+
+	public final static int[] DESTROYABLE_ITEMS = { 775, 776, 777, 2528, 6570,
+			2714, 432, 433, 300, 666 };
 
 	public final static int[] FUN_WEAPONS = { 2460, 2461, 2462, 2463, 2464,
 			2465, 2466, 2467, 2468, 2469, 2470, 2471, 2471, 2473, 2474, 2475,
@@ -169,14 +172,18 @@ public class Constants {
 	public final static int SAVE_TIMER = 120; // save every 2 minute
 	public final static int NPC_RANDOM_WALK_DISTANCE = 5;
 	public final static int NPC_FOLLOW_DISTANCE = 10;
-	public final static String[] UNDEAD = {
-		"armoured zombie", "ankous", "banshee", "crawling hand", "dried zombie", "ghost", "ghostly warrior", "ghast",
-		"mummy", "mighty banshee", "reventant imp", "reventant goblin",  "reventant icefiend",  "reventant pyrefiend",
-		"reventant hobgoblin",  "reventant vampyre",  "reventant werewolf", "reventant cyclops", "reventant darkbeast",
-		"reventant demon", "reventant ork",  "reventant hellhound", "reventant knight", "reventant dragon",
-		"shade", "skeleton", "skeleton brute", "skeleton thug", "skeleton warload", "summoned zombie",
-		"skorge", "tortured soul", "undead chicken", "undead cow", "undead one", "undead troll", "zombie", "zombie rat", "zogre"
-	};
+	public final static String[] UNDEAD = { "armoured zombie", "ankous",
+			"banshee", "crawling hand", "dried zombie", "ghost",
+			"ghostly warrior", "ghast", "mummy", "mighty banshee",
+			"reventant imp", "reventant goblin", "reventant icefiend",
+			"reventant pyrefiend", "reventant hobgoblin", "reventant vampyre",
+			"reventant werewolf", "reventant cyclops", "reventant darkbeast",
+			"reventant demon", "reventant ork", "reventant hellhound",
+			"reventant knight", "reventant dragon", "shade", "skeleton",
+			"skeleton brute", "skeleton thug", "skeleton warload",
+			"summoned zombie", "skorge", "tortured soul", "undead chicken",
+			"undead cow", "undead one", "undead troll", "zombie", "zombie rat",
+			"zogre" };
 	public final static int TIMEOUT = 20;
 	public final static int CYCLE_TIME = 600;
 	public final static int BUFFER_SIZE = 10000;

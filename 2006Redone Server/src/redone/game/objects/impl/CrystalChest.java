@@ -36,14 +36,14 @@ public class CrystalChest {
 	public static void searchChest(final Client c, final int id, final int x,
 			final int y) {
 		if (canOpen(c)) {
-			c.getActionSender().sendMessage(
-					"You unlock the chest with your key.");
+			c.getActionSender()
+					.sendMessage("You unlock the chest with your key.");
 			c.getItemAssistant().deleteItem(KEY, 1);
 			c.startAnimation(OPEN_ANIMATION);
 			c.getActionSender().checkObjectSpawn(id + 1, x, y, 2, 10);
-			  CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
-		            @Override
-		            public void execute(CycleEventContainer container) {
+			CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+				@Override
+				public void execute(CycleEventContainer container) {
 					c.getItemAssistant().addItem(DRAGONSTONE, 1);
 					c.getItemAssistant().addItem(995, Misc.random(8230));
 					c.getItemAssistant().addItem(
@@ -53,10 +53,11 @@ public class CrystalChest {
 					c.getActionSender().checkObjectSpawn(id, x, y, 2, 10);
 					container.stop();
 				}
+
 				@Override
-					public void stop() {
-						
-					}
+				public void stop() {
+
+				}
 			}, 3);
 		}
 	}

@@ -15,7 +15,7 @@ public class IdleLogout implements PacketType {
 			return;
 		} else {
 			player.logout();
-			//Misc.println(player.playerName + " is idle, kicked.");
+			// Misc.println(player.playerName + " is idle, kicked.");
 		}
 	}
 }

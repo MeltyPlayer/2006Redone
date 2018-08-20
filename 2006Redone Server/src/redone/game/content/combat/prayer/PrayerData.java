@@ -12,7 +12,8 @@ public class PrayerData {
 			500, 500, 500, 500, 500, 500 };
 
 	public final int[] PRAYER_LEVEL_REQUIRED = { 1, 4, 7, 8, 9, 10, 13, 16, 19,
-			22, 25, 26, 27, 28, 31, 34, 37, 40, 43, 44, 45, 46, 49, 52, 60, 70 };
+			22, 25, 26, 27, 28, 31, 34, 37, 40, 43, 44, 45, 46, 49, 52, 60,
+			70 };
 
 	public final int[] PRAYER = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
 			14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 };
@@ -22,16 +23,16 @@ public class PrayerData {
 			"Superhuman Strength", "Improved Reflexes", "Rapid Restore",
 			"Rapid Heal", "Protect Item", "Hawk Eye", "Mystic Lore",
 			"Steel Skin", "Ultimate Strength", "Incredible Reflexes",
-			"Protect from Magic", "Protect from Missiles",
-			"Protect from Melee", "Eagle Eye", "Mystic Might", "Retribution",
-			"Redemption", "Smite", "Chivalry", "Piety" };
+			"Protect from Magic", "Protect from Missiles", "Protect from Melee",
+			"Eagle Eye", "Mystic Might", "Retribution", "Redemption", "Smite",
+			"Chivalry", "Piety" };
 
-	public final int[] PRAYER_GLOW = { 83, 84, 85, 601, 602, 86, 87, 88, 89,
-			90, 91, 603, 604, 92, 93, 94, 95, 96, 97, 605, 606, 98, 99, 100,
-			607, 608 };
+	public final int[] PRAYER_GLOW = { 83, 84, 85, 601, 602, 86, 87, 88, 89, 90,
+			91, 603, 604, 92, 93, 94, 95, 96, 97, 605, 606, 98, 99, 100, 607,
+			608 };
 
-	public final int[] PRAYER_HEAD_ICONS = { -1, -1, -1, -1, -1, -1, -1, -1,
-			-1, -1, -1, -1, -1, -1, -1, -1, 2, 1, 0, -1, -1, 3, 5, 4, -1, -1 };
+	public final int[] PRAYER_HEAD_ICONS = { -1, -1, -1, -1, -1, -1, -1, -1, -1,
+			-1, -1, -1, -1, -1, -1, -1, 2, 1, 0, -1, -1, 3, 5, 4, -1, -1 };
 
 	public boolean[] prayerActive = { false, false, false, false, false, false,
 			false, false, false, false, false, false, false, false, false,

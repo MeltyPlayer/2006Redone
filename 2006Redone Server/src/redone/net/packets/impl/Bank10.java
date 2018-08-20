@@ -32,7 +32,7 @@ public class Bank10 implements PacketType {
 			break;
 
 		case 3823:
-			if(!player.getItemAssistant().playerHasItem(removeId)) {
+			if (!player.getItemAssistant().playerHasItem(removeId)) {
 				return;
 			}
 			player.getShopAssistant().sellItem(removeId, removeSlot, 5);
@@ -47,7 +47,7 @@ public class Bank10 implements PacketType {
 			break;
 
 		case 5064:
-			if(!player.getItemAssistant().playerHasItem(removeId)) {
+			if (!player.getItemAssistant().playerHasItem(removeId)) {
 				return;
 			}
 			if (player.inPartyRoom) {
@@ -55,7 +55,8 @@ public class Bank10 implements PacketType {
 				break;
 			}
 			if (player.inTrade) {
-				player.getActionSender().sendMessage("You can't store items while trading!");
+				player.getActionSender()
+						.sendMessage("You can't store items while trading!");
 				return;
 			}
 			player.getItemAssistant().bankItem(removeId, removeSlot, 10);
@@ -88,7 +89,8 @@ public class Bank10 implements PacketType {
 		case 1121:
 		case 1122:
 		case 1123:
-			player.getSmithing().readInput(player.playerLevel[player.playerSmithing],
+			player.getSmithing().readInput(
+					player.playerLevel[player.playerSmithing],
 					Integer.toString(removeId), player, 10);
 			break;
 

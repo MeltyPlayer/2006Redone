@@ -15,11 +15,11 @@ public class RangeData {
 	public final static int[] OTHER_RANGE_WEAPONS = { 863, 864, 865, 866, 867,
 			868, 869, 806, 807, 808, 809, 810, 811, 825, 826, 827, 828, 829,
 			830, 800, 801, 802, 803, 804, 805, 6522 };
-	
+
 	public static boolean usingDbow(Client c) {
 		return c.playerEquipment[c.playerWeapon] == 11235;
 	}
-	
+
 	public static boolean usingCrystalBow(Client c) {
 		return c.playerEquipment[c.playerWeapon] >= 4212
 				&& c.playerEquipment[c.playerWeapon] <= 4223;
@@ -29,16 +29,16 @@ public class RangeData {
 		return c.playerEquipment[c.playerArrows] >= 9130
 				&& c.playerEquipment[c.playerArrows] <= 9145
 				|| c.playerEquipment[c.playerArrows] >= 9230
-				&& c.playerEquipment[c.playerArrows] <= 9245;
+						&& c.playerEquipment[c.playerArrows] <= 9245;
 	}
 
 	public static boolean properBolts(Client c) {
 		return c.playerEquipment[c.playerArrows] >= 9140
 				&& c.playerEquipment[c.playerArrows] <= 9144
 				|| c.playerEquipment[c.playerArrows] >= 9240
-				&& c.playerEquipment[c.playerArrows] <= 9244;
+						&& c.playerEquipment[c.playerArrows] <= 9244;
 	}
-	
+
 	public static boolean usingHally(Client c) {
 		switch (c.playerEquipment[c.playerWeapon]) {
 		case 3190:
@@ -359,7 +359,7 @@ public class RangeData {
 			return 5;
 		}
 	}
-	
+
 	public static boolean fullVoidRange(Client c) {
 		return c.playerEquipment[c.playerHat] == 11664
 				&& c.playerEquipment[c.playerLegs] == 8840

@@ -16,9 +16,9 @@ public class ClickingStuff implements PacketType {
 			player.playerIsBusy = false;
 		}
 		if (player.isBanking)
-	         player.isBanking = false;
-		if(player.isShopping)
-	        player.isShopping = false;
+			player.isBanking = false;
+		if (player.isShopping)
+			player.isShopping = false;
 		if (player.inTrade) {
 			if (!player.acceptedTrade) {
 				Client opponent = (Client) PlayerHandler.players[player.tradeWith];
@@ -28,20 +28,23 @@ public class ClickingStuff implements PacketType {
 				player.tradeStatus = 0;
 				player.tradeConfirmed = false;
 				player.tradeConfirmed2 = false;
-				player.getActionSender().sendMessage("@red@Trade has been declined.");
-				opponent.getActionSender().sendMessage("@red@Other player has declined the trade.");
+				player.getActionSender()
+						.sendMessage("@red@Trade has been declined.");
+				opponent.getActionSender().sendMessage(
+						"@red@Other player has declined the trade.");
 				Misc.println("trade reset");
 				player.getTrading().declineTrade();
 			}
 		}
 
-		if(player.openDuel && player.duelStatus >= 1 && player.duelStatus <= 4) {
-		Client o = (Client) PlayerHandler.players[player.duelingWith];
-		if (o != null)
-			if (player.duelStatus >= 1 && player.duelStatus <= 4)
-				player.getDueling().declineDuel();
-				o.getDueling().declineDuel();
-			}
+		if (player.openDuel && player.duelStatus >= 1
+				&& player.duelStatus <= 4) {
+			Client o = (Client) PlayerHandler.players[player.duelingWith];
+			if (o != null)
+				if (player.duelStatus >= 1 && player.duelStatus <= 4)
+					player.getDueling().declineDuel();
+			o.getDueling().declineDuel();
+		}
 
 		if (player.duelStatus == 6) {
 			player.getDueling().claimStakedItems();

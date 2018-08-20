@@ -31,7 +31,8 @@ public class WildernessAgility {
 			} else if (c.absX == 3004 && c.absY > 3937 && c.absY < 3950) {
 				c.getPlayerAssistant().movePlayer(3004, 3950, 0);
 			}
-			c.getPlayerAssistant().addSkillXP(c.getAgility().getXp(objectId), c.playerAgility);
+			c.getPlayerAssistant().addSkillXP(c.getAgility().getXp(objectId),
+					c.playerAgility);
 			c.getAgility().resetAgilityProgress();
 			c.getAgility().agilityProgress[0] = true;
 			return true;
@@ -40,15 +41,16 @@ public class WildernessAgility {
 				return false;
 			}
 			if (c.getAgility().hotSpot(3005, 3953)) {
-				c.getAgility().walk(0, 1,
-						c.getAgility().getAnimation(objectId), -1);
+				c.getAgility().walk(0, 1, c.getAgility().getAnimation(objectId),
+						-1);
 				if (c.getAgility().agilityProgress[0] == true) {
 					c.getAgility().agilityProgress[1] = true;
 				}
-				c.getPlayerAssistant().addSkillXP(c.getAgility().getXp(objectId), c.playerAgility);
-				  CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
-			            @Override
-			            public void execute(CycleEventContainer container) {
+				c.getPlayerAssistant().addSkillXP(
+						c.getAgility().getXp(objectId), c.playerAgility);
+				CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+					@Override
+					public void execute(CycleEventContainer container) {
 						if (c.disconnected) {
 							container.stop();
 							return;
@@ -56,11 +58,12 @@ public class WildernessAgility {
 						c.getPlayerAssistant().movePlayer(3005, 3958, 0);
 						container.stop();
 					}
+
 					@Override
-						public void stop() {
-							// TODO Auto-generated method stub
-							
-						}
+					public void stop() {
+						// TODO Auto-generated method stub
+
+					}
 				}, 1);
 			}
 			return true;
@@ -74,7 +77,8 @@ public class WildernessAgility {
 			} else if (c.absX > 2996 && c.absX < 3002 && c.absY == 3960) {
 				c.getPlayerAssistant().movePlayer(2996, 3960, 0);
 			}
-			c.getPlayerAssistant().addSkillXP(c.getAgility().getXp(objectId), c.playerAgility);
+			c.getPlayerAssistant().addSkillXP(c.getAgility().getXp(objectId),
+					c.playerAgility);
 			c.getAgility().steppingStone = 6;
 			c.getAgility().steppingStoneTimer = 2;
 			c.getAgility().steppingStone--;
@@ -93,7 +97,8 @@ public class WildernessAgility {
 				if (c.getAgility().agilityProgress[3] == true) {
 					c.getAgility().agilityProgress[5] = true;
 				}
-				c.getPlayerAssistant().addSkillXP(c.getAgility().getXp(objectId), c.playerAgility);
+				c.getPlayerAssistant().addSkillXP(
+						c.getAgility().getXp(objectId), c.playerAgility);
 			} else if (c.absX > 2994 && c.absX < 3002 && c.absY == 3945) {
 				c.getPlayerAssistant().movePlayer(2994, 3945, 0);
 			}
@@ -103,13 +108,16 @@ public class WildernessAgility {
 			if (c.getAgility().checkLevel(objectId)) {
 				return false;
 			}
-			c.getAgility().walk(0, -4, c.getAgility().getAnimation(objectId), -1);
+			c.getAgility().walk(0, -4, c.getAgility().getAnimation(objectId),
+					-1);
 			if (c.getAgility().agilityProgress[5] == true) {
-				c.getPlayerAssistant().addSkillXP(c.getAgility().getXp(objectId), c.playerAgility);
+				c.getPlayerAssistant().addSkillXP(
+						c.getAgility().getXp(objectId), c.playerAgility);
 				c.getAgility().lapBonus = 2400 / 30;
 				c.getAgility().lapFinished();
 			} else {
-				c.getPlayerAssistant().addSkillXP(c.getAgility().getXp(objectId), c.playerAgility);
+				c.getPlayerAssistant().addSkillXP(
+						c.getAgility().getXp(objectId), c.playerAgility);
 			}
 			return true;
 		}

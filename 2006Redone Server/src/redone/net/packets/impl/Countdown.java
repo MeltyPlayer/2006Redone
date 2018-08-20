@@ -102,7 +102,8 @@ public class Countdown {
 
 	public String minutesToString() {
 		int minutes = getMinutes();
-		return (minutes == 0 ? "a minute" : minutes + (minutes == 1 ? " minute" : " minutes"));
+		return (minutes == 0 ? "a minute"
+				: minutes + (minutes == 1 ? " minute" : " minutes"));
 	}
 
 	public String secondsToString() {
@@ -115,7 +116,8 @@ public class Countdown {
 	}
 
 	public boolean finished() {
-		if (getDays() <= 0 && getHours() <= 0 && getMinutes() <= 0 && getSeconds() <= 0) {
+		if (getDays() <= 0 && getHours() <= 0 && getMinutes() <= 0
+				&& getSeconds() <= 0) {
 			return true;
 		}
 		return false;

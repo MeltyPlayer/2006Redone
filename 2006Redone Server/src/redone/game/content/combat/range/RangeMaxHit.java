@@ -3,7 +3,7 @@ package redone.game.content.combat.range;
 import redone.game.players.Client;
 
 public class RangeMaxHit {
-	
+
 	public static int calculateRangeDefence(Client c) {
 		int defenceLevel = c.playerLevel[1];
 		if (c.getPrayer().prayerActive[0]) {
@@ -42,7 +42,8 @@ public class RangeMaxHit {
 
 	public static int rangeMaxHit(Client c) {
 		int rangeLevel = c.playerLevel[4];
-		int itemUsed = getRangeStr(c.usingBow ? c.lastArrowUsed : c.lastWeaponUsed);
+		int itemUsed = getRangeStr(
+				c.usingBow ? c.lastArrowUsed : c.lastWeaponUsed);
 		double modifier = 1.00;
 		if (c.getPrayer().prayerActive[3]) {
 			modifier *= 1.05;
@@ -68,7 +69,8 @@ public class RangeMaxHit {
 				}
 			}
 		}
-		double max = (1.3 + e / 10 + itemUsed / 80 + e * itemUsed / 640) * darkbow;
+		double max = (1.3 + e / 10 + itemUsed / 80 + e * itemUsed / 640)
+				* darkbow;
 		return (int) max;
 	}
 
@@ -81,15 +83,14 @@ public class RangeMaxHit {
 				{ 9245, 120 }, { 882, 7 }, { 884, 10 }, { 886, 16 },
 				{ 888, 22 }, { 890, 31 }, { 892, 49 }, { 4740, 55 },
 				{ 11212, 60 }, { 806, 1 }, { 807, 3 }, { 808, 4 }, { 809, 7 },
-				{ 810, 10 }, { 811, 14 }, { 11230, 20 }, { 864, 3 },
-				{ 863, 4 }, { 865, 7 }, { 866, 10 }, { 867, 14 }, { 868, 24 },
-				{ 825, 6 }, { 826, 10 }, { 827, 12 }, { 828, 18 }, { 829, 28 },
-				{ 830, 42 }, { 800, 5 }, { 801, 7 }, { 802, 11 }, { 803, 16 },
-				{ 804, 23 }, { 805, 36 }, { 9976, 0 }, { 9977, 15 },
-				{ 4212, 70 }, { 4214, 70 }, { 4215, 70 }, { 4216, 70 },
-				{ 4217, 70 }, { 4218, 70 }, { 4219, 70 }, { 4220, 70 },
-				{ 4221, 70 }, { 4222, 70 }, { 4223, 70 }, { 6522, 49 },
-				{ 10034, 15 }, };
+				{ 810, 10 }, { 811, 14 }, { 11230, 20 }, { 864, 3 }, { 863, 4 },
+				{ 865, 7 }, { 866, 10 }, { 867, 14 }, { 868, 24 }, { 825, 6 },
+				{ 826, 10 }, { 827, 12 }, { 828, 18 }, { 829, 28 }, { 830, 42 },
+				{ 800, 5 }, { 801, 7 }, { 802, 11 }, { 803, 16 }, { 804, 23 },
+				{ 805, 36 }, { 9976, 0 }, { 9977, 15 }, { 4212, 70 },
+				{ 4214, 70 }, { 4215, 70 }, { 4216, 70 }, { 4217, 70 },
+				{ 4218, 70 }, { 4219, 70 }, { 4220, 70 }, { 4221, 70 },
+				{ 4222, 70 }, { 4223, 70 }, { 6522, 49 }, { 10034, 15 }, };
 		for (int[] element : data) {
 			if (i == element[0]) {
 				str = element[1];

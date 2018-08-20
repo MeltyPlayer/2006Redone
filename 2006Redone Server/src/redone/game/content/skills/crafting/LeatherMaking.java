@@ -18,7 +18,8 @@ public class LeatherMaking extends CraftingData {
 					c.leatherType = leather;
 					return;
 				}
-				String[] name = { "Body", "Chaps", "Bandana", "Boots", "Vamb", };
+				String[] name = { "Body", "Chaps", "Bandana", "Boots",
+						"Vamb", };
 				if (l.getLeather() == 1743) {
 					c.getPlayerAssistant().sendChatInterface(4429);
 					c.getPlayerAssistant().sendFrame246(1746, 200, 1131);
@@ -34,8 +35,8 @@ public class LeatherMaking extends CraftingData {
 					c.getActionSender().itemOnInterface(8944, 180, 6328);
 					c.getActionSender().itemOnInterface(8945, 180, 6330);
 					for (int i = 0; i < name.length; i++) {
-						c.getPlayerAssistant()
-								.sendFrame126(name[i], 8949 + i * 4);
+						c.getPlayerAssistant().sendFrame126(name[i],
+								8949 + i * 4);
 					}
 					c.leatherType = leather;
 					return;
@@ -48,8 +49,7 @@ public class LeatherMaking extends CraftingData {
 			if (leather == d.getLeather()) {
 				c.getPlayerAssistant().sendChatInterface(8880);
 				c.getActionSender().itemOnInterface(8883, 180, d.getVamb());
-				c.getActionSender()
-						.itemOnInterface(8884, 180, d.getChaps());
+				c.getActionSender().itemOnInterface(8884, 180, d.getChaps());
 				c.getActionSender().itemOnInterface(8885, 180, d.getBody());
 				for (int i = 0; i < name.length; i++) {
 					c.getPlayerAssistant().sendFrame126(name[i], 8889 + i * 4);
@@ -70,9 +70,9 @@ public class LeatherMaking extends CraftingData {
 			if (buttonId == l.getButtonId(buttonId)) {
 				if (c.leatherType == l.getLeather()) {
 					if (c.playerLevel[12] < l.getLevel()) {
-						c.getActionSender().sendMessage(
-								"You need a crafting level of " + l.getLevel()
-										+ " to make this.");
+						c.getActionSender()
+								.sendMessage("You need a crafting level of "
+										+ l.getLevel() + " to make this.");
 						c.getPlayerAssistant().removeAllWindows();
 						return;
 					}
@@ -84,16 +84,14 @@ public class LeatherMaking extends CraftingData {
 					}
 					if (!c.getItemAssistant().playerHasItem(c.leatherType,
 							l.getHideAmount())) {
-						c.getActionSender().sendMessage(
-								"You need "
-										+ l.getHideAmount()
-										+ " "
-										+ ItemAssistant.getItemName(
-												c.leatherType).toLowerCase()
-										+ " to make "
-										+ ItemAssistant.getItemName(
-												l.getProduct()).toLowerCase()
-										+ ".");
+						c.getActionSender().sendMessage("You need "
+								+ l.getHideAmount() + " "
+								+ ItemAssistant.getItemName(c.leatherType)
+										.toLowerCase()
+								+ " to make "
+								+ ItemAssistant.getItemName(l.getProduct())
+										.toLowerCase()
+								+ ".");
 						c.getPlayerAssistant().removeAllWindows();
 						return;
 					}
@@ -110,18 +108,16 @@ public class LeatherMaking extends CraftingData {
 									if (c.isCrafting == true) {
 										if (!c.getItemAssistant()
 												.playerHasItem(1734)) {
-											c.getActionSender()
-													.sendMessage(
-															"You have run out of thread.");
+											c.getActionSender().sendMessage(
+													"You have run out of thread.");
 											container.stop();
 											return;
 										}
-										if (!c.getItemAssistant()
-												.playerHasItem(c.leatherType,
-														l.getHideAmount())) {
-											c.getActionSender()
-													.sendMessage(
-															"You have run out of leather.");
+										if (!c.getItemAssistant().playerHasItem(
+												c.leatherType,
+												l.getHideAmount())) {
+											c.getActionSender().sendMessage(
+													"You have run out of leather.");
 											container.stop();
 											return;
 										}
@@ -129,47 +125,42 @@ public class LeatherMaking extends CraftingData {
 											container.stop();
 											return;
 										}
-										c.getItemAssistant().deleteItem(
-												1734,
-												c.getItemAssistant()
+										c.getItemAssistant()
+												.deleteItem(1734, c
+														.getItemAssistant()
 														.getItemSlot(1734), 1);
 										c.getItemAssistant().deleteItem(
 												c.leatherType,
 												l.getHideAmount());
-										c.getItemAssistant().addItem(
-												l.getProduct(), 1);
-										c.getActionSender()
-												.sendMessage(
-														"You make "
-																+ (ItemAssistant
-																		.getItemName(
-																				l.getProduct())
-																		.contains(
-																				"body") ? "a"
-																		: "some")
-																+ " "
-																+ ItemAssistant
-																		.getItemName(l
-																				.getProduct())
-																+ ".");
+										c.getItemAssistant()
+												.addItem(l.getProduct(), 1);
+										c.getActionSender().sendMessage(
+												"You make " + (ItemAssistant
+														.getItemName(
+																l.getProduct())
+														.contains("body") ? "a"
+																: "some")
+														+ " "
+														+ ItemAssistant
+																.getItemName(l
+																		.getProduct())
+														+ ".");
 										c.getPlayerAssistant().addSkillXP(
 												(int) l.getXP(), 12);
 										c.startAnimation(1249);
 										amount--;
 										if (!c.getItemAssistant()
 												.playerHasItem(1734)) {
-											c.getActionSender()
-													.sendMessage(
-															"You have run out of thread.");
+											c.getActionSender().sendMessage(
+													"You have run out of thread.");
 											container.stop();
 											return;
 										}
-										if (!c.getItemAssistant()
-												.playerHasItem(c.leatherType,
-														l.getHideAmount())) {
-											c.getActionSender()
-													.sendMessage(
-															"You have run out of leather.");
+										if (!c.getItemAssistant().playerHasItem(
+												c.leatherType,
+												l.getHideAmount())) {
+											c.getActionSender().sendMessage(
+													"You have run out of leather.");
 											container.stop();
 											return;
 										}

@@ -30,7 +30,7 @@ public class AttackPlayer implements PacketType {
 			if (PlayerHandler.players[c.playerIndex] == null) {
 				break;
 			}
-			
+
 			if (c.inDuelArena() && !c.duelingArena()) {
 				c.getChallengePlayer().processPacket(c, packetType, packetSize);
 			}
@@ -42,10 +42,12 @@ public class AttackPlayer implements PacketType {
 			if (c.autocastId > 0) {
 				c.autocasting = true;
 			}
-			
+
 			if (c.isBotting == true) {
-				c.getActionSender().sendMessage("You can't attack players, until you confirm you are not botting.");
-				c.getActionSender().sendMessage("If you need to you can type ::amibotting, to see if your botting.");
+				c.getActionSender().sendMessage(
+						"You can't attack players, until you confirm you are not botting.");
+				c.getActionSender().sendMessage(
+						"If you need to you can type ::amibotting, to see if your botting.");
 				return;
 			}
 
@@ -76,8 +78,8 @@ public class AttackPlayer implements PacketType {
 			}
 			if (c.duelStatus == 5) {
 				if (c.duelCount > 0) {
-					c.getActionSender().sendMessage(
-							"The duel hasn't started yet!");
+					c.getActionSender()
+							.sendMessage("The duel hasn't started yet!");
 					c.playerIndex = 0;
 					return;
 				}
@@ -107,18 +109,16 @@ public class AttackPlayer implements PacketType {
 				}
 			}
 
-			if ((usingBow || c.autocasting)
-					&& c.goodDistance(c.getX(), c.getY(),
-							PlayerHandler.players[c.playerIndex].getX(),
-							PlayerHandler.players[c.playerIndex].getY(), 6)) {
+			if ((usingBow || c.autocasting) && c.goodDistance(c.getX(),
+					c.getY(), PlayerHandler.players[c.playerIndex].getX(),
+					PlayerHandler.players[c.playerIndex].getY(), 6)) {
 				c.usingBow = true;
 				c.stopMovement();
 			}
 
-			if (usingOtherRangeWeapons
-					&& c.goodDistance(c.getX(), c.getY(),
-							PlayerHandler.players[c.playerIndex].getX(),
-							PlayerHandler.players[c.playerIndex].getY(), 3)) {
+			if (usingOtherRangeWeapons && c.goodDistance(c.getX(), c.getY(),
+					PlayerHandler.players[c.playerIndex].getX(),
+					PlayerHandler.players[c.playerIndex].getY(), 3)) {
 				c.usingRangeWeapon = true;
 				c.stopMovement();
 			}
@@ -132,32 +132,30 @@ public class AttackPlayer implements PacketType {
 			if (!usingCross && !usingArrows && usingBow
 					&& c.playerEquipment[c.playerWeapon] < 4212
 					&& c.playerEquipment[c.playerWeapon] > 4223) {
-				c.getActionSender().sendMessage(
-						"You have run out of arrows!");
+				c.getActionSender().sendMessage("You have run out of arrows!");
 				return;
 			}
-			if (RangeData.correctBowAndArrows(c) < c.playerEquipment[c.playerArrows]
-					&& Constants.CORRECT_ARROWS
-					&& usingBow
+			if (RangeData
+					.correctBowAndArrows(c) < c.playerEquipment[c.playerArrows]
+					&& Constants.CORRECT_ARROWS && usingBow
 					&& !RangeData.usingCrystalBow(c)
 					&& c.playerEquipment[c.playerWeapon] != 9185) {
-				c.getActionSender().sendMessage(
-						"You can't use "
-								+ ItemAssistant.getItemName(
-										c.playerEquipment[c.playerArrows])
-										.toLowerCase()
-								+ "s with a "
+				c.getActionSender()
+						.sendMessage("You can't use " + ItemAssistant
+								.getItemName(c.playerEquipment[c.playerArrows])
+								.toLowerCase() + "s with a "
 								+ ItemAssistant.getItemName(
 										c.playerEquipment[c.playerWeapon])
-										.toLowerCase() + ".");
+										.toLowerCase()
+								+ ".");
 				c.stopMovement();
 				c.getCombatAssistant().resetPlayerAttack();
 				return;
 			}
 			if (c.playerEquipment[c.playerWeapon] == 9185
 					&& !c.getCombatAssistant().properBolts()) {
-				c.getActionSender().sendMessage(
-						"You must use bolts with a crossbow.");
+				c.getActionSender()
+						.sendMessage("You must use bolts with a crossbow.");
 				c.stopMovement();
 				c.getCombatAssistant().resetPlayerAttack();
 				return;
@@ -169,7 +167,8 @@ public class AttackPlayer implements PacketType {
 					c.getPlayerAssistant().followPlayer();
 				}
 				if (c.attackTimer <= 0) {
-					// c.getPacketDispatcher().sendMessage("Tried to attack...");
+					// c.getPacketDispatcher().sendMessage("Tried to
+					// attack...");
 					// c.getCombat().attackPlayer(c.playerIndex);
 					// c.attackTimer++;
 				}
@@ -185,8 +184,10 @@ public class AttackPlayer implements PacketType {
 				break;
 			}
 			if (c.isBotting == true) {
-				c.getActionSender().sendMessage("You can't mage players, until you confirm you are not botting.");
-				c.getActionSender().sendMessage("If you need to you can type ::amibotting, to see if your botting.");
+				c.getActionSender().sendMessage(
+						"You can't mage players, until you confirm you are not botting.");
+				c.getActionSender().sendMessage(
+						"If you need to you can type ::amibotting, to see if your botting.");
 				return;
 			}
 			// c.usingSpecial = false;
@@ -248,8 +249,8 @@ public class AttackPlayer implements PacketType {
 
 				if (c.duelStatus == 5) {
 					if (c.duelCount > 0) {
-						c.getActionSender().sendMessage(
-								"The duel hasn't started yet!");
+						c.getActionSender()
+								.sendMessage("The duel hasn't started yet!");
 						c.playerIndex = 0;
 						return;
 					}
@@ -267,9 +268,8 @@ public class AttackPlayer implements PacketType {
 					if (PlayerHandler.players[c.playerIndex].REDUCE_SPELLS[r] == MagicData.MAGIC_SPELLS[c.spellId][0]) {
 						if (System.currentTimeMillis()
 								- PlayerHandler.players[c.playerIndex].reduceSpellDelay[r] < PlayerHandler.players[c.playerIndex].REDUCE_SPELL_TIME[r]) {
-							c.getActionSender()
-									.sendMessage(
-											"That player is currently immune to this spell.");
+							c.getActionSender().sendMessage(
+									"That player is currently immune to this spell.");
 							c.usingMagic = false;
 							c.stopMovement();
 							c.getCombatAssistant().resetPlayerAttack();

@@ -45,7 +45,7 @@ public class PestControl {
 	 * 
 	 * @order npcId, xSpawn, ySpawn, health
 	 */
-	
+
 	public int shifter = 3732 + Misc.random(9);
 	public int brawler = 3772 + Misc.random(4);
 	public int defiler = 3762 + Misc.random(9);
@@ -59,7 +59,7 @@ public class PestControl {
 			{ 3780, 2645, 2569 }, // portal
 			{ 3782, 2656, 2592 }, // knight
 	};
-	
+
 	private final int[][] voidMonsterData = {
 			{ shifter, 2660 + Misc.random(4), 2592 + Misc.random(4) },
 			{ brawler, 2663 + Misc.random(4), 2575 + Misc.random(4) },
@@ -74,7 +74,7 @@ public class PestControl {
 			{ defiler, 2673 + Misc.random(4), 2584 + Misc.random(4) },
 			{ defiler, 2675 + Misc.random(4), 2591 + Misc.random(4) },
 			{ splater, 2644 + Misc.random(4), 2575 + Misc.random(4) },
-			{ splater, 2633 + Misc.random(4), 2595 + Misc.random(4) }};
+			{ splater, 2633 + Misc.random(4), 2595 + Misc.random(4) } };
 
 	public void process() {
 		try {
@@ -128,9 +128,11 @@ public class PestControl {
 		for (final Client c : waitingBoat.keySet()) {
 			if (c != null) {
 				if (gameStarted && isInPcBoat(c)) {
-					c.getActionSender().sendMessage("Next Departure: " + (waitTimer + gameTimer) / 60 + " minutes");
+					c.getActionSender().sendMessage("Next Departure: "
+							+ (waitTimer + gameTimer) / 60 + " minutes");
 				} else {
-					c.getActionSender().sendMessage("Next Departure: " + waitTimer + " seconds.");
+					c.getActionSender().sendMessage(
+							"Next Departure: " + waitTimer + " seconds.");
 				}
 			}
 		}
@@ -140,12 +142,17 @@ public class PestControl {
 		for (final Client player : gamePlayers.keySet()) {
 			if (player != null) {
 				if (gameTimer > 60) {
-					player.getActionSender().sendMessage("Time remaining: " + gameTimer / 60 + " minutes");
+					player.getActionSender().sendMessage(
+							"Time remaining: " + gameTimer / 60 + " minutes");
 				} else if (gameTimer < 60) {
-					player.getActionSender().sendMessage("Time remaining: " + gameTimer + " seconds");
+					player.getActionSender().sendMessage(
+							"Time remaining: " + gameTimer + " seconds");
 				}
-				player.getActionSender().sendMessage("The knights current health is " + KNIGHTS_HEALTH + ".");
-				player.getActionSender().sendMessage("Your current pc damage is " + player.pcDamage + ".");
+				player.getActionSender()
+						.sendMessage("The knights current health is "
+								+ KNIGHTS_HEALTH + ".");
+				player.getActionSender().sendMessage(
+						"Your current pc damage is " + player.pcDamage + ".");
 			}
 		}
 	}
@@ -209,8 +216,8 @@ public class PestControl {
 			player.getPlayerAssistant().movePlayer(2656 + Misc.random3(3),
 					2614 - Misc.random3(4), 0);
 			player.getDialogueHandler().sendDialogues(599, 3790);
-			player.getActionSender().sendMessage(
-					"The Pest Control Game has begun!");
+			player.getActionSender()
+					.sendMessage("The Pest Control Game has begun!");
 			gamePlayers.put(player, team);
 		}
 
@@ -282,9 +289,8 @@ public class PestControl {
 								+ POINT_REWARD2 + " points.");
 			} else {
 				player.getDialogueHandler().sendDialogues(597, 3790);
-				player.getActionSender()
-						.sendMessage(
-								"You failed to kill all the portals in 3 minutes and have not been awarded points.");
+				player.getActionSender().sendMessage(
+						"You failed to kill all the portals in 3 minutes and have not been awarded points.");
 			}
 		}
 		cleanUpPlayer();
@@ -337,8 +343,8 @@ public class PestControl {
 			}
 			player.specAmount = 10;
 			player.pcDamage = 0;
-			player.getItemAssistant().addSpecialBar(
-					player.playerEquipment[player.playerWeapon]);
+			player.getItemAssistant()
+					.addSpecialBar(player.playerEquipment[player.playerWeapon]);
 		}
 	}
 
@@ -394,20 +400,19 @@ public class PestControl {
 	public static void addToWaitRoom(Client player) {
 		if (player != null && player.combatLevel > 39) {
 			waitingBoat.put(player, 1);
-			player.getActionSender().sendMessage(
-					"You have joined the Pest Control boat.");
-			player.getActionSender().sendMessage(
-					"You currently have " + player.pcPoints
-							+ " Pest Control Points.");
-			player.getActionSender().sendMessage(
-					"There are currently " + playersInBoat()
-							+ " players ready in the boat.");
+			player.getActionSender()
+					.sendMessage("You have joined the Pest Control boat.");
+			player.getActionSender().sendMessage("You currently have "
+					+ player.pcPoints + " Pest Control Points.");
+			player.getActionSender().sendMessage("There are currently "
+					+ playersInBoat() + " players ready in the boat.");
 			player.getActionSender().sendMessage(
 					"Players needed: " + PLAYERS_REQUIRED + " to 25 players.");
 			player.getPlayerAssistant().movePlayer(2661, 2639, 0);
 			waitBoat();
 		} else if (player.combatLevel < 40) {
-			player.getActionSender().sendMessage("You need 40 combat to play pest control.");
+			player.getActionSender()
+					.sendMessage("You need 40 combat to play pest control.");
 		}
 	}
 
@@ -438,13 +443,20 @@ public class PestControl {
 	}
 
 	private void spawnNPC() {
-		//npcid, npcx, npcy, heightlevel, walking type, hp, att, def
+		// npcid, npcx, npcy, heightlevel, walking type, hp, att, def
 		for (int[] aPcNPCData : pcNPCData) {
-			Server.npcHandler.spawnNpc2(aPcNPCData[0], aPcNPCData[1], aPcNPCData[2], 0, 0, 200, 0, 0, playersInGame() * 200);
+			Server.npcHandler.spawnNpc2(aPcNPCData[0], aPcNPCData[1],
+					aPcNPCData[2], 0, 0, 200, 0, 0, playersInGame() * 200);
 		}
 		for (int[] voidMonsters : voidMonsterData) {
-			//Server.npcHandler.spawnNpc2(voidMonsters[0], voidMonsters[1], voidMonsters[2], 0, 1, voidMonsters[NpcHandler.getNpcListHP(voidMonsters[0])], NpcHandler.getNpcListCombat(voidMonsters[0])/10, NpcHandler.getNpcListCombat(voidMonsters[0]), playersInGame() * 200);
-			Server.npcHandler.spawnNpc2(voidMonsters[0], voidMonsters[1], voidMonsters[2], 0, 1, 500, 20, 200, 25);
+			// Server.npcHandler.spawnNpc2(voidMonsters[0], voidMonsters[1],
+			// voidMonsters[2], 0, 1,
+			// voidMonsters[NpcHandler.getNpcListHP(voidMonsters[0])],
+			// NpcHandler.getNpcListCombat(voidMonsters[0])/10,
+			// NpcHandler.getNpcListCombat(voidMonsters[0]), playersInGame() *
+			// 200);
+			Server.npcHandler.spawnNpc2(voidMonsters[0], voidMonsters[1],
+					voidMonsters[2], 0, 1, 500, 20, 200, 25);
 		}
 	}
 }

@@ -13,7 +13,8 @@ public class Spinning extends CraftingData {
 
 	public static void showSpinning(Client c) {
 		c.getPlayerAssistant().sendChatInterface(8880);
-		c.getPlayerAssistant().sendFrame126("What would you like to make?", 8879);
+		c.getPlayerAssistant().sendFrame126("What would you like to make?",
+				8879);
 		c.getPlayerAssistant().sendFrame246(8883, 180, 1737); // left
 		c.getPlayerAssistant().sendFrame246(8884, 180, 1779); // middle
 		c.getPlayerAssistant().sendFrame246(8885, 180, 6051); // right
@@ -49,11 +50,16 @@ public class Spinning extends CraftingData {
 								return;
 							}
 							c.startAnimation(896);
-							int amount = c.getItemAssistant().getItemCount( before);
+							int amount = c.getItemAssistant()
+									.getItemCount(before);
 							c.getItemAssistant().deleteItem(before, amount);
 							c.getItemAssistant().addItem(after, amount);
-							c.getPlayerAssistant().addSkillXP(exp * amount, c.playerCrafting);
-							c.getActionSender().sendMessage("You spin the " + ItemAssistant.getItemName(before) + " into a " + ItemAssistant.getItemName(after) + ".");
+							c.getPlayerAssistant().addSkillXP(exp * amount,
+									c.playerCrafting);
+							c.getActionSender().sendMessage("You spin the "
+									+ ItemAssistant.getItemName(before)
+									+ " into a "
+									+ ItemAssistant.getItemName(after) + ".");
 							c.doAmount--;
 						}
 

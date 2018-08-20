@@ -6,15 +6,15 @@ import redone.util.Misc;
 
 /**
  * Npc Drops Handler
- * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape & Runelocus)
+ * 
+ * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape &
+ *         Runelocus)
  */
 
 public class NPCDropsHandler {
 
 	public static int // found on http://runescape.wikia.com/wiki/Drop_rate
-			ALWAYS = 0,
-			COINSRATE = 3, CHICKEN_RATE = 75 / 100,
-			COMMON = 2 + r(48),
+	ALWAYS = 0, COINSRATE = 3, CHICKEN_RATE = 75 / 100, COMMON = 2 + r(48),
 			UNCOMMON = 51 + r(49), RARE = 101 + r(411), VERY_RARE = 513;
 
 	/**
@@ -24,7 +24,8 @@ public class NPCDropsHandler {
 	 * @return
 	 */
 	public static final int[][] NPC_DROPS(String npc, int NPCId) {
-		if (npc.equals("man") || npc.equals("woman") || npc.equals("drunken_man")) {
+		if (npc.equals("man") || npc.equals("woman")
+				|| npc.equals("drunken_man")) {
 			return NPCDrops.man;
 		} else if (npc.equals("skeletal_wyvern")) {
 			return NPCDrops.wyvern;

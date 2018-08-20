@@ -4,8 +4,7 @@ import redone.game.players.Client;
 
 public class ExperienceLamp {
 
-	public static int LAMP = 4447, LAMP_2 = 2528, SKILL_MENU = 2808,
-			skill = -1;
+	public static int LAMP = 4447, LAMP_2 = 2528, SKILL_MENU = 2808, skill = -1;
 
 	/**
 	 * Handles the actionbuttons
@@ -105,22 +104,21 @@ public class ExperienceLamp {
 			}
 			if (c.getItemAssistant().playerHasItem(LAMP, 1) && skill > -1) {// normal
 																			// lamp
-				int xp = c.getPlayerAssistant()
-						.getLevelForXP(c.playerXP[skill]) * 10;
+				int xp = c.getPlayerAssistant().getLevelForXP(c.playerXP[skill])
+						* 10;
 				c.getPlayerAssistant().addNormalExperienceRate(xp, skill);
 				c.getItemAssistant().deleteItem2(LAMP, 1);
-				c.getActionSender().sendMessage(
-						"@blu@Your wish has been granted!");
-				c.getActionSender().sendMessage(
-						"@blu@You have been awarded " + xp
-								+ " experience in your selected skill!");
+				c.getActionSender()
+						.sendMessage("@blu@Your wish has been granted!");
+				c.getActionSender().sendMessage("@blu@You have been awarded "
+						+ xp + " experience in your selected skill!");
 				c.getPlayerAssistant().removeAllWindows();
 			} else if (c.getItemAssistant().playerHasItem(LAMP_2, 1)
 					&& skill > -1) {// vote
 									// reward
 				c.getItemAssistant().deleteItem2(LAMP_2, 1);
-				c.getActionSender().sendMessage(
-						"@blu@Your wish has been granted!");
+				c.getActionSender()
+						.sendMessage("@blu@Your wish has been granted!");
 				addExp(c);
 				c.getPlayerAssistant().removeAllWindows();
 			}
@@ -131,20 +129,18 @@ public class ExperienceLamp {
 	public static void addExp(Client c) {
 		if (c.getPlayerAssistant().getLevelForXP(c.playerXP[skill]) < 20) {
 			c.getPlayerAssistant().addNormalExperienceRate(1000, skill);
-			c.getActionSender()
-					.sendMessage(
-							"@blu@You have been awarded 1000 experience in your selected skill!");
+			c.getActionSender().sendMessage(
+					"@blu@You have been awarded 1000 experience in your selected skill!");
 		} else if (c.getPlayerAssistant().getLevelForXP(c.playerXP[skill]) > 19
-				&& c.getPlayerAssistant().getLevelForXP(c.playerXP[skill]) < 35) {
+				&& c.getPlayerAssistant()
+						.getLevelForXP(c.playerXP[skill]) < 35) {
 			c.getPlayerAssistant().addNormalExperienceRate(2000, skill);
-			c.getActionSender()
-					.sendMessage(
-							"@blu@You have been awarded 2000 experience in your selected skill!");
+			c.getActionSender().sendMessage(
+					"@blu@You have been awarded 2000 experience in your selected skill!");
 		} else {
 			c.getPlayerAssistant().addNormalExperienceRate(3000, skill);
-			c.getActionSender()
-					.sendMessage(
-							"@blu@You have been awarded 3000 experience in your selected skill!");
+			c.getActionSender().sendMessage(
+					"@blu@You have been awarded 3000 experience in your selected skill!");
 		}
 	}
 

@@ -4,6 +4,7 @@ import redone.game.players.Client;
 
 /**
  * Sounds
+ * 
  * @author Andrew
  */
 
@@ -23,8 +24,10 @@ public class SoundList {
 	public static final int MINING_ORE = 1331;
 	public static final int ANVIL = 468;
 	public static final int BONE_BURY = 380;
-	public static final int FIRE_LIGHT = 375, FIRE_SUCCESSFUL = 608, FIRST_ATTEMPT = 2584;
-	public static final int TREE_CUT_BEGIN = 471, TREE_CUTTING = 472, TREE_EMPTY = 473;
+	public static final int FIRE_LIGHT = 375, FIRE_SUCCESSFUL = 608,
+			FIRST_ATTEMPT = 2584;
+	public static final int TREE_CUT_BEGIN = 471, TREE_CUTTING = 472,
+			TREE_EMPTY = 473;
 	public static final int LEVEL_UP = 67;
 	public static final int FISHING = 289;// Cast out Net/Cage/Harpoon
 	public static final int START_FLY_FISHING = 377, FLY_FISHING = 378;

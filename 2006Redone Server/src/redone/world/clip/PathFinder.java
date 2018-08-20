@@ -52,81 +52,81 @@ public class PathFinder {
 			}
 			tail = (tail + 1) % pathLength;
 			int thisCost = cost[curX][curY] + 1;
-			if (curY > 0
-					&& via[curX][curY - 1] == 0
-					&& (Region.getClipping(curAbsX, curAbsY - 1, c.heightLevel) & 0x1280102) == 0) {
+			if (curY > 0 && via[curX][curY - 1] == 0
+					&& (Region.getClipping(curAbsX, curAbsY - 1, c.heightLevel)
+							& 0x1280102) == 0) {
 				tileQueueX.add(curX);
 				tileQueueY.add(curY - 1);
 				via[curX][curY - 1] = 1;
 				cost[curX][curY - 1] = thisCost;
 			}
-			if (curX > 0
-					&& via[curX - 1][curY] == 0
-					&& (Region.getClipping(curAbsX - 1, curAbsY, c.heightLevel) & 0x1280108) == 0) {
+			if (curX > 0 && via[curX - 1][curY] == 0
+					&& (Region.getClipping(curAbsX - 1, curAbsY, c.heightLevel)
+							& 0x1280108) == 0) {
 				tileQueueX.add(curX - 1);
 				tileQueueY.add(curY);
 				via[curX - 1][curY] = 2;
 				cost[curX - 1][curY] = thisCost;
 			}
-			if (curY < 104 - 1
-					&& via[curX][curY + 1] == 0
-					&& (Region.getClipping(curAbsX, curAbsY + 1, c.heightLevel) & 0x1280120) == 0) {
+			if (curY < 104 - 1 && via[curX][curY + 1] == 0
+					&& (Region.getClipping(curAbsX, curAbsY + 1, c.heightLevel)
+							& 0x1280120) == 0) {
 				tileQueueX.add(curX);
 				tileQueueY.add(curY + 1);
 				via[curX][curY + 1] = 4;
 				cost[curX][curY + 1] = thisCost;
 			}
-			if (curX < 104 - 1
-					&& via[curX + 1][curY] == 0
-					&& (Region.getClipping(curAbsX + 1, curAbsY, c.heightLevel) & 0x1280180) == 0) {
+			if (curX < 104 - 1 && via[curX + 1][curY] == 0
+					&& (Region.getClipping(curAbsX + 1, curAbsY, c.heightLevel)
+							& 0x1280180) == 0) {
 				tileQueueX.add(curX + 1);
 				tileQueueY.add(curY);
 				via[curX + 1][curY] = 8;
 				cost[curX + 1][curY] = thisCost;
 			}
-			if (curX > 0
-					&& curY > 0
-					&& via[curX - 1][curY - 1] == 0
+			if (curX > 0 && curY > 0 && via[curX - 1][curY - 1] == 0
 					&& (Region.getClipping(curAbsX - 1, curAbsY - 1,
 							c.heightLevel) & 0x128010e) == 0
-					&& (Region.getClipping(curAbsX - 1, curAbsY, c.heightLevel) & 0x1280108) == 0
-					&& (Region.getClipping(curAbsX, curAbsY - 1, c.heightLevel) & 0x1280102) == 0) {
+					&& (Region.getClipping(curAbsX - 1, curAbsY, c.heightLevel)
+							& 0x1280108) == 0
+					&& (Region.getClipping(curAbsX, curAbsY - 1, c.heightLevel)
+							& 0x1280102) == 0) {
 				tileQueueX.add(curX - 1);
 				tileQueueY.add(curY - 1);
 				via[curX - 1][curY - 1] = 3;
 				cost[curX - 1][curY - 1] = thisCost;
 			}
-			if (curX > 0
-					&& curY < 104 - 1
-					&& via[curX - 1][curY + 1] == 0
+			if (curX > 0 && curY < 104 - 1 && via[curX - 1][curY + 1] == 0
 					&& (Region.getClipping(curAbsX - 1, curAbsY + 1,
 							c.heightLevel) & 0x1280138) == 0
-					&& (Region.getClipping(curAbsX - 1, curAbsY, c.heightLevel) & 0x1280108) == 0
-					&& (Region.getClipping(curAbsX, curAbsY + 1, c.heightLevel) & 0x1280120) == 0) {
+					&& (Region.getClipping(curAbsX - 1, curAbsY, c.heightLevel)
+							& 0x1280108) == 0
+					&& (Region.getClipping(curAbsX, curAbsY + 1, c.heightLevel)
+							& 0x1280120) == 0) {
 				tileQueueX.add(curX - 1);
 				tileQueueY.add(curY + 1);
 				via[curX - 1][curY + 1] = 6;
 				cost[curX - 1][curY + 1] = thisCost;
 			}
-			if (curX < 104 - 1
-					&& curY > 0
-					&& via[curX + 1][curY - 1] == 0
+			if (curX < 104 - 1 && curY > 0 && via[curX + 1][curY - 1] == 0
 					&& (Region.getClipping(curAbsX + 1, curAbsY - 1,
 							c.heightLevel) & 0x1280183) == 0
-					&& (Region.getClipping(curAbsX + 1, curAbsY, c.heightLevel) & 0x1280180) == 0
-					&& (Region.getClipping(curAbsX, curAbsY - 1, c.heightLevel) & 0x1280102) == 0) {
+					&& (Region.getClipping(curAbsX + 1, curAbsY, c.heightLevel)
+							& 0x1280180) == 0
+					&& (Region.getClipping(curAbsX, curAbsY - 1, c.heightLevel)
+							& 0x1280102) == 0) {
 				tileQueueX.add(curX + 1);
 				tileQueueY.add(curY - 1);
 				via[curX + 1][curY - 1] = 9;
 				cost[curX + 1][curY - 1] = thisCost;
 			}
-			if (curX < 104 - 1
-					&& curY < 104 - 1
-					&& via[curX + 1][curY + 1] == 0
+			if (curX < 104 - 1 && curY < 104 - 1 && via[curX + 1][curY + 1] == 0
 					&& (Region.getClipping(curAbsX + 1, curAbsY + 1,
 							c.heightLevel) & 0x12801e0) == 0
-					&& (Region.getClipping(curAbsX + 1, curAbsY, c.heightLevel) & 0x1280180) == 0
-					&& (Region.getClipping(curAbsX, curAbsY + 1, c.heightLevel) & 0x1280120) == 0) {
+					&& (Region.getClipping(curAbsX + 1, curAbsY, c.heightLevel)
+							& 0x1280180) == 0
+					&& (Region.getClipping(curAbsX, curAbsY + 1, c.heightLevel)
+							& 0x1280120) == 0) {
 				tileQueueX.add(curX + 1);
 				tileQueueY.add(curY + 1);
 				via[curX + 1][curY + 1] = 12;

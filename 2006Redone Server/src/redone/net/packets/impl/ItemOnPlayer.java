@@ -28,10 +28,10 @@ public class ItemOnPlayer implements PacketType {
 			}
 			c.gfx0(176);
 			c.startAnimation(451);
-			c.getActionSender().sendMessage(
-					"You pull the Christmas Cracker...");
-			o.getActionSender().sendMessage(
-					"You pull the Christmas Cracker...");
+			c.getActionSender()
+					.sendMessage("You pull the Christmas Cracker...");
+			o.getActionSender()
+					.sendMessage("You pull the Christmas Cracker...");
 			c.getItemAssistant().deleteItem(962, 1);
 			if (Misc.random(3) == 1) {
 				o.forcedText = "Yay I got the Cracker!";

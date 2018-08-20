@@ -4,7 +4,9 @@ import redone.game.players.Client;
 
 /**
  * Lightsources
- * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape & Runelocus)
+ * 
+ * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape &
+ *         Runelocus)
  */
 
 public class LightSources {
@@ -58,9 +60,12 @@ public class LightSources {
 	}
 
 	public static void setBrightness(Client c) {
-		if (c.getItemAssistant().playerHasItem(594) || c.getItemAssistant().playerHasItem(32) || c.getItemAssistant().playerHasItem(33)) {
+		if (c.getItemAssistant().playerHasItem(594)
+				|| c.getItemAssistant().playerHasItem(32)
+				|| c.getItemAssistant().playerHasItem(33)) {
 			brightness2(c);
-		} else if (c.getItemAssistant().playerHasItem(4535) || c.getItemAssistant().playerHasItem(4524)) {
+		} else if (c.getItemAssistant().playerHasItem(4535)
+				|| c.getItemAssistant().playerHasItem(4524)) {
 			brightness3(c);
 		} else if (c.getItemAssistant().playerHasItem(4550)) {
 			brightness4(c);
@@ -76,7 +81,8 @@ public class LightSources {
 				return true;
 			}
 		}
-		c.getActionSender().sendMessage("It's recommened that you get a light source to continue.");
+		c.getActionSender().sendMessage(
+				"It's recommened that you get a light source to continue.");
 		brightness1(c);
 		return false;
 	}

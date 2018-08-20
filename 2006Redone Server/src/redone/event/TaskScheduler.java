@@ -21,8 +21,8 @@ public final class TaskScheduler implements Runnable {
 	/**
 	 * A logger used to report error messages.
 	 */
-	private static final Logger logger = Logger.getLogger(TaskScheduler.class
-			.getName());
+	private static final Logger logger = Logger
+			.getLogger(TaskScheduler.class.getName());
 
 	/**
 	 * The time period, in milliseconds, of a single cycle.
@@ -50,7 +50,8 @@ public final class TaskScheduler implements Runnable {
 	 * Creates and starts the task scheduler.
 	 */
 	public TaskScheduler() {
-		service.scheduleAtFixedRate(this, 0, TIME_PERIOD, TimeUnit.MILLISECONDS);
+		service.scheduleAtFixedRate(this, 0, TIME_PERIOD,
+				TimeUnit.MILLISECONDS);
 	}
 
 	/**

@@ -19,29 +19,138 @@ public class Cooking extends SkillHandler {
 																	// factor
 
 	private static enum CookingItems {
-		//raw, cooked, burnt, levelreq, exp, stopburn, stopburn w/gloves, name
+		// raw, cooked, burnt, levelreq, exp, stopburn, stopburn w/gloves, name
 		SHRIMP(317, 315, 7954, 1, 30, 34, 30, "shrimp"), SARDINE(327, 325, 369,
-				1, 40, 38, 38, "sardine"), HERRING(345, 347, 357, 5, 50, 41,
-				41, "herring"), TROUT(335, 333, 343, 15, 70, 50, 50, "trout"), TUNA(
-				359, 361, 367, 30, 100, 64, 63, "tuna"), ANCHOVIES(321, 319,
-				323, 5, 45, 34, 34, "anchovies"), RAW_BEEF(2132, 2142, 2146, 1,
-				30, 33, 33, "raw beef"), 
-				RAW_RAT(2134, 2142, 2146, 1, 30, 33, 33, "raw rat meat"), 
-				BURNT_MEAT(2142, 2146, 2146, 1, 1, 100, 100, "cooked meat"),
-				RAW_CHICKEN(2138, 2140, 2144, 1, 30, 33, 33, "raw chicken"), 
-				RAW_BEAR_MEAT(2136, 2142, 2146, 1, 30, 33, 33, "raw bear meat"), 
-				MACKERAL(353, 355, 357, 10, 60, 45, 45, "mackeral"), 
-				SALMON(331, 329, 343, 25, 90, 58, 55, "salmon"),
-				UNCOOKED_BERRY_PIE(2321, 2325, 2329, 10, 78, 50, 50, "uncooked pie"),
-				PIKE(
-				349, 351, 343, 20, 80, 59, 59, "pike"), KARAMBWAN(3142, 3144,
-				3146, 1, 80, 20, 20, "karambwan"), LOBSTER(377, 379, 381, 40,
-				120, 74, 68, "lobster"), SWORDFISH(371, 373, 375, 50, 140, 86,
-				81, "swordfish"), MONKFISH(7944, 7946, 7948, 62, 150, 92, 90,
-				"monkfish"), SHARK(383, 385, 387, 76, 210, 100, 94, "shark"), MANTA_RAY(
-				389, 391, 393, 91, 169, 100, 100, "manta ray"),
-				SEAWEED(401, 1781, 1781, 1, 1, 1, 1, "sea weed"),
-				CURRY(2009, 2011, 2013, 60, 280, 74, 74, "curry");
+				1, 40, 38, 38, "sardine"), HERRING(345, 347, 357, 5, 50, 41, 41,
+						"herring"), TROUT(335, 333, 343, 15, 70, 50, 50,
+								"trout"), TUNA(359, 361, 367, 30, 100, 64, 63,
+										"tuna"), ANCHOVIES(321, 319, 323, 5, 45,
+												34, 34, "anchovies"), RAW_BEEF(
+														2132, 2142, 2146, 1, 30,
+														33, 33,
+														"raw beef"), RAW_RAT(
+																2134, 2142,
+																2146, 1, 30, 33,
+																33,
+																"raw rat meat"), BURNT_MEAT(
+																		2142,
+																		2146,
+																		2146, 1,
+																		1, 100,
+																		100,
+																		"cooked meat"), RAW_CHICKEN(
+																				2138,
+																				2140,
+																				2144,
+																				1,
+																				30,
+																				33,
+																				33,
+																				"raw chicken"), RAW_BEAR_MEAT(
+																						2136,
+																						2142,
+																						2146,
+																						1,
+																						30,
+																						33,
+																						33,
+																						"raw bear meat"), MACKERAL(
+																								353,
+																								355,
+																								357,
+																								10,
+																								60,
+																								45,
+																								45,
+																								"mackeral"), SALMON(
+																										331,
+																										329,
+																										343,
+																										25,
+																										90,
+																										58,
+																										55,
+																										"salmon"), UNCOOKED_BERRY_PIE(
+																												2321,
+																												2325,
+																												2329,
+																												10,
+																												78,
+																												50,
+																												50,
+																												"uncooked pie"), PIKE(
+																														349,
+																														351,
+																														343,
+																														20,
+																														80,
+																														59,
+																														59,
+																														"pike"), KARAMBWAN(
+																																3142,
+																																3144,
+																																3146,
+																																1,
+																																80,
+																																20,
+																																20,
+																																"karambwan"), LOBSTER(
+																																		377,
+																																		379,
+																																		381,
+																																		40,
+																																		120,
+																																		74,
+																																		68,
+																																		"lobster"), SWORDFISH(
+																																				371,
+																																				373,
+																																				375,
+																																				50,
+																																				140,
+																																				86,
+																																				81,
+																																				"swordfish"), MONKFISH(
+																																						7944,
+																																						7946,
+																																						7948,
+																																						62,
+																																						150,
+																																						92,
+																																						90,
+																																						"monkfish"), SHARK(
+																																								383,
+																																								385,
+																																								387,
+																																								76,
+																																								210,
+																																								100,
+																																								94,
+																																								"shark"), MANTA_RAY(
+																																										389,
+																																										391,
+																																										393,
+																																										91,
+																																										169,
+																																										100,
+																																										100,
+																																										"manta ray"), SEAWEED(
+																																												401,
+																																												1781,
+																																												1781,
+																																												1,
+																																												1,
+																																												1,
+																																												1,
+																																												"sea weed"), CURRY(
+																																														2009,
+																																														2011,
+																																														2013,
+																																														60,
+																																														280,
+																																														74,
+																																														74,
+																																														"curry");
 
 		int rawItem, cookedItem, burntItem, levelReq, xp, stopBurn,
 				stopBurnGloves;
@@ -112,8 +221,8 @@ public class Cooking extends SkillHandler {
 			c.getItemAssistant().addItem(1925, 1);
 			c.getItemAssistant().addItem(1931, 1);
 			c.getItemAssistant().addItem(item, 1);
-			c.getActionSender().sendMessage(
-					"You make the water and flour to make some "
+			c.getActionSender()
+					.sendMessage("You make the water and flour to make some "
 							+ ItemAssistant.getItemName(item) + ".");
 		}
 		c.getPlayerAssistant().closeAllWindows();
@@ -127,8 +236,8 @@ public class Cooking extends SkillHandler {
 			c.getItemAssistant().deleteItem(itemID2, 1);
 			c.getItemAssistant().addItem(giveItem, 1);
 			if (message.equalsIgnoreCase("")) {
-				c.getActionSender().sendMessage(
-						"You mix the two ingredients and get an "
+				c.getActionSender()
+						.sendMessage("You mix the two ingredients and get an "
 								+ ItemAssistant.getItemName(giveItem) + ".");
 			} else {
 				c.getActionSender().sendMessage(message);
@@ -145,13 +254,12 @@ public class Cooking extends SkillHandler {
 				c.getItemAssistant().deleteItem(itemID2, 1);
 				c.getItemAssistant().addItem(giveItem, 1);
 				c.getPlayerAssistant().addSkillXP(expGained, 7);
-				c.getActionSender().sendMessage(
-						"You create a " + ItemAssistant.getItemName(giveItem)
-								+ ".");
+				c.getActionSender().sendMessage("You create a "
+						+ ItemAssistant.getItemName(giveItem) + ".");
 			}
 		} else {
-			c.getActionSender().sendMessage(
-					"You don't have the required level to make an "
+			c.getActionSender()
+					.sendMessage("You don't have the required level to make an "
 							+ ItemAssistant.getItemName(giveItem));
 		}
 	}
@@ -169,7 +277,8 @@ public class Cooking extends SkillHandler {
 	private static void viewCookInterface(Client c, int item) {
 		c.getPlayerAssistant().sendChatInterface(1743);
 		c.getPlayerAssistant().sendFrame246(13716, view190 ? 190 : 170, item);
-		c.getPlayerAssistant().sendFrame126(getLine(c) + "" + ItemAssistant.getItemName(item) + "", 13717);
+		c.getPlayerAssistant().sendFrame126(
+				getLine(c) + "" + ItemAssistant.getItemName(item) + "", 13717);
 	}
 
 	public static String getLine(Client c) {
@@ -181,9 +290,9 @@ public class Cooking extends SkillHandler {
 		if (item != null) {
 			if (c.playerLevel[c.playerCooking] < item.getLevelReq()) {
 				c.getPlayerAssistant().removeAllWindows();
-				c.getDialogueHandler().sendStatement(
-						"You need a Cooking level of " + item.getLevelReq()
-								+ " to cook this.");
+				c.getDialogueHandler()
+						.sendStatement("You need a Cooking level of "
+								+ item.getLevelReq() + " to cook this.");
 				c.nextChat = 0;
 				return false;
 			}
@@ -192,8 +301,8 @@ public class Cooking extends SkillHandler {
 				return false;
 			}
 			if (!COOKING) {
-				c.getActionSender().sendMessage(
-						"This skill is currently disabled.");
+				c.getActionSender()
+						.sendMessage("This skill is currently disabled.");
 				return false;
 			}
 			// save the id of the item and object for the cooking interface.
@@ -247,9 +356,8 @@ public class Cooking extends SkillHandler {
 					}
 					if (!c.getItemAssistant().playerHasItem(item.getRawItem(),
 							1)) {
-						c.getActionSender().sendMessage(
-								"You have run out of " + item.getName()
-										+ " to cook.");
+						c.getActionSender().sendMessage("You have run out of "
+								+ item.getName() + " to cook.");
 						resetCooking(c);
 						container.stop();
 						return;
@@ -265,19 +373,19 @@ public class Cooking extends SkillHandler {
 					c.getItemAssistant().deleteItem(item.getRawItem(),
 							c.getItemAssistant().getItemSlot(itemId), 1);
 					if (!burn) {
-						c.getActionSender().sendMessage(
-								"You successfully cook the "
+						c.getActionSender()
+								.sendMessage("You successfully cook the "
 										+ item.getName().toLowerCase() + ".");
 						if (Constants.SOUND) {
-							c.getActionSender().sendSound(
-									SoundList.COOK_ITEM, 100, 0);
+							c.getActionSender().sendSound(SoundList.COOK_ITEM,
+									100, 0);
 						}
 						c.getPlayerAssistant().addSkillXP(item.getXp(),
 								c.playerCooking);
 						c.getItemAssistant().addItem(item.getCookedItem(), 1);
 					} else {
-						c.getActionSender().sendMessage(
-								"Oops! You accidentally burnt the "
+						c.getActionSender()
+								.sendMessage("Oops! You accidentally burnt the "
 										+ item.getName().toLowerCase() + "!");
 						c.getItemAssistant().addItem(item.getBurntItem(), 1);
 					}
@@ -302,7 +410,7 @@ public class Cooking extends SkillHandler {
 
 				@Override
 				public void stop() {
-					
+
 				}
 			}, 4);
 		}

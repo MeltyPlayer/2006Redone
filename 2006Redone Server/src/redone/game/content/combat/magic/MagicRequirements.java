@@ -42,18 +42,20 @@ public class MagicRequirements {
 					|| !c.getItemAssistant().playerHasItem(
 							MagicData.MAGIC_SPELLS[spell][10],
 							MagicData.MAGIC_SPELLS[spell][11])
-					&& !wearingStaff(c, MagicData.MAGIC_SPELLS[spell][10])
+							&& !wearingStaff(c,
+									MagicData.MAGIC_SPELLS[spell][10])
 					|| !c.getItemAssistant().playerHasItem(
 							MagicData.MAGIC_SPELLS[spell][12],
 							MagicData.MAGIC_SPELLS[spell][13])
-					&& !wearingStaff(c, MagicData.MAGIC_SPELLS[spell][12])
+							&& !wearingStaff(c,
+									MagicData.MAGIC_SPELLS[spell][12])
 					|| !c.getItemAssistant().playerHasItem(
 							MagicData.MAGIC_SPELLS[spell][14],
 							MagicData.MAGIC_SPELLS[spell][15])
-					&& !wearingStaff(c, MagicData.MAGIC_SPELLS[spell][14])) {
-				c.getActionSender()
-						.sendMessage(
-								"You don't have the required runes to cast this spell.");
+							&& !wearingStaff(c,
+									MagicData.MAGIC_SPELLS[spell][14])) {
+				c.getActionSender().sendMessage(
+						"You don't have the required runes to cast this spell.");
 				return false;
 			}
 		}
@@ -87,23 +89,25 @@ public class MagicRequirements {
 		}
 
 		int staffRequired = getStaffNeeded(c);
-		if (c.usingMagic && staffRequired > 0 && MagicTeleports.RUNES_REQUIRED) { // staff
-																			// required
+		if (c.usingMagic && staffRequired > 0
+				&& MagicTeleports.RUNES_REQUIRED) { // staff
+			// required
 			if (c.playerEquipment[c.playerWeapon] != staffRequired) {
 				c.getActionSender()
-						.sendMessage(
-								"You need a "
-										+ ItemAssistant.getItemName(
-												staffRequired).toLowerCase()
-										+ " to cast this spell.");
+						.sendMessage("You need a "
+								+ ItemAssistant.getItemName(staffRequired)
+										.toLowerCase()
+								+ " to cast this spell.");
 				return false;
 			}
 		}
 
-		if (c.usingMagic && MagicTeleports.MAGIC_LEVEL_REQUIRED) { // check magic level
+		if (c.usingMagic && MagicTeleports.MAGIC_LEVEL_REQUIRED) { // check
+																	// magic
+																	// level
 			if (c.playerLevel[6] < MagicData.MAGIC_SPELLS[spell][1]) {
-				c.getActionSender().sendMessage(
-						"You need to have a magic level of "
+				c.getActionSender()
+						.sendMessage("You need to have a magic level of "
 								+ MagicData.MAGIC_SPELLS[spell][1]
 								+ " to cast this spell.");
 				return false;

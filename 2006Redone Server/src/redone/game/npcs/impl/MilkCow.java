@@ -23,7 +23,8 @@ public class MilkCow {
 
 	public static void milk(final Client c) {
 		if (!c.getItemAssistant().playerHasItem(BUCKET)) {
-			c.getActionSender().sendMessage("You need a bucket in order to milk this cow.");
+			c.getActionSender().sendMessage(
+					"You need a bucket in order to milk this cow.");
 			return;
 		} else {
 			c.startAnimation(2305);

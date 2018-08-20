@@ -30,7 +30,8 @@ public class PartyRoom {
 	}
 
 	public static void startTimer(Client c) {
-		if (System.currentTimeMillis() - lastAnnouncment > 1000 * 60 * announcmentFrequency) {
+		if (System.currentTimeMillis() - lastAnnouncment > 1000 * 60
+				* announcmentFrequency) {
 			dropAll();
 			lastAnnouncment = System.currentTimeMillis();
 		}
@@ -93,8 +94,7 @@ public class PartyRoom {
 			c.getItemAssistant().resetItems(5064);
 			c.getPlayerAssistant().sendFrame248(2156, 5063);
 		} else {
-			c.getActionSender().sendMessage(
-					"The partyroom has been disabled.");
+			c.getActionSender().sendMessage("The partyroom has been disabled.");
 		}
 	}
 
@@ -121,9 +121,8 @@ public class PartyRoom {
 					for (int y = 0; y < left; y++) {
 						int slot = arraySlot(roomItems, -2);
 						if (slot < 0) {
-							c.getActionSender()
-									.sendMessage(
-											"Theres not enough space left in the chest.");
+							c.getActionSender().sendMessage(
+									"Theres not enough space left in the chest.");
 							break;
 						}
 						roomItems[slot] = c.party[x];
@@ -160,8 +159,7 @@ public class PartyRoom {
 		int slot = arraySlot(c.party, id);
 		for (int i : Constants.ITEM_TRADEABLE) {
 			if (i == id) {
-				c.getActionSender().sendMessage(
-						"You can't deposit this item.");
+				c.getActionSender().sendMessage("You can't deposit this item.");
 				return;
 			}
 			if (id == 995) {
@@ -173,13 +171,12 @@ public class PartyRoom {
 			amount = c.getItemAssistant().getItemAmount(id);
 		}
 		if (!c.getItemAssistant().playerHasItem(id, amount)) {
-			c.getActionSender().sendMessage(
-					"You don't have that many items!");
+			c.getActionSender().sendMessage("You don't have that many items!");
 			return;
 		}
 		if (slot == -1) {
-			c.getActionSender().sendMessage(
-					"You cant deposit more than 8 items at once.");
+			c.getActionSender()
+					.sendMessage("You cant deposit more than 8 items at once.");
 			return;
 		}
 		c.getItemAssistant().deleteItem2(id, amount);

@@ -23,10 +23,12 @@ public class ItemClick3 implements PacketType {
 			return;
 		}
 		if (HandleEmpty.canEmpty(player, itemId)) {
-			HandleEmpty.handleEmptyItem(player, itemId, HandleEmpty.filledToEmpty(player, itemId));
+			HandleEmpty.handleEmptyItem(player, itemId,
+					HandleEmpty.filledToEmpty(player, itemId));
 			return;
 		}
-		if (player.duelStatus > 0 && player.duelStatus < 5 || player.tradeStatus == 1) {
+		if (player.duelStatus > 0 && player.duelStatus < 5
+				|| player.tradeStatus == 1) {
 			return;
 		}
 		switch (itemId) {
@@ -62,16 +64,16 @@ public class ItemClick3 implements PacketType {
 			player.itemUsing = itemId;
 			Teles.useGN(player);
 			break;
-			
+
 		case 1933:
 			player.getItemAssistant().deleteItem2(1933, 1);
 			player.getItemAssistant().addItem(1931, 1);
-		break;
-		
+			break;
+
 		case 1921:
 			player.getItemAssistant().deleteItem2(1921, 1);
 			player.getItemAssistant().addItem(1923, 1);
-		break;
+			break;
 
 		default:
 

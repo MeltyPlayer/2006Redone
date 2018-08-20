@@ -132,13 +132,16 @@ public class Client extends Player {
 	private final ActionSender actionSender = new ActionSender(this);
 	private final DialogueHandler dialogues = new DialogueHandler(this);
 	private final GnomeAgility gnomeStrongHold = new GnomeAgility(this);
-	private final WildernessAgility wildernessAgility = new WildernessAgility(this);
-	private final BarbarianAgility barbarianAgility = new BarbarianAgility(this);
+	private final WildernessAgility wildernessAgility = new WildernessAgility(
+			this);
+	private final BarbarianAgility barbarianAgility = new BarbarianAgility(
+			this);
 	private final PyramidAgility pyramidAgility = new PyramidAgility(this);
 	private final WerewolfAgility werewolfAgility = new WerewolfAgility(this);
 	private final ApeAtollAgility apeAtollAgility = new ApeAtollAgility(this);
 	private final Smithing smithing = new Smithing();
-	private final SmithingInterface smithingInterface = new SmithingInterface(this);
+	private final SmithingInterface smithingInterface = new SmithingInterface(
+			this);
 	private final PrayerData prayer = new PrayerData();
 	private final ObjectManager objectManager = new ObjectManager();
 	public ArrayList<GameItem> fishingTrawlerReward = new ArrayList<GameItem>();
@@ -148,13 +151,11 @@ public class Client extends Player {
 	private Mining mining = new Mining();
 	private ChallengePlayer challengePlayer = new ChallengePlayer();
 	private DwarfCannon dwarfCannon = new DwarfCannon(this);
-	
-	
+
 	public DwarfCannon getCannon() {
 		return dwarfCannon;
 	}
 
-	
 	public ChallengePlayer getChallengePlayer() {
 		return challengePlayer;
 	}
@@ -162,19 +163,19 @@ public class Client extends Player {
 	public Mining getMining() {
 		return mining;
 	}
-	
+
 	public Barrows getBarrows() {
 		return barrows;
 	}
-	
-    public GlassBlowing getGlassBlowing() {
-        return glassBlowing;
-    }
-	
+
+	public GlassBlowing getGlassBlowing() {
+		return glassBlowing;
+	}
+
 	public RangersGuild getRangersGuild() {
 		return rangersGuild;
 	}
-	
+
 	public ObjectManager getObjectManager() {
 		return objectManager;
 	}
@@ -258,7 +259,7 @@ public class Client extends Player {
 	public PlayerAction getPlayerAction() {
 		return playeraction;
 	}
-	
+
 	public Desert getDesert() {
 		return desert;
 	}
@@ -402,26 +403,26 @@ public class Client extends Player {
 	public Food getFood() {
 		return food;
 	}
-	
+
 	private Map<Integer, TinterfaceText> interfaceText = new HashMap<Integer, TinterfaceText>();
-	
+
 	public class TinterfaceText {
 		public int id;
 		public String currentState;
-		
+
 		public TinterfaceText(String s, int id) {
 			this.currentState = s;
 			this.id = id;
 		}
-		
+
 	}
 
 	public boolean checkPacket126Update(String text, int id) {
-		if(!interfaceText.containsKey(id)) {
+		if (!interfaceText.containsKey(id)) {
 			interfaceText.put(id, new TinterfaceText(text, id));
 		} else {
 			TinterfaceText t = interfaceText.get(id);
-			if(text.equals(t.currentState)) {
+			if (text.equals(t.currentState)) {
 				return false;
 			}
 			t.currentState = text;
@@ -505,13 +506,13 @@ public class Client extends Player {
 			6, 0, 2, 2, 8, 6, 0, -1, 0, 6, // 70
 			0, 0, 0, 0, 0, 1, 4, 6, 0, 0, // 80
 			0, 0, 0, 0, 0, 3, 0, 0, -1, 0, // 90
-			0, 13, 0, -1, 0, 0, 0, 0, 0, 0,// 100
+			0, 13, 0, -1, 0, 0, 0, 0, 0, 0, // 100
 			0, 0, 0, 0, 0, 0, 0, 6, 0, 0, // 110
 			1, 0, 6, 0, 0, 0, -1, 0, 2, 6, // 120
 			0, 4, 6, 8, 0, 6, 0, 0, 0, 2, // 130
 			0, 0, 0, 0, 0, 6, 0, 0, 0, 0, // 140
 			0, 0, 1, 2, 0, 2, 6, 0, 0, 0, // 150
-			0, 0, 0, 0, -1, -1, 0, 0, 0, 0,// 160
+			0, 0, 0, 0, -1, -1, 0, 0, 0, 0, // 160
 			0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // 170
 			0, 8, 0, 3, 0, 2, 0, 0, 8, 1, // 180
 			0, 0, 12, 0, 0, 0, 0, 0, 0, 0, // 190
@@ -519,7 +520,7 @@ public class Client extends Player {
 			4, 0, 0, 0, 7, 8, 0, 0, 10, 0, // 210
 			0, 0, 0, 0, 0, 0, -1, 0, 6, 0, // 220
 			1, 0, 0, 0, 6, 0, 6, 8, 1, 0, // 230
-			0, 4, 0, 0, 0, 0, -1, 0, -1, 4,// 240
+			0, 4, 0, 0, 0, 0, -1, 0, -1, 4, // 240
 			0, 0, 6, 6, 0, 0, 0 // 250
 	};
 
@@ -530,8 +531,9 @@ public class Client extends Player {
 		}
 		if (getCannon().hasCannon()) {
 			getCannon().removeObject(cannonX, cannonY);
-			for(int i = 0; i < Server.cannonsX.length; i++) {
-				if (Server.cannonsX[i] == cannonX && Server.cannonsY[i] == cannonY) {
+			for (int i = 0; i < Server.cannonsX.length; i++) {
+				if (Server.cannonsX[i] == cannonX
+						&& Server.cannonsY[i] == cannonY) {
 					Server.cannonsX[i] = 0;
 					Server.cannonsY[i] = 0;
 					Server.cannonsO[i] = null;
@@ -541,9 +543,9 @@ public class Client extends Player {
 				cannonY = -1;
 			}
 		}
-		if(Server.trawler.players.contains(this)) {
+		if (Server.trawler.players.contains(this)) {
 			Server.trawler.players.remove(this);
-	    }
+		}
 		if (CastleWars.isInCwWait(this)) {
 			CastleWars.leaveWaitingRoom(this);
 		}
@@ -580,10 +582,8 @@ public class Client extends Player {
 		super.destruct();
 		// PlayerSave.saveGame(this);
 	}
-	
-	public static final String[][] data = {
-		{"Andrew", "Andrew1"},
-	};
+
+	public static final String[][] data = { { "Andrew", "Andrew1" }, };
 
 	@Override
 	public void initialize() {
@@ -592,15 +592,11 @@ public class Client extends Player {
 			logout();
 			return;
 		}
-		/*(for (int i = 0; i < data.length; i++) {
-			if (playerRights > 0) {
-				if (playerName != data[0][i]) {
-				    Connection.addNameToBanList(playerName);
-                    Connection.addNameToFile(playerName);
-                    disconnected = true;
-				}
-			}
-		}*/
+		/*
+		 * (for (int i = 0; i < data.length; i++) { if (playerRights > 0) { if
+		 * (playerName != data[0][i]) { Connection.addNameToBanList(playerName);
+		 * Connection.addNameToFile(playerName); disconnected = true; } } }
+		 */
 		synchronized (this) {
 			outStream.createFrame(249);
 			outStream.writeByteA(membership ? 1 : 0);
@@ -628,7 +624,8 @@ public class Client extends Player {
 			if (isBotting == true) {
 				AntiBotting.botCheckInterface(this);
 			}
-			if (questPoints > QuestAssistant.MAXIMUM_QUESTPOINTS || playerRights > 2) {
+			if (questPoints > QuestAssistant.MAXIMUM_QUESTPOINTS
+					|| playerRights > 2) {
 				questPoints = QuestAssistant.MAXIMUM_QUESTPOINTS;// check for
 																	// abusers
 			}
@@ -644,16 +641,25 @@ public class Client extends Player {
 				getPlayerAssistant().refreshSkill(playerFarming);
 			}
 			getPlayerAssistant().firstTimeTutorial();
-			if (tutorialProgress > 0 && tutorialProgress < 36 && Constants.TUTORIAL_ISLAND) {
-				getActionSender().sendMessage("@blu@Continue the tutorial from the last step you were on.@bla@");
+			if (tutorialProgress > 0 && tutorialProgress < 36
+					&& Constants.TUTORIAL_ISLAND) {
+				getActionSender().sendMessage(
+						"@blu@Continue the tutorial from the last step you were on.@bla@");
 			}
 			if (tutorialProgress > 35) {
 				getPlayerAssistant().sendSidebars();
-				getItemAssistant().sendWeapon(playerEquipment[playerWeapon], ItemAssistant.getItemName(playerEquipment[playerWeapon]));
-				getActionSender().sendMessage("Welcome to @blu@" + Constants.SERVER_NAME + "@bla@ - we are currently in Server Stage v@blu@" + Constants.TEST_VERSION + "@bla@.");
-				getActionSender().sendMessage("@red@Warning@bla@: If you find a bug, report it to owner in skype.");
+				getItemAssistant().sendWeapon(playerEquipment[playerWeapon],
+						ItemAssistant
+								.getItemName(playerEquipment[playerWeapon]));
+				getActionSender().sendMessage("Welcome to @blu@"
+						+ Constants.SERVER_NAME
+						+ "@bla@ - we are currently in Server Stage v@blu@"
+						+ Constants.TEST_VERSION + "@bla@.");
+				getActionSender().sendMessage(
+						"@red@Warning@bla@: If you find a bug, report it to owner in skype.");
 				if (!hasBankpin) {
-					getActionSender().sendMessage("You do not have a bank pin it is highly recommended you get one.");
+					getActionSender().sendMessage(
+							"You do not have a bank pin it is highly recommended you get one.");
 				}
 			}
 			for (int i = 0; i < 25; i++) {
@@ -752,16 +758,17 @@ public class Client extends Player {
 			flushOutStream();
 		}
 	}
-	
+
 	public void logout() {
 		synchronized (this) {
-			if(Server.trawler.players.contains(this)) {
+			if (Server.trawler.players.contains(this)) {
 				Server.trawler.players.remove(this);
-	        }
+			}
 			if (getCannon().hasCannon()) {
 				getCannon().removeObject(cannonX, cannonY);
-				for(int i = 0; i < Server.cannonsX.length; i++) {
-					if (Server.cannonsX[i] == cannonX && Server.cannonsY[i] == cannonY) {
+				for (int i = 0; i < Server.cannonsX.length; i++) {
+					if (Server.cannonsX[i] == cannonX
+							&& Server.cannonsY[i] == cannonY) {
 						Server.cannonsX[i] = 0;
 						Server.cannonsY[i] = 0;
 						Server.cannonsO[i] = null;
@@ -788,11 +795,12 @@ public class Client extends Player {
 				PestControl.leaveWaitingBoat(this);
 				getPlayerAssistant().movePlayer(2657, 2639, 0);
 			}
-			if(underAttackBy > 0 || underAttackBy2 > 0) {
-				getActionSender().sendMessage("You can't logout during combat!");
+			if (underAttackBy > 0 || underAttackBy2 > 0) {
+				getActionSender()
+						.sendMessage("You can't logout during combat!");
 				return;
 			}
-		    lastLoginDate = getLastLogin();
+			lastLoginDate = getLastLogin();
 			lastX = absX;
 			lastY = absY;
 			lastH = heightLevel;
@@ -804,27 +812,29 @@ public class Client extends Player {
 				outStream.createFrame(109);
 				properLogout = true;
 			} else {
-				getActionSender().sendMessage("You must wait a few seconds from being out of combat to logout.");
+				getActionSender().sendMessage(
+						"You must wait a few seconds from being out of combat to logout.");
 			}
 		}
 	}
-
 
 	public int packetSize = 0, packetType = -1;
 	public boolean WildernessWarning = false;
 
 	public void antiFirePotion() {
-		   CycleEventHandler.getSingleton().addEvent(this, new CycleEvent() {
-	            @Override
-	            public void execute(CycleEventContainer container) {
+		CycleEventHandler.getSingleton().addEvent(this, new CycleEvent() {
+			@Override
+			public void execute(CycleEventContainer container) {
 				antiFirePot = false;
-				getActionSender().sendMessage("Your resistance to dragon fire has worn off.");
+				getActionSender().sendMessage(
+						"Your resistance to dragon fire has worn off.");
 				container.stop();
 			}
+
 			@Override
-				public void stop() {
-					
-				}
+			public void stop() {
+
+			}
 		}, 200);
 	}
 
@@ -841,14 +851,14 @@ public class Client extends Player {
 	public boolean isBusy() {
 		return isBusy;
 	}
-	
-	 public int getLastLogin() {
-	        Calendar cal = new GregorianCalendar();
-	        int day = cal.get(Calendar.DAY_OF_MONTH);
-	        int month = cal.get(Calendar.MONTH);
-	        int year = cal.get(Calendar.YEAR);
-	        return (year * 10000) + (month * 100) + day;
-	    }
+
+	public int getLastLogin() {
+		Calendar cal = new GregorianCalendar();
+		int day = cal.get(Calendar.DAY_OF_MONTH);
+		int month = cal.get(Calendar.MONTH);
+		int year = cal.get(Calendar.YEAR);
+		return (year * 10000) + (month * 100) + day;
+	}
 
 	@Override
 	public void updateWalkEntities() {
@@ -858,15 +868,16 @@ public class Client extends Player {
 			getPlayerAssistant().walkableInterface(197);
 			if (Constants.SINGLE_AND_MULTI_ZONES) {
 				if (inMulti()) {
-					getPlayerAssistant().sendFrame126("@yel@Level: " + wildLevel,
-							199);
+					getPlayerAssistant()
+							.sendFrame126("@yel@Level: " + wildLevel, 199);
 				} else {
-					getPlayerAssistant().sendFrame126("@yel@Level: " + wildLevel,
-							199);
+					getPlayerAssistant()
+							.sendFrame126("@yel@Level: " + wildLevel, 199);
 				}
 			} else {
 				getActionSender().multiWay(-1);
-				getPlayerAssistant().sendFrame126("@yel@Level: " + wildLevel, 199);
+				getPlayerAssistant().sendFrame126("@yel@Level: " + wildLevel,
+						199);
 			}
 			getActionSender().showOption(3, 0, "Attack", 1);
 		} else if (inDuelArena()) {
@@ -878,10 +889,11 @@ public class Client extends Player {
 			}
 		} else if (getPlayerAssistant().inPitsWait()) {
 			getActionSender().showOption(3, 0, "Null", 1);
-        } else if(Server.trawler.players.contains(this)) {
-            getPlayerAssistant().walkableInterface(11908);
+		} else if (Server.trawler.players.contains(this)) {
+			getPlayerAssistant().walkableInterface(11908);
 		} else if (isInBarrows() || isInBarrows2()) {
-			getPlayerAssistant().sendFrame126("Kill Count: " + barrowsKillCount, 4536);
+			getPlayerAssistant().sendFrame126("Kill Count: " + barrowsKillCount,
+					4536);
 			getPlayerAssistant().walkableInterface(4535);
 		} else if (inCw() || inPits) {
 			getActionSender().showOption(3, 0, "Attack", 1);
@@ -927,7 +939,8 @@ public class Client extends Player {
 	@Override
 	public void process() {
 
-		if (playerEnergy < 100&& System.currentTimeMillis() - lastIncrease >= getPlayerAssistant().raiseTimer()) {
+		if (playerEnergy < 100 && System.currentTimeMillis()
+				- lastIncrease >= getPlayerAssistant().raiseTimer()) {
 			playerEnergy += 1;
 			lastIncrease = System.currentTimeMillis();
 		}
@@ -938,7 +951,8 @@ public class Client extends Player {
 		}
 		getPlayerAssistant().writeEnergy();
 
-		if (System.currentTimeMillis() - specDelay > Constants.INCREASE_SPECIAL_AMOUNT) {
+		if (System.currentTimeMillis()
+				- specDelay > Constants.INCREASE_SPECIAL_AMOUNT) {
 			specDelay = System.currentTimeMillis();
 			if (specAmount < 10) {
 				specAmount += .5;
@@ -985,10 +999,11 @@ public class Client extends Player {
 								playerLevel[level], playerXP[level]);
 						getPlayerAssistant().refreshSkill(level);
 					}
-				} else if (playerLevel[level] > getLevelForXP(playerXP[level])) {
+				} else if (playerLevel[level] > getLevelForXP(
+						playerXP[level])) {
 					playerLevel[level] -= 1;
-					getActionSender().setSkillLevel(level,
-							playerLevel[level], playerXP[level]);
+					getActionSender().setSkillLevel(level, playerLevel[level],
+							playerXP[level]);
 					getPlayerAssistant().refreshSkill(level);
 				}
 			}
@@ -1229,9 +1244,9 @@ public class Client extends Player {
 			if (c != null) {
 				if (c.soundVolume >= 0) {
 					if (c.goodDistance(c.absX, c.absY, absX, absY, 2)) {
-						System.out.println("Playing sound " + c.playerName
-								+ ", Id: " + SOUNDID + ", Vol: "
-								+ c.soundVolume);
+						System.out.println(
+								"Playing sound " + c.playerName + ", Id: "
+										+ SOUNDID + ", Vol: " + c.soundVolume);
 						c.getOutStream().createFrame(174);
 						c.getOutStream().writeWord(SOUNDID);
 						c.getOutStream().writeByte(c.soundVolume);
@@ -1251,90 +1266,99 @@ public class Client extends Player {
 				if (inFightCaves()) {
 					getDialogueHandler().sendDialogues(101, 2617);
 					getPlayerAssistant().movePlayer(absX, absY, playerId * 4);
-					getActionSender().sendMessage("Your wave will start in 10 seconds.");
-					 CycleEventHandler.getSingleton().addEvent(this, new CycleEvent() {
-				            @Override
-				            public void execute(CycleEventContainer container) {
-							Server.fightCaves.spawnNextWave((Client) PlayerHandler.players[playerId]);
-							container.stop();
-						}
-						@Override
-							public void stop() {
-								
-							}
-					}, 16);
+					getActionSender()
+							.sendMessage("Your wave will start in 10 seconds.");
+					CycleEventHandler.getSingleton().addEvent(this,
+							new CycleEvent() {
+								@Override
+								public void execute(
+										CycleEventContainer container) {
+									Server.fightCaves.spawnNextWave(
+											(Client) PlayerHandler.players[playerId]);
+									container.stop();
+								}
+
+								@Override
+								public void stop() {
+
+								}
+							}, 16);
 				}
 			}
 		}
 	}
-	
-	 public void trawlerFade(final int x, final int y, final int height) {
-	        if (System.currentTimeMillis() - lastAction > 5000) {
-	            lastAction = System.currentTimeMillis();
-	            resetWalkingQueue();
-	            CycleEventHandler.getSingleton().addEvent(this, new CycleEvent() {
-	                int tStage = 5;
-	                public void execute(CycleEventContainer container) {
-	                    if (tStage == 5) {
-	                          getPlayerAssistant().showInterface(18460);
-	                        }
-	                        if (tStage == 4) {
-	                          getPlayerAssistant().movePlayer(x, y, height);
-	                          getPlayerAssistant().resetAnimationsToPrevious();
-	                          appearanceUpdateRequired = true;
-	                        }
-	                        if (tStage == 3) {
-	                          getPlayerAssistant().showInterface(18452);
-	                        }
-	                        if (tStage == 1) {
-	                            container.stop();
-	                            return;
-	                        }
-	                        if (tStage > 0) {
-	                            tStage--;
-	                          }
-	                }
-	                public void stop() {
-	                    getPlayerAssistant().closeAllWindows();
-	                    tStage = 0;
-	                }
-	            }, 1);
-	        }
-	    }
-	
+
+	public void trawlerFade(final int x, final int y, final int height) {
+		if (System.currentTimeMillis() - lastAction > 5000) {
+			lastAction = System.currentTimeMillis();
+			resetWalkingQueue();
+			CycleEventHandler.getSingleton().addEvent(this, new CycleEvent() {
+				int tStage = 5;
+
+				public void execute(CycleEventContainer container) {
+					if (tStage == 5) {
+						getPlayerAssistant().showInterface(18460);
+					}
+					if (tStage == 4) {
+						getPlayerAssistant().movePlayer(x, y, height);
+						getPlayerAssistant().resetAnimationsToPrevious();
+						appearanceUpdateRequired = true;
+					}
+					if (tStage == 3) {
+						getPlayerAssistant().showInterface(18452);
+					}
+					if (tStage == 1) {
+						container.stop();
+						return;
+					}
+					if (tStage > 0) {
+						tStage--;
+					}
+				}
+
+				public void stop() {
+					getPlayerAssistant().closeAllWindows();
+					tStage = 0;
+				}
+			}, 1);
+		}
+	}
+
 	public void fade(final int x, final int y, final int height) {
-        if (System.currentTimeMillis() - lastAction > 5000) {
-            lastAction = System.currentTimeMillis();
-            resetWalkingQueue();
-            CycleEventHandler.getSingleton().addEvent(this, new CycleEvent() {
-                int tStage = 6;
-                public void execute(CycleEventContainer container) {
-                    if (tStage == 6) {
-                          getPlayerAssistant().showInterface(18460);
-                        }
-                        if (tStage == 5) {
-                          getPlayerAssistant().movePlayer(x, y, height);
-                          updateRequired = true;
-                          appearanceUpdateRequired = true;
-                        }
-                        if (tStage == 4) {
-                          getPlayerAssistant().showInterface(18452);
-                        }
-                        if (tStage == 1) {
-                            container.stop();
-                            return;
-                        }
-                        if (tStage > 0) {
-                            tStage--;
-                          }
-                }
-                public void stop() {
-                    getPlayerAssistant().closeAllWindows();
-                    tStage = 0;
-                }
-            }, 1);
-        }
-    }
+		if (System.currentTimeMillis() - lastAction > 5000) {
+			lastAction = System.currentTimeMillis();
+			resetWalkingQueue();
+			CycleEventHandler.getSingleton().addEvent(this, new CycleEvent() {
+				int tStage = 6;
+
+				public void execute(CycleEventContainer container) {
+					if (tStage == 6) {
+						getPlayerAssistant().showInterface(18460);
+					}
+					if (tStage == 5) {
+						getPlayerAssistant().movePlayer(x, y, height);
+						updateRequired = true;
+						appearanceUpdateRequired = true;
+					}
+					if (tStage == 4) {
+						getPlayerAssistant().showInterface(18452);
+					}
+					if (tStage == 1) {
+						container.stop();
+						return;
+					}
+					if (tStage > 0) {
+						tStage--;
+					}
+				}
+
+				public void stop() {
+					getPlayerAssistant().closeAllWindows();
+					tStage = 0;
+				}
+			}, 1);
+		}
+	}
 
 	/**
 	 * The option the player clicked
@@ -1360,13 +1384,13 @@ public class Client extends Player {
 	public void setOptionClicked(int i) {
 		optionClicked = i;
 	}
-	
+
 	public String statedInterface = "";
-	
+
 	public String getStatedInterface() {
 		return statedInterface;
 	}
-	
+
 	public void setStatedInterface(String statedInterface) {
 		this.statedInterface = statedInterface;
 	}

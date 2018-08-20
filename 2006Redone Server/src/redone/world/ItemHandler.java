@@ -53,21 +53,24 @@ public class ItemHandler {
 	/**
 	 * Item amount
 	 **/
-	
-public int itemAmount(String name, int itemId, int itemX, int itemY) {
-		for(GroundItem i : items) {
+
+	public int itemAmount(String name, int itemId, int itemX, int itemY) {
+		for (GroundItem i : items) {
 			if (i.hideTicks >= 1 && i.getName().equalsIgnoreCase(name)) {
-				if(i.getItemId() == itemId && i.getItemX() == itemX && i.getItemY() == itemY) {
+				if (i.getItemId() == itemId && i.getItemX() == itemX
+						&& i.getItemY() == itemY) {
 					return i.getItemAmount();
 				}
 			} else if (i.hideTicks < 1) {
-				if(i.getItemId() == itemId && i.getItemX() == itemX && i.getItemY() == itemY) {
+				if (i.getItemId() == itemId && i.getItemX() == itemX
+						&& i.getItemY() == itemY) {
 					return i.getItemAmount();
 				}
 			}
 		}
 		return 0;
 	}
+
 	/**
 	 * Item exists
 	 **/
@@ -92,19 +95,19 @@ public int itemAmount(String name, int itemId, int itemX, int itemY) {
 					if (c.distanceToPoint(i.getItemX(), i.getItemY()) <= 60) {
 						if (i.hideTicks > 0
 								&& i.getName().equalsIgnoreCase(c.playerName)) {
-							c.getActionSender().removeGroundItem(
-									i.getItemId(), i.getItemX(), i.getItemY(),
+							c.getActionSender().removeGroundItem(i.getItemId(),
+									i.getItemX(), i.getItemY(),
 									i.getItemAmount());
-							c.getActionSender().createGroundItem(
-									i.getItemId(), i.getItemX(), i.getItemY(),
+							c.getActionSender().createGroundItem(i.getItemId(),
+									i.getItemX(), i.getItemY(),
 									i.getItemAmount());
 						}
 						if (i.hideTicks == 0) {
-							c.getActionSender().removeGroundItem(
-									i.getItemId(), i.getItemX(), i.getItemY(),
+							c.getActionSender().removeGroundItem(i.getItemId(),
+									i.getItemX(), i.getItemY(),
 									i.getItemAmount());
-							c.getActionSender().createGroundItem(
-									i.getItemId(), i.getItemX(), i.getItemY(),
+							c.getActionSender().createGroundItem(i.getItemId(),
+									i.getItemX(), i.getItemY(),
 									i.getItemAmount());
 						}
 					}
@@ -156,10 +159,12 @@ public int itemAmount(String name, int itemId, int itemX, int itemY) {
 			{ 4747, 4926 }, { 4749, 4968 }, { 4751, 4994 }, { 4753, 4980 },
 			{ 4755, 4986 }, { 4757, 4992 }, { 4759, 4998 } };
 
-	public void createGroundItem(Client player, int itemId, int itemX, int itemY, int itemAmount, int playerId) {
+	public void createGroundItem(Client player, int itemId, int itemX,
+			int itemY, int itemAmount, int playerId) {
 		if (itemId > 0) {
 			if (itemId >= 2412 && itemId <= 2414) {
-				player.getActionSender().sendMessage("The cape vanishes as it touches the ground.");
+				player.getActionSender().sendMessage(
+						"The cape vanishes as it touches the ground.");
 				return;
 			}
 			if (itemId > 4705 && itemId < 4760) {
@@ -173,26 +178,43 @@ public int itemAmount(String name, int itemId, int itemX, int itemY) {
 			if (player.isDead == false) {
 				return;
 			}
-			if (!redone.game.items.Item.itemStackable[itemId] && itemAmount > 0) {
+			if (!redone.game.items.Item.itemStackable[itemId]
+					&& itemAmount > 0) {
 				for (int j = 0; j < itemAmount; j++) {
-					player.getActionSender().createGroundItem(itemId, itemX, itemY, 1);
-					GroundItem item = new GroundItem(itemId, itemX, itemY, player.getH(), 1, player.playerId, HIDE_TICKS, PlayerHandler.players[playerId].playerName);
+					player.getActionSender().createGroundItem(itemId, itemX,
+							itemY, 1);
+					GroundItem item = new GroundItem(itemId, itemX, itemY,
+							player.getH(), 1, player.playerId, HIDE_TICKS,
+							PlayerHandler.players[playerId].playerName);
 					addItem(item);
-					String itemName = ItemAssistant.getItemName(itemId).toLowerCase();
+					String itemName = ItemAssistant.getItemName(itemId)
+							.toLowerCase();
 					if (player.isDead == false && itemId != 526) {
 						if (player.getPlayerAssistant().isPlayer()) {
-							GameLogger.writeLog(player.playerName, "dropitem", player.playerName + " dropped " + itemAmount + " " + itemName + " absX: " + player.absX + " absY: " + player.absY + "");
+							GameLogger.writeLog(player.playerName, "dropitem",
+									player.playerName + " dropped " + itemAmount
+											+ " " + itemName + " absX: "
+											+ player.absX + " absY: "
+											+ player.absY + "");
 						}
 					}
 				}
 			} else {
-				player.getActionSender().createGroundItem(itemId, itemX, itemY, itemAmount);
-				GroundItem item = new GroundItem(itemId, itemX, itemY, player.getH(), itemAmount, player.playerId, HIDE_TICKS, PlayerHandler.players[playerId].playerName);
+				player.getActionSender().createGroundItem(itemId, itemX, itemY,
+						itemAmount);
+				GroundItem item = new GroundItem(itemId, itemX, itemY,
+						player.getH(), itemAmount, player.playerId, HIDE_TICKS,
+						PlayerHandler.players[playerId].playerName);
 				addItem(item);
-				String itemName = ItemAssistant.getItemName(itemId).toLowerCase();
+				String itemName = ItemAssistant.getItemName(itemId)
+						.toLowerCase();
 				if (player.isDead == false && itemId != 526) {
 					if (player.getPlayerAssistant().isPlayer()) {
-						GameLogger.writeLog(player.playerName, "dropitem", player.playerName + " dropped " + itemAmount + " " + itemName + " absX: " + player.absX + " absY: " + player.absY + "");
+						GameLogger.writeLog(player.playerName, "dropitem",
+								player.playerName + " dropped " + itemAmount
+										+ " " + itemName + " absX: "
+										+ player.absX + " absY: " + player.absY
+										+ "");
 					}
 				}
 			}
@@ -212,7 +234,8 @@ public int itemAmount(String name, int itemId, int itemX, int itemY) {
 								&& person.playerId != i.getItemController()) {
 							continue;
 						}
-						if (person.distanceToPoint(i.getItemX(), i.getItemY()) <= 60) {
+						if (person.distanceToPoint(i.getItemX(),
+								i.getItemY()) <= 60) {
 							person.getActionSender().createGroundItem(
 									i.getItemId(), i.getItemX(), i.getItemY(),
 									i.getItemAmount());
@@ -227,7 +250,8 @@ public int itemAmount(String name, int itemId, int itemX, int itemY) {
 	 * Removing the ground item
 	 **/
 
-	public void removeGroundItem(Client c, int itemId, int itemX, int itemY, boolean add) {
+	public void removeGroundItem(Client c, int itemId, int itemX, int itemY,
+			boolean add) {
 		for (GroundItem i : items) {
 			if (i.getItemId() == itemId && i.getItemX() == itemX
 					&& i.getItemY() == itemY) {
@@ -249,8 +273,8 @@ public int itemAmount(String name, int itemId, int itemX, int itemY) {
 							break;
 						}
 					} else {
-						removeControllersItem(i, c, i.getItemId(),
-								i.getItemX(), i.getItemY(), i.getItemAmount());
+						removeControllersItem(i, c, i.getItemId(), i.getItemX(),
+								i.getItemY(), i.getItemAmount());
 						break;
 					}
 				} else if (i.hideTicks <= 0) {
@@ -277,8 +301,7 @@ public int itemAmount(String name, int itemId, int itemX, int itemY) {
 
 	public void removeControllersItem(GroundItem i, Client c, int itemId,
 			int itemX, int itemY, int itemAmount) {
-		c.getActionSender().removeGroundItem(itemId, itemX, itemY,
-				itemAmount);
+		c.getActionSender().removeGroundItem(itemId, itemX, itemY, itemAmount);
 		removeItem(i);
 	}
 
@@ -286,15 +309,15 @@ public int itemAmount(String name, int itemId, int itemX, int itemY) {
 	 * Remove item for everyone within 60 squares
 	 **/
 
-	public void removeGlobalItem(GroundItem i, int itemId, int itemX,
-			int itemY, int itemAmount) {
+	public void removeGlobalItem(GroundItem i, int itemId, int itemX, int itemY,
+			int itemAmount) {
 		for (Player p : PlayerHandler.players) {
 			if (p != null) {
 				Client person = (Client) p;
 				if (person != null) {
 					if (person.distanceToPoint(itemX, itemY) <= 60) {
-						person.getActionSender().removeGroundItem(itemId,
-								itemX, itemY, itemAmount);
+						person.getActionSender().removeGroundItem(itemId, itemX,
+								itemY, itemAmount);
 					}
 				}
 			}
@@ -308,9 +331,8 @@ public int itemAmount(String name, int itemId, int itemX, int itemY) {
 
 	public ItemList ItemList[] = new ItemList[Constants.ITEM_LIMIT];
 
-	public void newItemList(int ItemId, String ItemName,
-			String ItemDescription, double ShopValue, double LowAlch,
-			double HighAlch, int Bonuses[]) {
+	public void newItemList(int ItemId, String ItemName, String ItemDescription,
+			double ShopValue, double LowAlch, double HighAlch, int Bonuses[]) {
 		// first, search for a free slot
 		int slot = -1;
 		for (int i = 0; i < 11740; i++) {
@@ -369,8 +391,8 @@ public int itemAmount(String name, int itemId, int itemX, int itemY) {
 		boolean EndOfFile = false;
 		BufferedReader characterfile = null;
 		try {
-			characterfile = new BufferedReader(new FileReader("./Data/cfg/"
-					+ FileName));
+			characterfile = new BufferedReader(
+					new FileReader("./Data/cfg/" + FileName));
 		} catch (FileNotFoundException fileex) {
 			Misc.println(FileName + ": file not found.");
 			return false;
@@ -417,7 +439,7 @@ public int itemAmount(String name, int itemId, int itemX, int itemY) {
 						characterfile.close();
 					} catch (IOException ioexception) {
 					}
-					//return true;
+					// return true;
 				}
 			}
 			try {

@@ -14,7 +14,7 @@ import redone.util.Misc;
 public class LogCutting {
 
 	private static final int KNIFE = 946, CUT_SOUND = 375;
-	
+
 	public static void resetFletching(Client c) {
 		if (c.playerIsFletching == true) {
 			c.playerIsFletching = false;
@@ -22,7 +22,8 @@ public class LogCutting {
 		}
 	}
 
-	public static void cutLog(final Client c, final int product, final int level, final double xp, int amount) {
+	public static void cutLog(final Client c, final int product,
+			final int level, final double xp, int amount) {
 		if (c.isSpinning) {
 			c.isSpinning = false;
 		}
@@ -32,10 +33,8 @@ public class LogCutting {
 		c.doAmount = amount;
 		c.getPlayerAssistant().removeAllWindows();
 		if (c.playerLevel[9] < level) {
-			c.getActionSender()
-					.sendMessage(
-							"You need a fletching level of " + level
-									+ " to make this.");
+			c.getActionSender().sendMessage("You need a fletching level of "
+					+ level + " to make this.");
 			return;
 		}
 		c.playerIsFletching = true;
@@ -46,22 +45,29 @@ public class LogCutting {
 			@Override
 			public void execute(CycleEventContainer container) {
 				if (c.getItemAssistant().playerHasItem(KNIFE)) {
-					c.getItemAssistant().deleteItem2(LogCuttingInterface.log, 1);
+					c.getItemAssistant().deleteItem2(LogCuttingInterface.log,
+							1);
 					if (product == 52) {
 						c.getItemAssistant().addItem(product, 15);
 					} else {
 						c.getItemAssistant().addItem(product, 1);
 					}
-					c.getActionSender().sendMessage("You carefully cut the " + ItemAssistant.getItemName(LogCuttingInterface.log) + " into an " + ItemAssistant.getItemName(product) + ".");
+					c.getActionSender()
+							.sendMessage("You carefully cut the "
+									+ ItemAssistant.getItemName(
+											LogCuttingInterface.log)
+									+ " into an "
+									+ ItemAssistant.getItemName(product) + ".");
 					c.getPlayerAssistant().addSkillXP(xp, c.playerFletching);
 					c.doAmount--;
 				}
 
-				if (!c.getItemAssistant().playerHasItem(LogCuttingInterface.log)) {
+				if (!c.getItemAssistant()
+						.playerHasItem(LogCuttingInterface.log)) {
 					container.stop();
 					return;
 				}
-				
+
 				if (c.playerIsFletching == false) {
 					container.stop();
 					return;
@@ -114,12 +120,12 @@ public class LogCutting {
 		 * normal log (item on interface 3)
 		 */
 		case 34185:
-		if (c.playerIsFletching == true) {
-			cutLog(c, 52, 1, 5, 1);
-			c.playerIsFletching = false;
-			return;
-		}
-		break;
+			if (c.playerIsFletching == true) {
+				cutLog(c, 52, 1, 5, 1);
+				c.playerIsFletching = false;
+				return;
+			}
+			break;
 		case 34184:
 			cutLog(c, 52, 1, 5, 5);
 			return;
@@ -130,12 +136,12 @@ public class LogCutting {
 			cutLog(c, 52, 1, 5, 28);
 			return;
 		case 34189:
-		if (c.playerIsFletching == true) {
-			cutLog(c, 50, 5, 5, 1);
-			c.playerIsFletching = false;
-			return;
-		}
-		break;
+			if (c.playerIsFletching == true) {
+				cutLog(c, 50, 5, 5, 1);
+				c.playerIsFletching = false;
+				return;
+			}
+			break;
 		case 34188:
 			cutLog(c, 50, 5, 5, 5);
 			return;
@@ -146,12 +152,12 @@ public class LogCutting {
 			cutLog(c, 50, 5, 5, 28);
 			return;
 		case 34193:
-		if (c.playerIsFletching == true) {
-			cutLog(c, 48, 10, 10, 1);
-			c.playerIsFletching = false;
-			return;
-		}
-		break;
+			if (c.playerIsFletching == true) {
+				cutLog(c, 48, 10, 10, 1);
+				c.playerIsFletching = false;
+				return;
+			}
+			break;
 		case 34192:
 			cutLog(c, 48, 10, 10, 5);
 			return;
@@ -161,30 +167,35 @@ public class LogCutting {
 		case 34190:
 			cutLog(c, 48, 10, 10, 28);
 			return;
-			/*
-			 * rest of the log's (item on interface 2)
-			 */
-			/*
-			 * first item
-			 */
+		/*
+		 * rest of the log's (item on interface 2)
+		 */
+		/*
+		 * first item
+		 */
 		case 34170:
-			if (LogCuttingInterface.log == 1521 && c.playerIsFletching == true) {
+			if (LogCuttingInterface.log == 1521
+					&& c.playerIsFletching == true) {
 				cutLog(c, 54, 20, 16.5, 1);
 				c.playerIsFletching = false;
 			}
-			if (LogCuttingInterface.log == 1519 && c.playerIsFletching == true) {
+			if (LogCuttingInterface.log == 1519
+					&& c.playerIsFletching == true) {
 				cutLog(c, 60, 35, 33.3, 1);
 				c.playerIsFletching = false;
 			}
-			if (LogCuttingInterface.log == 1517 && c.playerIsFletching == true) {
+			if (LogCuttingInterface.log == 1517
+					&& c.playerIsFletching == true) {
 				cutLog(c, 64, 50, 50, 1);
 				c.playerIsFletching = false;
 			}
-			if (LogCuttingInterface.log == 1515 && c.playerIsFletching == true) {
+			if (LogCuttingInterface.log == 1515
+					&& c.playerIsFletching == true) {
 				cutLog(c, 68, 65, 67.5, 1);
 				c.playerIsFletching = false;
 			}
-			if (LogCuttingInterface.log == 1513 && c.playerIsFletching == true) {
+			if (LogCuttingInterface.log == 1513
+					&& c.playerIsFletching == true) {
 				cutLog(c, 72, 80, 83.25, 1);
 				c.playerIsFletching = false;
 			}
@@ -240,27 +251,32 @@ public class LogCutting {
 				cutLog(c, 72, 80, 83.25, 28);
 			}
 			return;
-			/*
-			 * second item
-			 */
+		/*
+		 * second item
+		 */
 		case 34174:
-			if (LogCuttingInterface.log == 1521 && c.playerIsFletching == true) {
+			if (LogCuttingInterface.log == 1521
+					&& c.playerIsFletching == true) {
 				cutLog(c, 56, 25, 25, 1);
 				c.playerIsFletching = false;
 			}
-			if (LogCuttingInterface.log == 1519 && c.playerIsFletching == true) {
+			if (LogCuttingInterface.log == 1519
+					&& c.playerIsFletching == true) {
 				cutLog(c, 58, 40, 41.5, 1);
 				c.playerIsFletching = false;
 			}
-			if (LogCuttingInterface.log == 1517 && c.playerIsFletching == true) {
+			if (LogCuttingInterface.log == 1517
+					&& c.playerIsFletching == true) {
 				cutLog(c, 62, 55, 58.3, 1);
 				c.playerIsFletching = false;
 			}
-			if (LogCuttingInterface.log == 1515 && c.playerIsFletching == true) {
+			if (LogCuttingInterface.log == 1515
+					&& c.playerIsFletching == true) {
 				cutLog(c, 66, 70, 70, 1);
 				c.playerIsFletching = false;
 			}
-			if (LogCuttingInterface.log == 1513 && c.playerIsFletching == true) {
+			if (LogCuttingInterface.log == 1513
+					&& c.playerIsFletching == true) {
 				cutLog(c, 70, 85, 91.5, 1);
 				c.playerIsFletching = false;
 			}
@@ -335,16 +351,17 @@ public class LogCutting {
 			c.getItemAssistant().deleteItem2(2859, amount);
 			c.getItemAssistant().addItem(2861, makeAmount);
 			c.getPlayerAssistant().addSkillXP(3 * amount, c.playerFletching);
-			c.getActionSender().sendMessage(
-					"You turn your " + ItemAssistant.getItemName(2859)
-							+ " into " + ItemAssistant.getItemName(2861) + ".");
+			c.getActionSender()
+					.sendMessage("You turn your "
+							+ ItemAssistant.getItemName(2859) + " into "
+							+ ItemAssistant.getItemName(2861) + ".");
 		}
 	}
 
 	public static void flightedArrow(Client c) {// to do
 		if (c.playerLevel[c.playerFletching] < 5) {
-			c.getDialogueHandler().sendStatement(
-					"You need 5 fletching to fletch this.");
+			c.getDialogueHandler()
+					.sendStatement("You need 5 fletching to fletch this.");
 			c.nextChat = 0;
 			return;
 		}
@@ -357,17 +374,17 @@ public class LogCutting {
 		}
 		if (c.getItemAssistant().playerHasItem(314)
 				&& c.getItemAssistant().playerHasItem(2864)) {
-			final int feather = c.getItemAssistant().getItemCount(314), arrowShaft = c
-					.getItemAssistant().getItemCount(2864);
+			final int feather = c.getItemAssistant().getItemCount(314),
+					arrowShaft = c.getItemAssistant().getItemCount(2864);
 			if (feather == arrowShaft * 4) {
 				c.startAnimation(1248);
 				c.getItemAssistant().deleteItem2(314, feather * 4);
 				c.getItemAssistant().deleteItem2(2864, arrowShaft);
 				c.getItemAssistant().addItem(2865, arrowShaft);
-				c.getActionSender().sendMessage(
-						"You turn your " + ItemAssistant.getItemName(2864)
-								+ " into " + ItemAssistant.getItemName(2865)
-								+ "(s).");
+				c.getActionSender()
+						.sendMessage("You turn your "
+								+ ItemAssistant.getItemName(2864) + " into "
+								+ ItemAssistant.getItemName(2865) + "(s).");
 				/*
 				 * } else if (feather > arrowShaft * 4) {//to fix
 				 * c.startAnimation(1248); c.getItemAssistant().deleteItem2(314,
@@ -385,17 +402,16 @@ public class LogCutting {
 				 * ItemAssistant.getItemName(2865) + "(s).");
 				 */
 			} else {
-				c.getActionSender()
-						.sendMessage(
-								"You need 4 times the amount of feathers as arrow shafts to do this.");
+				c.getActionSender().sendMessage(
+						"You need 4 times the amount of feathers as arrow shafts to do this.");
 			}
 		}
 	}
 
 	public static void ogreArrow(Client c) {
 		if (c.playerLevel[c.playerFletching] < 5) {
-			c.getDialogueHandler().sendStatement(
-					"You need 5 fletching to fletch this.");
+			c.getDialogueHandler()
+					.sendStatement("You need 5 fletching to fletch this.");
 			c.nextChat = 0;
 			return;
 		}
@@ -406,8 +422,8 @@ public class LogCutting {
 			c.nextChat = 0;
 			return;
 		}
-		final int wolfBoneArrow = c.getItemAssistant().getItemCount(2861), flightedArrow = c
-				.getItemAssistant().getItemCount(2865);
+		final int wolfBoneArrow = c.getItemAssistant().getItemCount(2861),
+				flightedArrow = c.getItemAssistant().getItemCount(2865);
 		if (c.getItemAssistant().playerHasItem(2861)
 				&& c.getItemAssistant().playerHasItem(2865)) {
 			if (wolfBoneArrow == flightedArrow) {
@@ -417,9 +433,9 @@ public class LogCutting {
 						c.playerFletching);
 				c.getItemAssistant().deleteItem2(2861, wolfBoneArrow);
 				c.getItemAssistant().deleteItem2(2865, wolfBoneArrow);
-				c.getActionSender().sendMessage(
-						"You turn your " + ItemAssistant.getItemName(2865)
-								+ " (s) into "
+				c.getActionSender()
+						.sendMessage("You turn your "
+								+ ItemAssistant.getItemName(2865) + " (s) into "
 								+ ItemAssistant.getItemName(2866) + "(s).");
 			} else if (wolfBoneArrow > flightedArrow) {
 				c.startAnimation(1248);
@@ -428,9 +444,9 @@ public class LogCutting {
 						c.playerFletching);
 				c.getItemAssistant().deleteItem2(2861, flightedArrow);
 				c.getItemAssistant().deleteItem2(2865, flightedArrow);
-				c.getActionSender().sendMessage(
-						"You turn your " + ItemAssistant.getItemName(2865)
-								+ " (s) into "
+				c.getActionSender()
+						.sendMessage("You turn your "
+								+ ItemAssistant.getItemName(2865) + " (s) into "
 								+ ItemAssistant.getItemName(2866) + "(s).");
 			} else if (wolfBoneArrow < flightedArrow) {
 				c.startAnimation(1248);
@@ -439,9 +455,9 @@ public class LogCutting {
 						c.playerFletching);
 				c.getItemAssistant().deleteItem2(2861, wolfBoneArrow);
 				c.getItemAssistant().deleteItem2(2865, wolfBoneArrow);
-				c.getActionSender().sendMessage(
-						"You turn your " + ItemAssistant.getItemName(2865)
-								+ " (s) into "
+				c.getActionSender()
+						.sendMessage("You turn your "
+								+ ItemAssistant.getItemName(2865) + " (s) into "
 								+ ItemAssistant.getItemName(2866) + "(s).");
 			}
 		}
@@ -463,10 +479,10 @@ public class LogCutting {
 			c.getItemAssistant().deleteItem2(2862, amount);
 			c.getItemAssistant().addItem(2864, makeAmount);
 			c.getPlayerAssistant().addSkillXP(2 * amount, c.playerFletching);
-			c.getActionSender().sendMessage(
-					"You turn your " + ItemAssistant.getItemName(2862)
-							+ " (s) into " + ItemAssistant.getItemName(2864)
-							+ "(s).");
+			c.getActionSender()
+					.sendMessage("You turn your "
+							+ ItemAssistant.getItemName(2862) + " (s) into "
+							+ ItemAssistant.getItemName(2864) + "(s).");
 		}
 	}
 }

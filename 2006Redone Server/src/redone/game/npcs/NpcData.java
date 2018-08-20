@@ -11,8 +11,8 @@ public class NpcData {
 
 	public static final int[] npcsOnlyMage = { 907, 908, 909, 910, 911, 912,
 			913, 914 };// done
-	public static final int[][] transformNpc = { { 3223, 6006 },
-			{ 3224, 6007 }, { 3225, 6008 }, { 3226, 6009 } };// done
+	public static final int[][] transformNpc = { { 3223, 6006 }, { 3224, 6007 },
+			{ 3225, 6008 }, { 3226, 6009 } };// done
 	public static final int[] npcsCantKillYou = { 41, 951, 1017, 1401, 1402,
 			1692, 2313, 2314, 2315 };// done
 	public static final int[] npcCantAttack = { 1532, 1533, 1534, 1535 };
@@ -83,10 +83,8 @@ public class NpcData {
 		ArrayList<Integer> players = new ArrayList<Integer>();
 		for (int j = 0; j < PlayerHandler.players.length; j++) {
 			if (PlayerHandler.players[j] != null) {
-				if (NpcHandler.goodDistance(
-						PlayerHandler.players[j].absX,
-						PlayerHandler.players[j].absY,
-						NpcHandler.npcs[i].absX,
+				if (NpcHandler.goodDistance(PlayerHandler.players[j].absX,
+						PlayerHandler.players[j].absY, NpcHandler.npcs[i].absX,
 						NpcHandler.npcs[i].absY,
 						2 + NpcHandler.distanceRequired(i)
 								+ NpcHandler.followDistance(i))
@@ -117,48 +115,48 @@ public class NpcData {
 	public static void handleClipping(int i) {
 		Npc npc = NpcHandler.npcs[i];
 		if (npc.moveX == 1 && npc.moveY == 1) {
-			if ((Region
-					.getClipping(npc.absX + 1, npc.absY + 1, npc.heightLevel) & 0x12801e0) != 0) {
+			if ((Region.getClipping(npc.absX + 1, npc.absY + 1, npc.heightLevel)
+					& 0x12801e0) != 0) {
 				npc.moveX = 0;
 				npc.moveY = 0;
-				if ((Region
-						.getClipping(npc.absX, npc.absY + 1, npc.heightLevel) & 0x1280120) == 0) {
+				if ((Region.getClipping(npc.absX, npc.absY + 1, npc.heightLevel)
+						& 0x1280120) == 0) {
 					npc.moveY = 1;
 				} else {
 					npc.moveX = 1;
 				}
 			}
 		} else if (npc.moveX == -1 && npc.moveY == -1) {
-			if ((Region
-					.getClipping(npc.absX - 1, npc.absY - 1, npc.heightLevel) & 0x128010e) != 0) {
+			if ((Region.getClipping(npc.absX - 1, npc.absY - 1, npc.heightLevel)
+					& 0x128010e) != 0) {
 				npc.moveX = 0;
 				npc.moveY = 0;
-				if ((Region
-						.getClipping(npc.absX, npc.absY - 1, npc.heightLevel) & 0x1280102) == 0) {
+				if ((Region.getClipping(npc.absX, npc.absY - 1, npc.heightLevel)
+						& 0x1280102) == 0) {
 					npc.moveY = -1;
 				} else {
 					npc.moveX = -1;
 				}
 			}
 		} else if (npc.moveX == 1 && npc.moveY == -1) {
-			if ((Region
-					.getClipping(npc.absX + 1, npc.absY - 1, npc.heightLevel) & 0x1280183) != 0) {
+			if ((Region.getClipping(npc.absX + 1, npc.absY - 1, npc.heightLevel)
+					& 0x1280183) != 0) {
 				npc.moveX = 0;
 				npc.moveY = 0;
-				if ((Region
-						.getClipping(npc.absX, npc.absY - 1, npc.heightLevel) & 0x1280102) == 0) {
+				if ((Region.getClipping(npc.absX, npc.absY - 1, npc.heightLevel)
+						& 0x1280102) == 0) {
 					npc.moveY = -1;
 				} else {
 					npc.moveX = 1;
 				}
 			}
 		} else if (npc.moveX == -1 && npc.moveY == 1) {
-			if ((Region
-					.getClipping(npc.absX - 1, npc.absY + 1, npc.heightLevel) & 0x128013) != 0) {
+			if ((Region.getClipping(npc.absX - 1, npc.absY + 1, npc.heightLevel)
+					& 0x128013) != 0) {
 				npc.moveX = 0;
 				npc.moveY = 0;
-				if ((Region
-						.getClipping(npc.absX, npc.absY + 1, npc.heightLevel) & 0x1280120) == 0) {
+				if ((Region.getClipping(npc.absX, npc.absY + 1, npc.heightLevel)
+						& 0x1280120) == 0) {
 					npc.moveY = 1;
 				} else {
 					npc.moveX = -1;
@@ -167,25 +165,28 @@ public class NpcData {
 		} // Checking Diagonal movement.
 
 		if (npc.moveY == -1) {
-			if ((Region.getClipping(npc.absX, npc.absY - 1, npc.heightLevel) & 0x1280102) != 0) {
+			if ((Region.getClipping(npc.absX, npc.absY - 1, npc.heightLevel)
+					& 0x1280102) != 0) {
 				npc.moveY = 0;
 			}
 		} else if (npc.moveY == 1) {
-			if ((Region.getClipping(npc.absX, npc.absY + 1, npc.heightLevel) & 0x1280120) != 0) {
+			if ((Region.getClipping(npc.absX, npc.absY + 1, npc.heightLevel)
+					& 0x1280120) != 0) {
 				npc.moveY = 0;
 			}
 		} // Checking Y movement.
 		if (npc.moveX == 1) {
-			if ((Region.getClipping(npc.absX + 1, npc.absY, npc.heightLevel) & 0x1280180) != 0) {
+			if ((Region.getClipping(npc.absX + 1, npc.absY, npc.heightLevel)
+					& 0x1280180) != 0) {
 				npc.moveX = 0;
 			}
 		} else if (npc.moveX == -1) {
-			if ((Region.getClipping(npc.absX - 1, npc.absY, npc.heightLevel) & 0x1280108) != 0) {
+			if ((Region.getClipping(npc.absX - 1, npc.absY, npc.heightLevel)
+					& 0x1280108) != 0) {
 				npc.moveX = 0;
 			}
 		} // Checking X movement.
 	}
-	
 
 	/**
 	 * Attack delays
@@ -205,7 +206,7 @@ public class NpcData {
 		case 2561:
 		case 2550:
 			return 6;
-			// saradomin gw boss
+		// saradomin gw boss
 		case 2562:
 			return 2;
 
@@ -283,7 +284,7 @@ public class NpcData {
 			return 25;
 		}
 	}
-	
+
 	public static int distanceRequired(int i) {
 		int distanceNeeded = 1;
 		if (NpcHandler.npcs[i].attackType == 1) {
@@ -294,56 +295,57 @@ public class NpcData {
 			return distanceNeeded += 4;
 		}
 		switch (NpcHandler.npcs[i].npcType) {
-			case 2562:
-				return distanceNeeded += 1;
-			case 2881:// dag kings
-			case 2882:
-			case 3200:// chaos ele
-				return distanceNeeded += 7;
-			case 2552:
-			case 2553:
-			case 2556:
-			case 2557:
-			case 2558:
-			case 2559:
-			case 2560:
-			case 2564:
-			case 2565:
-				return distanceNeeded += 8;
-			// things around dags
-			case 2892:
-			case 2894:
-				return distanceNeeded += 9;
-			case 907 : // Kolodian
-			case 908 :
-			case 909 :
-			case 910 :
-			case 911 :
-			case 912 : // Zammy battlemage
-			case 913 : // Sara battlemage
-			case 914 : // Guthix battlemage
-			case 2591 : // TzHaar-Mej (Tzhaar mage guy)
-			case 2743 : // Ket-Zek (Tzhaar mage guy)
-			case 2745 : // TzTok-Jad
-			case 1158 : // Kalphite queen form 1
-			case 1160 : // Kalphite queen form 2
-			case 2025 : // Ahrim
-				return distanceNeeded += 9;
-			case 2028 : // Karil
-			case 2631 : // Tok-Xil (Tzhaar ranging guy)
-			case 1183 : // Elf ranger
-				return distanceNeeded += 7;
-			case 941 : // Green drag
-			case 50 : // Kbd
-				return distanceNeeded += 5;
+		case 2562:
+			return distanceNeeded += 1;
+		case 2881:// dag kings
+		case 2882:
+		case 3200:// chaos ele
+			return distanceNeeded += 7;
+		case 2552:
+		case 2553:
+		case 2556:
+		case 2557:
+		case 2558:
+		case 2559:
+		case 2560:
+		case 2564:
+		case 2565:
+			return distanceNeeded += 8;
+		// things around dags
+		case 2892:
+		case 2894:
+			return distanceNeeded += 9;
+		case 907: // Kolodian
+		case 908:
+		case 909:
+		case 910:
+		case 911:
+		case 912: // Zammy battlemage
+		case 913: // Sara battlemage
+		case 914: // Guthix battlemage
+		case 2591: // TzHaar-Mej (Tzhaar mage guy)
+		case 2743: // Ket-Zek (Tzhaar mage guy)
+		case 2745: // TzTok-Jad
+		case 1158: // Kalphite queen form 1
+		case 1160: // Kalphite queen form 2
+		case 2025: // Ahrim
+			return distanceNeeded += 9;
+		case 2028: // Karil
+		case 2631: // Tok-Xil (Tzhaar ranging guy)
+		case 1183: // Elf ranger
+			return distanceNeeded += 7;
+		case 941: // Green drag
+		case 50: // Kbd
+			return distanceNeeded += 5;
 		}
 		return distanceNeeded;
 	}
 
-
 	public static boolean goodDistanceNpc(int i, int x2, int y2, int distance) {
-		for (int x = NpcHandler.npcs[i].getX(); x <= NpcHandler.npcs[i].getX() + NpcHandler.npcs[i].size; x++) {
-			for (int y = NpcHandler.npcs[i].getY(); y <= NpcHandler.npcs[i].getY() + NpcHandler.npcs[i].size; y++) {
+		for (int x = NpcHandler.npcs[i].getX(); x <= NpcHandler.npcs[i].getX()
+				+ NpcHandler.npcs[i].size; x++) {
+			for (int y = NpcHandler.npcs[i].getY(); y <= NpcHandler.npcs[i]
+					.getY() + NpcHandler.npcs[i].size; y++) {
 				if (Misc.goodDistance(x, y, x2, y2, distance)) {
 					return true;
 				}
@@ -351,8 +353,7 @@ public class NpcData {
 		}
 		return false;
 	}
-	
-	
+
 	public static boolean checkClip(Npc n) {
 		int x2 = 0, y2 = 0, x3 = 0, y3 = 0;
 		if (n.killerId > 0) {
@@ -429,7 +430,8 @@ public class NpcData {
 			}
 			if (!firstCheck) {
 				if (melee) {
-					if (!Region.getClipping(x, y, n.heightLevel, x - x3, y - y3)) {
+					if (!Region.getClipping(x, y, n.heightLevel, x - x3,
+							y - y3)) {
 						return false;
 					}
 				}
@@ -452,12 +454,15 @@ public class NpcData {
 
 	public static boolean inNpc(int i, int x2, int y2) {
 		if (NpcHandler.npcs[i].size < 1) {
-			if (x2 == NpcHandler.npcs[i].getX() && y2 == NpcHandler.npcs[i].getY()) {
+			if (x2 == NpcHandler.npcs[i].getX()
+					&& y2 == NpcHandler.npcs[i].getY()) {
 				return true;
 			}
 		} else {
-			for (int x = NpcHandler.npcs[i].getX(); x <= NpcHandler.npcs[i].getX() + NpcHandler.npcs[i].size; x++) {
-				for (int y = NpcHandler.npcs[i].getY(); y <= NpcHandler.npcs[i].getY() + NpcHandler.npcs[i].size; y++) {
+			for (int x = NpcHandler.npcs[i].getX(); x <= NpcHandler.npcs[i]
+					.getX() + NpcHandler.npcs[i].size; x++) {
+				for (int y = NpcHandler.npcs[i].getY(); y <= NpcHandler.npcs[i]
+						.getY() + NpcHandler.npcs[i].size; y++) {
 					if (x2 == x && y2 == y) {
 						return true;
 					}
@@ -466,6 +471,5 @@ public class NpcData {
 		}
 		return false;
 	}
-
 
 }

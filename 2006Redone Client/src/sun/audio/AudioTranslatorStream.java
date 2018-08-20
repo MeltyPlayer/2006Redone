@@ -34,15 +34,15 @@ import java.io.IOException;
  */
 public final class AudioTranslatorStream extends NativeAudioStream {
 
-        private final int length = 0;
+  private final int length = 0;
 
-        public AudioTranslatorStream(InputStream in) throws IOException {
-            super(in);
-            // No translators supported yet.
-            throw new InvalidAudioFormatException();
-        }
+  public AudioTranslatorStream(InputStream in) throws IOException {
+    super(in);
+    // No translators supported yet.
+    throw new InvalidAudioFormatException();
+  }
 
-        public int getLength() {
-            return length;
-        }
-    }
+  public int getLength() {
+    return length;
+  }
+}

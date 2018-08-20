@@ -42,11 +42,11 @@ public class NpcHandler {
 		loadNPCList("./Data/CFG/npc.cfg");
 		loadAutoSpawn("./Data/CFG/spawn-config.cfg");
 	}
-	
+
 	public static boolean isUndead(int index) {
 		String name = getNpcListName(npcs[index].npcType);
-		for(String s : Constants.UNDEAD)
-			if(s.equalsIgnoreCase(name))
+		for (String s : Constants.UNDEAD)
+			if (s.equalsIgnoreCase(name))
 				return true;
 		return false;
 	}
@@ -120,8 +120,14 @@ public class NpcHandler {
 				if (j == npcs[i].spawnedBy) {
 					return j;
 				}
-				if (goodDistance(PlayerHandler.players[j].absX, PlayerHandler.players[j].absY, npcs[i].absX, npcs[i].absY, 2 + distanceRequired(i) + followDistance(i)) || FightCaves.isFightCaveNpc(i)) {
-					if (PlayerHandler.players[j].underAttackBy <= 0 && PlayerHandler.players[j].underAttackBy2 <= 0 || PlayerHandler.players[j].inMulti()) {
+				if (goodDistance(PlayerHandler.players[j].absX,
+						PlayerHandler.players[j].absY, npcs[i].absX,
+						npcs[i].absY,
+						2 + distanceRequired(i) + followDistance(i))
+						|| FightCaves.isFightCaveNpc(i)) {
+					if (PlayerHandler.players[j].underAttackBy <= 0
+							&& PlayerHandler.players[j].underAttackBy2 <= 0
+							|| PlayerHandler.players[j].inMulti()) {
 						if (PlayerHandler.players[j].heightLevel == npcs[i].heightLevel) {
 							return j;
 						}
@@ -194,7 +200,8 @@ public class NpcHandler {
 		npcs[slot] = newNPC;
 	}
 
-	public void spawnNpc2(int npcType, int x, int y, int heightLevel, int WalkingType, int HP, int maxHit, int attack, int defence) {
+	public void spawnNpc2(int npcType, int x, int y, int heightLevel,
+			int WalkingType, int HP, int maxHit, int attack, int defence) {
 		// first, search for a free slot
 		int slot = -1;
 		for (int i = 1; i < maxNPCs; i++) {
@@ -221,30 +228,31 @@ public class NpcHandler {
 		newNPC.defence = defence;
 		npcs[slot] = newNPC;
 	}
-	
+
 	private void killedBarrow(int i) {
-		Client c = (Client)PlayerHandler.players[npcs[i].killedBy];
-			if(c != null) {
-				for(int o = 0; o < c.barrowsNpcs.length; o++){
-					if(npcs[i].npcType == c.barrowsNpcs[o][0]) {
-						c.barrowsNpcs[o][1] = 2; // 2 for dead
-						c.barrowsKillCount++;
-					}
+		Client c = (Client) PlayerHandler.players[npcs[i].killedBy];
+		if (c != null) {
+			for (int o = 0; o < c.barrowsNpcs.length; o++) {
+				if (npcs[i].npcType == c.barrowsNpcs[o][0]) {
+					c.barrowsNpcs[o][1] = 2; // 2 for dead
+					c.barrowsKillCount++;
 				}
 			}
 		}
-	
+	}
+
 	private void killedCrypt(int i) {
-		Client c = (Client)PlayerHandler.players[npcs[i].killedBy];
-			if(c != null) {
-				for(int o = 0; o < c.barrowCrypt.length; o++){
-					if(npcs[i].npcType == c.barrowCrypt[o][0]) {
-						c.barrowsKillCount++;
-						c.getPlayerAssistant().sendFrame126(""+c.barrowsKillCount, 4536);
-					}
+		Client c = (Client) PlayerHandler.players[npcs[i].killedBy];
+		if (c != null) {
+			for (int o = 0; o < c.barrowCrypt.length; o++) {
+				if (npcs[i].npcType == c.barrowCrypt[o][0]) {
+					c.barrowsKillCount++;
+					c.getPlayerAssistant().sendFrame126("" + c.barrowsKillCount,
+							4536);
 				}
 			}
 		}
+	}
 
 	public void newNPC(int npcType, int x, int y, int heightLevel,
 			int WalkingType, int HP, int maxHit, int attack, int defence) {
@@ -260,7 +268,7 @@ public class NpcHandler {
 		if (slot == -1) {
 			return; // no free slot found
 		}
-		
+
 		Npc newNPC = new Npc(slot, npcType);
 		newNPC.absX = x;
 		newNPC.absY = y;
@@ -324,7 +332,7 @@ public class NpcHandler {
 		}
 		return killerId;
 	}
-	
+
 	public void process() {
 		for (Npc i : NpcHandler.npcs) {
 			if (i == null) {
@@ -341,11 +349,11 @@ public class NpcHandler {
 					npcs[i].absX = 0;
 					npcs[i].absY = 0;
 				}
-				if (slaveOwner != null
-						&& slaveOwner.hasNpc
+				if (slaveOwner != null && slaveOwner.hasNpc
 						&& !slaveOwner.goodDistance(npcs[i].getX(),
 								npcs[i].getY(), slaveOwner.absX,
-								slaveOwner.absY, 15) && npcs[i].summoner) {
+								slaveOwner.absY, 15)
+						&& npcs[i].summoner) {
 					npcs[i].absX = slaveOwner.absX;
 					npcs[i].absY = slaveOwner.absY - 1;
 				}
@@ -383,16 +391,16 @@ public class NpcHandler {
 							|| PlayerHandler.players[npcs[i].spawnedBy].heightLevel != npcs[i].heightLevel
 							|| PlayerHandler.players[npcs[i].spawnedBy].respawnTimer > 0
 							|| !PlayerHandler.players[npcs[i].spawnedBy]
-									.goodDistance(
-											npcs[i].getX(),
+									.goodDistance(npcs[i].getX(),
 											npcs[i].getY(),
 											PlayerHandler.players[npcs[i].spawnedBy]
 													.getX(),
 											PlayerHandler.players[npcs[i].spawnedBy]
-													.getY(), 20)) {
-						
+													.getY(),
+											20)) {
+
 						if (npcs[i].npcType == FightCaves.YT_HURKOT) {
-							Client c = ((Client)PlayerHandler.players[npcs[i].spawnedBy]);
+							Client c = ((Client) PlayerHandler.players[npcs[i].spawnedBy]);
 							int ranHeal = Misc.random(19);
 							if (ranHeal == 19)
 								FightCaves.healJad(c, i);
@@ -417,15 +425,26 @@ public class NpcHandler {
 				/**
 				 * Attacking player
 				 **/
-				
-				if (NpcAggressive.isAggressive(i) && !npcs[i].underAttack && !npcs[i].isDead && !switchesAttackers(i)) {
-					Client client = (Client) PlayerHandler.players[NpcData.getCloseRandomPlayer(i)];
-					if (client != null && getNpcListCombat(npcs[i].npcType) * 2 > client.combatLevel || npcs[i].npcType == 1265 || npcs[i].npcType == 1267 || npcs[i].npcType == 96 || npcs[i].npcType == 97 || npcs[i].npcType == 141) {
+
+				if (NpcAggressive.isAggressive(i) && !npcs[i].underAttack
+						&& !npcs[i].isDead && !switchesAttackers(i)) {
+					Client client = (Client) PlayerHandler.players[NpcData
+							.getCloseRandomPlayer(i)];
+					if (client != null
+							&& getNpcListCombat(npcs[i].npcType)
+									* 2 > client.combatLevel
+							|| npcs[i].npcType == 1265
+							|| npcs[i].npcType == 1267 || npcs[i].npcType == 96
+							|| npcs[i].npcType == 97
+							|| npcs[i].npcType == 141) {
 						npcs[i].killerId = NpcData.getCloseRandomPlayer(i);
 					}
-				} else if (NpcAggressive.isAggressive(i) && !npcs[i].underAttack && !npcs[i].isDead && switchesAttackers(i)) {
-					Client c = (Client) PlayerHandler.players[NpcData.getCloseRandomPlayer(i)];
-					if (c != null && getNpcListCombat(npcs[i].npcType) * 2 > c.combatLevel) {
+				} else if (NpcAggressive.isAggressive(i) && !npcs[i].underAttack
+						&& !npcs[i].isDead && switchesAttackers(i)) {
+					Client c = (Client) PlayerHandler.players[NpcData
+							.getCloseRandomPlayer(i)];
+					if (c != null && getNpcListCombat(npcs[i].npcType)
+							* 2 > c.combatLevel) {
 						npcs[i].killerId = NpcData.getCloseRandomPlayer(i);
 					}
 				}
@@ -433,12 +452,14 @@ public class NpcHandler {
 				 * Attacking player
 				 */
 
-				if (System.currentTimeMillis() - npcs[i].lastDamageTaken > 5000) {
+				if (System.currentTimeMillis()
+						- npcs[i].lastDamageTaken > 5000) {
 					npcs[i].underAttackBy = 0;
 				}
 
 				if ((npcs[i].killerId > 0 || npcs[i].underAttack)
-						&& !npcs[i].walkingHome && retaliates(npcs[i].npcType)) {
+						&& !npcs[i].walkingHome
+						&& retaliates(npcs[i].npcType)) {
 					if (!npcs[i].isDead) {
 						int p = npcs[i].killerId;
 						if (PlayerHandler.players[p] != null) {
@@ -447,7 +468,7 @@ public class NpcHandler {
 							if (npcs[i] == null) {
 								continue;
 							}
-							stepAway(c,i);
+							stepAway(c, i);
 							if (npcs[i].attackTimer == 0) {
 								NpcCombat.attackPlayer(c, i);
 							}
@@ -600,8 +621,8 @@ public class NpcHandler {
 									&& NpcHandler.npcs[i].npcType > 3180) {
 								c.getActionSender()
 										.sendSound(
-												CombatSounds
-														.getNpcDeathSounds(npcs[i].npcType),
+												CombatSounds.getNpcDeathSounds(
+														npcs[i].npcType),
 												100, 0);
 							}
 						}
@@ -650,8 +671,12 @@ public class NpcHandler {
 						}
 						if (npcs[i].npcType > 3726 && npcs[i].npcType < 3732) {
 							int damage = 10 + Misc.random(10);
-							player.playerLevel[player.playerHitpoints] = player.getPlayerAssistant().getLevelForXP(player.playerXP[player.playerHitpoints]) - damage;
-							player.getPlayerAssistant().refreshSkill(player.playerHitpoints);
+							player.playerLevel[player.playerHitpoints] = player
+									.getPlayerAssistant().getLevelForXP(
+											player.playerXP[player.playerHitpoints])
+									- damage;
+							player.getPlayerAssistant()
+									.refreshSkill(player.playerHitpoints);
 							player.handleHitMask(damage);
 						}
 						if (npcs[i].npcType == 655) {
@@ -686,7 +711,8 @@ public class NpcHandler {
 						npcs[i].animNumber = 0x328;
 						npcs[i].updateRequired = true;
 						npcs[i].animUpdateRequired = true;
-						if (npcs[i].npcType >= 2440 && npcs[i].npcType <= 2446) {
+						if (npcs[i].npcType >= 2440
+								&& npcs[i].npcType <= 2446) {
 							Server.objectManager.removeObject(npcs[i].absX,
 									npcs[i].absY);
 						}
@@ -719,17 +745,14 @@ public class NpcHandler {
 		final Client c = (Client) PlayerHandler.players[npcs[i].killedBy];
 		if (c != null) {
 			c.getActionSender().chatbox(6180);
-			c.getDialogueHandler()
-					.chatboxText(
-							c,
-							"",
-							"Pass through the gate and talk to the Combat Instructor, he",
-							"will give you your next task.", "",
-							"Well done, you've made your first kill!");
+			c.getDialogueHandler().chatboxText(c, "",
+					"Pass through the gate and talk to the Combat Instructor, he",
+					"will give you your next task.", "",
+					"Well done, you've made your first kill!");
 			c.getActionSender().chatbox(6179);
 			c.getActionSender().drawHeadicon(1, 6, 0, 0); // draws
-																// headicon to
-																// combat ude
+															// headicon to
+															// combat ude
 			c.tutorialProgress = 25;
 		}
 	}
@@ -738,19 +761,17 @@ public class NpcHandler {
 		Client c = (Client) PlayerHandler.players[npcs[i].killedBy];
 		if (c != null) {
 			c.getActionSender().chatbox(6180);
-			c.getDialogueHandler()
-					.chatboxText(
-							c,
-							"You have completed the tasks here. To move on, click on the",
-							"ladder shown. If you need to go over any of what you learnt",
-							"here, just talk to the Combat Instructor and he'll tell you what",
-							"he can.", "Moving on");
+			c.getDialogueHandler().chatboxText(c,
+					"You have completed the tasks here. To move on, click on the",
+					"ladder shown. If you need to go over any of what you learnt",
+					"here, just talk to the Combat Instructor and he'll tell you what",
+					"he can.", "Moving on");
 			c.getActionSender().chatbox(6179);
 			c.tutorialProgress = 26;
 			c.getActionSender().createArrow(3111, 9525, c.getH(), 2); // send
-																			// hint
-																			// to
-																			// furnace
+																		// hint
+																		// to
+																		// furnace
 		}
 	}
 
@@ -787,18 +808,22 @@ public class NpcHandler {
 		}
 
 	}
-	
+
 	private void stepAway(Client c, int i) {
 		int otherX = NpcHandler.npcs[i].getX();
 		int otherY = NpcHandler.npcs[i].getY();
 		if (otherX == c.getX() && otherY == c.getY()) {
-			if (Region.getClipping(c.getX() - 1, c.getY(), c.heightLevel, -1, 0)) {
+			if (Region.getClipping(c.getX() - 1, c.getY(), c.heightLevel, -1,
+					0)) {
 				npcs[i].moveX = -1;
-			} else if (Region.getClipping(c.getX() + 1, c.getY(), c.heightLevel, 1, 0)) {
+			} else if (Region.getClipping(c.getX() + 1, c.getY(), c.heightLevel,
+					1, 0)) {
 				npcs[i].moveX = 1;
-			} else if (Region.getClipping(c.getX(), c.getY() - 1, c.heightLevel, 0, -1)) {
+			} else if (Region.getClipping(c.getX(), c.getY() - 1, c.heightLevel,
+					0, -1)) {
 				npcs[i].moveY = -1;
-			} else if (Region.getClipping(c.getX(), c.getY() + 1, c.heightLevel, 0, 1)) {
+			} else if (Region.getClipping(c.getX(), c.getY() + 1, c.heightLevel,
+					0, 1)) {
 				npcs[i].moveY = 1;
 			}
 			npcs[i].getNextNPCMovement(i);
@@ -809,48 +834,48 @@ public class NpcHandler {
 	public static void handleClipping(int i) {
 		Npc npc = npcs[i];
 		if (npc.moveX == 1 && npc.moveY == 1) {
-			if ((Region
-					.getClipping(npc.absX + 1, npc.absY + 1, npc.heightLevel) & 0x12801e0) != 0) {
+			if ((Region.getClipping(npc.absX + 1, npc.absY + 1, npc.heightLevel)
+					& 0x12801e0) != 0) {
 				npc.moveX = 0;
 				npc.moveY = 0;
-				if ((Region
-						.getClipping(npc.absX, npc.absY + 1, npc.heightLevel) & 0x1280120) == 0) {
+				if ((Region.getClipping(npc.absX, npc.absY + 1, npc.heightLevel)
+						& 0x1280120) == 0) {
 					npc.moveY = 1;
 				} else {
 					npc.moveX = 1;
 				}
 			}
 		} else if (npc.moveX == -1 && npc.moveY == -1) {
-			if ((Region
-					.getClipping(npc.absX - 1, npc.absY - 1, npc.heightLevel) & 0x128010e) != 0) {
+			if ((Region.getClipping(npc.absX - 1, npc.absY - 1, npc.heightLevel)
+					& 0x128010e) != 0) {
 				npc.moveX = 0;
 				npc.moveY = 0;
-				if ((Region
-						.getClipping(npc.absX, npc.absY - 1, npc.heightLevel) & 0x1280102) == 0) {
+				if ((Region.getClipping(npc.absX, npc.absY - 1, npc.heightLevel)
+						& 0x1280102) == 0) {
 					npc.moveY = -1;
 				} else {
 					npc.moveX = -1;
 				}
 			}
 		} else if (npc.moveX == 1 && npc.moveY == -1) {
-			if ((Region
-					.getClipping(npc.absX + 1, npc.absY - 1, npc.heightLevel) & 0x1280183) != 0) {
+			if ((Region.getClipping(npc.absX + 1, npc.absY - 1, npc.heightLevel)
+					& 0x1280183) != 0) {
 				npc.moveX = 0;
 				npc.moveY = 0;
-				if ((Region
-						.getClipping(npc.absX, npc.absY - 1, npc.heightLevel) & 0x1280102) == 0) {
+				if ((Region.getClipping(npc.absX, npc.absY - 1, npc.heightLevel)
+						& 0x1280102) == 0) {
 					npc.moveY = -1;
 				} else {
 					npc.moveX = 1;
 				}
 			}
 		} else if (npc.moveX == -1 && npc.moveY == 1) {
-			if ((Region
-					.getClipping(npc.absX - 1, npc.absY + 1, npc.heightLevel) & 0x128013) != 0) {
+			if ((Region.getClipping(npc.absX - 1, npc.absY + 1, npc.heightLevel)
+					& 0x128013) != 0) {
 				npc.moveX = 0;
 				npc.moveY = 0;
-				if ((Region
-						.getClipping(npc.absX, npc.absY + 1, npc.heightLevel) & 0x1280120) == 0) {
+				if ((Region.getClipping(npc.absX, npc.absY + 1, npc.heightLevel)
+						& 0x1280120) == 0) {
 					npc.moveY = 1;
 				} else {
 					npc.moveX = -1;
@@ -859,20 +884,24 @@ public class NpcHandler {
 		} // Checking Diagonal movement.
 
 		if (npc.moveY == -1) {
-			if ((Region.getClipping(npc.absX, npc.absY - 1, npc.heightLevel) & 0x1280102) != 0) {
+			if ((Region.getClipping(npc.absX, npc.absY - 1, npc.heightLevel)
+					& 0x1280102) != 0) {
 				npc.moveY = 0;
 			}
 		} else if (npc.moveY == 1) {
-			if ((Region.getClipping(npc.absX, npc.absY + 1, npc.heightLevel) & 0x1280120) != 0) {
+			if ((Region.getClipping(npc.absX, npc.absY + 1, npc.heightLevel)
+					& 0x1280120) != 0) {
 				npc.moveY = 0;
 			}
 		} // Checking Y movement.
 		if (npc.moveX == 1) {
-			if ((Region.getClipping(npc.absX + 1, npc.absY, npc.heightLevel) & 0x1280180) != 0) {
+			if ((Region.getClipping(npc.absX + 1, npc.absY, npc.heightLevel)
+					& 0x1280180) != 0) {
 				npc.moveX = 0;
 			}
 		} else if (npc.moveX == -1) {
-			if ((Region.getClipping(npc.absX - 1, npc.absY, npc.heightLevel) & 0x1280108) != 0) {
+			if ((Region.getClipping(npc.absX - 1, npc.absY, npc.heightLevel)
+					& 0x1280108) != 0) {
 				npc.moveX = 0;
 			}
 		} // Checking X movement.
@@ -893,43 +922,71 @@ public class NpcHandler {
 		int npc = 0;
 		Client c = (Client) PlayerHandler.players[npcs[i].killedBy];
 		if (c != null) {
-			for (npc = 0; npc < NPCDropsHandler.NPC_DROPS(getNpcListName(npcs[i].npcType).toLowerCase(), npcs[i].npcType).length; npc++) {
-				if (Misc.random(NPCDropsHandler.NPC_DROPS(getNpcListName(npcs[i].npcType).toLowerCase(), npcs[i].npcType)[npc][2]) == 0 && npcs[i].npcType != 2627 && npcs[i].npcType != 2638 && npcs[i].npcType != 2630 && npcs[i].npcType != 2631 && npcs[i].npcType != 2641 && npcs[i].npcType != 2643 && npcs[i].npcType != 2645 && npcs[i].npcType != 1532 && npcs[i].npcType != 153 && !PestControl.npcIsPCMonster(npcs[i].npcType)) {
-					Server.itemHandler.createGroundItem(c, NPCDropsHandler.NPC_DROPS(getNpcListName(npcs[i].npcType).toLowerCase(), npcs[i].npcType)[npc][0], npcs[i].absX, npcs[i].absY, NPCDropsHandler.NPC_DROPS(getNpcListName(npcs[i].npcType).toLowerCase(), npcs[i].npcType)[npc][1], c.playerId);
-					
-							}
-					}
-					switch (npcs[i].npcType) {
-					case 2459:
-						FreakyForester.killedPheasant(c, 0);
-						Server.itemHandler.createGroundItem(c, 6178, npcs[i].absX, npcs[i].absY, 1, c.playerId);
-						break;
-					case 2460:
-						FreakyForester.killedPheasant(c, 1);
-						Server.itemHandler.createGroundItem(c, 6178, npcs[i].absX, npcs[i].absY, 1, c.playerId);
-						break;
-					case 2461:
-						FreakyForester.killedPheasant(c, 2);
-						Server.itemHandler.createGroundItem(c, 6178, npcs[i].absX, npcs[i].absY, 1, c.playerId);
-						break;
-					case 2462:
-						FreakyForester.killedPheasant(c, 3);
-						Server.itemHandler.createGroundItem(c, 6178, npcs[i].absX, npcs[i].absY, 1, c.playerId);
-						break;
-					case 92:
-						if (c.restGhost == 3) {
-							Server.itemHandler.createGroundItem(c, 553, npcs[i].absX, npcs[i].absY, 1, c.playerId);
-							c.restGhost = 4;
-						}
-						break;
-					case 47:
-						if (c.witchspot == 1 || c.romeojuliet > 0 && c.romeojuliet < 9) {
-							Server.itemHandler.createGroundItem(c, 300, npcs[i].absX, npcs[i].absY, 1, c.playerId);
-						}
-						break;
-					}
+			for (npc = 0; npc < NPCDropsHandler.NPC_DROPS(
+					getNpcListName(npcs[i].npcType).toLowerCase(),
+					npcs[i].npcType).length; npc++) {
+				if (Misc.random(NPCDropsHandler.NPC_DROPS(
+						getNpcListName(npcs[i].npcType).toLowerCase(),
+						npcs[i].npcType)[npc][2]) == 0
+						&& npcs[i].npcType != 2627 && npcs[i].npcType != 2638
+						&& npcs[i].npcType != 2630 && npcs[i].npcType != 2631
+						&& npcs[i].npcType != 2641 && npcs[i].npcType != 2643
+						&& npcs[i].npcType != 2645 && npcs[i].npcType != 1532
+						&& npcs[i].npcType != 153
+						&& !PestControl.npcIsPCMonster(npcs[i].npcType)) {
+					Server.itemHandler.createGroundItem(c,
+							NPCDropsHandler.NPC_DROPS(
+									getNpcListName(npcs[i].npcType)
+											.toLowerCase(),
+									npcs[i].npcType)[npc][0],
+							npcs[i].absX, npcs[i].absY,
+							NPCDropsHandler.NPC_DROPS(
+									getNpcListName(npcs[i].npcType)
+											.toLowerCase(),
+									npcs[i].npcType)[npc][1],
+							c.playerId);
+
 				}
 			}
+			switch (npcs[i].npcType) {
+			case 2459:
+				FreakyForester.killedPheasant(c, 0);
+				Server.itemHandler.createGroundItem(c, 6178, npcs[i].absX,
+						npcs[i].absY, 1, c.playerId);
+				break;
+			case 2460:
+				FreakyForester.killedPheasant(c, 1);
+				Server.itemHandler.createGroundItem(c, 6178, npcs[i].absX,
+						npcs[i].absY, 1, c.playerId);
+				break;
+			case 2461:
+				FreakyForester.killedPheasant(c, 2);
+				Server.itemHandler.createGroundItem(c, 6178, npcs[i].absX,
+						npcs[i].absY, 1, c.playerId);
+				break;
+			case 2462:
+				FreakyForester.killedPheasant(c, 3);
+				Server.itemHandler.createGroundItem(c, 6178, npcs[i].absX,
+						npcs[i].absY, 1, c.playerId);
+				break;
+			case 92:
+				if (c.restGhost == 3) {
+					Server.itemHandler.createGroundItem(c, 553, npcs[i].absX,
+							npcs[i].absY, 1, c.playerId);
+					c.restGhost = 4;
+				}
+				break;
+			case 47:
+				if (c.witchspot == 1
+						|| c.romeojuliet > 0 && c.romeojuliet < 9) {
+					Server.itemHandler.createGroundItem(c, 300, npcs[i].absX,
+							npcs[i].absY, 1, c.playerId);
+				}
+				break;
+			}
+		}
+	}
+
 	/**
 	 * Slayer Experience
 	 **/
@@ -939,12 +996,16 @@ public class NpcHandler {
 			// if (c.getSlayer().isSlayerTask(i)) {
 			if (c.slayerTask == npcs[i].npcType) {
 				c.taskAmount--;
-				c.getPlayerAssistant().addSkillXP(c.getSlayer().getTaskExp(c.slayerTask), 18);
+				c.getPlayerAssistant()
+						.addSkillXP(c.getSlayer().getTaskExp(c.slayerTask), 18);
 				if (c.taskAmount <= 0) {
 					int points = c.getSlayer().getDifficulty(c.slayerTask) * 4;
 					c.slayerTask = -1;
 					c.slayerPoints += points;
-					c.getActionSender().sendMessage("You completed your slayer task. You obtain " + points + " slayer points. Please talk to your slayer master.");
+					c.getActionSender().sendMessage(
+							"You completed your slayer task. You obtain "
+									+ points
+									+ " slayer points. Please talk to your slayer master.");
 				}
 			}
 		}
@@ -1013,12 +1074,13 @@ public class NpcHandler {
 			npcs[i].underAttack = false;
 			return;
 		}
-		
+
 		if (npcs[i].npcType == 1532 || npcs[i].npcType == 1534) {
 			return;
 		}
 
-		if (!followPlayer(i) && npcs[i].npcType != 1532 && npcs[i].npcType != 1534) {
+		if (!followPlayer(i) && npcs[i].npcType != 1532
+				&& npcs[i].npcType != 1534) {
 			npcs[i].facePlayer(playerId);
 			return;
 		}
@@ -1037,9 +1099,9 @@ public class NpcHandler {
 		Player player = PlayerHandler.players[playerId];
 		if (npcs[i].spawnedBy > 0
 				|| x < npc.makeX + Constants.NPC_FOLLOW_DISTANCE
-				&& x > npc.makeX - Constants.NPC_FOLLOW_DISTANCE
-				&& y < npc.makeY + Constants.NPC_FOLLOW_DISTANCE
-				&& y > npc.makeY - Constants.NPC_FOLLOW_DISTANCE) {
+						&& x > npc.makeX - Constants.NPC_FOLLOW_DISTANCE
+						&& y < npc.makeY + Constants.NPC_FOLLOW_DISTANCE
+						&& y > npc.makeY - Constants.NPC_FOLLOW_DISTANCE) {
 			if (npc.heightLevel == player.heightLevel) {
 				if (player != null && npc != null) {
 					if (playerY < y) {
@@ -1098,7 +1160,7 @@ public class NpcHandler {
 		case 2564:
 		case 2565:
 			return 9;
-			// things around dags
+		// things around dags
 		case 2892:
 		case 2894:
 			return 10;
@@ -1181,8 +1243,8 @@ public class NpcHandler {
 	}
 
 	public boolean retaliates(int npcType) {
-		return npcType < 3777 || npcType > 3780
-				&& !(npcType >= 2440 && npcType <= 2446);
+		return npcType < 3777
+				|| npcType > 3780 && !(npcType >= 2440 && npcType <= 2446);
 	}
 
 	public static void handleSpecialEffects(Client c, int i, int damage) {
@@ -1272,14 +1334,14 @@ public class NpcHandler {
 				token2_2 = token2_2.replaceAll("\t\t", "\t");
 				token3 = token2_2.split("\t");
 				if (token.equals("spawn")) {
-					newNPC(Integer.parseInt(token3[0]),// npc
-							Integer.parseInt(token3[1]),// x
-							Integer.parseInt(token3[2]),// y
-							Integer.parseInt(token3[3]),// height
-							Integer.parseInt(token3[4]),// walk
-							getNpcListHP(Integer.parseInt(token3[0])),// health
-							Integer.parseInt(token3[5]),// maxhit
-							Integer.parseInt(token3[6]),// attack
+					newNPC(Integer.parseInt(token3[0]), // npc
+							Integer.parseInt(token3[1]), // x
+							Integer.parseInt(token3[2]), // y
+							Integer.parseInt(token3[3]), // height
+							Integer.parseInt(token3[4]), // walk
+							getNpcListHP(Integer.parseInt(token3[0])), // health
+							Integer.parseInt(token3[5]), // maxhit
+							Integer.parseInt(token3[6]), // attack
 							Integer.parseInt(token3[7]));// str
 
 				}
@@ -1289,7 +1351,7 @@ public class NpcHandler {
 						characterfile.close();
 					} catch (IOException ioexception) {
 					}
-					//return true;
+					// return true;
 				}
 			}
 			try {
@@ -1373,7 +1435,7 @@ public class NpcHandler {
 						characterfile.close();
 					} catch (IOException ioexception) {
 					}
-					//return true;
+					// return true;
 				}
 			}
 			try {

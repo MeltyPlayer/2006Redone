@@ -34,8 +34,11 @@ public class Misc {
 		return compare1;
 	}
 
-	public static boolean goodDistance(int objectX, int objectY, int playerX, int playerY, int distance) {
-		return objectX - playerX <= distance && objectX - playerX >= -distance && objectY - playerY <= distance && objectY - playerY >= -distance;
+	public static boolean goodDistance(int objectX, int objectY, int playerX,
+			int playerY, int distance) {
+		return objectX - playerX <= distance && objectX - playerX >= -distance
+				&& objectY - playerY <= distance
+				&& objectY - playerY >= -distance;
 	}
 
 	public static String longToReportPlayerName(long l) {
@@ -70,10 +73,10 @@ public class Misc {
 		return new String(ac, 12 - i, i);
 	}
 
-	public static final char playerNameXlateTable[] = { '_', 'a', 'b', 'c',
-			'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-			'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2',
-			'3', '4', '5', '6', '7', '8', '9', '[', ']', '/', '-', ' ' };
+	public static final char playerNameXlateTable[] = { '_', 'a', 'b', 'c', 'd',
+			'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+			'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3',
+			'4', '5', '6', '7', '8', '9', '[', ']', '/', '-', ' ' };
 
 	public static String longToPlayerName2(long l) {
 		int i = 0;
@@ -242,7 +245,8 @@ public class Misc {
 				packedData[ofs++] = (byte) ((carryOverNibble << 4) + tableIdx);
 				carryOverNibble = -1;
 			} else {
-				packedData[ofs++] = (byte) ((carryOverNibble << 4) + (tableIdx >> 4));
+				packedData[ofs++] = (byte) ((carryOverNibble << 4)
+						+ (tableIdx >> 4));
 				carryOverNibble = tableIdx & 0xf;
 			}
 		}
@@ -281,8 +285,8 @@ public class Misc {
 			-1 };
 	public static byte directionDeltaY[] = new byte[] { 1, 1, 0, -1, -1, -1, 0,
 			1 };
-	public static byte xlateDirectionToClient[] = new byte[] { 1, 2, 4, 7, 6,
-			5, 3, 0 };
+	public static byte xlateDirectionToClient[] = new byte[] { 1, 2, 4, 7, 6, 5,
+			3, 0 };
 
 	public static String capitalize(String s) {
 		for (int i = 0; i < s.length(); i++) {

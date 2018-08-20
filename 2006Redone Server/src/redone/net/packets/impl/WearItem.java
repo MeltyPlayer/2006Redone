@@ -9,8 +9,12 @@ import redone.net.packets.PacketType;
  **/
 public class WearItem implements PacketType {
 
-	/* (non-Javadoc)
-	 * @see server.net.packets.PacketType#processPacket(server.game.players.Client, int, int)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * server.net.packets.PacketType#processPacket(server.game.players.Client,
+	 * int, int)
 	 */
 	@Override
 	public void processPacket(Client player, int packetType, int packetSize) {
@@ -23,7 +27,8 @@ public class WearItem implements PacketType {
 		if (player.duelStatus > 0 && player.duelStatus < 5) {
 			return;
 		}
-		if (!player.getItemAssistant().playerHasItem(player.wearId, 1, player.wearSlot)) {
+		if (!player.getItemAssistant().playerHasItem(player.wearId, 1,
+				player.wearSlot)) {
 			return;
 		}
 		if (player.playerIndex > 0 || player.npcIndex > 0) {

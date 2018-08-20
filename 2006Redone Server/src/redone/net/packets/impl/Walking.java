@@ -16,7 +16,7 @@ public class Walking implements PacketType {
 	@Override
 	public void processPacket(Client player, int packetType, int packetSize) {
 		player.getDueling().checkDuelWalk();
-		if (player.canChangeAppearance) { //|| c.performingAction) {
+		if (player.canChangeAppearance) { // || c.performingAction) {
 			return;
 		}
 		if (player.getCannon().settingUp) {
@@ -41,7 +41,8 @@ public class Walking implements PacketType {
 			return;
 		}
 		if (player.isBotting == true) {
-			player.getActionSender().sendMessage("Please type ::amibotting if you would like to move again");
+			player.getActionSender().sendMessage(
+					"Please type ::amibotting if you would like to move again");
 			return;
 		}
 		if (player.isFiremaking == true) {
@@ -60,7 +61,8 @@ public class Walking implements PacketType {
 			player.isSmithing = false;
 		}
 		SkillHandler.resetSkills(player);
-		if (player.closeTutorialInterface == false && player.tutorialProgress == 36) {
+		if (player.closeTutorialInterface == false
+				&& player.tutorialProgress == 36) {
 			player.getDialogueHandler().sendDialogues(3116, player.npcType);
 		}
 		if (player.gliderOpen == true) {
@@ -103,7 +105,6 @@ public class Walking implements PacketType {
 			return;
 		}
 
-
 		if (player.freezeTimer > 0) {
 			if (PlayerHandler.players[player.playerIndex] != null) {
 				if (player.goodDistance(player.getX(), player.getY(),
@@ -115,8 +116,8 @@ public class Walking implements PacketType {
 				}
 			}
 			if (packetType != 98) {
-				player.getActionSender().sendMessage(
-						"A magical force stops you from moving.");
+				player.getActionSender()
+						.sendMessage("A magical force stops you from moving.");
 				player.playerIndex = 0;
 			}
 			return;
@@ -139,18 +140,19 @@ public class Walking implements PacketType {
 			player.getPlayerAssistant().showInterface(1908);
 		}
 
-		  if(player.openDuel) {
-	            Client o = (Client) PlayerHandler.players[player.duelingWith];
-	            if(o != null)
-	                o.getDueling().declineDuel();
-	            player.getDueling().declineDuel();
-	        }
-	        if((player.duelStatus >= 1 && player.duelStatus <= 4) || player.duelStatus == 6) {
-	            if(player.duelStatus == 6) {
-	                player.getDueling().claimStakedItems();        
-	            }
-	            return;
-	        }
+		if (player.openDuel) {
+			Client o = (Client) PlayerHandler.players[player.duelingWith];
+			if (o != null)
+				o.getDueling().declineDuel();
+			player.getDueling().declineDuel();
+		}
+		if ((player.duelStatus >= 1 && player.duelStatus <= 4)
+				|| player.duelStatus == 6) {
+			if (player.duelStatus == 6) {
+				player.getDueling().claimStakedItems();
+			}
+			return;
+		}
 
 		if (player.respawnTimer > 3) {
 			return;
@@ -173,8 +175,11 @@ public class Walking implements PacketType {
 			player.getNewWalkCmdY()[i] = player.getInStream().readSignedByte();
 		}
 
-		int firstStepY = player.getInStream().readSignedWordBigEndian() - player.getMapRegionY() * 8;
-		player.setNewWalkCmdIsRunning(player.getInStream().readSignedByteC() == 1 && player.playerEnergy > 0);
+		int firstStepY = player.getInStream().readSignedWordBigEndian()
+				- player.getMapRegionY() * 8;
+		player.setNewWalkCmdIsRunning(
+				player.getInStream().readSignedByteC() == 1
+						&& player.playerEnergy > 0);
 		for (int i1 = 0; i1 < player.newWalkCmdSteps; i1++) {
 			player.getNewWalkCmdX()[i1] += firstStepX;
 			player.getNewWalkCmdY()[i1] += firstStepY;

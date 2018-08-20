@@ -8,8 +8,6 @@ import java.util.Scanner;
 import redone.Server;
 import redone.game.objects.Objects;
 
-
-
 public class Doors {
 
 	private static Doors singleton = null;
@@ -17,7 +15,7 @@ public class Doors {
 	private List<Doors> doors = new ArrayList<Doors>();
 
 	private File doorFile;
-	
+
 	public static Doors getSingleton() {
 		if (singleton == null) {
 			singleton = new Doors("./data/doors.txt");
@@ -25,10 +23,10 @@ public class Doors {
 		return singleton;
 	}
 
-	private Doors(String file){
-		doorFile = new File(file);  
+	private Doors(String file) {
+		doorFile = new File(file);
 	}
-	
+
 	private Doors(int door, int x, int y, int z, int face, int type, int open) {
 		this.doorId = door;
 		this.originalId = door;
@@ -42,7 +40,7 @@ public class Doors {
 		this.type = type;
 		this.open = open;
 	}
-	
+
 	private Doors getDoor(int id, int x, int y, int z) {
 		for (Doors d : doors) {
 			if (d.doorId == id) {
@@ -53,11 +51,11 @@ public class Doors {
 		}
 		return null;
 	}
-	
+
 	public boolean handleDoor(int id, int x, int y, int z) {
 
 		Doors d = getDoor(id, x, y, z);
-		
+
 		if (d == null) {
 			if (DoubleDoors.getSingleton().handleDoor(id, x, y, z)) {
 				return true;
@@ -110,15 +108,17 @@ public class Doors {
 				}
 			}
 		}
-		if (xAdjustment != 0 || yAdjustment != 0) { 
-			Objects o = new Objects(-1, d.doorX, d.doorY, d.doorZ, 0, d.type, 0);
+		if (xAdjustment != 0 || yAdjustment != 0) {
+			Objects o = new Objects(-1, d.doorX, d.doorY, d.doorZ, 0, d.type,
+					0);
 			Server.objectHandler.placeObject(o);
 		}
 		if (d.doorX == d.originalX && d.doorY == d.originalY) {
 			d.doorX += xAdjustment;
 			d.doorY += yAdjustment;
-		} else { 
-			Objects o = new Objects(-1, d.doorX, d.doorY, d.doorZ, 0, d.type, 0);
+		} else {
+			Objects o = new Objects(-1, d.doorX, d.doorY, d.doorZ, 0, d.type,
+					0);
 			Server.objectHandler.placeObject(o);
 			d.doorX = d.originalX;
 			d.doorY = d.originalY;
@@ -136,10 +136,11 @@ public class Doors {
 				d.doorId += 1;
 			}
 		}
-		Server.objectHandler.placeObject(new Objects(d.doorId, d.doorX, d.doorY, d.doorZ, getNextFace(d), d.type, 0));
+		Server.objectHandler.placeObject(new Objects(d.doorId, d.doorX, d.doorY,
+				d.doorZ, getNextFace(d), d.type, 0));
 		return true;
 	}
-	
+
 	private int getNextFace(Doors d) {
 		int f = d.originalFace;
 		if (d.type == 0) {
@@ -152,7 +153,7 @@ public class Doors {
 					f = 3;
 				} else if (d.originalFace == 3 && d.currentFace == 3) {
 					f = 0;
-				} else if (d.originalFace != d.currentFace){
+				} else if (d.originalFace != d.currentFace) {
 					f = d.originalFace;
 				}
 			} else if (d.open == 1) {
@@ -164,7 +165,7 @@ public class Doors {
 					f = 1;
 				} else if (d.originalFace == 3 && d.currentFace == 3) {
 					f = 2;
-				} else if (d.originalFace != d.currentFace){
+				} else if (d.originalFace != d.currentFace) {
 					f = d.originalFace;
 				}
 			}
@@ -178,7 +179,7 @@ public class Doors {
 					f = 1;
 				} else if (d.originalFace == 3 && d.currentFace == 3) {
 					f = 0;
-				} else if (d.originalFace != d.currentFace){
+				} else if (d.originalFace != d.currentFace) {
 					f = d.originalFace;
 				}
 			} else if (d.open == 1) {
@@ -190,7 +191,7 @@ public class Doors {
 					f = 1;
 				} else if (d.originalFace == 3 && d.currentFace == 3) {
 					f = 2;
-				} else if (d.originalFace != d.currentFace){
+				} else if (d.originalFace != d.currentFace) {
 					f = d.originalFace;
 				}
 			}
@@ -198,46 +199,48 @@ public class Doors {
 		d.currentFace = f;
 		return f;
 	}
-	
+
 	public void load() {
-		//long start = System.currentTimeMillis();
+		// long start = System.currentTimeMillis();
 		try {
 			singleton.processLineByLine();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		//System.out.println("Loaded "+ doors.size() +" doors in "+ (System.currentTimeMillis() - start) +"ms.");
+		// System.out.println("Loaded "+ doors.size() +" doors in "+
+		// (System.currentTimeMillis() - start) +"ms.");
 	}
-	
+
 	private final void processLineByLine() throws FileNotFoundException {
 		Scanner scanner = new Scanner(new FileReader(doorFile));
-	    	try {
-	    		while(scanner.hasNextLine()) {
-	    			processLine(scanner.nextLine());
-	    		}
-	  	 } finally {
-	    		scanner.close();
-	    	}
-	}
-	
-	protected void processLine(String line){
-		Scanner scanner = new Scanner(line);
-		scanner.useDelimiter(" ");
 		try {
-			while(scanner.hasNextLine()) {
-				int id = Integer.parseInt(scanner.next());
-				int x = Integer.parseInt(scanner.next());
-		    		int y = Integer.parseInt(scanner.next());
-		    		int f = Integer.parseInt(scanner.next());
-		    		int z = Integer.parseInt(scanner.next());
-		    		int t = Integer.parseInt(scanner.next());
-		    		doors.add(new Doors(id,x,y,z,f,t,alreadyOpen(id)?1:0));
+			while (scanner.hasNextLine()) {
+				processLine(scanner.nextLine());
 			}
 		} finally {
 			scanner.close();
 		}
 	}
-	
+
+	protected void processLine(String line) {
+		Scanner scanner = new Scanner(line);
+		scanner.useDelimiter(" ");
+		try {
+			while (scanner.hasNextLine()) {
+				int id = Integer.parseInt(scanner.next());
+				int x = Integer.parseInt(scanner.next());
+				int y = Integer.parseInt(scanner.next());
+				int f = Integer.parseInt(scanner.next());
+				int z = Integer.parseInt(scanner.next());
+				int t = Integer.parseInt(scanner.next());
+				doors.add(
+						new Doors(id, x, y, z, f, t, alreadyOpen(id) ? 1 : 0));
+			}
+		} finally {
+			scanner.close();
+		}
+	}
+
 	private boolean alreadyOpen(int id) {
 		for (int i = 0; i < openDoors.length; i++) {
 			if (openDoors[i] == id) {
@@ -258,15 +261,10 @@ public class Doors {
 	private int currentFace;
 	private int type;
 	private int open;
-	
-	private static int[] openDoors = {
-		1504, 1514, 1517, 1520, 1531, 
-		1534, 2033, 2035, 2037, 2998, 
-		3271, 4468, 4697, 6101,6103, 
-		6105, 6107, 6109, 6111, 6113, 
-		6115, 6976, 6978, 8696, 8819,
-		10261, 10263,10265,11708,11710,
-		11712,11715,11994,12445, 13002,	
-	};
-	
+
+	private static int[] openDoors = { 1504, 1514, 1517, 1520, 1531, 1534, 2033,
+			2035, 2037, 2998, 3271, 4468, 4697, 6101, 6103, 6105, 6107, 6109,
+			6111, 6113, 6115, 6976, 6978, 8696, 8819, 10261, 10263, 10265,
+			11708, 11710, 11712, 11715, 11994, 12445, 13002, };
+
 }

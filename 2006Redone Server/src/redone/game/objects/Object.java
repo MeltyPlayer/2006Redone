@@ -13,7 +13,8 @@ public class Object {
 	public int newId;
 	public int tick;
 
-	public Object(int ID, int X, int Y, int Height, int Face, int Type, int NewId, int Tick) {
+	public Object(int ID, int X, int Y, int Height, int Face, int Type,
+			int NewId, int Tick) {
 		Object p = Server.objectManager.getObject(X, Y, Height);
 		if (p != null) {
 			if (ID == p.objectId) {

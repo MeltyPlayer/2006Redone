@@ -66,8 +66,10 @@ public class ReportHandler {
 		byte rule = (byte) c.inStream.readUnsignedByte();
 		int mute = c.getInStream().readUnsignedByte();
 
-		if (c.lastReported.equalsIgnoreCase(player) && System.currentTimeMillis() - c.lastReport < 60000) {
-			c.getActionSender().sendMessage("You can only report a player once every 60 seconds.");
+		if (c.lastReported.equalsIgnoreCase(player)
+				&& System.currentTimeMillis() - c.lastReport < 60000) {
+			c.getActionSender().sendMessage(
+					"You can only report a player once every 60 seconds.");
 			return;
 		}
 		if (c.playerName.equalsIgnoreCase(player)) {
@@ -81,37 +83,32 @@ public class ReportHandler {
 				if (savedNames[i] != null) {
 					if (savedNames[i].equalsIgnoreCase(c.playerName)
 							|| savedNames[i].equalsIgnoreCase(player)) {
-						sendText += " -[" + savedTimes[i] + ": "
-								+ savedNames[i] + "]: " + savedSpeach[i]
-								+ "\r\n";
+						sendText += " -[" + savedTimes[i] + ": " + savedNames[i]
+								+ "]: " + savedSpeach[i] + "\r\n";
 					}
 				}
 			}
 
 			sendText = sendText.replaceAll("'", " ");
-			String month = getMonth(new SimpleDateFormat("MM")
-					.format(new Date()));
+			String month = getMonth(
+					new SimpleDateFormat("MM").format(new Date()));
 			String day = new SimpleDateFormat("dd").format(new Date());
 			writeReport("" + player + " was reported by " + c.playerName + ", "
 					+ reportNames[rule] + ", " + month + ", " + day + "",
 					sendText + ".", reportNames[rule]);
-			c.getActionSender()
-					.sendMessage(
-							"Thank you, your report has been received and will be reviewed.");
+			c.getActionSender().sendMessage(
+					"Thank you, your report has been received and will be reviewed.");
 			if (mute == 1 && c.playerRights > 0) {
-				c.getActionSender()
-						.sendMessage(
-								"This user is not muted yet! Go to the MODCP on the forums to mute him!");
-				c.getActionSender()
-						.sendMessage(
-								"After you have muted him there, do ::update (username) to finish the mute!");
+				c.getActionSender().sendMessage(
+						"This user is not muted yet! Go to the MODCP on the forums to mute him!");
+				c.getActionSender().sendMessage(
+						"After you have muted him there, do ::update (username) to finish the mute!");
 			}
 			c.lastReported = player;
 			c.lastReport = System.currentTimeMillis();
 		} else {
-			c.getActionSender()
-					.sendMessage(
-							"You can only report someone who has spoken in the last 60 seconds.");
+			c.getActionSender().sendMessage(
+					"You can only report someone who has spoken in the last 60 seconds.");
 		}
 	}
 
@@ -130,13 +127,14 @@ public class ReportHandler {
 		BufferedWriter bw = null;
 		try {
 			int time = (int) System.currentTimeMillis();
-			String month = getMonth(new SimpleDateFormat("MM")
-					.format(new Date()));
+			String month = getMonth(
+					new SimpleDateFormat("MM").format(new Date()));
 			String day = new SimpleDateFormat("dd").format(new Date());
 			bw = new BufferedWriter(new FileWriter(
 					"C:/Users/Administrator/Dropbox/2006Redone - Reportabuses/"
 							+ file + " month;" + month + " day;" + day
-							+ " ms-id;" + time + ".txt", true));
+							+ " ms-id;" + time + ".txt",
+					true));
 			bw.write(data);
 			bw.newLine();
 			bw.write(text);

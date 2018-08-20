@@ -18,20 +18,22 @@ public class Trade implements PacketType {
 			c.tradeStatus = 0;
 		}
 		if (c.duelingArena()) {
-			c.getActionSender().sendMessage("You can't trade inside the arena!");
-			return;
-		}
-	
-		if (c.playerRights == 2 && !Constants.ADMIN_CAN_TRADE) {
-			c.getActionSender().sendMessage("Trading as an admin has been disabled.");
+			c.getActionSender()
+					.sendMessage("You can't trade inside the arena!");
 			return;
 		}
 
-	    if(tradeId < 1) {
-            return;
-	    }
-	    if (tradeId != c.playerId) {
-            c.getTrading().requestTrade(tradeId);
+		if (c.playerRights == 2 && !Constants.ADMIN_CAN_TRADE) {
+			c.getActionSender()
+					.sendMessage("Trading as an admin has been disabled.");
+			return;
+		}
+
+		if (tradeId < 1) {
+			return;
+		}
+		if (tradeId != c.playerId) {
+			c.getTrading().requestTrade(tradeId);
 		}
 	}
 

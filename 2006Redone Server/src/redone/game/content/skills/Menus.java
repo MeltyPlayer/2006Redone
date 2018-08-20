@@ -10,12 +10,14 @@ public class Menus {
 
 	public static void sendSkillMenu(Client player, String type) {
 		if (type == "silverCrafting") {
-			display4Item(player, 1716, 1724, 2961, 5525, "Unblessed symbol", "Unholy symbol", "Silver sickle", "Tiara");
+			display4Item(player, 1716, 1724, 2961, 5525, "Unblessed symbol",
+					"Unholy symbol", "Silver sickle", "Tiara");
 		}
 		player.setStatedInterface(type);
 	}
-	
-	public static void display4Item(Client player, int i1, int i2, int i3, int i4, String s1, String s2, String s3, String s4) {
+
+	public static void display4Item(Client player, int i1, int i2, int i3,
+			int i4, String s1, String s2, String s3, String s4) {
 		player.getPlayerAssistant().sendItemOnInterface(8902, 250, i1);
 		player.getPlayerAssistant().sendItemOnInterface(8903, 150, i2);
 		player.getPlayerAssistant().sendItemOnInterface(8904, 200, i3);
@@ -28,7 +30,7 @@ public class Menus {
 	}
 
 	public static String determineAorAn(String nextWord) {
-		String[] c = {"a", "e", "i", "o", "u", "y"};
+		String[] c = { "a", "e", "i", "o", "u", "y" };
 		for (String firstLetter : c) {
 			if (nextWord.toLowerCase().startsWith(firstLetter)) {
 				return "an";

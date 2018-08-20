@@ -17,8 +17,8 @@ public class Potions {
 
 	public void handlePotion(int itemId, int slot) {
 		if (c.duelRule[5]) {
-			c.getActionSender().sendMessage(
-					"You may not drink potions in this duel.");
+			c.getActionSender()
+					.sendMessage("You may not drink potions in this duel.");
 			return;
 		}
 		if (c.isDead || c.playerLevel[3] <= 0) {
@@ -44,16 +44,17 @@ public class Potions {
 				m = "You have finished your potion.";
 			}
 			final String m1 = m;
-			   CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
-		            @Override
-		            public void execute(CycleEventContainer container) {
+			CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+				@Override
+				public void execute(CycleEventContainer container) {
 					c.getActionSender().sendMessage(m1);
 					container.stop();
 				}
+
 				@Override
-					public void stop() {
-						
-					}
+				public void stop() {
+
+				}
 			}, 1);
 			switch (itemId) {
 			case 3040:
@@ -314,8 +315,8 @@ public class Potions {
 		c.lastPoisonSip = System.currentTimeMillis();
 	}
 
-	public void drinkStatPotion(int itemId, int replaceItem, int slot,
-			int stat, boolean sup) {
+	public void drinkStatPotion(int itemId, int replaceItem, int slot, int stat,
+			boolean sup) {
 		// c.startAnimation(829);
 		c.playerItems[slot] = replaceItem + 1;
 		c.getItemAssistant().resetItems(3214);
@@ -392,8 +393,7 @@ public class Potions {
 
 	public void doTheBrew(int itemId, int replaceItem, int slot) {
 		if (c.duelRule[6]) {
-			c.getActionSender()
-					.sendMessage("You may not eat in this duel.");
+			c.getActionSender().sendMessage("You may not eat in this duel.");
 			return;
 		}
 		// c.startAnimation(829);
@@ -449,8 +449,9 @@ public class Potions {
 		} else {
 			increaseBy = (int) (c.getLevelForXP(c.playerXP[skill]) * .13) + 1;
 		}
-		if (c.playerLevel[skill] + increaseBy > c
-				.getLevelForXP(c.playerXP[skill]) + increaseBy + 1) {
+		if (c.playerLevel[skill]
+				+ increaseBy > c.getLevelForXP(c.playerXP[skill]) + increaseBy
+						+ 1) {
 			return c.getLevelForXP(c.playerXP[skill]) + increaseBy
 					- c.playerLevel[skill];
 		}

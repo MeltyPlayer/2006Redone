@@ -29,32 +29,39 @@ public class ClickItem implements PacketType {
 		if (itemId != player.playerItems[itemSlot] - 1) {
 			return;
 		}
-		if(!player.getItemAssistant().playerHasItem(itemId, 1)) {
+		if (!player.getItemAssistant().playerHasItem(itemId, 1)) {
 			return;
 		}
 		if (itemId == 6) {
 			player.getCannon().placeCannon();
 		}
 		if (player.isBotting) {
-			player.getActionSender().sendMessage("You can't click items until you confirm you aren't botting.");
-			player.getActionSender().sendMessage("If you need to you can type ::amibotting, to see if your botting.");
+			player.getActionSender().sendMessage(
+					"You can't click items until you confirm you aren't botting.");
+			player.getActionSender().sendMessage(
+					"If you need to you can type ::amibotting, to see if your botting.");
 			return;
 		}
 		String itemName = ItemAssistant.getItemName(itemId).toLowerCase();
 		if (player.getPlayerAssistant().isPlayer()) {
-			GameLogger.writeLog(player.playerName, "clickitem", player.playerName + " clicked item " + itemName + "");
+			GameLogger.writeLog(player.playerName, "clickitem",
+					player.playerName + " clicked item " + itemName + "");
 		}
 		if (!CastleWars.deleteCastleWarsItems(player, itemId)) {
 			return;
 		}
-		if(CastleWars.isInCw(player) && itemId == 4053) {
-			player.getItemAssistant().deleteItem(4053, player.getItemAssistant().getItemSlot(4053), 1);
-			//npc id, x, y, height, walk, hp, maxhit, att, def
-			Server.npcHandler.spawnNpc2(1532, player.absX, player.absY, player.heightLevel, 0, 200, 0, 0, 100);
+		if (CastleWars.isInCw(player) && itemId == 4053) {
+			player.getItemAssistant().deleteItem(4053,
+					player.getItemAssistant().getItemSlot(4053), 1);
+			// npc id, x, y, height, walk, hp, maxhit, att, def
+			Server.npcHandler.spawnNpc2(1532, player.absX, player.absY,
+					player.heightLevel, 0, 200, 0, 0, 100);
 			player.getActionSender().sendMessage("You setup a barricade.");
 		} else if (!CastleWars.isInCw(player) && itemId == 4053) {
-			player.getActionSender().sendMessage("You need to be in castlewars to drop a barricade.");
-			player.getItemAssistant().deleteItem2(itemId, player.getItemAssistant().getItemAmount(itemId));
+			player.getActionSender().sendMessage(
+					"You need to be in castlewars to drop a barricade.");
+			player.getItemAssistant().deleteItem2(itemId,
+					player.getItemAssistant().getItemAmount(itemId));
 		}
 		if (itemId >= 5509 && itemId <= 5514) {
 			int pouch = -1;
@@ -75,7 +82,7 @@ public class ClickItem implements PacketType {
 			return;
 		}
 		switch (itemId) {
-		
+
 		case 407:
 			if (Misc.random(1) == 0) {
 				player.getItemAssistant().addItem(409, 1);
@@ -89,23 +96,23 @@ public class ClickItem implements PacketType {
 					player.getItemAssistant().deleteItem2(407, 1);
 				}
 			}
-		break;
-		
+			break;
+
 		case 2329:
 			player.getItemAssistant().deleteItem2(2329, 1);
 			player.getItemAssistant().addItem(2313, 1);
-		break;
-		
+			break;
+
 		case 550:
 			player.getPlayerAssistant().showMap();
-		break;
-		
-		  case 583:
-	            Server.trawler.bail(player);
-	            break;
-	        case 585:
-	            Server.trawler.emptyBucket(player);
-	            break;
+			break;
+
+		case 583:
+			Server.trawler.bail(player);
+			break;
+		case 585:
+			Server.trawler.emptyBucket(player);
+			break;
 
 		case 33:
 			player.getItemAssistant().deleteItem(itemId, 1);
@@ -140,7 +147,7 @@ public class ClickItem implements PacketType {
 		case 4447:
 			ExperienceLamp.rubLamp(player, itemId);
 			break;
-			
+
 		case 2677:
 			player.getItemAssistant().deleteItem(itemId, 1);
 			TreasureTrails.addClueReward(player, 0);
@@ -162,8 +169,9 @@ public class ClickItem implements PacketType {
 			break;
 
 		case 4155:// enchanted gem
-			player.getDialogueHandler().sendOption4("How many kills do I have left?",
-					"Who are you?", "Where are you located?",
+			player.getDialogueHandler().sendOption4(
+					"How many kills do I have left?", "Who are you?",
+					"Where are you located?",
 					"How many slayer points do I have?");
 			player.dialogueAction = 145;
 			break;
@@ -206,10 +214,10 @@ public class ClickItem implements PacketType {
 		case 5074:
 			player.getItemAssistant().handleRings(itemId);
 			break;
-			
+
 		case 7413:
 			player.getItemAssistant().handleNonTreeSeeds(itemId);
-		break;
+			break;
 
 		case 2297:
 			player.getItemAssistant().addItem(2299, 1);
@@ -251,7 +259,8 @@ public class ClickItem implements PacketType {
 			break;
 
 		case 433:
-			player.getDialogueHandler().sendStatement("Visit the city of the white knights.");
+			player.getDialogueHandler()
+					.sendStatement("Visit the city of the white knights.");
 			player.nextChat = 0;
 			player.isBanking = false;
 			break;
@@ -264,7 +273,7 @@ public class ClickItem implements PacketType {
 			player.pirateTreasure = 6;
 			break;
 		}
-		
+
 		for (final beverageData b : beverageData.values()) {
 			if (itemId == b.getBev()) {
 				Beverages.drinkBeverage(player, itemId, itemSlot);

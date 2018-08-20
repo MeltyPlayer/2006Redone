@@ -17,7 +17,8 @@ public class Npc {
 	public int absX, absY;
 	public int heightLevel;
 	public static int lastX, lastY;
-	public int makeX, makeY, maxHit, defence, attack, moveX, moveY, direction, walkingType, hitsToHeal;
+	public int makeX, makeY, maxHit, defence, attack, moveX, moveY, direction,
+			walkingType, hitsToHeal;
 	public int spawnX, spawnY;
 	public int viewX, viewY;
 	public boolean summoner;
@@ -47,7 +48,7 @@ public class Npc {
 	public String forcedText;
 	public boolean transformUpdateRequired = false, isTransformed = false;
 	public int transformId;
-	
+
 	public Npc(int _npcId, int _npcType) {
 		npcId = _npcId;
 		npcType = _npcType;
@@ -57,20 +58,25 @@ public class Npc {
 		actionTimer = 0;
 		randomWalk = true;
 	}
-	
+
 	public void requestTransform(int id) {
-    	transformId = id;
-    	transformUpdateRequired = true;
-    	updateRequired = true;
+		transformId = id;
+		transformUpdateRequired = true;
+		updateRequired = true;
 	}
-	
-	public void requestTransformTime(Client player, int itemId, int animation, final int currentId, final int newId, int transformTime) {
+
+	public void requestTransformTime(Client player, int itemId, int animation,
+			final int currentId, final int newId, int transformTime) {
 		if (!player.getItemAssistant().playerHasItem(itemId)) {
-			player.getActionSender().sendMessage("You need " + ItemAssistant.getItemName(itemId).toLowerCase() + " to do that.");
+			player.getActionSender()
+					.sendMessage("You need "
+							+ ItemAssistant.getItemName(itemId).toLowerCase()
+							+ " to do that.");
 			return;
 		}
 		if (NpcHandler.npcs[currentId].isTransformed == true) {
-			player.getActionSender().sendMessage("This npc is already transformed.");
+			player.getActionSender()
+					.sendMessage("This npc is already transformed.");
 			return;
 		}
 		if (animation > 0) {
@@ -92,11 +98,10 @@ public class Npc {
 			}
 		}, transformTime);
 	}
-	
+
 	public void appendTransformUpdate(Stream str) {
-    	str.writeWordBigEndianA(transformId);
+		str.writeWordBigEndianA(transformId);
 	}
-	
 
 	public void updateNPCMovement(Stream str) {
 		if (direction == -1) {
@@ -131,7 +136,6 @@ public class Npc {
 		updateRequired = true;
 	}
 
-
 	/**
 	 * Graphics
 	 **/
@@ -163,14 +167,14 @@ public class Npc {
 		str.writeWordBigEndian(animNumber);
 		str.writeByte(1);
 	}
-	
+
 	public int startAnimation(int anim, int npcId) {
 		return animNumber;
 	}
 
 	/**
 	 * 
-	 Face
+	 * Face
 	 **/
 
 	public int FocusPointX = -1, FocusPointY = -1;
@@ -269,7 +273,7 @@ public class Npc {
 		if (hitUpdateRequired) {
 			appendHitUpdate(str);
 		}
-		if (transformUpdateRequired) {	
+		if (transformUpdateRequired) {
 			appendTransformUpdate(str);
 		}
 		if (turnUpdateRequired) {
@@ -408,47 +412,31 @@ public class Npc {
 		setAbsY(0);
 		npc = null;
 	}
-	
+
 	public boolean inLesserNpc() {
-		return (absX >= 3108 && absX <= 3112 && absY >= 3156 && absY <= 3158 && heightLevel == 2);
+		return (absX >= 3108 && absX <= 3112 && absY >= 3156 && absY <= 3158
+				&& heightLevel == 2);
 	}
 
 	public boolean inMulti() {
-		if (absX >= 3136
-				&& absX <= 3327
-				&& absY >= 3519
-				&& absY <= 3607
-				|| absX >= 2625
-				&& absX <= 2685
-				&& absY >= 2550
-				&& absY <= 2620 // Pest
-								// Control
+		if (absX >= 3136 && absX <= 3327 && absY >= 3519 && absY <= 3607
+				|| absX >= 2625 && absX <= 2685 && absY >= 2550 && absY <= 2620 // Pest
+																				// Control
 				|| absX >= 3190 && absX <= 3327 && absY >= 3648 && absY <= 3839
 				|| absX >= 3200 && absX <= 3390 && absY >= 3840 && absY <= 3967
-				|| absX >= 2992
-				&& absX <= 3007
-				&& absY >= 3912
-				&& absY <= 3967
-				|| absX >= 2946
-				&& absX <= 2959
-				&& absY >= 3816
-				&& absY <= 3831
-				|| absX >= 3008
-				&& absX <= 3199
-				&& absY >= 3856
-				&& absY <= 3903
-				|| absX >= 2667
-				&& absX <= 2685
-				&& absY >= 3712
-				&& absY <= 3730 // rock
-								// crabs
+				|| absX >= 2992 && absX <= 3007 && absY >= 3912 && absY <= 3967
+				|| absX >= 2946 && absX <= 2959 && absY >= 3816 && absY <= 3831
+				|| absX >= 3008 && absX <= 3199 && absY >= 3856 && absY <= 3903
+				|| absX >= 2667 && absX <= 2685 && absY >= 3712 && absY <= 3730 // rock
+																				// crabs
 				|| absX >= 3008 && absX <= 3071 && absY >= 3600 && absY <= 3711
 				|| absX >= 3072 && absX <= 3327 && absY >= 3608 && absY <= 3647
 				|| absX >= 2624 && absX <= 2690 && absY >= 2550 && absY <= 2619
 				|| absX >= 2371 && absX <= 2422 && absY >= 5062 && absY <= 5117
 				|| absX >= 2896 && absX <= 2927 && absY >= 3595 && absY <= 3630
 				|| absX >= 2892 && absX <= 2932 && absY >= 4435 && absY <= 4464
-				|| absX >= 2256 && absX <= 2287 && absY >= 4680 && absY <= 4711) {
+				|| absX >= 2256 && absX <= 2287 && absY >= 4680
+						&& absY <= 4711) {
 			return true;
 		}
 		return false;

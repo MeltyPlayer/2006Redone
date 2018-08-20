@@ -16,7 +16,8 @@ public class ItemOnGroundItem implements PacketType {
 		int gItemY = player.getInStream().readSignedWordA();
 		int itemUsedSlot = player.getInStream().readSignedWordBigEndianA();
 		int gItemX = player.getInStream().readUnsignedWord();
-		if (!player.getItemAssistant().playerHasItem(itemUsed, 1, itemUsedSlot)) {
+		if (!player.getItemAssistant().playerHasItem(itemUsed, 1,
+				itemUsedSlot)) {
 			return;
 		}
 		if (!Server.itemHandler.itemExists(groundItem, gItemX, gItemY)) {

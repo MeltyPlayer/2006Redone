@@ -31,9 +31,9 @@ public class BarbarianAgility {
 						c.getAgility().getXp(objectId), c.playerAgility);
 				c.getAgility().resetAgilityProgress();
 				c.getAgility().agilityProgress[0] = true;
-				  CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
-			            @Override
-			            public void execute(CycleEventContainer container) {
+				CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+					@Override
+					public void execute(CycleEventContainer container) {
 						if (c.disconnected) {
 							container.stop();
 							return;
@@ -41,10 +41,11 @@ public class BarbarianAgility {
 						c.getPlayerAssistant().movePlayer(2551, 3549, 0);
 						container.stop();
 					}
+
 					@Override
-						public void stop() {
-							
-						}
+					public void stop() {
+
+					}
 				}, 1);
 			}
 			return true;
@@ -54,8 +55,10 @@ public class BarbarianAgility {
 				return false;
 			}
 			if (c.getAgility().hotSpot(2551, 3546)) {
-				c.getAgility().walk(-10, 0, c.getAgility().getAnimation(objectId), -1);
-				c.getPlayerAssistant().addSkillXP(c.getAgility().getXp(objectId), c.playerAgility);
+				c.getAgility().walk(-10, 0,
+						c.getAgility().getAnimation(objectId), -1);
+				c.getPlayerAssistant().addSkillXP(
+						c.getAgility().getXp(objectId), c.playerAgility);
 				if (c.getAgility().agilityProgress[0] == true) {
 					c.getAgility().agilityProgress[1] = true;
 				}
@@ -68,15 +71,16 @@ public class BarbarianAgility {
 			if (c.getAgility().checkLevel(objectId)) {
 				return false;
 			}
-			if (c.absX == 2539 && c.absY > 3544 && c.absY < 3547) { 
-			c.getAgility().climbUp(c.getX() - 1, c.getY(), 1);
-			c.getPlayerAssistant().addSkillXP(c.getAgility().getXp(objectId),
-					c.playerAgility);
-			if (c.getAgility().agilityProgress[1] == true) {
-				c.getAgility().agilityProgress[2] = true;
+			if (c.absX == 2539 && c.absY > 3544 && c.absY < 3547) {
+				c.getAgility().climbUp(c.getX() - 1, c.getY(), 1);
+				c.getPlayerAssistant().addSkillXP(
+						c.getAgility().getXp(objectId), c.playerAgility);
+				if (c.getAgility().agilityProgress[1] == true) {
+					c.getAgility().agilityProgress[2] = true;
 				}
 			} else {
-				c.getActionSender().sendMessage("You can't climb the net from here!");
+				c.getActionSender()
+						.sendMessage("You can't climb the net from here!");
 				return false;
 			}
 			return true;
@@ -101,8 +105,8 @@ public class BarbarianAgility {
 		case BARBARIAN_LADDER_OBJECT:
 			if (c.playerLevel[c.playerAgility] < 35 && c.objectX != 2776
 					&& c.objectY != 3121) {
-				c.getActionSender().sendMessage(
-						"You need 35 agility to use this ladder.");
+				c.getActionSender()
+						.sendMessage("You need 35 agility to use this ladder.");
 				return false;
 			} else if (c.objectX == 2776 && c.objectY == 3121) {
 				return true;
@@ -119,8 +123,8 @@ public class BarbarianAgility {
 				return false;
 			}
 			if (c.getAgility().hotSpot(2541, 3553)) {
-				c.getAgility().walk(2, 0,
-						c.getAgility().getAnimation(objectId), -1);
+				c.getAgility().walk(2, 0, c.getAgility().getAnimation(objectId),
+						-1);
 				c.getPlayerAssistant().addSkillXP(
 						c.getAgility().getXp(objectId), c.playerAgility);
 				if (c.getAgility().agilityProgress[4] == true) {
@@ -133,17 +137,17 @@ public class BarbarianAgility {
 				}
 				return true;
 			} else if (c.absX == 2540 && c.absY == 3553) {
-				c.getAgility().walk(3, 0,
-						c.getAgility().getAnimation(objectId), -1);
+				c.getAgility().walk(3, 0, c.getAgility().getAnimation(objectId),
+						-1);
 				c.getPlayerAssistant().addSkillXP(
 						c.getAgility().getXp(objectId), c.playerAgility);
 			} else if (c.absX == 2542 && c.absY == 3553) {
-				c.getAgility().walk(1, 0,
-						c.getAgility().getAnimation(objectId), -1);
-			} else if (c.absX == 2535 && c.absY == 3553 || c.absX == 2538
-					&& c.absY == 3553) {
-				c.getAgility().walk(2, 0,
-						c.getAgility().getAnimation(objectId), -1);
+				c.getAgility().walk(1, 0, c.getAgility().getAnimation(objectId),
+						-1);
+			} else if (c.absX == 2535 && c.absY == 3553
+					|| c.absX == 2538 && c.absY == 3553) {
+				c.getAgility().walk(2, 0, c.getAgility().getAnimation(objectId),
+						-1);
 				c.getPlayerAssistant().addSkillXP(
 						c.getAgility().getXp(objectId), c.playerAgility);
 				return true;

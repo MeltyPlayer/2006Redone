@@ -31,58 +31,60 @@ public class NpcActions {
 			Fishing.fishingNPC(c, 1, npcType);
 		}
 		if (c.isBotting == true) {
-			c.getActionSender().sendMessage("You can't click any npcs, until you confirm you are not botting.");
-			c.getActionSender().sendMessage("If you need to you can type ::amibotting, to see if your botting.");
+			c.getActionSender().sendMessage(
+					"You can't click any npcs, until you confirm you are not botting.");
+			c.getActionSender().sendMessage(
+					"If you need to you can type ::amibotting, to see if your botting.");
 			return;
 		}
 		switch (npcType) {
-		  case 209:
-	        	c.getDialogueHandler().sendDialogues(3500, 209);
-	        break;
-		
+		case 209:
+			c.getDialogueHandler().sendDialogues(3500, 209);
+			break;
+
 		case 2238:
 			c.getDialogueHandler().sendDialogues(3214, npcType);
-		break;
-		
+			break;
+
 		case 958:
 			c.getDialogueHandler().sendDialogues(3208, npcType);
-		break;
+			break;
 
-		case 606://squire
-		if (c.knightS == 0) {
-			c.getDialogueHandler().sendDialogues(610, 606);
-		} else if (c.knightS == 4) {
-			c.getDialogueHandler().sendDialogues(654, 606);
-		} else if (c.knightS == 8) {
-			c.getDialogueHandler().sendDialogues(682, 606);
-		}
-		break;
-		case 647://reldo
-		if (c.knightS == 1) {
-			c.getDialogueHandler().sendDialogues(626, 647);
-		}
-		break;
-		case 604://thurgo
-		if (c.knightS == 2) {
-			c.getDialogueHandler().sendDialogues(640, 604);
-		} else if (c.knightS == 3) {
-			c.getDialogueHandler().sendDialogues(648, 604);
-		} else if (c.knightS == 6) {
-			c.getDialogueHandler().sendDialogues(660, 604);
-		} else if (c.knightS == 7) {
-			c.getDialogueHandler().sendDialogues(669, 604);
-		} else if (c.knightS == 8) {
-			c.getDialogueHandler().sendDialogues(674, 604);
-		}
-		break;
-		
-		case 693: //rang guild shots
+		case 606:// squire
+			if (c.knightS == 0) {
+				c.getDialogueHandler().sendDialogues(610, 606);
+			} else if (c.knightS == 4) {
+				c.getDialogueHandler().sendDialogues(654, 606);
+			} else if (c.knightS == 8) {
+				c.getDialogueHandler().sendDialogues(682, 606);
+			}
+			break;
+		case 647:// reldo
+			if (c.knightS == 1) {
+				c.getDialogueHandler().sendDialogues(626, 647);
+			}
+			break;
+		case 604:// thurgo
+			if (c.knightS == 2) {
+				c.getDialogueHandler().sendDialogues(640, 604);
+			} else if (c.knightS == 3) {
+				c.getDialogueHandler().sendDialogues(648, 604);
+			} else if (c.knightS == 6) {
+				c.getDialogueHandler().sendDialogues(660, 604);
+			} else if (c.knightS == 7) {
+				c.getDialogueHandler().sendDialogues(669, 604);
+			} else if (c.knightS == 8) {
+				c.getDialogueHandler().sendDialogues(674, 604);
+			}
+			break;
+
+		case 693: // rang guild shots
 			c.getDialogueHandler().sendDialogues(3201, npcType);
-		break;
-		
-		case 694: //rang guild store
+			break;
+
+		case 694: // rang guild store
 			c.getShopAssistant().openShop(111);
-		break;
+			break;
 
 		case 1834:
 			c.getDialogueHandler().sendDialogues(1378, npcType);
@@ -237,18 +239,17 @@ public class NpcActions {
 					&& !c.getItemAssistant().playerHasItem(1277)) {
 				c.getDialogueHandler().sendDialogues(3072, npcType);
 			} else if (c.getItemAssistant().playerHasItem(1171)
-					&& c.getItemAssistant().playerHasItem(1277) && c.tutorialProgress == 23) {
-				c.getActionSender().sendMessage(
-						"I already gave you a sword and shield.");
+					&& c.getItemAssistant().playerHasItem(1277)
+					&& c.tutorialProgress == 23) {
+				c.getActionSender()
+						.sendMessage("I already gave you a sword and shield.");
 				c.nextChat = 0;
-				c.getDialogueHandler()
-						.chatboxText(
-								c,
-								"In your worn inventory panel, right click on the dagger and",
-								"select the remove option from the drop down list. After you've",
-								"unequipped the dagger, wield the sword and shield. As you",
-								"pass the mouse over an item you will see its name.",
-								"Unequipping items");
+				c.getDialogueHandler().chatboxText(c,
+						"In your worn inventory panel, right click on the dagger and",
+						"select the remove option from the drop down list. After you've",
+						"unequipped the dagger, wield the sword and shield. As you",
+						"pass the mouse over an item you will see its name.",
+						"Unequipping items");
 				PlayerAssistant.removeHintIcon(c);
 			} else if (c.tutorialProgress == 25) {
 				c.getDialogueHandler().sendDialogues(3074, npcType);
@@ -298,7 +299,7 @@ public class NpcActions {
 
 		case 519:
 			c.getDialogueHandler().sendDialogues(15, npcType); // barrows fix
-															// barrows
+																// barrows
 			break;
 
 		case 598:
@@ -377,8 +378,8 @@ public class NpcActions {
 			} else if (c.pirateTreasure == 3) {
 				c.getDialogueHandler().sendDialogues(580, npcType);
 			} else {
-				c.getActionSender().sendMessage(
-						"Arr! Thanks for me helping me.");
+				c.getActionSender()
+						.sendMessage("Arr! Thanks for me helping me.");
 			}
 			break;
 
@@ -410,7 +411,8 @@ public class NpcActions {
 			if (c.vampSlayer == 0) {
 				c.getDialogueHandler().sendDialogues(211, npcType);
 			} else if (c.vampSlayer == 1) {
-				c.getDialogueHandler().sendStatement("I should go find harlow.");
+				c.getDialogueHandler()
+						.sendStatement("I should go find harlow.");
 			} else if (c.vampSlayer > 1) {
 				c.getDialogueHandler().sendDialogues(1337, npcType);
 			}
@@ -422,7 +424,8 @@ public class NpcActions {
 			} else if (c.vampSlayer == 3) {
 				c.getDialogueHandler().sendDialogues(531, npcType);
 			} else {
-				c.getDialogueHandler().sendStatement("I'm not on this step yet.");
+				c.getDialogueHandler()
+						.sendStatement("I'm not on this step yet.");
 			}
 			break;
 
@@ -466,7 +469,8 @@ public class NpcActions {
 				c.gertCat = 6;
 			} else if (c.gertCat == 2) {
 				c.getActionSender().sendMessage("Hiss!");
-				c.getDialogueHandler().sendStatement("Fluffs hisses but clearly wants something - maybe she is thirsty?");
+				c.getDialogueHandler().sendStatement(
+						"Fluffs hisses but clearly wants something - maybe she is thirsty?");
 			}
 			break;
 
@@ -528,8 +532,7 @@ public class NpcActions {
 			if (c.romeojuliet == 5) {
 				c.getDialogueHandler().sendDialogues(432, npcType);
 			}
-			if (c.romeojuliet == 6
-					&& c.getItemAssistant().playerHasItem(300, 1)
+			if (c.romeojuliet == 6 && c.getItemAssistant().playerHasItem(300, 1)
 					&& c.getItemAssistant().playerHasItem(227, 1)
 					&& c.getItemAssistant().playerHasItem(526, 1)) {
 				c.getDialogueHandler().sendDialogues(448, npcType);
@@ -574,8 +577,8 @@ public class NpcActions {
 			} else if (c.runeMist == 3) {
 				c.getDialogueHandler().sendDialogues(238, npcType);
 			} else if (c.runeMist > 3 || c.runeMist < 1) {
-				c.getActionSender().sendMessage(
-						"He has nothing to say to you.");
+				c.getActionSender()
+						.sendMessage("He has nothing to say to you.");
 			}
 			break;
 
@@ -630,8 +633,8 @@ public class NpcActions {
 			} else if (c.sheepShear == 1) {
 				c.getDialogueHandler().sendDialogues(185, 1);
 			} else {
-				c.getActionSender().sendMessage(
-						"He has nothing to say to you.");
+				c.getActionSender()
+						.sendMessage("He has nothing to say to you.");
 			}
 			break;
 
@@ -641,9 +644,8 @@ public class NpcActions {
 			} else if (c.bananas > 0) {
 				c.getDialogueHandler().sendDialogues(4, npcType);
 			} else {
-				c.getActionSender()
-						.sendMessage(
-								"You may now talk to Luthas your bananna task has been reset.");
+				c.getActionSender().sendMessage(
+						"You may now talk to Luthas your bananna task has been reset.");
 				c.luthas = false;
 				c.bananas = 0;
 			}
@@ -694,27 +696,27 @@ public class NpcActions {
 		 */
 		case 953:
 		case 166:
-		case 1702: 
-		case 495: 
+		case 1702:
+		case 495:
 		case 496:
 		case 497:
-		case 498: 
-		case 499: 
-		case 567: 
-		case 1036: 
-		case 1360: 
-		case 2163: 
+		case 498:
+		case 499:
+		case 567:
+		case 1036:
+		case 1360:
+		case 2163:
 		case 2164:
-		case 2354: 
-		case 2355: 
-		case 2568: 
-		case 2569: 
-		case 2570: 
-		case 2271: 
-		case 494: 
+		case 2354:
+		case 2355:
+		case 2568:
+		case 2569:
+		case 2570:
+		case 2271:
+		case 494:
 		case 2619:
 			c.getDialogueHandler().sendDialogues(1013, npcType);
-		break;
+			break;
 
 		case 1152:
 			c.getDialogueHandler().sendDialogues(16, npcType);
@@ -735,30 +737,33 @@ public class NpcActions {
 		case 658:
 			Sailing.startTravel(c, 2);
 			break;
-			
+
 		case 2437:
 		case 2438:
-		if (!c.getItemAssistant().playerHasItem(995, 1000)) {
-			c.getDialogueHandler().sendStatement("You need 1000 coins to go here!");
-			c.nextChat = 0;
-			return;
-		}
-		if (c.absX > 2619 && c.absX < 2622 && c.absY > 3680 && c.absY < 3689 && c.getItemAssistant().playerHasItem(995, 1000)) {
-			//Sailing.startTravel(c, 18);
-			c.getPlayerAssistant().startTeleport(2551, 3759, 0, "modern");
-			c.getItemAssistant().deleteItem2(995, 1000);
-			c.getDialogueHandler().sendStatement("You arrive safely.");
-			c.nextChat = 0;
-		} else {
-			 if (c.getItemAssistant().playerHasItem(995, 1000)) {
-			//Sailing.startTravel(c, 17);	
-			c.getPlayerAssistant().startTeleport(2620, 3686, 0, "modern");
-			c.getItemAssistant().deleteItem2(995, 1000);
-			c.getDialogueHandler().sendStatement("You arrive safely.");
-			c.nextChat = 0;
-			 }
-		}
-		break;
+			if (!c.getItemAssistant().playerHasItem(995, 1000)) {
+				c.getDialogueHandler()
+						.sendStatement("You need 1000 coins to go here!");
+				c.nextChat = 0;
+				return;
+			}
+			if (c.absX > 2619 && c.absX < 2622 && c.absY > 3680 && c.absY < 3689
+					&& c.getItemAssistant().playerHasItem(995, 1000)) {
+				// Sailing.startTravel(c, 18);
+				c.getPlayerAssistant().startTeleport(2551, 3759, 0, "modern");
+				c.getItemAssistant().deleteItem2(995, 1000);
+				c.getDialogueHandler().sendStatement("You arrive safely.");
+				c.nextChat = 0;
+			} else {
+				if (c.getItemAssistant().playerHasItem(995, 1000)) {
+					// Sailing.startTravel(c, 17);
+					c.getPlayerAssistant().startTeleport(2620, 3686, 0,
+							"modern");
+					c.getItemAssistant().deleteItem2(995, 1000);
+					c.getDialogueHandler().sendStatement("You arrive safely.");
+					c.nextChat = 0;
+				}
+			}
+			break;
 
 		case 381:
 			if (c.absY > 3230 && c.absY < 3236) {
@@ -808,17 +813,17 @@ public class NpcActions {
 					c.getItemAssistant().deleteItem2(1925, 1);
 					c.buryDelay = System.currentTimeMillis();
 				} else {
-					c.getActionSender().sendMessage(
-							"You need a bucket to milk a cow!");
+					c.getActionSender()
+							.sendMessage("You need a bucket to milk a cow!");
 				}
 			}
 			break;
 
 		case 3789:
-			c.getActionSender().sendMessage(
-					new StringBuilder().append("You currently have ")
-							.append(c.pcPoints).append(" pest control points.")
-							.toString());
+			c.getActionSender()
+					.sendMessage(new StringBuilder()
+							.append("You currently have ").append(c.pcPoints)
+							.append(" pest control points.").toString());
 			break;
 
 		/* Shops */
@@ -951,44 +956,48 @@ public class NpcActions {
 			Fishing.fishingNPC(c, 2, npcType);
 		}
 		if (c.isBotting == true) {
-			c.getActionSender().sendMessage("You can't click any npcs, until you confirm you are not botting.");
-			c.getActionSender().sendMessage("If you need to you can type ::amibotting, to see if your botting.");
+			c.getActionSender().sendMessage(
+					"You can't click any npcs, until you confirm you are not botting.");
+			c.getActionSender().sendMessage(
+					"If you need to you can type ::amibotting, to see if your botting.");
 			return;
 		}
-		if (npcType >= 761 && npcType <= 773 || npcType > 3504
-				&& npcType < 3508 && npcType != 767) {
+		if (npcType >= 761 && npcType <= 773
+				|| npcType > 3504 && npcType < 3508 && npcType != 767) {
 			c.getDialogueHandler().sendDialogues(908, npcType);
 		}
 
 		switch (npcType) {
-		
-		 case 209:
-	        	c.getShopAssistant().openShop(144);
-	        break;
-	        
-	        
+
+		case 209:
+			c.getShopAssistant().openShop(144);
+			break;
+
 		case 2437:
 		case 2438:
-		if (!c.getItemAssistant().playerHasItem(995, 1000)) {
-			c.getDialogueHandler().sendStatement("You need 1000 coins to go here!");
-			return;
-		}
-		if (c.absX > 2619 && c.absX < 2622 && c.absY > 3680 && c.absY < 3689 && c.getItemAssistant().playerHasItem(995, 1000)) {
-			//Sailing.startTravel(c, 18);
-			c.getPlayerAssistant().startTeleport(2551, 3759, 0, "modern");
-			c.getItemAssistant().deleteItem2(995, 1000);
-			c.getDialogueHandler().sendStatement("You arrive safely.");
-			c.nextChat = 0;
-		} else {
-			 if (c.getItemAssistant().playerHasItem(995, 1000)) {
-			//Sailing.startTravel(c, 17);	
-			c.getPlayerAssistant().startTeleport(2620, 3686, 0, "modern");
-			c.getItemAssistant().deleteItem2(995, 1000);
-			c.getDialogueHandler().sendStatement("You arrive safely.");
-			c.nextChat = 0;
-			 }
-		}
-		break;
+			if (!c.getItemAssistant().playerHasItem(995, 1000)) {
+				c.getDialogueHandler()
+						.sendStatement("You need 1000 coins to go here!");
+				return;
+			}
+			if (c.absX > 2619 && c.absX < 2622 && c.absY > 3680 && c.absY < 3689
+					&& c.getItemAssistant().playerHasItem(995, 1000)) {
+				// Sailing.startTravel(c, 18);
+				c.getPlayerAssistant().startTeleport(2551, 3759, 0, "modern");
+				c.getItemAssistant().deleteItem2(995, 1000);
+				c.getDialogueHandler().sendStatement("You arrive safely.");
+				c.nextChat = 0;
+			} else {
+				if (c.getItemAssistant().playerHasItem(995, 1000)) {
+					// Sailing.startTravel(c, 17);
+					c.getPlayerAssistant().startTeleport(2620, 3686, 0,
+							"modern");
+					c.getItemAssistant().deleteItem2(995, 1000);
+					c.getDialogueHandler().sendStatement("You arrive safely.");
+					c.nextChat = 0;
+				}
+			}
+			break;
 
 		case 537:
 		case 536:
@@ -1062,31 +1071,31 @@ public class NpcActions {
 			c.getDialogueHandler().sendDialogues(1053, npcType);
 			break;
 
-			/**
-			 * Bankers
-			 */
-			case 953:
-			case 166:
-			case 1702: 
-			case 495: 
-			case 496:
-			case 497:
-			case 498: 
-			case 499: 
-			case 567: 
-			case 1036: 
-			case 1360: 
-			case 2163: 
-			case 2164:
-			case 2354: 
-			case 2355: 
-			case 2568: 
-			case 2569: 
-			case 2570: 
-			case 2271: 
-			case 494: 
-			case 2619:
-				c.getPlayerAssistant().openUpBank();
+		/**
+		 * Bankers
+		 */
+		case 953:
+		case 166:
+		case 1702:
+		case 495:
+		case 496:
+		case 497:
+		case 498:
+		case 499:
+		case 567:
+		case 1036:
+		case 1360:
+		case 2163:
+		case 2164:
+		case 2354:
+		case 2355:
+		case 2568:
+		case 2569:
+		case 2570:
+		case 2271:
+		case 494:
+		case 2619:
+			c.getPlayerAssistant().openUpBank();
 			break;
 		}
 	}
@@ -1100,8 +1109,10 @@ public class NpcActions {
 			return;
 		}
 		if (c.isBotting == true) {
-			c.getActionSender().sendMessage("You can't click any npcs, until you confirm you are not botting.");
-			c.getActionSender().sendMessage("If you need to you can type ::amibotting, to see if your botting.");
+			c.getActionSender().sendMessage(
+					"You can't click any npcs, until you confirm you are not botting.");
+			c.getActionSender().sendMessage(
+					"If you need to you can type ::amibotting, to see if your botting.");
 			return;
 		}
 		if (npcType >= 761 && npcType <= 773 && npcType != 767) {
@@ -1111,22 +1122,22 @@ public class NpcActions {
 				c.getActionSender().sendMessage("This isn't your cat.");
 		}
 		switch (npcType) {
-		
+
 		/**
 		 * Banker
 		 */
 		case 3824:
 			c.getPlayerAssistant().openUpBank();
-		break;
-		
+			break;
+
 		case 958:
 			c.getShopAssistant().openShop(143);
-		break;
+			break;
 
 		case 1526:
 			c.getShopAssistant().openShop(ShopAssistant.CASTLE_SHOP);
-		break;
-		
+			break;
+
 		case 70:
 		case 1596:
 		case 1597:
@@ -1137,13 +1148,13 @@ public class NpcActions {
 
 		case 836:
 			if (c.getItemAssistant().playerHasItem(995, 5)) {
-				c.getActionSender().sendMessage(
-						"You buy a shantay pass quickly.");
+				c.getActionSender()
+						.sendMessage("You buy a shantay pass quickly.");
 				c.getItemAssistant().deleteItem2(995, 5);
 				c.getItemAssistant().addItem(1854, 1);
 			} else {
-				c.getActionSender().sendMessage(
-						"You need 5 coins to buy a pass.");
+				c.getActionSender()
+						.sendMessage("You need 5 coins to buy a pass.");
 			}
 			break;
 		case 553:

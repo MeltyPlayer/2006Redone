@@ -18,8 +18,8 @@ public class PotionMixing {
 	public void mixPotion2(int id, int id2) {
 		String id11 = ItemAssistant.getItemName(id);
 		String id22 = ItemAssistant.getItemName(id2);
-		if (id11.substring(0, id11.indexOf("(")).equalsIgnoreCase(
-				id22.substring(0, id22.indexOf("(")))) {
+		if (id11.substring(0, id11.indexOf("("))
+				.equalsIgnoreCase(id22.substring(0, id22.indexOf("(")))) {
 			try {
 				int amount1 = Integer.parseInt(id11.substring(
 						id11.indexOf("(") + 1, id11.indexOf("(") + 2));
@@ -37,10 +37,10 @@ public class PotionMixing {
 							c.getItemAssistant().getItemSlot(id), 1);
 					c.getItemAssistant().deleteItem(id2,
 							c.getItemAssistant().getItemSlot(id2), 1);
-					c.getItemAssistant().addItem(
-							c.getItemAssistant().getItemId(item1), 1);
-					c.getItemAssistant().addItem(
-							c.getItemAssistant().getItemId(item2), 1);
+					c.getItemAssistant()
+							.addItem(c.getItemAssistant().getItemId(item1), 1);
+					c.getItemAssistant()
+							.addItem(c.getItemAssistant().getItemId(item2), 1);
 				} else {
 					amount1 = totalAmount;
 					String item1 = id11.substring(0, id11.indexOf("(") + 1)
@@ -49,8 +49,8 @@ public class PotionMixing {
 							c.getItemAssistant().getItemSlot(id), 1);
 					c.getItemAssistant().deleteItem(id2,
 							c.getItemAssistant().getItemSlot(id2), 1);
-					c.getItemAssistant().addItem(
-							c.getItemAssistant().getItemId(item1), 1);
+					c.getItemAssistant()
+							.addItem(c.getItemAssistant().getItemId(item1), 1);
 					c.getItemAssistant().addItem(229, 1);
 				}
 			} catch (Exception e) {
@@ -83,8 +83,8 @@ public class PotionMixing {
 	// use id, use id2, new id1, new id2
 	public void mixPotion(int id, int id2) {
 		for (int[] element : potMixing) {
-			if (element[0] == id && element[1] == id || element[1] == id
-					&& element[0] == id2) {
+			if (element[0] == id && element[1] == id
+					|| element[1] == id && element[0] == id2) {
 				c.getItemAssistant().deleteItem(id,
 						c.getItemAssistant().getItemSlot(id), 1);
 				c.getItemAssistant().deleteItem(id2,

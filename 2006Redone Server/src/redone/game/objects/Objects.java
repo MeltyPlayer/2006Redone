@@ -26,7 +26,8 @@ public class Objects {
 		return objectY;
 	}
 
-	public Objects(int id, int x, int y, int height, int face, int type, int ticks) {
+	public Objects(int id, int x, int y, int height, int face, int type,
+			int ticks) {
 		objectId = id;
 		objectX = x;
 		objectY = y;

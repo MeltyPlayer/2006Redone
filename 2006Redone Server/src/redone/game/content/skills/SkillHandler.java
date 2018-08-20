@@ -12,7 +12,9 @@ import redone.game.players.Client;
 
 /**
  * Skillhandler
- * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape & Runelocus)
+ * 
+ * @author Andrew (I'm A Boss on Rune-Server, Mr Extremez on Moparscape &
+ *         Runelocus)
  */
 
 public class SkillHandler {
@@ -36,28 +38,24 @@ public class SkillHandler {
 			FIREMAKING_EXPERIENCE = SKILLING_EXP,
 			HERBLORE_EXPERIENCE = SKILLING_EXP,
 			FISHING_EXPERIENCE = SKILLING_EXP,
-			AGILITY_EXPERIENCE = SKILLING_EXP,
-			PRAYER_EXPERIENCE = SKILLING_EXP,
+			AGILITY_EXPERIENCE = SKILLING_EXP, PRAYER_EXPERIENCE = SKILLING_EXP,
 			RUNECRAFTING_EXPERIENCE = SKILLING_EXP,
 			CRAFTING_EXPERIENCE = SKILLING_EXP,
 			THIEVING_EXPERIENCE = SKILLING_EXP,
-			SLAYER_EXPERIENCE = SKILLING_EXP,
-			COOKING_EXPERIENCE = SKILLING_EXP,
+			SLAYER_EXPERIENCE = SKILLING_EXP, COOKING_EXPERIENCE = SKILLING_EXP,
 			FLETCHING_EXPERIENCE = SKILLING_EXP;
 
 	public static boolean isSkilling(Client c) {
 		if (c.playerSkilling[10] || c.playerStun || c.playerSkilling[12]
 				|| c.playerIsFletching || c.isFletching || c.playerIsCooking
-				|| c.isMining || c.isWoodcutting || c.isSmithing
-				|| c.isSmelting || c.isSpinning || c.isPotionMaking
-				|| c.isPotCrafting || c.isFiremaking
-				|| c.playerSkilling[c.playerHerblore] == true
+				|| c.isMining || c.isWoodcutting || c.isSmithing || c.isSmelting
+				|| c.isSpinning || c.isPotionMaking || c.isPotCrafting
+				|| c.isFiremaking || c.playerSkilling[c.playerHerblore] == true
 				|| c.playerSkilling[13]) {
 			return true;
 		}
 		return false;
 	}
-	
 
 	public static void resetItemOnNpc(Client player) {
 		if (player.isMining) {// mining
@@ -128,8 +126,7 @@ public class SkillHandler {
 
 	public static boolean membersOnly(Client c) {
 		if (c.membership == false) {
-			c.getActionSender()
-					.sendMessage("This is a members only skill.");
+			c.getActionSender().sendMessage("This is a members only skill.");
 			return false;
 		}
 		return true;
@@ -138,17 +135,17 @@ public class SkillHandler {
 	public static boolean noInventorySpace(Client c, String skill) {
 		if (c.getItemAssistant().freeSlots() == 0) {
 			c.getActionSender().sendMessage(
-					"You don't have enough inventory space to continue "
-							+ skill + "!");
+					"You don't have enough inventory space to continue " + skill
+							+ "!");
 			return false;
 		}
 		return true;
 	}
-	
+
 	public static void deleteTime(Client c) {
 		c.doAmount--;
 	}
-	
+
 	public static void stopEvents(Client c, int eventId) {
 		CycleEventHandler.getSingleton().stopEvents(c, eventId);
 	}
@@ -160,15 +157,13 @@ public class SkillHandler {
 		c.getPlayerAssistant().sendChatInterface(4429);
 	}
 
-	public static boolean playerHasItem(Client c, String itemName,
-			String skill, int itemID) {
+	public static boolean playerHasItem(Client c, String itemName, String skill,
+			int itemID) {
 		if (!c.getItemAssistant().playerHasItem(itemID, 1)) {
-			c.getActionSender().sendMessage(
-					"You dont have any " + itemName + " to continue " + skill
-							+ "!");
-			c.getDialogueHandler().sendStatement(
-					"You dont have any " + itemID + " to continue " + skill
-							+ "!");
+			c.getActionSender().sendMessage("You dont have any " + itemName
+					+ " to continue " + skill + "!");
+			c.getDialogueHandler().sendStatement("You dont have any " + itemID
+					+ " to continue " + skill + "!");
 			return false;
 		}
 		return true;
@@ -187,9 +182,8 @@ public class SkillHandler {
 	public static boolean hasRequiredLevel(final Client c, int id, int lvlReq,
 			String skill, String event) {
 		if (c.playerLevel[id] < lvlReq) {
-			c.getActionSender().sendMessage(
-					"You don't have a high enough " + skill + " level to "
-							+ event + ".");
+			c.getActionSender().sendMessage("You don't have a high enough "
+					+ skill + " level to " + event + ".");
 			return false;
 		}
 		return true;
@@ -198,6 +192,5 @@ public class SkillHandler {
 	public static String getLine(Client c) {
 		return c.below459 ? "\\n\\n\\n\\n" : "\\n\\n\\n\\n\\n";
 	}
-
 
 }

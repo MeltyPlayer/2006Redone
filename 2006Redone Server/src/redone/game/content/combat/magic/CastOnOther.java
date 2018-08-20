@@ -24,14 +24,13 @@ public class CastOnOther extends CastRequirements {
 				{ 82, SOUL, LAW, WATER, 1, 1, 1 },
 				{ 90, SOUL, LAW, -1, 2, 1, -1 }, };
 		if (!hasRequiredLevel(c, data[type][0])) {
-			c.getActionSender().sendMessage(
-					"You need to have a magic level of " + data[type][0]
-							+ " to cast this spell.");
+			c.getActionSender().sendMessage("You need to have a magic level of "
+					+ data[type][0] + " to cast this spell.");
 			return;
 		}
-		if (!hasRunes(c, new int[] { data[type][1], data[type][2],
-				data[type][3] }, new int[] { data[type][4], data[type][5],
-				data[type][6] })) {
+		if (!hasRunes(c,
+				new int[] { data[type][1], data[type][2], data[type][3] },
+				new int[] { data[type][4], data[type][5], data[type][6] })) {
 			return;
 		}
 		deleteRunes(c,
@@ -61,20 +60,21 @@ public class CastOnOther extends CastRequirements {
 				{ 2757, 3477 }, // CAMELOT
 		};
 		if (!decline) {
-			   CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
-		            @Override
-		            public void execute(CycleEventContainer container) {
+			CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+				@Override
+				public void execute(CycleEventContainer container) {
 					c.startAnimation(715);
 					c.teleportToX = coords[c.teleotherType][0];
 					c.teleportToY = coords[c.teleotherType][1];
 					c.teleotherType = -1;
 					container.stop();
 				}
+
 				@Override
-					public void stop() {
-						// TODO Auto-generated method stub
-						
-					}
+				public void stop() {
+					// TODO Auto-generated method stub
+
+				}
 			}, 3);
 			c.startAnimation(1816);
 			c.gfx100(342);

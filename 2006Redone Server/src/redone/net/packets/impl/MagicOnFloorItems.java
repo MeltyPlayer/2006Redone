@@ -31,11 +31,11 @@ public class MagicOnFloorItems implements PacketType {
 			return;
 		}
 
-		if ((c.getItemAssistant().freeSlots() >= 1 || c.getItemAssistant()
-				.playerHasItem(itemId, 1))
+		if ((c.getItemAssistant().freeSlots() >= 1
+				|| c.getItemAssistant().playerHasItem(itemId, 1))
 				&& Item.itemStackable[itemId]
 				|| c.getItemAssistant().freeSlots() > 0
-				&& !Item.itemStackable[itemId]) {
+						&& !Item.itemStackable[itemId]) {
 			if (c.goodDistance(c.getX(), c.getY(), itemX, itemY, 12)) {
 				c.walkingToItem = true;
 				int offY = (c.getX() - itemX) * -1;
@@ -52,13 +52,13 @@ public class MagicOnFloorItems implements PacketType {
 				c.getPlayerAssistant().createPlayersProjectile(c.getX(),
 						c.getY(), offX, offY, 50, 70,
 						MagicData.MAGIC_SPELLS[51][4], 50, 10, 0, 50);
-				c.getPlayerAssistant().addSkillXP(
-						MagicData.MAGIC_SPELLS[51][7], 6);
+				c.getPlayerAssistant().addSkillXP(MagicData.MAGIC_SPELLS[51][7],
+						6);
 				c.getPlayerAssistant().refreshSkill(6);
 				c.stopMovement();
-				   CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
-			            @Override
-			            public void execute(CycleEventContainer container) {
+				CycleEventHandler.getSingleton().addEvent(c, new CycleEvent() {
+					@Override
+					public void execute(CycleEventContainer container) {
 						if (!c.walkingToItem) {
 							stop();
 						}
@@ -66,8 +66,8 @@ public class MagicOnFloorItems implements PacketType {
 								&& c.usingMagic) {
 							if (Server.itemHandler.itemExists(c.teleGrabItem,
 									c.teleGrabX, c.teleGrabY)
-									&& c.goodDistance(c.getX(), c.getY(),
-											itemX, itemY, 12)) {
+									&& c.goodDistance(c.getX(), c.getY(), itemX,
+											itemY, 12)) {
 								Server.itemHandler.removeGroundItem(c,
 										c.teleGrabItem, c.teleGrabX,
 										c.teleGrabY, true);

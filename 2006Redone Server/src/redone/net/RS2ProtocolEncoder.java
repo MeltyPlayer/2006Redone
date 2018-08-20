@@ -16,6 +16,7 @@ public class RS2ProtocolEncoder implements ProtocolEncoder {
 	@Override
 	/**
 	 * Encodes a message.
+	 * 
 	 * @param session
 	 * @param message
 	 * @param out
@@ -33,7 +34,8 @@ public class RS2ProtocolEncoder implements ProtocolEncoder {
 					int id = p.getId();
 					buffer.put((byte) id);
 					if (p.getSize() != Packet.Size.Fixed) { // variable length
-						// Logger.log("variable length: id="+id+",dataLength="+dataLength);
+						// Logger.log("variable length:
+						// id="+id+",dataLength="+dataLength);
 						if (p.getSize() == Packet.Size.VariableByte) {
 							if (dataLength > 255) {
 								// then we can represent
@@ -41,8 +43,8 @@ public class RS2ProtocolEncoder implements ProtocolEncoder {
 								throw new IllegalArgumentException(
 										"Tried to send packet length "
 												+ dataLength
-												+ " in 8 bits [pid="
-												+ p.getId() + "]");
+												+ " in 8 bits [pid=" + p.getId()
+												+ "]");
 							}
 							buffer.put((byte) dataLength);
 						} else if (p.getSize() == Packet.Size.VariableShort) {
@@ -74,6 +76,7 @@ public class RS2ProtocolEncoder implements ProtocolEncoder {
 	@Override
 	/**
 	 * Releases resources used by this encoder.
+	 * 
 	 * @param session
 	 */
 	public void dispose(IoSession session) throws Exception {

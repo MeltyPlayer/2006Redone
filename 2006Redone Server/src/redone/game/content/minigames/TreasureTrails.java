@@ -45,12 +45,13 @@ public class TreasureTrails {
 			case 0:
 				displayReward(c, mediemLevelReward[Misc.random(13)], 1,
 						mediemLevelReward[Misc.random(13)], 1,
-						mediumLevelStacks[Misc.random(4)], 1 + Misc.random(200));
+						mediumLevelStacks[Misc.random(4)],
+						1 + Misc.random(200));
 				break;
 			case 1:
 				displayReward(c, mediemLevelReward[Misc.random(13)], 1,
-						mediumLevelStacks[Misc.random(4)],
-						1 + Misc.random(200), -1, 1);
+						mediumLevelStacks[Misc.random(4)], 1 + Misc.random(200),
+						-1, 1);
 				break;
 			case 2:
 				displayReward(c, mediemLevelReward[Misc.random(13)], 1, -1, 1,
@@ -70,8 +71,8 @@ public class TreasureTrails {
 						-1, 1);
 				break;
 			case 2:
-				displayReward(c, highLevelReward[Misc.random(52)], 1, -1, 1,
-						-1, 1);
+				displayReward(c, highLevelReward[Misc.random(52)], 1, -1, 1, -1,
+						1);
 				break;
 			}
 		}

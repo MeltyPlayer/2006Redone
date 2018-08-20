@@ -26,7 +26,8 @@ public class GnomeGlider {
 		} else {
 			for (int i = 0; i < getLength(); i++) {
 				if (player.gliderOpen == false && getButton(i) == button) {
-					player.getActionSender().sendMessage("You have improperly opened the glider.");
+					player.getActionSender().sendMessage(
+							"You have improperly opened the glider.");
 				}
 			}
 		}
@@ -38,12 +39,14 @@ public class GnomeGlider {
 		CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
 			@Override
 			public void execute(CycleEventContainer container) {
-				player.getPlayerAssistant().movePlayer(getX(flightId), getY(flightId), getH(flightId));
+				player.getPlayerAssistant().movePlayer(getX(flightId),
+						getY(flightId), getH(flightId));
 				container.stop();
 			}
+
 			@Override
 			public void stop() {
-				
+
 			}
 		}, 3);
 		CycleEventHandler.getSingleton().addEvent(player, new CycleEvent() {
@@ -54,9 +57,10 @@ public class GnomeGlider {
 				player.gliderOpen = false;
 				container.stop();
 			}
+
 			@Override
 			public void stop() {
-				
+
 			}
 		}, 4);
 

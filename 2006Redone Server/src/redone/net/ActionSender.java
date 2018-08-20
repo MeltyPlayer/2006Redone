@@ -16,8 +16,8 @@ public class ActionSender {
 		this.player = client;
 	}
 
-
-	public ActionSender sendClan(String name, String message, String clan, int rights) {
+	public ActionSender sendClan(String name, String message, String clan,
+			int rights) {
 		player.outStream.createFrameVarSizeWord(217);
 		player.outStream.writeString(name);
 		player.outStream.writeString(message);
@@ -26,25 +26,32 @@ public class ActionSender {
 		player.outStream.endFrameVarSize();
 		return this;
 	}
-	
-	public ActionSender createPlayersObjectAnim(int X, int Y, int animationID, int tileObjectType, int orientation) {
-		try{
+
+	public ActionSender createPlayersObjectAnim(int X, int Y, int animationID,
+			int tileObjectType, int orientation) {
+		try {
 			player.getOutStream().createFrame(85);
 			player.getOutStream().writeByteC(Y - (player.mapRegionY * 8));
 			player.getOutStream().writeByteC(X - (player.mapRegionX * 8));
 			int x = 0;
 			int y = 0;
 			player.getOutStream().createFrame(160);
-			player.getOutStream().writeByteS(((x&7) << 4) + (y&7));//tiles away - could just send 0       
-			player.getOutStream().writeByteS((tileObjectType<<2) +(orientation&3));
+			player.getOutStream().writeByteS(((x & 7) << 4) + (y & 7));// tiles
+																		// away
+																		// -
+																		// could
+																		// just
+																		// send
+																		// 0
+			player.getOutStream()
+					.writeByteS((tileObjectType << 2) + (orientation & 3));
 			player.getOutStream().writeWordA(animationID);// animation id
-		} catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return this;
 	}
-	
-	
+
 	public ActionSender setInterfaceOffset(int x, int y, int id) {
 		if (player.getOutStream() != null && player != null) {
 			player.getOutStream().createFrame(70);
@@ -55,7 +62,7 @@ public class ActionSender {
 		}
 		return this;
 	}
-	
+
 	public ActionSender shakeScreen(int verticleAmount, int verticleSpeed,
 			int horizontalAmount, int horizontalSpeed) {
 		player.getOutStream().createFrame(35); // Creates frame 35.
@@ -133,8 +140,8 @@ public class ActionSender {
 	}
 
 	public ActionSender createProjectile(int x, int y, int offX, int offY,
-			int angle, int speed, int gfxMoving, int startHeight,
-			int endHeight, int lockon, int time) {
+			int angle, int speed, int gfxMoving, int startHeight, int endHeight,
+			int lockon, int time) {
 		if (player.getOutStream() != null && player != null) {
 			player.getOutStream().createFrame(85);
 			player.getOutStream()
@@ -159,8 +166,8 @@ public class ActionSender {
 	}
 
 	public ActionSender createProjectile2(int x, int y, int offX, int offY,
-			int angle, int speed, int gfxMoving, int startHeight,
-			int endHeight, int lockon, int time, int slope) {
+			int angle, int speed, int gfxMoving, int startHeight, int endHeight,
+			int lockon, int time, int slope) {
 		if (player.getOutStream() != null && player != null) {
 			player.getOutStream().createFrame(85);
 			player.getOutStream()
@@ -187,13 +194,14 @@ public class ActionSender {
 	/**
 	 * Objects, add and remove
 	 **/
-	public ActionSender object(int objectId, int objectX, int objectY, int face, int objectType) {
+	public ActionSender object(int objectId, int objectX, int objectY, int face,
+			int objectType) {
 		if (player.getOutStream() != null && player != null) {
 			player.getOutStream().createFrame(85);
-			player.getOutStream().writeByteC(
-					objectY - player.getMapRegionY() * 8);
-			player.getOutStream().writeByteC(
-					objectX - player.getMapRegionX() * 8);
+			player.getOutStream()
+					.writeByteC(objectY - player.getMapRegionY() * 8);
+			player.getOutStream()
+					.writeByteC(objectX - player.getMapRegionX() * 8);
 			player.getOutStream().createFrame(101);
 			player.getOutStream().writeByteC((objectType << 2) + (face & 3));
 			player.getOutStream().writeByte(0);
@@ -209,23 +217,28 @@ public class ActionSender {
 		return this;
 	}
 
-	public ActionSender object(int objectId, int objectX, int objectY, int objectH, int face, int objectType) {
+	public ActionSender object(int objectId, int objectX, int objectY,
+			int objectH, int face, int objectType) {
 		if (player.heightLevel != objectH) {
 			return this;
 		}
 		if (Misc.goodDistance(objectX, objectY, player.absX, player.absY, 60)) {
 			if (player.getOutStream() != null && player != null) {
 				player.getOutStream().createFrame(85);
-				player.getOutStream().writeByteC(objectY - player.getMapRegionY() * 8);
-				player.getOutStream().writeByteC(objectX - player.getMapRegionX() * 8);
+				player.getOutStream()
+						.writeByteC(objectY - player.getMapRegionY() * 8);
+				player.getOutStream()
+						.writeByteC(objectX - player.getMapRegionX() * 8);
 				player.getOutStream().createFrame(101);
-				player.getOutStream().writeByteC((objectType << 2) + (face & 3));
+				player.getOutStream()
+						.writeByteC((objectType << 2) + (face & 3));
 				player.getOutStream().writeByte(0);
 				if (objectId != -1) { // removing
 					player.getOutStream().createFrame(151);
 					player.getOutStream().writeByteS(0);
 					player.getOutStream().writeWordBigEndian(objectId);
-					player.getOutStream().writeByteS((objectType << 2) + (face & 3));
+					player.getOutStream()
+							.writeByteS((objectType << 2) + (face & 3));
 				}
 				player.flushOutStream();
 			}
@@ -307,7 +320,7 @@ public class ActionSender {
 	}
 
 	public ActionSender sendCrashFrame() { // used for crashing cheat
-												// clients
+											// clients
 		if (player.getOutStream() != null && player != null) {
 			player.getOutStream().createFrame(123);
 			player.flushOutStream();
@@ -337,10 +350,10 @@ public class ActionSender {
 			int objectType) {
 		if (player.getOutStream() != null && player != null) {
 			player.getOutStream().createFrame(85);
-			player.getOutStream().writeByteC(
-					objectY - player.getMapRegionY() * 8);
-			player.getOutStream().writeByteC(
-					objectX - player.getMapRegionX() * 8);
+			player.getOutStream()
+					.writeByteC(objectY - player.getMapRegionY() * 8);
+			player.getOutStream()
+					.writeByteC(objectX - player.getMapRegionX() * 8);
 			player.getOutStream().createFrame(101);
 			player.getOutStream().writeByteC((objectType << 2) + (0 & 3));
 			player.getOutStream().writeByte(0);
@@ -355,7 +368,8 @@ public class ActionSender {
 		return this;
 	}
 
-	public ActionSender itemOnInterface(int interfaceChild, int zoom, int itemId) {
+	public ActionSender itemOnInterface(int interfaceChild, int zoom,
+			int itemId) {
 		if (player.getOutStream() != null && player != null) {
 			player.getOutStream().createFrame(246);
 			player.getOutStream().writeWordBigEndian(interfaceChild);
@@ -444,16 +458,17 @@ public class ActionSender {
 			player.getOutStream().write3Byte(0); // Junk
 		}
 		return this;
-	}	
+	}
 
-	public ActionSender checkObjectSpawn(int objectId, int objectX, int objectY, int face, int objectType) {
+	public ActionSender checkObjectSpawn(int objectId, int objectX, int objectY,
+			int face, int objectType) {
 		if (player.distanceToPoint(objectX, objectY) < 60) {
 			if (player.getOutStream() != null && player != null) {
 				player.getOutStream().createFrame(85);
-				player.getOutStream().writeByteC(
-						objectY - player.getMapRegionY() * 8);
-				player.getOutStream().writeByteC(
-						objectX - player.getMapRegionX() * 8);
+				player.getOutStream()
+						.writeByteC(objectY - player.getMapRegionY() * 8);
+				player.getOutStream()
+						.writeByteC(objectX - player.getMapRegionX() * 8);
 				player.getOutStream().createFrame(101);
 				player.getOutStream()
 						.writeByteC((objectType << 2) + (face & 3));
@@ -462,35 +477,41 @@ public class ActionSender {
 					player.getOutStream().createFrame(151);
 					player.getOutStream().writeByteS(0);
 					player.getOutStream().writeWordBigEndian(objectId);
-					player.getOutStream().writeByteS(
-							(objectType << 2) + (face & 3));
+					player.getOutStream()
+							.writeByteS((objectType << 2) + (face & 3));
 				}
 				player.flushOutStream();
 			}
 			if (objectId > 0) {
-				Region.addObject(objectId, objectX, objectX, player.heightLevel, objectType, face, false);
+				Region.addObject(objectId, objectX, objectX, player.heightLevel,
+						objectType, face, false);
 			}
 		}
 		return this;
 	}
-	
-	public ActionSender createObjectSpawn(int objectId, int objectX, int objectY, int height, int face, int objectType) {
+
+	public ActionSender createObjectSpawn(int objectId, int objectX,
+			int objectY, int height, int face, int objectType) {
 		if (player.heightLevel != height) {
 			return this;
 		}
 		if (player.distanceToPoint(objectX, objectY) < 60) {
 			if (player.getOutStream() != null && player != null) {
 				player.getOutStream().createFrame(85);
-				player.getOutStream().writeByteC(objectY - player.getMapRegionY() * 8);
-				player.getOutStream().writeByteC(objectX - player.getMapRegionX() * 8);
+				player.getOutStream()
+						.writeByteC(objectY - player.getMapRegionY() * 8);
+				player.getOutStream()
+						.writeByteC(objectX - player.getMapRegionX() * 8);
 				player.getOutStream().createFrame(101);
-				player.getOutStream().writeByteC((objectType << 2) + (face & 3));
+				player.getOutStream()
+						.writeByteC((objectType << 2) + (face & 3));
 				player.getOutStream().writeByte(0);
 				if (objectId != -1) { // removing
 					player.getOutStream().createFrame(151);
 					player.getOutStream().writeByteS(0);
 					player.getOutStream().writeWordBigEndian(objectId);
-					player.getOutStream().writeByteS((objectType << 2) + (face & 3));
+					player.getOutStream()
+							.writeByteS((objectType << 2) + (face & 3));
 				}
 				player.flushOutStream();
 			}
@@ -580,7 +601,8 @@ public class ActionSender {
 		return this;
 	}
 
-	public ActionSender createGroundItem(int itemID, int itemX, int itemY, int itemAmount) {
+	public ActionSender createGroundItem(int itemID, int itemX, int itemY,
+			int itemAmount) {
 		player.getOutStream().createFrame(85);
 		player.getOutStream().writeByteC(itemY - 8 * player.mapRegionY);
 		player.getOutStream().writeByteC(itemX - 8 * player.mapRegionX);
@@ -591,8 +613,9 @@ public class ActionSender {
 		player.flushOutStream();
 		return this;
 	}
-	
-	public ActionSender createGroundItem(int itemID, int itemX, int itemY, int itemAmount, int height) {
+
+	public ActionSender createGroundItem(int itemID, int itemX, int itemY,
+			int itemAmount, int height) {
 		if (player.heightLevel != height) {
 			return this;
 		}
@@ -607,12 +630,12 @@ public class ActionSender {
 		return this;
 	}
 
-
 	/**
 	 * Pickup Item
 	 **/
 
-	public ActionSender removeGroundItem(int itemID, int itemX, int itemY, int Amount) {
+	public ActionSender removeGroundItem(int itemID, int itemX, int itemY,
+			int Amount) {
 		if (player == null) {
 			return this;
 		}

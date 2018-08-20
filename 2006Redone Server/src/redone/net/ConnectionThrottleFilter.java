@@ -87,7 +87,8 @@ public class ConnectionThrottleFilter extends IoFilterAdapter {
 					c = 0;
 				}
 				counts.put(addr, c);
-				// Logger.err("["+host+"] Session dropped (delay="+(now-lastConnTime)+"ms)");
+				// Logger.err("["+host+"] Session dropped
+				// (delay="+(now-lastConnTime)+"ms)");
 				return false;
 			} else {
 				clients.put(addr, now);
