@@ -1,0 +1,20 @@
+package server.net.packets.impl;
+
+import server.Server;
+import server.game.players.Client;
+import server.net.packets.PacketType;
+import server.util.Misc;
+
+/**
+ * Chat
+ **/
+public class ClanChat implements PacketType {
+
+	@Override
+	public void processPacket(Client c, int packetType, int packetSize) {
+		String textSent = Misc.longToPlayerName2(c.getInStream().readQWord());
+		textSent = textSent.replaceAll("_", " ");
+		// c.sendMessage(textSent);
+		Server.clanChat.handleClanChat(c, textSent);
+	}
+}
