@@ -1,4 +1,4 @@
-package client;
+package client.ui;
 // Decompiled by Jad v1.5.8f. Copyright 2001 Pavel Kouznetsov.
 
 // Jad home page: http://www.kpdus.com/jad.html
@@ -13,7 +13,9 @@ import java.awt.image.ImageConsumer;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
 
-final class RSImageProducer implements ImageProducer, ImageObserver {
+import client.DrawingArea;
+
+public final class RSImageProducer implements ImageProducer, ImageObserver {
 
   public RSImageProducer(int i, int j, Component component) {
     anInt316 = i;
