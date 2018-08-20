@@ -1,4 +1,4 @@
-package client;
+package client.network;
 // Decompiled by Jad v1.5.8f. Copyright 2001 Pavel Kouznetsov.
 
 // Jad home page: http://www.kpdus.com/jad.html
@@ -9,9 +9,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-final class RSSocket implements Runnable {
+import client.RSApplet;
 
-  public RSSocket(RSApplet RSApplet_, Socket socket1) throws IOException {
+public final class RsNetworkSocket implements RsSocket {
+
+  public RsNetworkSocket(RSApplet RSApplet_, Socket socket1) throws IOException {
     closed = false;
     isWriter = false;
     hasIOError = false;
@@ -23,6 +25,7 @@ final class RSSocket implements Runnable {
     outputStream = socket.getOutputStream();
   }
 
+  @Override
   public void close() {
     closed = true;
     try {
@@ -45,6 +48,7 @@ final class RSSocket implements Runnable {
     buffer = null;
   }
 
+  @Override
   public int read() throws IOException {
     if (closed) {
       return 0;
@@ -53,6 +57,7 @@ final class RSSocket implements Runnable {
     }
   }
 
+  @Override
   public int available() throws IOException {
     if (closed) {
       return 0;
@@ -61,6 +66,7 @@ final class RSSocket implements Runnable {
     }
   }
 
+  @Override
   public void flushInputStream(byte abyte0[], int j) throws IOException {
     int i = 0;// was parameter
     if (closed) {
@@ -74,9 +80,9 @@ final class RSSocket implements Runnable {
       }
       i += k;
     }
-
   }
 
+  @Override
   public void queueBytes(int i, byte abyte0[]) throws IOException {
     if (closed) {
       return;
@@ -145,6 +151,7 @@ final class RSSocket implements Runnable {
     }
   }
 
+  @Override
   public void printDebug() {
     System.out.println("dummy:" + closed);
     System.out.println("tcycl:" + writeIndex);

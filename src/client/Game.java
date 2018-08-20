@@ -20,6 +20,9 @@ import java.text.DecimalFormatSymbols;
 import java.util.Calendar;
 import java.util.Date;
 
+import client.network.RsNetworkSocket;
+import client.network.RsSocket;
+
 @SuppressWarnings("serial")
 public class Game extends RSApplet {
 
@@ -3362,7 +3365,7 @@ public class Game extends RSApplet {
 		drawTextOnScreen("Please wait - attempting to reestablish", "Connection lost");
 		anInt1021 = 0;
 		destX = 0;
-		RSSocket rsSocket = socketStream;
+		RsSocket rsSocket = socketStream;
 		loggedIn = false;
 		loginFailures = 0;
 		login(myUsername, myPassword, true);
@@ -5604,7 +5607,7 @@ public class Game extends RSApplet {
 				loginMessage2 = "Connecting to server...";
 				drawLoginScreen(true);
 			}
-			socketStream = new RSSocket(this, openSocket(43594 + portOff));
+			socketStream = new RsNetworkSocket(this, openSocket(43594 + portOff));
 			long l = TextClass.longForName(s);
 			int i = (int) (l >> 16 & 31L);
 			stream.currentOffset = 0;
@@ -11964,7 +11967,7 @@ public class Game extends RSApplet {
 	public RSImageProducer aRSImageProducer_1165;
 	public RSImageProducer aRSImageProducer_1166;
 	public int daysSinceRecovChange;
-	public RSSocket socketStream;
+	public RsSocket socketStream;
 	public int minimapInt3;
 	public int anInt1171;
 	public static long aLong1172;
