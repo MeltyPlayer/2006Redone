@@ -20,8 +20,6 @@ import java.text.DecimalFormatSymbols;
 import java.util.Calendar;
 import java.util.Date;
 
-import client.audio.SoundPlayer;
-import client.audio.Sounds;
 import client.network.RsNetworkSocket;
 import client.network.RsSocket;
 

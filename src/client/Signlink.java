@@ -25,8 +25,6 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-import client.audio.Midi;
-
 public final class Signlink implements Runnable {
 
   public static final void startpriv(InetAddress inetaddress) {

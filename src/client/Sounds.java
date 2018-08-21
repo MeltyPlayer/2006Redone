@@ -1,12 +1,10 @@
-package client.audio;
+package client;
 // Decompiled by Jad v1.5.8f. Copyright 2001 Pavel Kouznetsov.
-
-import client.Stream;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-public final class Sounds {
+final class Sounds {
 
   private Sounds() {
     aClass6Array329 = new Class6[10];

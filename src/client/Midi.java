@@ -1,4 +1,4 @@
-package client.audio;
+package client;
 
 import java.io.File;
 
