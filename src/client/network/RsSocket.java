@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-import client.ui.RSApplet;
+import client.RSApplet;
 
 public interface RsSocket extends Runnable {
 

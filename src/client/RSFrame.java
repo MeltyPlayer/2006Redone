@@ -1,4 +1,4 @@
-package client.ui;
+package client;
 // Decompiled by Jad v1.5.8f. Copyright 2001 Pavel Kouznetsov.
 
 // Jad home page: http://www.kpdus.com/jad.html
@@ -6,8 +6,6 @@ package client.ui;
 
 import java.awt.Frame;
 import java.awt.Graphics;
-
-import client.ClientSettings;
 
 @SuppressWarnings("serial")
 final class RSFrame extends Frame {

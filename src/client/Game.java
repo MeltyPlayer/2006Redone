@@ -24,8 +24,6 @@ import client.audio.SoundPlayer;
 import client.audio.Sounds;
 import client.network.RsNetworkSocket;
 import client.network.RsSocket;
-import client.ui.RSApplet;
-import client.ui.RSImageProducer;
 
 @SuppressWarnings("serial")
 public class Game extends RSApplet {
@@ -3142,7 +3140,7 @@ public class Game extends RSApplet {
 
 	}
 
-	protected void drawLoadingText(int i, String s) {
+	void drawLoadingText(int i, String s) {
 		anInt1079 = i;
 		aString1049 = s;
 		resetImageProducers();
