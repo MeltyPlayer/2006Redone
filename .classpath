@@ -13,6 +13,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="netty-3.6.6.Final.jar"/>
+	<classpathentry kind="lib" path="M:/Documents/JavaWorkspace/2006Redone/libs/netty-3.6.6.Final.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
