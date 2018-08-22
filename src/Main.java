@@ -3,6 +3,8 @@
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import client.Signlink;
+
 public final class Main {
 
   public static void main(String[] args) {

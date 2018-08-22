@@ -11,6 +11,8 @@ import java.net.Socket;
 import java.util.zip.CRC32;
 import java.util.zip.GZIPInputStream;
 
+import client.Signlink;
+
 public final class OnDemandFetcher extends OnDemandFetcherParent implements Runnable {
 
   /*

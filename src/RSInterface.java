@@ -1,4 +1,5 @@
-
+import client.ClientSettings;
+import client.ui.TextClass;
 
 public final class RSInterface {
 

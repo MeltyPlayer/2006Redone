@@ -6,6 +6,8 @@
 import java.awt.Frame;
 import java.awt.Graphics;
 
+import client.ClientSettings;
+
 @SuppressWarnings("serial")
 final class RSFrame extends Frame {
 

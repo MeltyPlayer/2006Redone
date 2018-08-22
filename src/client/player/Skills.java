@@ -1,9 +1,10 @@
+package client.player;
 
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-final class Skills {
+public final class Skills {
 
   public static final int skillsCount = 25;
   public static final String[] skillNames = { "attack", "defence", "strength", "hitpoints", "ranged", "prayer", "magic",

@@ -5,6 +5,10 @@
 
 import java.math.BigInteger;
 
+import client.ClientSettings;
+import client.ISAACRandomGen;
+import client.Signlink;
+
 public final class Stream extends NodeSub {
 
   public static Stream create() {

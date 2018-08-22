@@ -20,9 +20,15 @@ import java.text.DecimalFormatSymbols;
 import java.util.Calendar;
 import java.util.Date;
 
+import client.ClientSettings;
+import client.CollisionMap;
 import client.Decompressor;
+import client.ISAACRandomGen;
+import client.Signlink;
 import client.SizeConstants;
 import client.audio.SoundPlayer;
+import client.player.Skills;
+import client.ui.TextClass;
 
 @SuppressWarnings("serial")
 public class Game extends RSApplet {

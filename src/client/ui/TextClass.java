@@ -1,9 +1,10 @@
-
+package client.ui;
+import client.Signlink;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-final class TextClass {
+public final class TextClass {
 
   public static long longForName(String s) {
     long l = 0L;

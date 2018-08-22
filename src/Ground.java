@@ -1,4 +1,5 @@
 import client.model.Class43;
+import client.world.Class40;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 

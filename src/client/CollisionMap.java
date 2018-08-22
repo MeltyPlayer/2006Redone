@@ -1,9 +1,10 @@
+package client;
 
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-final class CollisionMap {
+public final class CollisionMap {
 
   public CollisionMap() {
     anInt290 = 0;
