@@ -27,6 +27,7 @@ import client.ISAACRandomGen;
 import client.Signlink;
 import client.SizeConstants;
 import client.audio.SoundPlayer;
+import client.data.Node;
 import client.player.Skills;
 import client.ui.TextClass;
 

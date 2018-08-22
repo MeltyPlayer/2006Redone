@@ -1,3 +1,4 @@
+import client.data.Node;
 import client.model.Class43;
 import client.world.Class40;
 

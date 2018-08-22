@@ -8,6 +8,7 @@ import java.math.BigInteger;
 import client.ClientSettings;
 import client.ISAACRandomGen;
 import client.Signlink;
+import client.data.NodeSub;
 
 public final class Stream extends NodeSub {
 

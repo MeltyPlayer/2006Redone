@@ -1,3 +1,4 @@
+package client.data;
 
 
 // Jad home page: http://www.kpdus.com/jad.html

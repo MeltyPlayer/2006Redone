@@ -1,3 +1,4 @@
+import client.data.NodeSub;
 import client.model.Class33;
 
 // Jad home page: http://www.kpdus.com/jad.html

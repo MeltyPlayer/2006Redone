@@ -12,6 +12,7 @@ import java.util.zip.CRC32;
 import java.util.zip.GZIPInputStream;
 
 import client.Signlink;
+import client.data.NodeSubList;
 
 public final class OnDemandFetcher extends OnDemandFetcherParent implements Runnable {
 
