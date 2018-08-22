@@ -1,3 +1,4 @@
+package client;
 
 
 // Jad home page: http://www.kpdus.com/jad.html
@@ -6,7 +7,7 @@
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
-final class Decompressor {
+public final class Decompressor {
 
   public Decompressor(RandomAccessFile randomaccessfile, RandomAccessFile randomaccessfile1, int j) {
     anInt311 = j;

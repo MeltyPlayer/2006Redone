@@ -20,6 +20,8 @@ import java.text.DecimalFormatSymbols;
 import java.util.Calendar;
 import java.util.Date;
 
+import client.Decompressor;
+import client.SizeConstants;
 import client.audio.SoundPlayer;
 
 @SuppressWarnings("serial")

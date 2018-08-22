@@ -1,4 +1,4 @@
-
+import client.model.Class33;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 

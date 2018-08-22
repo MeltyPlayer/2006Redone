@@ -1,9 +1,10 @@
+package client.model;
 
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-final class Class21 {
+public final class Class21 {
 
   public Class21() {
   }

@@ -1,9 +1,10 @@
+package client;
 
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-final class SizeConstants {
+public final class SizeConstants {
 
   public static final int[] anIntArray552 = { 6, 21, 25, 33, 254, 127, 183, 87, 216, 215, 211, 48, 15, 195, 149, 233,
       162, 102, 104, 179, 222, 103, 224, 81, 152, 89, 45, 11, 197, 187, 210, 37, 135, 220, 137, 128, 63, 188, 207, 144,
