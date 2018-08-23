@@ -1,4 +1,4 @@
-
+import client.Class56;
 
 abstract class Class56_Sub1 extends Class56 {
   final void method835(int i, int i_1_, long l) {

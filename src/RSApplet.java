@@ -19,6 +19,8 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+import client.ui.RSImageProducer;
+
 @SuppressWarnings("serial")
 public class RSApplet extends Applet
     implements Runnable, MouseListener, MouseMotionListener, KeyListener, FocusListener, WindowListener {

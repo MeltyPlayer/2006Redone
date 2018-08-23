@@ -10,6 +10,8 @@ import java.awt.Toolkit;
 import java.awt.image.PixelGrabber;
 
 import client.network.Stream;
+import client.network.StreamLoader;
+import client.ui.Background;
 import client.ui.DrawingArea;
 
 public final class Sprite extends DrawingArea {

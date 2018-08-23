@@ -1,5 +1,7 @@
+import client.Class4;
 import client.CollisionMap;
 import client.network.Stream;
+import client.ui.Texture;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3)

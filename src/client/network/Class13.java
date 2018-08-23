@@ -1,7 +1,8 @@
-
-
+package client.network;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
+
+import client.Class32;
 
 final class Class13 {
 

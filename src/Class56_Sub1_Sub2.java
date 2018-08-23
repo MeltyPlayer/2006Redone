@@ -1,4 +1,4 @@
-
+import client.Runnable_Impl1;
 
 final class Class56_Sub1_Sub2 extends Class56_Sub1 implements Runnable {
   private static Runnable_Impl1 aRunnable_Impl1_1852;
@@ -30,7 +30,7 @@ final class Class56_Sub1_Sub2 extends Class56_Sub1 implements Runnable {
     method845(i, (int) l, i_4_, i_5_);
   }
 
-  final synchronized void method827(int i, byte[] is, int i_6_, boolean bool) {
+  public final synchronized void method827(int i, byte[] is, int i_6_, boolean bool) {
     aClass11_1857.method525(is);
     boolean bool_7_ = true;
     aBoolean1854 = bool;
@@ -59,13 +59,13 @@ final class Class56_Sub1_Sub2 extends Class56_Sub1 implements Runnable {
     method846();
   }
 
-  final synchronized void method831(int i) {
+  public final synchronized void method831(int i) {
     method840(i, (long) anInt1855);
     aRunnable_Impl1_1852.method10(anIntArray1858, anInt1856);
     anInt1856 = 0;
   }
 
-  final synchronized void method832(int i) {
+  public final synchronized void method832(int i) {
     if (aClass11_1857.method527()) {
       int i_11_ = anInt1855;
       int i_12_ = -200;
@@ -104,7 +104,7 @@ final class Class56_Sub1_Sub2 extends Class56_Sub1 implements Runnable {
     }
   }
 
-  final synchronized void method833() {
+  public final synchronized void method833() {
     aRunnable_Impl1_1852.method12(false);
     method838((long) anInt1855);
     aRunnable_Impl1_1852.method10(anIntArray1858, anInt1856);
@@ -112,7 +112,7 @@ final class Class56_Sub1_Sub2 extends Class56_Sub1 implements Runnable {
     aClass11_1857.method523();
   }
 
-  final void method828() {
+  public final void method828() {
     synchronized (this) {
       aBoolean1853 = true;
     }
@@ -170,7 +170,7 @@ final class Class56_Sub1_Sub2 extends Class56_Sub1 implements Runnable {
     thread.setPriority(10);
   }
 
-  final synchronized void method830(int i, int i_23_) {
+  public final synchronized void method830(int i, int i_23_) {
     method835(i_23_, i, (long) anInt1855);
   }
 }

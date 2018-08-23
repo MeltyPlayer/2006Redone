@@ -19,6 +19,7 @@ import client.data.NodeList;
 import client.data.NodeSubList;
 import client.data.OnDemandData;
 import client.network.Stream;
+import client.network.StreamLoader;
 
 public final class OnDemandFetcher extends OnDemandFetcherParent implements Runnable {
 

@@ -1,9 +1,10 @@
-import client.ui.DrawingArea;
+package client.ui;
+import client.network.StreamLoader;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-final class Texture extends DrawingArea {
+public final class Texture extends DrawingArea {
 
   public static void nullLoader() {
     anIntArray1468 = null;
@@ -2029,7 +2030,7 @@ final class Texture extends DrawingArea {
 
   public static final int anInt1459 = -477;
   public static boolean lowMem = true;
-  static boolean aBoolean1462;
+  public static boolean aBoolean1462;
   private static boolean aBoolean1463;
   public static boolean aBoolean1464 = true;
   public static int anInt1465;

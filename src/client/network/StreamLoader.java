@@ -1,9 +1,8 @@
-import client.network.Stream;
-
+package client.network;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-final class StreamLoader {
+public final class StreamLoader {
 
   public StreamLoader(byte abyte0[]) {
     Stream stream = new Stream(abyte0);

@@ -1,3 +1,4 @@
+package client.ui;
 
 
 // Jad home page: http://www.kpdus.com/jad.html
@@ -6,7 +7,7 @@
 import java.util.Random;
 
 import client.network.Stream;
-import client.ui.DrawingArea;
+import client.network.StreamLoader;
 
 public final class TextDrawingArea extends DrawingArea {
 

@@ -17,7 +17,7 @@ final class Class56_Sub1_Sub1 extends Class56_Sub1 implements Receiver {
   private static Receiver aReceiver1850 = null;
   private static Sequencer aSequencer1851 = null;
 
-  final void method827(int i, byte[] is, int i_0_, boolean bool) {
+  public final void method827(int i, byte[] is, int i_0_, boolean bool) {
     if (aSequencer1851 != null) {
       try {
         Sequence sequence = MidiSystem.getSequence(new ByteArrayInputStream(is));
@@ -31,7 +31,7 @@ final class Class56_Sub1_Sub1 extends Class56_Sub1 implements Receiver {
     }
   }
 
-  final void method833() {
+  public final void method833() {
     if (aSequencer1851 != null) {
       aSequencer1851.stop();
       method838(-1L);
@@ -56,7 +56,7 @@ final class Class56_Sub1_Sub1 extends Class56_Sub1 implements Receiver {
     }
   }
 
-  final void method828() {
+  public final void method828() {
     if (aSequencer1851 != null) {
       aSequencer1851.close();
       aSequencer1851 = null;
@@ -71,19 +71,19 @@ final class Class56_Sub1_Sub1 extends Class56_Sub1 implements Receiver {
     /* empty */
   }
 
-  final void method831(int i) {
+  public final void method831(int i) {
     if (aSequencer1851 != null) {
       method840(i, -1L);
     }
   }
 
-  final synchronized void method830(int i, int i_2_) {
+  public final synchronized void method830(int i, int i_2_) {
     if (aSequencer1851 != null) {
       method835(i_2_, i, -1L);
     }
   }
 
-  final void method836(int i, int i_5_, int i_6_, long l) {
+  public final void method836(int i, int i_5_, int i_6_, long l) {
     try {
       ShortMessage shortmessage = new ShortMessage();
       shortmessage.setMessage(i, i_5_, i_6_);
@@ -93,7 +93,7 @@ final class Class56_Sub1_Sub1 extends Class56_Sub1 implements Receiver {
     }
   }
 
-  final void method832(int i) {
+  public final void method832(int i) {
     if (i > -90)
       method833();
   }

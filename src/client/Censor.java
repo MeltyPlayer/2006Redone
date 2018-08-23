@@ -1,9 +1,11 @@
+package client;
 import client.network.Stream;
+import client.network.StreamLoader;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-final class Censor {
+public final class Censor {
 
   public static void loadConfig(StreamLoader streamLoader) {
     Stream stream = new Stream(streamLoader.getDataForName("fragmentsenc.txt"));

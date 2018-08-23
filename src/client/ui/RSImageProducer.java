@@ -1,3 +1,4 @@
+package client.ui;
 
 
 // Jad home page: http://www.kpdus.com/jad.html
@@ -12,9 +13,7 @@ import java.awt.image.ImageConsumer;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
 
-import client.ui.DrawingArea;
-
-final class RSImageProducer implements ImageProducer, ImageObserver {
+public final class RSImageProducer implements ImageProducer, ImageObserver {
 
   public RSImageProducer(int i, int j, Component component) {
     anInt316 = i;

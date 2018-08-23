@@ -1,9 +1,10 @@
+package client.ui;
 import client.network.Stream;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-final class TextInput {
+public final class TextInput {
 
   public static String method525(int i, Stream stream) {
     int j = 0;

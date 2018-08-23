@@ -1,6 +1,8 @@
 import client.data.MRUNodes;
 import client.network.Stream;
+import client.network.StreamLoader;
 import client.ui.DrawingArea;
+import client.ui.Texture;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 

@@ -2,6 +2,7 @@ import client.data.NodeList;
 import client.model.Class33;
 import client.model.Class43;
 import client.ui.DrawingArea;
+import client.ui.Texture;
 import client.world.Class40;
 import client.world.Class47;
 
