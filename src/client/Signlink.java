@@ -1,6 +1,5 @@
 package client;
 
-
 import java.applet.Applet;
 import java.io.DataInputStream;
 import java.io.File;

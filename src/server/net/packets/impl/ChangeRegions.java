@@ -13,22 +13,22 @@ import server.world.GlobalDropsHandler;
  */
 public class ChangeRegions implements PacketType {
 
-	@Override
-	public void processPacket(Client c, int packetType, int packetSize) {
-		if (Constants.SOUND && c.musicOn) {
-			Music.playMusic(c);
-		}
-		Server.objectHandler.updateObjects(c);// testing
-		Doors.getSingleton().load();
-		Server.itemHandler.reloadItems(c);
-		Server.objectManager.loadObjects(c);
-		GlobalDropsHandler.load(c);
-		c.getPlayerAssistant().removeObjects();// testing
-		c.saveFile = true;
-		if (c.skullTimer > 0) {
-			c.isSkulled = true;
-			c.headIconPk = 0;
-			c.getPlayerAssistant().requestUpdates();
-		}
-	}
+  @Override
+  public void processPacket(Client c, int packetType, int packetSize) {
+    if (Constants.SOUND && c.musicOn) {
+      Music.playMusic(c);
+    }
+    Server.objectHandler.updateObjects(c);// testing
+    Doors.getSingleton().load();
+    Server.itemHandler.reloadItems(c);
+    Server.objectManager.loadObjects(c);
+    GlobalDropsHandler.load(c);
+    c.getPlayerAssistant().removeObjects();// testing
+    c.saveFile = true;
+    if (c.skullTimer > 0) {
+      c.isSkulled = true;
+      c.headIconPk = 0;
+      c.getPlayerAssistant().requestUpdates();
+    }
+  }
 }

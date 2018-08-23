@@ -1,4 +1,5 @@
 package client.data;
+
 import client.Signlink;
 
 // Jad home page: http://www.kpdus.com/jad.html

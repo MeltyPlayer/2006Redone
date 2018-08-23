@@ -1,6 +1,5 @@
 package client.audio;
 
-
 import java.io.File;
 
 import javax.sound.midi.MidiSystem;

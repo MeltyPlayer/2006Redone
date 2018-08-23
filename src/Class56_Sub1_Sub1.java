@@ -1,5 +1,4 @@
 
-
 /* Class56_Sub1_Sub1 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */

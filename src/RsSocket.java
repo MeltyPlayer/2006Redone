@@ -1,5 +1,4 @@
 
-
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
@@ -17,9 +16,9 @@ public interface RsSocket extends Runnable {
   public int available() throws IOException;
 
   public void flushInputStream(byte abyte0[], int j) throws IOException;
-  
+
   public void queueBytes(int i, byte abyte0[]) throws IOException;
-  
+
   @Override
   public void run();
 

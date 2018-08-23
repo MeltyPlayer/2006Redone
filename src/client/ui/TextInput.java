@@ -1,4 +1,5 @@
 package client.ui;
+
 import client.network.Stream;
 
 // Jad home page: http://www.kpdus.com/jad.html

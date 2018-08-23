@@ -13,34 +13,34 @@ import server.util.ISAACRandomGen;
  */
 public class GameCodecFactory implements ProtocolCodecFactory {
 
-	/**
-	 * The encoder.
-	 */
-	private final ProtocolEncoder encoder = new RS2ProtocolEncoder();
+  /**
+   * The encoder.
+   */
+  private final ProtocolEncoder encoder = new RS2ProtocolEncoder();
 
-	/**
-	 * The decoder.
-	 */
-	private final ProtocolDecoder decoder;
+  /**
+   * The decoder.
+   */
+  private final ProtocolDecoder decoder;
 
-	public GameCodecFactory(ISAACRandomGen inC) {
-		decoder = new RS2ProtocolDecoder(inC);
-	}
+  public GameCodecFactory(ISAACRandomGen inC) {
+    decoder = new RS2ProtocolDecoder(inC);
+  }
 
-	@Override
-	/**
-	 * Get the encoder.
-	 */
-	public ProtocolEncoder getEncoder() throws Exception {
-		return encoder;
-	}
+  @Override
+  /**
+   * Get the encoder.
+   */
+  public ProtocolEncoder getEncoder() throws Exception {
+    return encoder;
+  }
 
-	@Override
-	/**
-	 * Get the decoder.
-	 */
-	public ProtocolDecoder getDecoder() throws Exception {
-		return decoder;
-	}
+  @Override
+  /**
+   * Get the decoder.
+   */
+  public ProtocolDecoder getDecoder() throws Exception {
+    return decoder;
+  }
 
 }

@@ -1,6 +1,5 @@
 package client;
 
-
 public abstract class Class56 {
 
   public abstract void method827(int i, byte[] is, int i_2_, boolean bool);

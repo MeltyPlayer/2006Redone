@@ -8,19 +8,19 @@ import server.net.packets.PacketType;
  **/
 public class MagicOnItems implements PacketType {
 
-	@Override
-	public void processPacket(Client player, int packetType, int packetSize) {
-		int slot = player.getInStream().readSignedWord();
-		int itemId = player.getInStream().readSignedWordA();
-		player.getInStream().readSignedWord();
-		int spellId = player.getInStream().readSignedWordA();
-		if (!player.getItemAssistant().playerHasItem(itemId, 1, slot)) {
-			return;
-		}
-		player.usingMagic = true;
-		player.getPlayerAssistant().magicOnItems(slot, itemId, spellId);
-		player.usingMagic = false;
+  @Override
+  public void processPacket(Client player, int packetType, int packetSize) {
+    int slot = player.getInStream().readSignedWord();
+    int itemId = player.getInStream().readSignedWordA();
+    player.getInStream().readSignedWord();
+    int spellId = player.getInStream().readSignedWordA();
+    if (!player.getItemAssistant().playerHasItem(itemId, 1, slot)) {
+      return;
+    }
+    player.usingMagic = true;
+    player.getPlayerAssistant().magicOnItems(slot, itemId, spellId);
+    player.usingMagic = false;
 
-	}
+  }
 
 }

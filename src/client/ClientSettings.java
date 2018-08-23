@@ -1,6 +1,5 @@
 package client;
 
-
 import java.math.BigInteger;
 
 /**

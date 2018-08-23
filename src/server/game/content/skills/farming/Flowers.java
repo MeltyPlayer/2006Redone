@@ -11,15 +11,15 @@ import server.game.players.Client;
 
 public class Flowers {
 
-	private static final int[] FLOWER_PATCH = { 7847, 7848 };
+  private static final int[] FLOWER_PATCH = { 7847, 7848 };
 
-	public static boolean isFlower(Client player, int objectType) {
-		for (int i = 0; i < FLOWER_PATCH.length; i++) {
-			if (objectType == FLOWER_PATCH[i]) {
-				return true;
-			}
-		}
-		return false;
-	}
+  public static boolean isFlower(Client player, int objectType) {
+    for (int i = 0; i < FLOWER_PATCH.length; i++) {
+      if (objectType == FLOWER_PATCH[i]) {
+        return true;
+      }
+    }
+    return false;
+  }
 
 }

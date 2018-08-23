@@ -12,23 +12,22 @@ import server.net.packets.PacketType;
 
 public class ItemClick2 implements PacketType {
 
-	@Override
-	public void processPacket(Client c, int packetType, int packetSize) {
-		int itemId = c.getInStream().readSignedWordA();
+  @Override
+  public void processPacket(Client c, int packetType, int packetSize) {
+    int itemId = c.getInStream().readSignedWordA();
 
-		if (!c.getItemAssistant().playerHasItem(itemId, 1)) {
-			return;
-		}
+    if (!c.getItemAssistant().playerHasItem(itemId, 1)) {
+      return;
+    }
 
-		if (HandleEmpty.canEmpty(c, itemId)) {
-			HandleEmpty.handleEmptyItem(c, itemId,
-					HandleEmpty.filledToEmpty(c, itemId));
-			return;
-		}
+    if (HandleEmpty.canEmpty(c, itemId)) {
+      HandleEmpty.handleEmptyItem(c, itemId, HandleEmpty.filledToEmpty(c, itemId));
+      return;
+    }
 
-		switch (itemId) {
-		}
+    switch (itemId) {
+    }
 
-	}
+  }
 
 }

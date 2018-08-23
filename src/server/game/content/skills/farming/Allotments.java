@@ -11,16 +11,16 @@ import server.game.players.Client;
 
 public class Allotments {
 
-	private static final int[] ALLOTMENT = { 8550, 8551, 8552, 8553 };
+  private static final int[] ALLOTMENT = { 8550, 8551, 8552, 8553 };
 
-	public static boolean isAllotment(Client player, int objectType) {
-		for (int i = 0; i < ALLOTMENT.length; i++) {
-			if (objectType == ALLOTMENT[i]) {
-				return true;
-			}
-		}
-		return false;
+  public static boolean isAllotment(Client player, int objectType) {
+    for (int i = 0; i < ALLOTMENT.length; i++) {
+      if (objectType == ALLOTMENT[i]) {
+        return true;
+      }
+    }
+    return false;
 
-	}
+  }
 
 }

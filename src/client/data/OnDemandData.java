@@ -1,4 +1,5 @@
 package client.data;
+
 public final class OnDemandData extends NodeSub {
 
   public OnDemandData() {

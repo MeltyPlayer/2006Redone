@@ -1,6 +1,5 @@
 package client;
 
-
 /* InputStream_Sub1 - Decompiled by JODE
  * Visit http://jode.sourceforge.net/
  */

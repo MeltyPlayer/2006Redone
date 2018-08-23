@@ -2,12 +2,12 @@ package server.game.npcs;
 
 public class NpcList {
 
-	public int npcId;
-	public String npcName;
-	public int npcCombat;
-	public int npcHealth;
+  public int npcId;
+  public String npcName;
+  public int npcCombat;
+  public int npcHealth;
 
-	public NpcList(int _npcId) {
-		npcId = _npcId;
-	}
+  public NpcList(int _npcId) {
+    npcId = _npcId;
+  }
 }
