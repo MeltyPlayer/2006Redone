@@ -1,35 +1,37 @@
+package client;
+
 import client.network.Stream;
 
-final class Class11 {
+public final class Class11 {
   private static byte[] aByteArray210 = { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2,
       2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 1, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
   private Stream aClass3_Sub12_211 = new Stream(null);
   private int[] anIntArray212;
-  int anInt213;
+  public int anInt213;
   private int[] anIntArray214;
   private long aLong215;
-  int[] anIntArray216;
+  public int[] anIntArray216;
   private int[] anIntArray217;
   private int anInt218;
 
-  final void method520(int i) {
+  public final void method520(int i) {
     int i_0_ = aClass3_Sub12_211.method428();
     anIntArray216[i] += i_0_;
   }
 
-  final boolean method521() {
+  public final boolean method521() {
     if (aClass3_Sub12_211.currentOffset >= 0)
       return false;
     return true;
   }
 
-  final void method522(int i) {
+  public final void method522(int i) {
     anIntArray214[i] = aClass3_Sub12_211.currentOffset;
   }
 
-  final void method523() {
+  public final void method523() {
     aClass3_Sub12_211.buffer = null;
     anIntArray217 = null;
     anIntArray214 = null;
@@ -61,7 +63,7 @@ final class Class11 {
     return method535(i, i_1_);
   }
 
-  final void method525(byte[] is) {
+  public final void method525(byte[] is) {
     aClass3_Sub12_211.buffer = is;
     aClass3_Sub12_211.currentOffset = 10;
     int i = aClass3_Sub12_211.readUnsignedWord();
@@ -83,21 +85,21 @@ final class Class11 {
     anIntArray212 = new int[i];
   }
 
-  final void method526(int i) {
+  public final void method526(int i) {
     aClass3_Sub12_211.currentOffset = anIntArray214[i];
   }
 
-  final boolean method527() {
+  public final boolean method527() {
     if (aClass3_Sub12_211.buffer == null)
       return false;
     return true;
   }
 
-  final void method528() {
+  public final void method528() {
     aClass3_Sub12_211.currentOffset = -1;
   }
 
-  final int method529(int i) {
+  public final int method529(int i) {
     int i_7_ = method524(i);
     return i_7_;
   }
@@ -106,7 +108,7 @@ final class Class11 {
     aByteArray210 = null;
   }
 
-  final boolean method531() {
+  public final boolean method531() {
     int i = anIntArray214.length;
     for (int i_8_ = 0; i_8_ < i; i_8_++) {
       if (anIntArray214[i_8_] >= 0)
@@ -115,15 +117,15 @@ final class Class11 {
     return true;
   }
 
-  final long method532(int i) {
+  public final long method532(int i) {
     return aLong215 + (long) i * (long) anInt218;
   }
 
-  final int method533() {
+  public final int method533() {
     return anIntArray214.length;
   }
 
-  final void method534(long l) {
+  public final void method534(long l) {
     aLong215 = l;
     int i = anIntArray214.length;
     for (int i_9_ = 0; i_9_ < i; i_9_++) {
@@ -164,7 +166,7 @@ final class Class11 {
     return i_16_;
   }
 
-  final int method536() {
+  public final int method536() {
     int i = anIntArray214.length;
     int i_17_ = -1;
     int i_18_ = 2147483647;

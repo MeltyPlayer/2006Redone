@@ -1,3 +1,5 @@
+
+import client.Class11;
 import client.Runnable_Impl1;
 
 final class Class56_Sub1_Sub2 extends Class56_Sub1 implements Runnable {

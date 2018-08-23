@@ -1,3 +1,4 @@
+package client.world;
 import client.data.NodeList;
 import client.entity.Object1;
 import client.entity.Object2;
@@ -10,13 +11,11 @@ import client.model.Class43;
 import client.model.Model;
 import client.ui.DrawingArea;
 import client.ui.Texture;
-import client.world.Class40;
-import client.world.Class47;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-final class WorldController {
+public final class WorldController {
 
   public WorldController(int ai[][][]) {
     int i = 104;// was parameter

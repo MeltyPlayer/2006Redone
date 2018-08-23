@@ -1,3 +1,4 @@
+package client.world;
 import client.data.Node;
 import client.entity.Object1;
 import client.entity.Object2;
@@ -5,7 +6,6 @@ import client.entity.Object3;
 import client.entity.Object4;
 import client.entity.Object5;
 import client.model.Class43;
-import client.world.Class40;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 

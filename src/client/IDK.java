@@ -1,3 +1,4 @@
+package client;
 import client.model.Model;
 import client.network.Stream;
 import client.network.StreamLoader;

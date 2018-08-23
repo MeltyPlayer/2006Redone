@@ -1,3 +1,4 @@
+package client.ui;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
@@ -10,8 +11,6 @@ import java.awt.image.PixelGrabber;
 
 import client.network.Stream;
 import client.network.StreamLoader;
-import client.ui.Background;
-import client.ui.DrawingArea;
 
 public final class Sprite extends DrawingArea {
 

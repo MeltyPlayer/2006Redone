@@ -1,10 +1,11 @@
+package client.entity;
 import client.model.Animable;
 import client.model.Model;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-final class Item extends Animable {
+public final class Item extends Animable {
 
   @Override
   public final Model getRotatedModel() {

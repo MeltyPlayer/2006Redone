@@ -1,6 +1,8 @@
 
+import client.IDK;
 import client.data.MRUNodes;
 import client.entity.Entity;
+import client.entity.ItemDef;
 import client.model.Animation;
 import client.model.Class36;
 import client.model.Model;

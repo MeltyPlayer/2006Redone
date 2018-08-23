@@ -4,6 +4,7 @@ import client.model.Animable;
 import client.model.Model;
 import client.network.Stream;
 import client.ui.Texture;
+import client.world.WorldController;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3)

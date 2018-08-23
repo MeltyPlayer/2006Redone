@@ -1,8 +1,10 @@
+package client.entity;
 import client.data.MRUNodes;
 import client.model.Model;
 import client.network.Stream;
 import client.network.StreamLoader;
 import client.ui.DrawingArea;
+import client.ui.Sprite;
 import client.ui.Texture;
 
 // Jad home page: http://www.kpdus.com/jad.html
@@ -2369,7 +2371,7 @@ public final class ItemDef {
   public int value;
   private int[] modifiedModelColors;
   public int id;
-  static MRUNodes mruNodes1 = new MRUNodes(100);
+  public static MRUNodes mruNodes1 = new MRUNodes(100);
   public static MRUNodes mruNodes2 = new MRUNodes(50);
   private int[] originalModelColors;
   public boolean membersObject;

@@ -1,10 +1,10 @@
-import client.audio.Class6;
+package client.audio;
 import client.network.Stream;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-final class Sounds {
+public final class Sounds {
 
   private Sounds() {
     aClass6Array329 = new Class6[10];

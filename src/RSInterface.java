@@ -1,9 +1,12 @@
+
 import client.ClientSettings;
 import client.data.MRUNodes;
+import client.entity.ItemDef;
 import client.model.Class36;
 import client.model.Model;
 import client.network.Stream;
 import client.network.StreamLoader;
+import client.ui.Sprite;
 import client.ui.TextClass;
 import client.ui.TextDrawingArea;
 

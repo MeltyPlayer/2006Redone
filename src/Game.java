@@ -21,21 +21,26 @@ import java.util.Calendar;
 import java.util.Date;
 
 import client.Censor;
+import client.Class30_Sub1;
 import client.Class56;
 import client.ClientSettings;
 import client.CollisionMap;
 import client.Decompressor;
 import client.DummyClass;
+import client.IDK;
 import client.ISAACRandomGen;
 import client.Signlink;
 import client.SizeConstants;
 import client.VarBit;
 import client.Varp;
 import client.audio.SoundPlayer;
+import client.audio.Sounds;
 import client.data.Node;
 import client.data.NodeList;
 import client.data.OnDemandData;
 import client.entity.Entity;
+import client.entity.Item;
+import client.entity.ItemDef;
 import client.entity.Object1;
 import client.entity.Object2;
 import client.entity.Object3;
@@ -54,10 +59,12 @@ import client.player.Skills;
 import client.ui.Background;
 import client.ui.DrawingArea;
 import client.ui.RSImageProducer;
+import client.ui.Sprite;
 import client.ui.TextClass;
 import client.ui.TextDrawingArea;
 import client.ui.TextInput;
 import client.ui.Texture;
+import client.world.WorldController;
 
 @SuppressWarnings("serial")
 public class Game extends RSApplet {
