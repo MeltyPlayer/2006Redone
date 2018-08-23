@@ -1,5 +1,5 @@
+package client.data;
 import client.Signlink;
-import client.data.Node;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 

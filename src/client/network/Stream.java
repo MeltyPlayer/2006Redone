@@ -1,3 +1,4 @@
+package client.network;
 
 
 // Jad home page: http://www.kpdus.com/jad.html
@@ -8,6 +9,7 @@ import java.math.BigInteger;
 import client.ClientSettings;
 import client.ISAACRandomGen;
 import client.Signlink;
+import client.data.NodeList;
 import client.data.NodeSub;
 
 public final class Stream extends NodeSub {

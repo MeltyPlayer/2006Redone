@@ -1,4 +1,4 @@
-
+import client.network.Stream;
 
 final class Class11 {
   private static byte[] aByteArray210 = { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,

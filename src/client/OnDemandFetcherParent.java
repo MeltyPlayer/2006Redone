@@ -1,3 +1,4 @@
+package client;
 
 
 // Jad home page: http://www.kpdus.com/jad.html
@@ -8,7 +9,7 @@ public class OnDemandFetcherParent {
   public void method548(int i) {
   }
 
-  OnDemandFetcherParent() {
+  public OnDemandFetcherParent() {
   }
 
 }

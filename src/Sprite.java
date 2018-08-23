@@ -9,6 +9,9 @@ import java.awt.MediaTracker;
 import java.awt.Toolkit;
 import java.awt.image.PixelGrabber;
 
+import client.network.Stream;
+import client.ui.DrawingArea;
+
 public final class Sprite extends DrawingArea {
 
   public Sprite(int i, int j) {

@@ -1,4 +1,5 @@
-
+import client.data.MRUNodes;
+import client.network.Stream;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 

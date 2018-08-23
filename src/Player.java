@@ -1,3 +1,5 @@
+import client.data.MRUNodes;
+import client.network.Stream;
 import client.ui.TextClass;
 
 // Jad home page: http://www.kpdus.com/jad.html

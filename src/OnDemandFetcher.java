@@ -1,5 +1,7 @@
 
 
+
+
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
@@ -11,8 +13,12 @@ import java.net.Socket;
 import java.util.zip.CRC32;
 import java.util.zip.GZIPInputStream;
 
+import client.OnDemandFetcherParent;
 import client.Signlink;
+import client.data.NodeList;
 import client.data.NodeSubList;
+import client.data.OnDemandData;
+import client.network.Stream;
 
 public final class OnDemandFetcher extends OnDemandFetcherParent implements Runnable {
 
@@ -26,7 +32,7 @@ public final class OnDemandFetcher extends OnDemandFetcherParent implements Runn
    * }
    */
 
-  // XXX: Fixed and refactored the crcMatches method. - Ryley
+  // XXX: Fixed anod refactored the crcMatches method. - Ryley
   private boolean crcMatches(int type, int id, byte[] data) {
     if (data == null || data.length < 2) {
       return false;

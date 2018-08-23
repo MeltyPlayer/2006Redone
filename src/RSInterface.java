@@ -1,4 +1,6 @@
 import client.ClientSettings;
+import client.data.MRUNodes;
+import client.network.Stream;
 import client.ui.TextClass;
 
 public final class RSInterface {

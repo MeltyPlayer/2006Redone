@@ -4,8 +4,8 @@ character-password =
 
 [CHARACTER]
 character-height = 0
-character-posx = 3097
-character-posy = 3107
+character-posx = 3100
+character-posy = 3093
 character-rights = 0
 hasStarter = false
 bankPin1 = 0
@@ -15,7 +15,7 @@ bankPin4 = 0
 hasBankpin = false
 pinRegisteredDeleteDay = 0
 requestPinDelete = false
-lastLoginDate = 20180721
+lastLoginDate = 20180722
 setPin = false
 hasPaid = false
 lostCannon = false
@@ -52,11 +52,11 @@ SlayerMaster = 0
 music = false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	true	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	false	
 randomActions = 0
 blackMarks = 0
-tutorial-progress = 2
+tutorial-progress = 3
 skull-timer = 0
 recoilHits = 0
-lastX = 3097
-lastY = 3107
+lastX = 3100
+lastY = 3093
 lastH = 0
 removedTask0 = -1
 removedTask1 = -1
@@ -70,7 +70,7 @@ membership = false
 questPoints = 0
 bananas = 0
 magic-book = 0
-special-amount = 2.0
+special-amount = 3.0
 musicOn = true
 needsNewTask = false
 luthas = false
@@ -166,6 +166,8 @@ character-skill = 23	1	0
 character-skill = 24	1	0
 
 [ITEMS]
+character-item = 0	591	1
+character-item = 1	1352	1
 
 [BANK]
 

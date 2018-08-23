@@ -1,3 +1,4 @@
+package client.ui;
 import client.data.NodeSub;
 
 // Jad home page: http://www.kpdus.com/jad.html
@@ -217,7 +218,7 @@ public class DrawingArea extends NodeSub {
 
   }
 
-  DrawingArea() {
+  public DrawingArea() {
   }
 
   public static int pixels[];

@@ -5,6 +5,9 @@
 
 import java.util.Random;
 
+import client.network.Stream;
+import client.ui.DrawingArea;
+
 public final class TextDrawingArea extends DrawingArea {
 
   public TextDrawingArea(boolean flag, String s, StreamLoader streamLoader) {
