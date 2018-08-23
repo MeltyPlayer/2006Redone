@@ -1,9 +1,10 @@
+package client.audio;
 import client.network.Stream;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-final class Class29 {
+public final class Class29 {
 
   public void method325(Stream stream) {
     anInt540 = stream.readUnsignedByte();
@@ -23,7 +24,7 @@ final class Class29 {
 
   }
 
-  void resetValues() {
+  public void resetValues() {
     anInt541 = 0;
     anInt542 = 0;
     anInt543 = 0;
@@ -31,7 +32,7 @@ final class Class29 {
     anInt545 = 0;
   }
 
-  int method328(int i) {
+  public int method328(int i) {
     if (anInt545 >= anInt541) {
       anInt544 = anIntArray537[anInt542++] << 15;
       if (anInt542 >= anInt535) {
@@ -53,9 +54,9 @@ final class Class29 {
   private int anInt535;
   private int[] anIntArray536;
   private int[] anIntArray537;
-  int anInt538;
-  int anInt539;
-  int anInt540;
+  public int anInt538;
+  public int anInt539;
+  public int anInt540;
   private int anInt541;
   private int anInt542;
   private int anInt543;

@@ -7,6 +7,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
+import client.network.RsSocket;
+
 public final class RsNetworkSocket implements RsSocket {
 
   public RsNetworkSocket(RSApplet RSApplet_, Socket socket1) throws IOException {

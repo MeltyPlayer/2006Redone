@@ -1,3 +1,10 @@
+
+import client.entity.Entity;
+import client.model.Animation;
+import client.model.Class36;
+import client.model.Model;
+import client.model.SpotAnim;
+
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 

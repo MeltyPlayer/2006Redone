@@ -1,5 +1,7 @@
 import client.Class4;
 import client.CollisionMap;
+import client.model.Animable;
+import client.model.Model;
 import client.network.Stream;
 import client.ui.Texture;
 

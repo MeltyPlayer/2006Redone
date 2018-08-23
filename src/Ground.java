@@ -1,4 +1,9 @@
 import client.data.Node;
+import client.entity.Object1;
+import client.entity.Object2;
+import client.entity.Object3;
+import client.entity.Object4;
+import client.entity.Object5;
 import client.model.Class43;
 import client.world.Class40;
 

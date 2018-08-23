@@ -1,6 +1,13 @@
 import client.data.NodeList;
+import client.entity.Object1;
+import client.entity.Object2;
+import client.entity.Object3;
+import client.entity.Object4;
+import client.entity.Object5;
+import client.model.Animable;
 import client.model.Class33;
 import client.model.Class43;
+import client.model.Model;
 import client.ui.DrawingArea;
 import client.ui.Texture;
 import client.world.Class40;

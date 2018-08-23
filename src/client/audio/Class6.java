@@ -1,9 +1,10 @@
+package client.audio;
 import client.network.Stream;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-final class Class6 {
+public final class Class6 {
 
   public static void method166() {
     anIntArray116 = new int[32768];
@@ -293,8 +294,8 @@ final class Class6 {
   private int anInt110;
   private Class39 aClass39_111;
   private Class29 aClass29_112;
-  int anInt113;
-  int anInt114;
+  public int anInt113;
+  public int anInt114;
   private static int[] anIntArray115;
   private static int[] anIntArray116;
   private static int[] anIntArray117;

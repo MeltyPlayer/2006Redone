@@ -1,3 +1,8 @@
+package client.entity;
+
+import client.model.Animable;
+import client.model.Animation;
+
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
@@ -106,7 +111,7 @@ public class Entity extends Animable {
     return false;
   }
 
-  Entity() {
+  public Entity() {
     smallX = new int[10];
     smallY = new int[10];
     interactingEntity = -1;
@@ -135,56 +140,56 @@ public class Entity extends Animable {
   public final int[] smallX;
   public final int[] smallY;
   public int interactingEntity;
-  int anInt1503;
-  int anInt1504;
-  int anInt1505;
+  public int anInt1503;
+  public int anInt1504;
+  public int anInt1505;
   public String textSpoken;
   public int height;
   public int turnDirection;
-  int anInt1511;
-  int anInt1512;
-  int anInt1513;
-  final int[] hitArray;
-  final int[] hitMarkTypes;
-  final int[] hitsLoopCycle;
-  int anInt1517;
-  int anInt1518;
-  int anInt1519;
-  int anInt1520;
-  int anInt1521;
-  int anInt1522;
-  int anInt1523;
-  int anInt1524;
-  int smallXYIndex;
+  public int anInt1511;
+  public int anInt1512;
+  public int anInt1513;
+  public final int[] hitArray;
+  public final int[] hitMarkTypes;
+  public final int[] hitsLoopCycle;
+  public int anInt1517;
+  public int anInt1518;
+  public int anInt1519;
+  public int anInt1520;
+  public int anInt1521;
+  public int anInt1522;
+  public int anInt1523;
+  public int anInt1524;
+  public int smallXYIndex;
   public int anim;
-  int anInt1527;
-  int anInt1528;
-  int anInt1529;
-  int anInt1530;
-  int anInt1531;
+  public int anInt1527;
+  public int anInt1528;
+  public int anInt1529;
+  public int anInt1530;
+  public int anInt1531;
   public int loopCycleStatus;
   public int currentHealth;
   public int maxHealth;
-  int textCycle;
-  int anInt1537;
-  int anInt1538;
-  int anInt1539;
-  int anInt1540;
-  boolean aBoolean1541;
-  int anInt1542;
-  int anInt1543;
-  int anInt1544;
-  int anInt1545;
-  int anInt1546;
-  int anInt1547;
-  int anInt1548;
-  int anInt1549;
+  public int textCycle;
+  public int anInt1537;
+  public int anInt1538;
+  public int anInt1539;
+  public int anInt1540;
+  public boolean aBoolean1541;
+  public int anInt1542;
+  public int anInt1543;
+  public int anInt1544;
+  public int anInt1545;
+  public int anInt1546;
+  public int anInt1547;
+  public int anInt1548;
+  public int anInt1549;
   public int x;
   public int y;
-  int anInt1552;
-  final boolean[] aBooleanArray1553;
-  int anInt1554;
-  int anInt1555;
-  int anInt1556;
-  int anInt1557;
+  public int anInt1552;
+  public final boolean[] aBooleanArray1553;
+  public int anInt1554;
+  public int anInt1555;
+  public int anInt1556;
+  public int anInt1557;
 }

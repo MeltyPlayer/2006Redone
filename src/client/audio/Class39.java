@@ -1,9 +1,10 @@
+package client.audio;
 import client.network.Stream;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-final class Class39 {
+public final class Class39 {
 
   private float method541(int i, int j, float f) {
     float f1 = anIntArrayArrayArray667[i][0][j]
@@ -108,13 +109,13 @@ final class Class39 {
     anIntArray668 = new int[2];
   }
 
-  final int[] anIntArray665;
+  public final int[] anIntArray665;
   private final int[][][] anIntArrayArrayArray666;
   private final int[][][] anIntArrayArrayArray667;
   private final int[] anIntArray668;
   private static final float[][] aFloatArrayArray669 = new float[2][8];
-  static final int[][] anIntArrayArray670 = new int[2][8];
+  public static final int[][] anIntArrayArray670 = new int[2][8];
   private static float aFloat671;
-  static int anInt672;
+  public static int anInt672;
 
 }

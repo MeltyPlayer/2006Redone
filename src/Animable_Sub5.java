@@ -1,4 +1,7 @@
 import client.VarBit;
+import client.model.Animable;
+import client.model.Animation;
+import client.model.Model;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 

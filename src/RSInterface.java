@@ -1,5 +1,7 @@
 import client.ClientSettings;
 import client.data.MRUNodes;
+import client.model.Class36;
+import client.model.Model;
 import client.network.Stream;
 import client.network.StreamLoader;
 import client.ui.TextClass;

@@ -1,4 +1,10 @@
+
 import client.data.MRUNodes;
+import client.entity.Entity;
+import client.model.Animation;
+import client.model.Class36;
+import client.model.Model;
+import client.model.SpotAnim;
 import client.network.Stream;
 import client.ui.TextClass;
 

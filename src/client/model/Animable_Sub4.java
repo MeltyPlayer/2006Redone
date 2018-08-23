@@ -1,7 +1,8 @@
+package client.model;
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 
-final class Animable_Sub4 extends Animable {
+public final class Animable_Sub4 extends Animable {
 
   public void method455(int i, int j, int k, int l) {
     if (!aBoolean1579) {

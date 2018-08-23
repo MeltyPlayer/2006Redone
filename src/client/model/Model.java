@@ -1,7 +1,6 @@
+package client.model;
 
 import client.OnDemandFetcherParent;
-import client.model.Class21;
-import client.model.Class33;
 import client.network.Stream;
 import client.ui.DrawingArea;
 import client.ui.Texture;
@@ -1892,7 +1891,7 @@ public final class Model extends Animable {
   public int anIntArrayArray1657[][];
   public int anIntArrayArray1658[][];
   public boolean aBoolean1659;
-  Class33 aClass33Array1660[];
+  public Class33 aClass33Array1660[];
   private static Class21[] aClass21Array1661;
   private static OnDemandFetcherParent aOnDemandFetcherParent_1662;
   private static boolean[] aBooleanArray1663 = new boolean[4096];

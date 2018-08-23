@@ -1,6 +1,6 @@
+package client.model;
 
 import client.data.NodeSub;
-import client.model.Class33;
 
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
@@ -15,14 +15,14 @@ public class Animable extends NodeSub {
     }
   }
 
-  Model getRotatedModel() {
+  public Model getRotatedModel() {
     return null;
   }
 
-  Animable() {
+  public Animable() {
     modelHeight = 1000;
   }
 
-  Class33 aClass33Array1425[];
+  public Class33 aClass33Array1425[];
   public int modelHeight;
 }

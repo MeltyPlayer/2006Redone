@@ -1,3 +1,6 @@
+import client.model.Animable;
+import client.model.Model;
+
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 

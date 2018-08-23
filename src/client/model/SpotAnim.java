@@ -1,3 +1,4 @@
+package client.model;
 import client.data.MRUNodes;
 import client.network.Stream;
 import client.network.StreamLoader;
