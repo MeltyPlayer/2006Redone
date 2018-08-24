@@ -169,7 +169,7 @@ public abstract class Player {
 
   public abstract void updateWalkEntities();
 
-  public boolean membership = false, awardedmembership = false;
+  public boolean membership = true, awardedmembership = false;
   public Client teleporter = null;
   public int[] miningSettings = new int[10];
   public int[] fishingProp = new int[13];
