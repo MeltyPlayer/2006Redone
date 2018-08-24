@@ -30,6 +30,106 @@ public final class Stream extends NodeSub {
     stream_1.buffer = new byte[5000];
     return stream_1;
   }
+  
+  public void method424(int i) {
+    buffer[currentOffset++] = (byte) -i;
+  }
+
+  public void method425(int j) {
+    buffer[currentOffset++] = (byte) (128 - j);
+  }
+
+  public int readUnsignedByteA() {
+    return buffer[currentOffset++] - 128 & 0xff;
+  }
+
+  public int method427() {
+    return -buffer[currentOffset++] & 0xff;
+  }
+
+  public int method428() {
+    return 128 - buffer[currentOffset++] & 0xff;
+  }
+
+  public byte method429() {
+    return (byte) -buffer[currentOffset++];
+  }
+
+  public byte method430() {
+    return (byte) (128 - buffer[currentOffset++]);
+  }
+
+  public void method441(int i, byte abyte0[], int j) {
+    for (int k = i + j - 1; k >= i; k--) {
+      buffer[currentOffset++] = (byte) (abyte0[k] + 128);
+    }
+  }
+
+  public void method442(int i, int j, byte abyte0[]) {
+    for (int k = j + i - 1; k >= j; k--) {
+      abyte0[k] = buffer[currentOffset++];
+    }
+  }
+
+  public int method437() {
+    currentOffset += 2;
+    int j = ((buffer[currentOffset - 1] & 0xff) << 8) + (buffer[currentOffset - 2] & 0xff);
+    if (j > 32767) {
+      j -= 0x10000;
+    }
+    return j;
+  }
+
+  public int method438() {
+    currentOffset += 2;
+    int j = ((buffer[currentOffset - 1] & 0xff) << 8) + (buffer[currentOffset - 2] - 128 & 0xff);
+    if (j > 32767) {
+      j -= 0x10000;
+    }
+    return j;
+  }
+
+  public int method434() {
+    currentOffset += 2;
+    return ((buffer[currentOffset - 1] & 0xff) << 8) + (buffer[currentOffset - 2] & 0xff);
+  }
+
+  public int method435() {
+    currentOffset += 2;
+    return ((buffer[currentOffset - 2] & 0xff) << 8) + (buffer[currentOffset - 1] - 128 & 0xff);
+  }
+
+  public int method436() {
+    currentOffset += 2;
+    return ((buffer[currentOffset - 1] & 0xff) << 8) + (buffer[currentOffset - 2] - 128 & 0xff);
+  }
+
+  public void method433(int j) {
+    buffer[currentOffset++] = (byte) (j + 128);
+    buffer[currentOffset++] = (byte) (j >> 8);
+  }
+  
+  public void method432(int j) {
+    buffer[currentOffset++] = (byte) (j >> 8);
+    buffer[currentOffset++] = (byte) (j + 128);
+  }
+
+  public void method431(int i) {
+    buffer[currentOffset++] = (byte) i;
+    buffer[currentOffset++] = (byte) (i >> 8);
+  }
+
+  public int method439() {
+    currentOffset += 4;
+    return ((buffer[currentOffset - 2] & 0xff) << 24) + ((buffer[currentOffset - 1] & 0xff) << 16)
+        + ((buffer[currentOffset - 4] & 0xff) << 8) + (buffer[currentOffset - 3] & 0xff);
+  }
+
+  public int method440() {
+    currentOffset += 4;
+    return ((buffer[currentOffset - 3] & 0xff) << 24) + ((buffer[currentOffset - 4] & 0xff) << 16)
+        + ((buffer[currentOffset - 1] & 0xff) << 8) + (buffer[currentOffset - 2] & 0xff);
+  }
 
   public int method426() {
     return buffer[currentOffset++] - 128 & 0xff;
@@ -105,7 +205,6 @@ public final class Stream extends NodeSub {
     for (int k = j; k < j + i; k++) {
       buffer[currentOffset++] = abyte0[k];
     }
-
   }
 
   public void writeBytes(int i) {
@@ -230,108 +329,6 @@ public final class Stream extends NodeSub {
     currentOffset = 0;
     writeWordBigEndian(abyte1.length);
     writeBytes(abyte1, abyte1.length, 0);
-  }
-
-  public void method424(int i) {
-    buffer[currentOffset++] = (byte) -i;
-  }
-
-  public void method425(int j) {
-    buffer[currentOffset++] = (byte) (128 - j);
-  }
-
-  public int readUnsignedByteA() {
-    return buffer[currentOffset++] - 128 & 0xff;
-  }
-
-  public int method427() {
-    return -buffer[currentOffset++] & 0xff;
-  }
-
-  public int method428() {
-    return 128 - buffer[currentOffset++] & 0xff;
-  }
-
-  public byte method429() {
-    return (byte) -buffer[currentOffset++];
-  }
-
-  public byte method430() {
-    return (byte) (128 - buffer[currentOffset++]);
-  }
-
-  public void method431(int i) {
-    buffer[currentOffset++] = (byte) i;
-    buffer[currentOffset++] = (byte) (i >> 8);
-  }
-
-  public void method432(int j) {
-    buffer[currentOffset++] = (byte) (j >> 8);
-    buffer[currentOffset++] = (byte) (j + 128);
-  }
-
-  public void method433(int j) {
-    buffer[currentOffset++] = (byte) (j + 128);
-    buffer[currentOffset++] = (byte) (j >> 8);
-  }
-
-  public int method434() {
-    currentOffset += 2;
-    return ((buffer[currentOffset - 1] & 0xff) << 8) + (buffer[currentOffset - 2] & 0xff);
-  }
-
-  public int method435() {
-    currentOffset += 2;
-    return ((buffer[currentOffset - 2] & 0xff) << 8) + (buffer[currentOffset - 1] - 128 & 0xff);
-  }
-
-  public int method436() {
-    currentOffset += 2;
-    return ((buffer[currentOffset - 1] & 0xff) << 8) + (buffer[currentOffset - 2] - 128 & 0xff);
-  }
-
-  public int method437() {
-    currentOffset += 2;
-    int j = ((buffer[currentOffset - 1] & 0xff) << 8) + (buffer[currentOffset - 2] & 0xff);
-    if (j > 32767) {
-      j -= 0x10000;
-    }
-    return j;
-  }
-
-  public int method438() {
-    currentOffset += 2;
-    int j = ((buffer[currentOffset - 1] & 0xff) << 8) + (buffer[currentOffset - 2] - 128 & 0xff);
-    if (j > 32767) {
-      j -= 0x10000;
-    }
-    return j;
-  }
-
-  public int method439() {
-    currentOffset += 4;
-    return ((buffer[currentOffset - 2] & 0xff) << 24) + ((buffer[currentOffset - 1] & 0xff) << 16)
-        + ((buffer[currentOffset - 4] & 0xff) << 8) + (buffer[currentOffset - 3] & 0xff);
-  }
-
-  public int method440() {
-    currentOffset += 4;
-    return ((buffer[currentOffset - 3] & 0xff) << 24) + ((buffer[currentOffset - 4] & 0xff) << 16)
-        + ((buffer[currentOffset - 1] & 0xff) << 8) + (buffer[currentOffset - 2] & 0xff);
-  }
-
-  public void method441(int i, byte abyte0[], int j) {
-    for (int k = i + j - 1; k >= i; k--) {
-      buffer[currentOffset++] = (byte) (abyte0[k] + 128);
-    }
-
-  }
-
-  public void method442(int i, int j, byte abyte0[]) {
-    for (int k = j + i - 1; k >= j; k--) {
-      abyte0[k] = buffer[currentOffset++];
-    }
-
   }
 
   public byte buffer[];

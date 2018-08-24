@@ -149,7 +149,6 @@ public class Stream {
     for (int k = j + i - 1; k >= j; k--) {
       abyte0[k] = buffer[currentOffset++];
     }
-
   }
 
   public void writeBytes_reverse(byte abyte0[], int i, int j) {
@@ -157,7 +156,6 @@ public class Stream {
     for (int k = j + i - 1; k >= j; k--) {
       buffer[currentOffset++] = abyte0[k];
     }
-
   }
 
   public void readBytes_reverseA(byte abyte0[], int i, int j) {
@@ -165,7 +163,6 @@ public class Stream {
     for (int k = j + i - 1; k >= j; k--) {
       abyte0[k] = (byte) (buffer[currentOffset++] - 128);
     }
-
   }
 
   public void writeBytes_reverseA(byte abyte0[], int i, int j) {
@@ -173,7 +170,6 @@ public class Stream {
     for (int k = j + i - 1; k >= j; k--) {
       buffer[currentOffset++] = (byte) (abyte0[k] + 128);
     }
-
   }
 
   public void createFrame(int id) {
@@ -332,7 +328,7 @@ public class Stream {
     return (l << 32) + l1;
   }
 
-  public java.lang.String readString() {
+  public String readString() {
     int i = currentOffset;
     while (buffer[currentOffset++] != 10) {
       ;
@@ -344,7 +340,6 @@ public class Stream {
     for (int k = j; k < j + i; k++) {
       abyte0[k] = buffer[currentOffset++];
     }
-
   }
 
   public void initBitAccess() {
@@ -408,5 +403,4 @@ public class Stream {
   }
 
   public ISAACRandomGen packetEncryption = null;
-
 }
