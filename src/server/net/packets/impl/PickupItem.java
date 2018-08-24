@@ -30,10 +30,11 @@ public class PickupItem implements PacketType {
       player.resetWalkingQueue();
       return;
     }
-    if (!Server.itemHandler.itemExists(player.pItemId, player.pItemX, player.pItemY)) {
+    // TODO: Doesn't seem to be necessary.
+    /*if (!Server.itemHandler.itemExists(player.pItemId, player.pItemX, player.pItemY)) {
       player.stopMovement();
       return;
-    }
+    }*/
     player.getCombatAssistant().resetPlayerAttack();
     if (player.stopPlayerPacket) {
       return;
