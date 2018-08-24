@@ -7,6 +7,7 @@ import org.apache.mina.common.IoAcceptor;
 import org.apache.mina.transport.socket.nio.SocketAcceptor;
 import org.apache.mina.transport.socket.nio.SocketAcceptorConfig;
 
+import common.CommonConstants;
 import server.event.CycleEventHandler;
 import server.event.TaskScheduler;
 import server.game.content.minigames.FightCaves;
@@ -107,7 +108,7 @@ public class Server {
 
     throttleFilter = new ConnectionThrottleFilter(Constants.CONNECTION_DELAY);
     sac.getFilterChain().addFirst("throttleFilter", throttleFilter);
-    acceptor.bind(new InetSocketAddress(serverlistenerPort), connectionHandler, sac);
+    acceptor.bind(new InetSocketAddress(CommonConstants.ADDRESS, serverlistenerPort), connectionHandler, sac);
 
     /**
      * Initialise Handlers

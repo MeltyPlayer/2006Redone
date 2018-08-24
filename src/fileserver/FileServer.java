@@ -13,6 +13,7 @@ import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 import org.jboss.netty.util.HashedWheelTimer;
 import org.jboss.netty.util.Timer;
 
+import common.CommonConstants;
 import fileserver.dispatch.RequestWorkerPool;
 import fileserver.net.FileServerHandler;
 import fileserver.net.HttpPipelineFactory;
@@ -101,7 +102,7 @@ public final class FileServer {
    *          The port.
    */
   private void start(String name, ChannelPipelineFactory pipelineFactory, int port) {
-    SocketAddress address = new InetSocketAddress(port);
+    SocketAddress address = new InetSocketAddress(CommonConstants.ADDRESS, port);
 
     logger.info("Binding " + name + " service to " + address + "...");
 

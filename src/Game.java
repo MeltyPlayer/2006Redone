@@ -65,6 +65,7 @@ import client.ui.TextDrawingArea;
 import client.ui.TextInput;
 import client.ui.Texture;
 import client.world.WorldController;
+import common.CommonConstants;
 
 @SuppressWarnings("serial")
 public class Game extends RSApplet {
@@ -537,7 +538,7 @@ public class Game extends RSApplet {
       setHighMem();
       isMembers = true;
       Signlink.storeid = 32;
-      Signlink.startpriv(InetAddress.getLocalHost());
+      Signlink.startpriv(CommonConstants.ADDRESS);
       initClientFrame(503, 765);
     } catch (Exception exception) {
       return;
@@ -559,7 +560,7 @@ public class Game extends RSApplet {
     if (Signlink.mainapp != null) {
       return Signlink.opensocket(i);
     } else {
-      return new Socket(InetAddress.getByName(getCodeBase().getHost()), i);
+      return new Socket(CommonConstants.ADDRESS, i);
     }
   }
 
