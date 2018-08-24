@@ -156,9 +156,10 @@ public class ItemHandler {
           }
         }
       }
-      if (player.isDead == false) {
+      // TODO: Doesn't seem to be needed.
+      /*if (player.isDead == false) {
         return;
-      }
+      }*/
       if (!server.game.items.Item.itemStackable[itemId] && itemAmount > 0) {
         for (int j = 0; j < itemAmount; j++) {
           player.getActionSender().createGroundItem(itemId, itemX, itemY, 1);
