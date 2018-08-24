@@ -1,24 +1,39 @@
+import java.io.IOException;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import fileserver.FileServer;
+import server.Server;
 
-import client.Signlink;
-
-public final class Main {
-
-  public static void main(String[] args) {
-    try {
-      Game game = new Game();
-      Game.nodeID = 10;
-      Game.portOff = 0;
-      Game.setHighMem();
-      Game.isMembers = true;
-      Signlink.storeid = 32;
-      Signlink.startpriv(InetAddress.getLocalHost());
-      game.createClientFrame(503, 765);
-    } catch (UnknownHostException e) {
-      e.printStackTrace();
-    }
+public class Main {
+  public static void main(String args[]) {
+    // TODO: Do this with just a single thread for safety/no need to fire up
+    // server.
+    Thread fileServerThread = new Thread() {
+      @Override
+      public void run() {
+        try {
+          FileServer fileServer = new FileServer();
+          fileServer.start();
+        } catch (Exception e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+        }
+      }
+    };
+    Thread serverThread = new Thread() {
+      @Override
+      public void run() {
+        try {
+          Server server = new Server();
+          server.start();
+        } catch (NullPointerException | IOException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+        }
+      }
+    };
+    Thread clientThread = new Thread(new ClientThread());
+    fileServerThread.start();
+    serverThread.start();
+    clientThread.start();
   }
-
 }

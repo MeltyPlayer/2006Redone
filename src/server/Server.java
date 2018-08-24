@@ -84,7 +84,7 @@ public class Server {
     shutdownServer = false;
   }
 
-  public static void main(java.lang.String args[]) throws NullPointerException, IOException {
+  public void start() throws NullPointerException, IOException {
     if (Constants.SERVER_DEBUG) {
       System.out.println("@@@@ DEBUG MODE IS ENABLED @@@@");
     }
