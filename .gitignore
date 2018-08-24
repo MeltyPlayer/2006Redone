@@ -10,7 +10,7 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-data/characters/*.txt
+data/characters/*
 
 # Package Files #
 bin/*
