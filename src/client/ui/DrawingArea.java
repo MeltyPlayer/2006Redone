@@ -50,7 +50,6 @@ public class DrawingArea extends NodeSub {
     for (int j = 0; j < i; j++) {
       pixels[j] = 0;
     }
-
   }
 
   public static void method335(int i, int j, int k, int l, int i1, int k1) {

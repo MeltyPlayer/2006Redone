@@ -11,6 +11,7 @@
 .mtj.tmp/
 
 data/characters/*
+data/logs/*
 
 # Package Files #
 bin/*

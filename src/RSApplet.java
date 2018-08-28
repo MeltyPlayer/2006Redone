@@ -18,6 +18,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+import client.ui.Constants;
 import client.ui.RSImageProducer;
 
 @SuppressWarnings("serial")
@@ -211,8 +212,8 @@ public class RSApplet extends Applet
     int i = mouseevent.getX();
     int j = mouseevent.getY();
     if (gameFrame != null) {
-      i -= 4;
-      j -= 22;
+      i -= Constants.MARGIN_X;
+      j -= Constants.MARGIN_Y;
     }
     idleTime = 0;
     clickX = i;
@@ -253,8 +254,8 @@ public class RSApplet extends Applet
     int i = mouseevent.getX();
     int j = mouseevent.getY();
     if (gameFrame != null) {
-      i -= 4;
-      j -= 22;
+      i -= Constants.MARGIN_X;
+      j -= Constants.MARGIN_Y;
     }
     idleTime = 0;
     mouseX = i;
@@ -266,8 +267,8 @@ public class RSApplet extends Applet
     int i = mouseevent.getX();
     int j = mouseevent.getY();
     if (gameFrame != null) {
-      i -= 4;
-      j -= 22;
+      i -= Constants.MARGIN_X;
+      j -= Constants.MARGIN_Y;
     }
     idleTime = 0;
     mouseX = i;

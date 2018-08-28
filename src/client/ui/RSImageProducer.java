@@ -14,36 +14,37 @@ import java.awt.image.ImageProducer;
 
 public final class RSImageProducer implements ImageProducer, ImageObserver {
 
-  public RSImageProducer(int i, int j, Component component) {
-    anInt316 = i;
-    anInt317 = j;
-    anIntArray315 = new int[i * j];
-    aColorModel318 = new DirectColorModel(32, 0xff0000, 65280, 255);
+  public RSImageProducer(int width, int height, Component component) {
+    this.width = width;
+    this.height = height;
+    anIntArray315 = new int[width * height];
+    colorModel = new DirectColorModel(32, 0xff0000, 65280, 255);
+    // TODO: Why is this repeated???
     anImage320 = component.createImage(this);
-    method239();
+    transferPixelArrayToImage();
     component.prepareImage(anImage320, this);
-    method239();
+    transferPixelArrayToImage();
     component.prepareImage(anImage320, this);
-    method239();
+    transferPixelArrayToImage();
     component.prepareImage(anImage320, this);
     initDrawingArea();
   }
 
   public void initDrawingArea() {
-    DrawingArea.initDrawingArea(anInt317, anInt316, anIntArray315);
+    DrawingArea.initDrawingArea(height, width, anIntArray315);
   }
 
-  public void drawGraphics(int i, Graphics g, int k) {
-    method239();
-    g.drawImage(anImage320, k, i, this);
+  public void drawGraphics(Graphics g, int x, int y) {
+    transferPixelArrayToImage();
+    g.drawImage(anImage320, x, y, this);
   }
 
   @Override
   public synchronized void addConsumer(ImageConsumer imageconsumer) {
     anImageConsumer319 = imageconsumer;
-    imageconsumer.setDimensions(anInt316, anInt317);
+    imageconsumer.setDimensions(width, height);
     imageconsumer.setProperties(null);
-    imageconsumer.setColorModel(aColorModel318);
+    imageconsumer.setColorModel(colorModel);
     imageconsumer.setHints(14);
   }
 
@@ -69,9 +70,9 @@ public final class RSImageProducer implements ImageProducer, ImageObserver {
     System.out.println("TDLR");
   }
 
-  private synchronized void method239() {
+  private synchronized void transferPixelArrayToImage() {
     if (anImageConsumer319 != null) {
-      anImageConsumer319.setPixels(0, 0, anInt316, anInt317, aColorModel318, anIntArray315, 0, anInt316);
+      anImageConsumer319.setPixels(0, 0, width, height, colorModel, anIntArray315, 0, width);
       anImageConsumer319.imageComplete(2);
     }
   }
@@ -82,9 +83,8 @@ public final class RSImageProducer implements ImageProducer, ImageObserver {
   }
 
   public final int[] anIntArray315;
-  private final int anInt316;
-  private final int anInt317;
-  private final ColorModel aColorModel318;
+  private final int width, height;
+  private final ColorModel colorModel;
   private ImageConsumer anImageConsumer319;
   private final Image anImage320;
 }

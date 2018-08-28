@@ -1,4 +1,5 @@
 import client.Signlink;
+import client.ui.Constants;
 import common.CommonConstants;
 
 public class ClientThread implements Runnable {
@@ -11,6 +12,6 @@ public class ClientThread implements Runnable {
     Game.isMembers = true;
     Signlink.storeid = 32;
     Signlink.startpriv(CommonConstants.ADDRESS);
-    game.createClientFrame(503, 765);
+    game.createClientFrame(Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
   }
 }
