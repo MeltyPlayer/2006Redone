@@ -1,6 +1,6 @@
 package server.game.shops;
 
-import server.Constants;
+import server.ServerConstants;
 import server.game.items.Item;
 import server.game.items.ItemAssistant;
 import server.game.items.ItemDefinitions;
@@ -86,8 +86,8 @@ public class ShopAssistant {
           } else {
             player.getOutStream().writeByte(ShopHandler.ShopItemsN[ShopID][i]);
           }
-          if (ShopHandler.ShopItems[ShopID][i] > Constants.ITEM_LIMIT || ShopHandler.ShopItems[ShopID][i] < 0) {
-            ShopHandler.ShopItems[ShopID][i] = Constants.ITEM_LIMIT;
+          if (ShopHandler.ShopItems[ShopID][i] > ServerConstants.ITEM_LIMIT || ShopHandler.ShopItems[ShopID][i] < 0) {
+            ShopHandler.ShopItems[ShopID][i] = ServerConstants.ITEM_LIMIT;
           }
           player.getOutStream().writeWordBigEndianA(ShopHandler.ShopItems[ShopID][i]);
           TotalCount++;
@@ -104,7 +104,7 @@ public class ShopAssistant {
   public double getItemShopValue(int ItemID, int Type, int fromSlot) {
     double ShopValue = 1;
     double TotPrice = 0;
-    for (int i = 0; i < Constants.ITEM_LIMIT; i++) {
+    for (int i = 0; i < ServerConstants.ITEM_LIMIT; i++) {
       if (ItemDefinitions.getDef()[i] != null) {
         ShopValue = (int) ItemDefinitions.getDef()[ItemID].highAlch / 3 * 5;
         // ShopValue = (int) ItemDefinitions.getDef()[ItemID].shopValue;
@@ -281,7 +281,7 @@ public class ShopAssistant {
    * Sell item to shop (Shop Price)
    **/
   public void sellToShopPrice(int removeId, int removeSlot) {
-    for (int i : Constants.ITEM_SELLABLE) {
+    for (int i : ServerConstants.ITEM_SELLABLE) {
       if (i == removeId) {
         player.getActionSender()
             .sendMessage("You can't sell " + ItemAssistant.getItemName(removeId).toLowerCase() + ".");
@@ -330,14 +330,14 @@ public class ShopAssistant {
   }
 
   public boolean sellItem(int itemID, int fromSlot, int amount) {
-    for (int i : Constants.ITEM_SELLABLE) {
+    for (int i : ServerConstants.ITEM_SELLABLE) {
       if (i == itemID) {
         player.getItemAssistant();
         player.getActionSender().sendMessage("You can't sell " + ItemAssistant.getItemName(itemID).toLowerCase() + ".");
         return false;
       }
     }
-    if (player.playerRights == 2 && !Constants.ADMIN_CAN_SELL_ITEMS) {
+    if (player.playerRights == 2 && !ServerConstants.ADMIN_CAN_SELL_ITEMS) {
       player.getActionSender().sendMessage("Selling items as an admin has been disabled.");
       return false;
     }

@@ -7,7 +7,7 @@ import java.util.Map;
 import org.apache.mina.common.IoSession;
 
 import server.Connection;
-import server.Constants;
+import server.ServerConstants;
 
 public class HostList {
 
@@ -27,7 +27,7 @@ public class HostList {
     } else {
       amt += 1;
     }
-    if (amt > Constants.IPS_ALLOWED || Connection.isIpBanned(addr)) {
+    if (amt > ServerConstants.IPS_ALLOWED || Connection.isIpBanned(addr)) {
       return false;
     } else {
       connections.put(addr, amt);

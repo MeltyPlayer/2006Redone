@@ -1,5 +1,4 @@
 
-import client.ClientSettings;
 import client.data.MRUNodes;
 import client.entity.ItemDef;
 import client.model.Class36;
@@ -9,6 +8,7 @@ import client.network.StreamLoader;
 import client.ui.Sprite;
 import client.ui.TextClass;
 import client.ui.TextDrawingArea;
+import server.ServerConstants;
 
 public final class RSInterface {
 
@@ -138,7 +138,7 @@ public final class RSInterface {
         rsInterface.aBoolean268 = stream.readUnsignedByte() == 1;
       }
       if (rsInterface.type == 4) {
-        rsInterface.disabledText = stream.readString().replaceAll("RuneScape", ClientSettings.SERVER_NAME);
+        rsInterface.disabledText = stream.readString().replaceAll("RuneScape", ServerConstants.SERVER_NAME);
         rsInterface.enabledText = stream.readString();
       }
       if (rsInterface.type == 1 || rsInterface.type == 3 || rsInterface.type == 4) {

@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import server.Constants;
+import server.ServerConstants;
 import server.Server;
 
 public class Item {
@@ -145,9 +145,9 @@ public class Item {
     return null;
   }
 
-  public static boolean[] itemStackable = new boolean[Constants.ITEM_LIMIT];
-  public static boolean[] itemIsNote = new boolean[Constants.ITEM_LIMIT];
-  public static int[] targetSlots = new int[Constants.ITEM_LIMIT];
+  public static boolean[] itemStackable = new boolean[ServerConstants.ITEM_LIMIT];
+  public static boolean[] itemIsNote = new boolean[ServerConstants.ITEM_LIMIT];
+  public static int[] targetSlots = new int[ServerConstants.ITEM_LIMIT];
   static {
     int counter = 0;
     int c;

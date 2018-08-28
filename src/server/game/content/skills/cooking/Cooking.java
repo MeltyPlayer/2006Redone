@@ -2,7 +2,7 @@ package server.game.content.skills.cooking;
 
 import java.security.SecureRandom;
 
-import server.Constants;
+import server.ServerConstants;
 import server.event.CycleEvent;
 import server.event.CycleEventContainer;
 import server.event.CycleEventHandler;
@@ -237,7 +237,7 @@ public class Cooking extends SkillHandler {
           c.getItemAssistant().deleteItem(item.getRawItem(), c.getItemAssistant().getItemSlot(itemId), 1);
           if (!burn) {
             c.getActionSender().sendMessage("You successfully cook the " + item.getName().toLowerCase() + ".");
-            if (Constants.SOUND) {
+            if (ServerConstants.SOUND) {
               c.getActionSender().sendSound(SoundList.COOK_ITEM, 100, 0);
             }
             c.getPlayerAssistant().addSkillXP(item.getXp(), c.playerCooking);

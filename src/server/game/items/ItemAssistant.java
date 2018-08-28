@@ -1,6 +1,6 @@
 package server.game.items;
 
-import server.Constants;
+import server.ServerConstants;
 import server.Server;
 import server.game.content.minigames.castlewars.CastleWars;
 import server.game.items.impl.Weight;
@@ -213,7 +213,7 @@ public class ItemAssistant {
   }
 
   public void addItemToBank(int itemId, int amount) {
-    for (int i = 0; i < Constants.BANK_SIZE; i++) {
+    for (int i = 0; i < ServerConstants.BANK_SIZE; i++) {
       if (c.bankItems[i] <= 0 || c.bankItems[i] == itemId + 1 && c.bankItemsN[i] + amount < Integer.MAX_VALUE) {
         c.bankItems[i] = itemId + 1;
         c.bankItemsN[i] += amount;
@@ -511,7 +511,7 @@ public class ItemAssistant {
   }
 
   public boolean tradeable(int itemId) {
-    for (int element : Constants.ITEM_TRADEABLE) {
+    for (int element : ServerConstants.ITEM_TRADEABLE) {
       if (itemId == element) {
         return false;
       }
@@ -538,10 +538,10 @@ public class ItemAssistant {
       for (int i = 0; i < c.playerItems.length; i++) {
         if (c.playerItems[i] == item + 1 && Item.itemStackable[item] && c.playerItems[i] > 0) {
           c.playerItems[i] = item + 1;
-          if (c.playerItemsN[i] + amount < Constants.MAXITEM_AMOUNT && c.playerItemsN[i] + amount > -1) {
+          if (c.playerItemsN[i] + amount < ServerConstants.MAXITEM_AMOUNT && c.playerItemsN[i] + amount > -1) {
             c.playerItemsN[i] += amount;
           } else {
-            c.playerItemsN[i] = Constants.MAXITEM_AMOUNT;
+            c.playerItemsN[i] = ServerConstants.MAXITEM_AMOUNT;
           }
           if (c.getOutStream() != null && c != null) {
             c.getOutStream().createFrameVarSizeWord(34);
@@ -565,14 +565,14 @@ public class ItemAssistant {
       for (int i = 0; i < c.playerItems.length; i++) {
         if (c.playerItems[i] <= 0) {
           c.playerItems[i] = item + 1;
-          if (amount < Constants.MAXITEM_AMOUNT && amount > -1) {
+          if (amount < ServerConstants.MAXITEM_AMOUNT && amount > -1) {
             c.playerItemsN[i] = 1;
             if (amount > 1) {
               addItem(item, amount - 1);
               return true;
             }
           } else {
-            c.playerItemsN[i] = Constants.MAXITEM_AMOUNT;
+            c.playerItemsN[i] = ServerConstants.MAXITEM_AMOUNT;
           }
           resetItems(3214);
           i = 30;
@@ -604,7 +604,7 @@ public class ItemAssistant {
   public void getBonus() {
     for (int element : c.playerEquipment) {
       if (element > -1) {
-        for (int j = 0; j < Constants.ITEM_LIMIT; j++) {
+        for (int j = 0; j < ServerConstants.ITEM_LIMIT; j++) {
           if (Server.itemHandler.ItemList[j] != null) {
             if (Server.itemHandler.ItemList[j].itemId == element) {
               for (int k = 0; k < c.playerBonus.length; k++) {
@@ -1362,7 +1362,7 @@ public class ItemAssistant {
         return false;
       }
 
-      if (Constants.itemRequirements) {
+      if (ServerConstants.itemRequirements) {
         if (targetSlot == 10 || targetSlot == 7 || targetSlot == 5 || targetSlot == 4 || targetSlot == 0
             || targetSlot == 9 || targetSlot == 10) {
           if (c.defenceLevelReq > 0) {
@@ -1807,7 +1807,7 @@ public class ItemAssistant {
   public void rearrangeBank() {
     int totalItems = 0;
     int highestSlot = 0;
-    for (int i = 0; i < Constants.BANK_SIZE; i++) {
+    for (int i = 0; i < ServerConstants.BANK_SIZE; i++) {
       if (c.bankItems[i] != 0) {
         totalItems++;
         if (highestSlot <= i) {
@@ -1836,7 +1836,7 @@ public class ItemAssistant {
     }
 
     int totalItemsAfter = 0;
-    for (int i = 0; i < Constants.BANK_SIZE; i++) {
+    for (int i = 0; i < ServerConstants.BANK_SIZE; i++) {
       if (c.bankItems[i] != 0) {
         totalItemsAfter++;
       }
@@ -1867,8 +1867,8 @@ public class ItemAssistant {
     synchronized (c) {
       c.getOutStream().createFrameVarSizeWord(53);
       c.getOutStream().writeWord(5382); // bank
-      c.getOutStream().writeWord(Constants.BANK_SIZE);
-      for (int i = 0; i < Constants.BANK_SIZE; i++) {
+      c.getOutStream().writeWord(ServerConstants.BANK_SIZE);
+      for (int i = 0; i < ServerConstants.BANK_SIZE; i++) {
         if (c.bankItemsN[i] > 254) {
           c.getOutStream().writeByte(255);
           c.getOutStream().writeDWord_v2(c.bankItemsN[i]);
@@ -1878,8 +1878,8 @@ public class ItemAssistant {
         if (c.bankItemsN[i] < 1) {
           c.bankItems[i] = 0;
         }
-        if (c.bankItems[i] > Constants.ITEM_LIMIT || c.bankItems[i] < 0) {
-          c.bankItems[i] = Constants.ITEM_LIMIT;
+        if (c.bankItems[i] > ServerConstants.ITEM_LIMIT || c.bankItems[i] < 0) {
+          c.bankItems[i] = ServerConstants.ITEM_LIMIT;
         }
         c.getOutStream().writeWordBigEndianA(c.bankItems[i]);
       }
@@ -1906,8 +1906,8 @@ public class ItemAssistant {
       } else {
         c.getOutStream().writeByte(c.playerItemsN[i]);
       }
-      if (c.playerItems[i] > Constants.ITEM_LIMIT || c.playerItems[i] < 0) {
-        c.playerItems[i] = Constants.ITEM_LIMIT;
+      if (c.playerItems[i] > ServerConstants.ITEM_LIMIT || c.playerItems[i] < 0) {
+        c.playerItems[i] = ServerConstants.ITEM_LIMIT;
       }
       c.getOutStream().writeWordBigEndianA(c.playerItems[i]);
     }
@@ -1921,8 +1921,8 @@ public class ItemAssistant {
       c.getActionSender().sendMessage("You can't store items while trading!");
       return false;
     }
-    for (int i = 0; i < Constants.ITEM_BANKABLE.length; i++) {
-      if (itemID == Constants.ITEM_BANKABLE[i]) {
+    for (int i = 0; i < ServerConstants.ITEM_BANKABLE.length; i++) {
+      if (itemID == ServerConstants.ITEM_BANKABLE[i]) {
         c.getActionSender().sendMessage("You can't bank that item!");
         return false;
       }
@@ -1946,29 +1946,29 @@ public class ItemAssistant {
       if (Item.itemStackable[c.playerItems[fromSlot] - 1] || c.playerItemsN[fromSlot] > 1) {
         int toBankSlot = 0;
         boolean alreadyInBank = false;
-        for (int i = 0; i < Constants.BANK_SIZE; i++) {
+        for (int i = 0; i < ServerConstants.BANK_SIZE; i++) {
           if (c.bankItems[i] == c.playerItems[fromSlot]) {
             if (c.playerItemsN[fromSlot] < amount) {
               amount = c.playerItemsN[fromSlot];
             }
             alreadyInBank = true;
             toBankSlot = i;
-            i = Constants.BANK_SIZE + 1;
+            i = ServerConstants.BANK_SIZE + 1;
           }
         }
 
         if (!alreadyInBank && freeBankSlots() > 0) {
-          for (int i = 0; i < Constants.BANK_SIZE; i++) {
+          for (int i = 0; i < ServerConstants.BANK_SIZE; i++) {
             if (c.bankItems[i] <= 0) {
               toBankSlot = i;
-              i = Constants.BANK_SIZE + 1;
+              i = ServerConstants.BANK_SIZE + 1;
             }
           }
           c.bankItems[toBankSlot] = c.playerItems[fromSlot];
           if (c.playerItemsN[fromSlot] < amount) {
             amount = c.playerItemsN[fromSlot];
           }
-          if (c.bankItemsN[toBankSlot] + amount <= Constants.MAXITEM_AMOUNT && c.bankItemsN[toBankSlot] + amount > -1) {
+          if (c.bankItemsN[toBankSlot] + amount <= ServerConstants.MAXITEM_AMOUNT && c.bankItemsN[toBankSlot] + amount > -1) {
             c.bankItemsN[toBankSlot] += amount;
           } else {
             c.getActionSender().sendMessage("Bank full!");
@@ -1979,7 +1979,7 @@ public class ItemAssistant {
           resetBank();
           return true;
         } else if (alreadyInBank) {
-          if (c.bankItemsN[toBankSlot] + amount <= Constants.MAXITEM_AMOUNT && c.bankItemsN[toBankSlot] + amount > -1) {
+          if (c.bankItemsN[toBankSlot] + amount <= ServerConstants.MAXITEM_AMOUNT && c.bankItemsN[toBankSlot] + amount > -1) {
             c.bankItemsN[toBankSlot] += amount;
           } else {
             c.getActionSender().sendMessage("Bank full!");
@@ -1997,18 +1997,18 @@ public class ItemAssistant {
         itemID = c.playerItems[fromSlot];
         int toBankSlot = 0;
         boolean alreadyInBank = false;
-        for (int i = 0; i < Constants.BANK_SIZE; i++) {
+        for (int i = 0; i < ServerConstants.BANK_SIZE; i++) {
           if (c.bankItems[i] == c.playerItems[fromSlot]) {
             alreadyInBank = true;
             toBankSlot = i;
-            i = Constants.BANK_SIZE + 1;
+            i = ServerConstants.BANK_SIZE + 1;
           }
         }
         if (!alreadyInBank && freeBankSlots() > 0) {
-          for (int i = 0; i < Constants.BANK_SIZE; i++) {
+          for (int i = 0; i < ServerConstants.BANK_SIZE; i++) {
             if (c.bankItems[i] <= 0) {
               toBankSlot = i;
-              i = Constants.BANK_SIZE + 1;
+              i = ServerConstants.BANK_SIZE + 1;
             }
           }
           int firstPossibleSlot = 0;
@@ -2069,29 +2069,29 @@ public class ItemAssistant {
       if (Item.itemStackable[c.playerItems[fromSlot] - 1] || c.playerItemsN[fromSlot] > 1) {
         int toBankSlot = 0;
         boolean alreadyInBank = false;
-        for (int i = 0; i < Constants.BANK_SIZE; i++) {
+        for (int i = 0; i < ServerConstants.BANK_SIZE; i++) {
           if (c.bankItems[i] == c.playerItems[fromSlot] - 1) {
             if (c.playerItemsN[fromSlot] < amount) {
               amount = c.playerItemsN[fromSlot];
             }
             alreadyInBank = true;
             toBankSlot = i;
-            i = Constants.BANK_SIZE + 1;
+            i = ServerConstants.BANK_SIZE + 1;
           }
         }
 
         if (!alreadyInBank && freeBankSlots() > 0) {
-          for (int i = 0; i < Constants.BANK_SIZE; i++) {
+          for (int i = 0; i < ServerConstants.BANK_SIZE; i++) {
             if (c.bankItems[i] <= 0) {
               toBankSlot = i;
-              i = Constants.BANK_SIZE + 1;
+              i = ServerConstants.BANK_SIZE + 1;
             }
           }
           c.bankItems[toBankSlot] = c.playerItems[fromSlot] - 1;
           if (c.playerItemsN[fromSlot] < amount) {
             amount = c.playerItemsN[fromSlot];
           }
-          if (c.bankItemsN[toBankSlot] + amount <= Constants.MAXITEM_AMOUNT && c.bankItemsN[toBankSlot] + amount > -1) {
+          if (c.bankItemsN[toBankSlot] + amount <= ServerConstants.MAXITEM_AMOUNT && c.bankItemsN[toBankSlot] + amount > -1) {
             c.bankItemsN[toBankSlot] += amount;
           } else {
             return false;
@@ -2101,7 +2101,7 @@ public class ItemAssistant {
           resetBank();
           return true;
         } else if (alreadyInBank) {
-          if (c.bankItemsN[toBankSlot] + amount <= Constants.MAXITEM_AMOUNT && c.bankItemsN[toBankSlot] + amount > -1) {
+          if (c.bankItemsN[toBankSlot] + amount <= ServerConstants.MAXITEM_AMOUNT && c.bankItemsN[toBankSlot] + amount > -1) {
             c.bankItemsN[toBankSlot] += amount;
           } else {
             return false;
@@ -2118,18 +2118,18 @@ public class ItemAssistant {
         itemID = c.playerItems[fromSlot];
         int toBankSlot = 0;
         boolean alreadyInBank = false;
-        for (int i = 0; i < Constants.BANK_SIZE; i++) {
+        for (int i = 0; i < ServerConstants.BANK_SIZE; i++) {
           if (c.bankItems[i] == c.playerItems[fromSlot] - 1) {
             alreadyInBank = true;
             toBankSlot = i;
-            i = Constants.BANK_SIZE + 1;
+            i = ServerConstants.BANK_SIZE + 1;
           }
         }
         if (!alreadyInBank && freeBankSlots() > 0) {
-          for (int i = 0; i < Constants.BANK_SIZE; i++) {
+          for (int i = 0; i < ServerConstants.BANK_SIZE; i++) {
             if (c.bankItems[i] <= 0) {
               toBankSlot = i;
-              i = Constants.BANK_SIZE + 1;
+              i = ServerConstants.BANK_SIZE + 1;
             }
           }
           int firstPossibleSlot = 0;
@@ -2191,7 +2191,7 @@ public class ItemAssistant {
 
   public int freeBankSlots() {
     int freeS = 0;
-    for (int i = 0; i < Constants.BANK_SIZE; i++) {
+    for (int i = 0; i < ServerConstants.BANK_SIZE; i++) {
       if (c.bankItems[i] <= 0) {
         freeS++;
       }
@@ -2341,8 +2341,8 @@ public class ItemAssistant {
       c.playerItemsN[to] = tempN;
     }
 
-    if (moveWindow == 5382 && from >= 0 && to >= 0 && from < Constants.BANK_SIZE && to < Constants.BANK_SIZE
-        && to < Constants.BANK_SIZE) {
+    if (moveWindow == 5382 && from >= 0 && to >= 0 && from < ServerConstants.BANK_SIZE && to < ServerConstants.BANK_SIZE
+        && to < ServerConstants.BANK_SIZE) {
       if (insertMode) {
         int tempFrom = from;
         for (int tempTo = to; tempFrom != tempTo;)
@@ -2601,7 +2601,7 @@ public class ItemAssistant {
   }
 
   public static String getItemName(int ItemID) {
-    for (int i = 0; i < Constants.ITEM_LIMIT; i++) {
+    for (int i = 0; i < ServerConstants.ITEM_LIMIT; i++) {
       if (Server.itemHandler.ItemList[i] != null) {
         if (Server.itemHandler.ItemList[i].itemId == ItemID) {
           return Server.itemHandler.ItemList[i].itemName;
@@ -2612,7 +2612,7 @@ public class ItemAssistant {
   }
 
   public int getItemId(String itemName) {
-    for (int i = 0; i < Constants.ITEM_LIMIT; i++) {
+    for (int i = 0; i < ServerConstants.ITEM_LIMIT; i++) {
       if (Server.itemHandler.ItemList[i] != null) {
         if (Server.itemHandler.ItemList[i].itemName.equalsIgnoreCase(itemName)) {
           return Server.itemHandler.ItemList[i].itemId;
@@ -2693,14 +2693,14 @@ public class ItemAssistant {
   public int getUnnotedItem(int ItemID) {
     int NewID = ItemID - 1;
     String NotedName = "";
-    for (int i = 0; i < Constants.ITEM_LIMIT; i++) {
+    for (int i = 0; i < ServerConstants.ITEM_LIMIT; i++) {
       if (Server.itemHandler.ItemList[i] != null) {
         if (Server.itemHandler.ItemList[i].itemId == ItemID) {
           NotedName = Server.itemHandler.ItemList[i].itemName;
         }
       }
     }
-    for (int i = 0; i < Constants.ITEM_LIMIT; i++) {
+    for (int i = 0; i < ServerConstants.ITEM_LIMIT; i++) {
       if (Server.itemHandler.ItemList[i] != null) {
         if (Server.itemHandler.ItemList[i].itemName == NotedName) {
           if (Server.itemHandler.ItemList[i].itemDescription.startsWith("Swap this note at any bank for a") == false) {

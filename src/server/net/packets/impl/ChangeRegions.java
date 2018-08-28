@@ -1,6 +1,6 @@
 package server.net.packets.impl;
 
-import server.Constants;
+import server.ServerConstants;
 import server.Server;
 import server.game.content.music.Music;
 import server.game.globalworldobjects.Doors;
@@ -15,7 +15,7 @@ public class ChangeRegions implements PacketType {
 
   @Override
   public void processPacket(Client c, int packetType, int packetSize) {
-    if (Constants.SOUND && c.musicOn) {
+    if (ServerConstants.SOUND && c.musicOn) {
       Music.playMusic(c);
     }
     Server.objectHandler.updateObjects(c);// testing

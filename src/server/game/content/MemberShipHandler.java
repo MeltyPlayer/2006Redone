@@ -1,6 +1,6 @@
 package server.game.content;
 
-import server.Constants;
+import server.ServerConstants;
 import server.event.CycleEvent;
 import server.event.CycleEventContainer;
 import server.event.CycleEventHandler;
@@ -32,8 +32,8 @@ public class MemberShipHandler {
   }
 
   private static void updateBank(Client player) {
-    if (player.membership && Constants.MEMBERSHIP) {
-      Constants.BANK_SIZE = 352;
+    if (player.membership && ServerConstants.MEMBERSHIP) {
+      ServerConstants.BANK_SIZE = 352;
     } else {
       player.getActionSender().sendMessage("Error in the updating bank process.");
     }
@@ -42,7 +42,7 @@ public class MemberShipHandler {
   public void teleHome(Client player) {
     if (player.membership == true) {
       String type = player.playerMagicBook == 0 ? "modern" : "ancient";
-      player.getPlayerAssistant().startTeleport(Constants.RESPAWN_X, Constants.RESPAWN_Y, 0, type);
+      player.getPlayerAssistant().startTeleport(ServerConstants.RESPAWN_X, ServerConstants.RESPAWN_Y, 0, type);
       player.getActionSender().sendMessage("You teleport to Lumbridge.");
     } else {
       player.getActionSender().sendMessage("Teleporting is disabled for non members.");
@@ -53,11 +53,11 @@ public class MemberShipHandler {
     CycleEventHandler.getSingleton().addEvent(other, new CycleEvent() {
       @Override
       public void execute(CycleEventContainer container) {
-        if (Constants.MEMBERSHIP) {
+        if (ServerConstants.MEMBERSHIP) {
           other.membership = true;
           updateBank(other);
           other.getActionSender().sendMessage("You have been awarded membership!");
-          other.getActionSender().sendMessage("You now have " + Constants.BANK_SIZE + " bank slots!");// to
+          other.getActionSender().sendMessage("You now have " + ServerConstants.BANK_SIZE + " bank slots!");// to
                                                                                                       // test
           other.getActionSender().sendMessage("You can now do ::membercommands for commands!");
           other.getActionSender().sendMessage("You may now use the ancient magicks book!");

@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import server.Constants;
+import server.ServerConstants;
 import server.Server;
 import server.game.content.combat.npcs.NpcAggressive;
 import server.game.content.combat.npcs.NpcCombat;
@@ -45,7 +45,7 @@ public class NpcHandler {
 
   public static boolean isUndead(int index) {
     String name = getNpcListName(npcs[index].npcType);
-    for (String s : Constants.UNDEAD)
+    for (String s : ServerConstants.UNDEAD)
       if (s.equalsIgnoreCase(name))
         return true;
     return false;
@@ -458,10 +458,10 @@ public class NpcHandler {
           npcs[i].facePlayer(0);
           npcs[i].killerId = 0;
           if (npcs[i].spawnedBy == 0) {
-            if (npcs[i].absX > npcs[i].makeX + Constants.NPC_RANDOM_WALK_DISTANCE
-                || npcs[i].absX < npcs[i].makeX - Constants.NPC_RANDOM_WALK_DISTANCE
-                || npcs[i].absY > npcs[i].makeY + Constants.NPC_RANDOM_WALK_DISTANCE
-                || npcs[i].absY < npcs[i].makeY - Constants.NPC_RANDOM_WALK_DISTANCE) {
+            if (npcs[i].absX > npcs[i].makeX + ServerConstants.NPC_RANDOM_WALK_DISTANCE
+                || npcs[i].absX < npcs[i].makeX - ServerConstants.NPC_RANDOM_WALK_DISTANCE
+                || npcs[i].absY > npcs[i].makeY + ServerConstants.NPC_RANDOM_WALK_DISTANCE
+                || npcs[i].absY < npcs[i].makeY - ServerConstants.NPC_RANDOM_WALK_DISTANCE) {
               npcs[i].walkingHome = true;
             }
           }
@@ -577,7 +577,7 @@ public class NpcHandler {
                                                             // emote
             Client c = (Client) PlayerHandler.players[npcs[i].killedBy];
             if (c != null) {
-              if (Constants.combatSounds && NpcHandler.npcs[i].npcType < 3177 && NpcHandler.npcs[i].npcType > 3180) {
+              if (ServerConstants.combatSounds && NpcHandler.npcs[i].npcType < 3177 && NpcHandler.npcs[i].npcType > 3180) {
                 c.getActionSender().sendSound(CombatSounds.getNpcDeathSounds(npcs[i].npcType), 100, 0);
               }
             }
@@ -999,8 +999,8 @@ public class NpcHandler {
     int y = npc.absY;
     Player player = PlayerHandler.players[playerId];
     if (npcs[i].spawnedBy > 0
-        || x < npc.makeX + Constants.NPC_FOLLOW_DISTANCE && x > npc.makeX - Constants.NPC_FOLLOW_DISTANCE
-            && y < npc.makeY + Constants.NPC_FOLLOW_DISTANCE && y > npc.makeY - Constants.NPC_FOLLOW_DISTANCE) {
+        || x < npc.makeX + ServerConstants.NPC_FOLLOW_DISTANCE && x > npc.makeX - ServerConstants.NPC_FOLLOW_DISTANCE
+            && y < npc.makeY + ServerConstants.NPC_FOLLOW_DISTANCE && y > npc.makeY - ServerConstants.NPC_FOLLOW_DISTANCE) {
       if (npc.heightLevel == player.heightLevel) {
         if (player != null && npc != null) {
           if (playerY < y) {

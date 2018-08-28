@@ -86,14 +86,14 @@ public class Server {
   }
 
   public void start() throws NullPointerException, IOException {
-    if (Constants.SERVER_DEBUG) {
+    if (ServerConstants.SERVER_DEBUG) {
       System.out.println("@@@@ DEBUG MODE IS ENABLED @@@@");
     }
 
     /**
      * Starting Up Server
      */
-    System.out.println("Launching " + Constants.SERVER_NAME + "...");
+    System.out.println("Launching " + ServerConstants.SERVER_NAME + "...");
 
     /**
      * Accepting Connections
@@ -106,7 +106,7 @@ public class Server {
     sac.setReuseAddress(true);
     sac.setBacklog(100);
 
-    throttleFilter = new ConnectionThrottleFilter(Constants.CONNECTION_DELAY);
+    throttleFilter = new ConnectionThrottleFilter(ServerConstants.CONNECTION_DELAY);
     sac.getFilterChain().addFirst("throttleFilter", throttleFilter);
     acceptor.bind(new InetSocketAddress(CommonConstants.ADDRESS, serverlistenerPort), connectionHandler, sac);
 

@@ -2,7 +2,7 @@ package server.game.players;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import server.Constants;
+import server.ServerConstants;
 import server.event.CycleEvent;
 import server.event.CycleEventContainer;
 import server.event.CycleEventHandler;
@@ -219,7 +219,7 @@ public class Trading {
       return false;
     }
 
-    for (int i : Constants.ITEM_TRADEABLE) {
+    for (int i : ServerConstants.ITEM_TRADEABLE) {
       if (i == itemID && player.playerRights < 3) {
         player.getActionSender().sendMessage("You can't trade this item.");
         return false;

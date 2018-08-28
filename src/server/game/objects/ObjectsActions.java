@@ -1,6 +1,6 @@
 package server.game.objects;
 
-import server.Constants;
+import server.ServerConstants;
 import server.Server;
 import server.event.CycleEvent;
 import server.event.CycleEventContainer;
@@ -2024,7 +2024,7 @@ public class ObjectsActions {
         break;
 
       case 9398:// deposit box
-        player.getPlayerAssistant().sendFrame126("The Bank of " + Constants.SERVER_NAME + " - Deposit Box", 7421);
+        player.getPlayerAssistant().sendFrame126("The Bank of " + ServerConstants.SERVER_NAME + " - Deposit Box", 7421);
         player.getPlayerAssistant().sendFrame248(4465, 197);
         player.getItemAssistant().resetItems(7423);
         break;

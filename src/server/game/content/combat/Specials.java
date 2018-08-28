@@ -2,7 +2,7 @@ package server.game.content.combat;
 
 import java.util.HashMap;
 
-import server.Constants;
+import server.ServerConstants;
 import server.game.content.combat.range.RangeData;
 import server.game.content.music.sound.CombatSounds;
 import server.game.npcs.NpcHandler;
@@ -233,7 +233,7 @@ public class Specials {
       player.delayedDamage2 = Misc.random(player.getCombatAssistant().meleeMaxHit());
       player.usingSpecial = false;
       player.getItemAssistant().updateSpecialBar();
-      if (Constants.combatSounds) {
+      if (ServerConstants.combatSounds) {
         player.getActionSender().sendSound(CombatSounds.specialSounds(player.playerEquipment[player.playerWeapon]), 100,
             0);
       }

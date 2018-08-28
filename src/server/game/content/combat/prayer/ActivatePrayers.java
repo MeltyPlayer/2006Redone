@@ -1,6 +1,6 @@
 package server.game.content.combat.prayer;
 
-import server.Constants;
+import server.ServerConstants;
 import server.game.content.music.sound.SoundList;
 import server.game.players.Client;
 
@@ -33,9 +33,9 @@ public class ActivatePrayers {
     int[] rangePrayer = { 3, 11, 19 };
     int[] magePrayer = { 4, 12, 20 };
 
-    if (c.playerLevel[5] > 0 || !Constants.PRAYER_POINTS_REQUIRED) {
+    if (c.playerLevel[5] > 0 || !ServerConstants.PRAYER_POINTS_REQUIRED) {
       if (c.getPlayerAssistant().getLevelForXP(c.playerXP[5]) >= c.getPrayer().PRAYER_LEVEL_REQUIRED[i]
-          || !Constants.PRAYER_LEVEL_REQUIRED) {
+          || !ServerConstants.PRAYER_LEVEL_REQUIRED) {
         boolean headIcon = false;
         switch (i) {
           case 0:

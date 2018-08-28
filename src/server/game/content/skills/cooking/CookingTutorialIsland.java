@@ -1,6 +1,6 @@
 package server.game.content.skills.cooking;
 
-import server.Constants;
+import server.ServerConstants;
 import server.event.CycleEvent;
 import server.event.CycleEventContainer;
 import server.event.CycleEventHandler;
@@ -91,7 +91,7 @@ public class CookingTutorialIsland extends SkillHandler {
         // c.startAnimation(c.playerSkillProp[7][5] == 2732 ? 897 :
         // 896);
         c.startAnimation(c.playerSkillProp[7][5] == 2732 ? 897 : c.playerSkillProp[7][5] == 12269 ? 897 : 896);
-        if (Constants.SOUND) {
+        if (ServerConstants.SOUND) {
           c.getActionSender().sendSound(SoundList.COOK_ITEM, 100, 0);
         }
 

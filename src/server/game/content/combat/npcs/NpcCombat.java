@@ -1,6 +1,6 @@
 package server.game.content.combat.npcs;
 
-import server.Constants;
+import server.ServerConstants;
 import server.game.content.combat.CombatAssistant;
 import server.game.content.combat.melee.MeleeData;
 import server.game.content.minigames.FightCaves;
@@ -172,7 +172,7 @@ public class NpcCombat {
           NpcHandler.npcs[i].attackTimer = NpcData.getNpcDelay(i);
           NpcHandler.npcs[i].hitDelayTimer = NpcData.getHitDelay(i);
           NpcHandler.npcs[i].attackType = 0;
-          if (Constants.combatSounds && NpcHandler.npcs[i].npcType < 3177 && NpcHandler.npcs[i].npcType > 3180) {
+          if (ServerConstants.combatSounds && NpcHandler.npcs[i].npcType < 3177 && NpcHandler.npcs[i].npcType > 3180) {
             c.getActionSender().sendSound(CombatSounds.getNpcAttackSounds(NpcHandler.npcs[i].npcType), 100, 0);
           }
           if (special) {
@@ -186,7 +186,7 @@ public class NpcCombat {
           if (NpcHandler.multiAttacks(i)) {
             multiAttackGfx(i, NpcHandler.npcs[i].projectileId);
             NpcData.startAnimation(NpcEmotes.getAttackEmote(i), i);
-            if (Constants.combatSounds && NpcHandler.npcs[i].npcType < 3177 && NpcHandler.npcs[i].npcType > 3180) {
+            if (ServerConstants.combatSounds && NpcHandler.npcs[i].npcType < 3177 && NpcHandler.npcs[i].npcType > 3180) {
               c.getActionSender().sendSound(CombatSounds.getNpcAttackSounds(NpcHandler.npcs[i].npcType), 100, 0);
             }
             NpcHandler.npcs[i].oldIndex = c.playerId;
@@ -206,7 +206,7 @@ public class NpcCombat {
           c.singleCombatDelay2 = System.currentTimeMillis();
           NpcHandler.npcs[i].oldIndex = c.playerId;
           NpcData.startAnimation(NpcEmotes.getAttackEmote(i), i);
-          if (Constants.combatSounds && NpcHandler.npcs[i].npcType < 3177 && NpcHandler.npcs[i].npcType > 3180) {
+          if (ServerConstants.combatSounds && NpcHandler.npcs[i].npcType < 3177 && NpcHandler.npcs[i].npcType > 3180) {
             c.getActionSender().sendSound(CombatSounds.getNpcAttackSounds(NpcHandler.npcs[i].npcType), 100, 0);
           }
           c.getPlayerAssistant().removeAllWindows();
@@ -520,8 +520,8 @@ public class NpcCombat {
             damage = 0;
           }
           if (NpcData.cantKillYou(NpcHandler.npcs[i].npcType)) {
-            if (damage >= c.playerLevel[Constants.HITPOINTS]) {
-              damage = c.playerLevel[Constants.HITPOINTS] - 1;
+            if (damage >= c.playerLevel[ServerConstants.HITPOINTS]) {
+              damage = c.playerLevel[ServerConstants.HITPOINTS] - 1;
             }
           }
           if (c.getPrayer().prayerActive[18] && !(NpcHandler.npcs[i].npcType == 2030)) { // protect
@@ -553,8 +553,8 @@ public class NpcCombat {
             damage = 0;
           }
           if (NpcData.cantKillYou(NpcHandler.npcs[i].npcType)) {
-            if (damage >= c.playerLevel[Constants.HITPOINTS]) {
-              damage = c.playerLevel[Constants.HITPOINTS] - 1;
+            if (damage >= c.playerLevel[ServerConstants.HITPOINTS]) {
+              damage = c.playerLevel[ServerConstants.HITPOINTS] - 1;
             }
           }
           if (c.getPrayer().prayerActive[17]) { // protect from range
@@ -573,8 +573,8 @@ public class NpcCombat {
             magicFailed = true;
           }
           if (NpcData.cantKillYou(NpcHandler.npcs[i].npcType)) {
-            if (damage >= c.playerLevel[Constants.HITPOINTS]) {
-              damage = c.playerLevel[Constants.HITPOINTS] - 1;
+            if (damage >= c.playerLevel[ServerConstants.HITPOINTS]) {
+              damage = c.playerLevel[ServerConstants.HITPOINTS] - 1;
             }
           }
           if (c.getPrayer().prayerActive[16]) { // protect from magic

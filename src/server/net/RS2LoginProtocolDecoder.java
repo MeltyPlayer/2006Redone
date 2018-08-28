@@ -12,7 +12,7 @@ import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.filter.codec.ProtocolDecoderOutput;
 
 import server.Connection;
-import server.Constants;
+import server.ServerConstants;
 import server.Server;
 import server.game.players.Client;
 import server.game.players.PlayerHandler;
@@ -203,7 +203,7 @@ public class RS2LoginProtocolDecoder extends CumulativeProtocolDecoder {
       returnCode = 5;
     }
 
-    if (PlayerHandler.playerCount >= Constants.MAX_PLAYERS) {
+    if (PlayerHandler.playerCount >= ServerConstants.MAX_PLAYERS) {
       returnCode = 7;
     }
 

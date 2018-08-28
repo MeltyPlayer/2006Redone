@@ -1,6 +1,6 @@
 package server.game.objects.impl;
 
-import server.Constants;
+import server.ServerConstants;
 import server.event.CycleEvent;
 import server.event.CycleEventContainer;
 import server.event.CycleEventHandler;
@@ -311,7 +311,7 @@ public class Climbing {
 
         break;
       case 5167:
-        if (Constants.EXPERIMENTS) {
+        if (ServerConstants.EXPERIMENTS) {
           UseOther.useDown(client, client.objectId);
         } else {
           client.getActionSender().sendMessage("Experiments are currently disabled.");

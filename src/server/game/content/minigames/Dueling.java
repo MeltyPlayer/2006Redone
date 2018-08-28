@@ -2,7 +2,7 @@ package server.game.content.minigames;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import server.Constants;
+import server.ServerConstants;
 import server.Server;
 import server.game.content.combat.prayer.PrayerDrain;
 import server.game.content.minigames.castlewars.CastleWars;
@@ -154,8 +154,8 @@ public class Dueling {
         } else {
           player.getOutStream().writeByte(item.amount);
         }
-        if (item.id > Constants.ITEM_LIMIT || item.id < 0) {
-          item.id = Constants.ITEM_LIMIT;
+        if (item.id > ServerConstants.ITEM_LIMIT || item.id < 0) {
+          item.id = ServerConstants.ITEM_LIMIT;
         }
         player.getOutStream().writeWordBigEndianA(item.id + 1);
 
@@ -182,8 +182,8 @@ public class Dueling {
         } else {
           player.getOutStream().writeByte(item.amount);
         }
-        if (item.id > Constants.ITEM_LIMIT || item.id < 0) {
-          item.id = Constants.ITEM_LIMIT;
+        if (item.id > ServerConstants.ITEM_LIMIT || item.id < 0) {
+          item.id = ServerConstants.ITEM_LIMIT;
         }
         player.getOutStream().writeWordBigEndianA(item.id + 1);
         current++;
@@ -202,7 +202,7 @@ public class Dueling {
 
   public boolean stakeItem(int itemID, int fromSlot, int amount) {
 
-    for (int i : Constants.ITEM_TRADEABLE) {
+    for (int i : ServerConstants.ITEM_TRADEABLE) {
       if (i == itemID || itemID >= 6864 && itemID <= 6882) {
         player.getActionSender().sendMessage("You can't stake this item.");
         return false;
@@ -589,8 +589,8 @@ public class Dueling {
       GameLogger.writeLog(player.playerName, "duelingkiller",
           player.playerName + " killed " + opponent.playerName + " in the duel arena.");
     }
-    player.getPlayerAssistant().movePlayer(Constants.DUELING_RESPAWN_X + Misc.random(5),
-        Constants.DUELING_RESPAWN_Y + Misc.random(5), 0);
+    player.getPlayerAssistant().movePlayer(ServerConstants.DUELING_RESPAWN_X + Misc.random(5),
+        ServerConstants.DUELING_RESPAWN_Y + Misc.random(5), 0);
     player.getPlayerAssistant().requestUpdates();
     player.getActionSender().showOption(3, 0, "Challenge", 3);
     player.getActionSender().createPlayerHints(10, -1);
@@ -618,8 +618,8 @@ public class Dueling {
         } else {
           player.getOutStream().writeByte(item.amount);
         }
-        if (item.id > Constants.ITEM_LIMIT || item.id < 0) {
-          item.id = Constants.ITEM_LIMIT;
+        if (item.id > ServerConstants.ITEM_LIMIT || item.id < 0) {
+          item.id = ServerConstants.ITEM_LIMIT;
         }
         player.getOutStream().writeWordBigEndianA(item.id + 1);
       }

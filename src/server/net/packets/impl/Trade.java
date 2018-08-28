@@ -1,6 +1,6 @@
 package server.net.packets.impl;
 
-import server.Constants;
+import server.ServerConstants;
 import server.game.players.Client;
 import server.net.packets.PacketType;
 
@@ -22,7 +22,7 @@ public class Trade implements PacketType {
       return;
     }
 
-    if (c.playerRights == 2 && !Constants.ADMIN_CAN_TRADE) {
+    if (c.playerRights == 2 && !ServerConstants.ADMIN_CAN_TRADE) {
       c.getActionSender().sendMessage("Trading as an admin has been disabled.");
       return;
     }

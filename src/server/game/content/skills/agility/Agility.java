@@ -1,6 +1,6 @@
 package server.game.content.skills.agility;
 
-import server.Constants;
+import server.ServerConstants;
 import server.event.CycleEvent;
 import server.event.CycleEventContainer;
 import server.event.CycleEventHandler;
@@ -693,6 +693,6 @@ public class Agility {
   }
 
   public static double getAgilityRunRestore(Client c) {
-    return 2260 - c.playerLevel[Constants.AGILITY] * 10;
+    return 2260 - c.playerLevel[ServerConstants.AGILITY] * 10;
   }
 }

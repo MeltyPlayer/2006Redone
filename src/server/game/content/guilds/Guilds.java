@@ -1,6 +1,6 @@
 package server.game.content.guilds;
 
-import server.Constants;
+import server.ServerConstants;
 import server.game.content.quests.QuestAssistant;
 import server.game.globalworldobjects.PassDoor;
 import server.game.objects.impl.Climbing;
@@ -19,7 +19,7 @@ public class Guilds {
   private static boolean hasCompletedLegends = false;
 
   public static void attemptGuild(Client c, int objectId) {
-    if (!Constants.GUILDS) {
+    if (!ServerConstants.GUILDS) {
       c.getActionSender().sendMessage("Guilds are currently disabled.");
       return;
     }

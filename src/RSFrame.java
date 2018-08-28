@@ -5,14 +5,14 @@
 import java.awt.Frame;
 import java.awt.Graphics;
 
-import client.ClientSettings;
+import server.ServerConstants;
 
 @SuppressWarnings("serial")
 final class RSFrame extends Frame {
 
   public RSFrame(RSApplet RSApplet_, int i, int j) {
     rsApplet = RSApplet_;
-    setTitle(ClientSettings.SERVER_NAME);
+    setTitle(ServerConstants.SERVER_NAME);
     setResizable(false);
     setVisible(true);
     toFront();

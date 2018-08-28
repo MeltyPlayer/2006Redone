@@ -2,7 +2,7 @@ package server.game.players;
 
 import java.util.ArrayList;
 
-import server.Constants;
+import server.ServerConstants;
 import server.game.content.minigames.castlewars.CastleWars;
 import server.game.items.Item;
 import server.game.items.ItemAssistant;
@@ -277,11 +277,11 @@ public abstract class Player {
   }
 
   public boolean saraTeam() {
-    return playerEquipment[Constants.CAPE] == 4041;
+    return playerEquipment[ServerConstants.CAPE] == 4041;
   }
 
   public boolean zammyTeam() {
-    return playerEquipment[Constants.CAPE] == 4042;
+    return playerEquipment[ServerConstants.CAPE] == 4042;
   }
 
   public boolean inCwSafe() {
@@ -639,8 +639,8 @@ public abstract class Player {
   public PlayerHandler handler = null;
   public int playerItems[] = new int[28];
   public int playerItemsN[] = new int[28];
-  public int bankItems[] = new int[Constants.BANK_SIZE];
-  public int bankItemsN[] = new int[Constants.BANK_SIZE];
+  public int bankItems[] = new int[ServerConstants.BANK_SIZE];
+  public int bankItemsN[] = new int[ServerConstants.BANK_SIZE];
   public boolean bankNotes = false;
   public boolean shouldSave = false;
 
@@ -730,11 +730,11 @@ public abstract class Player {
         playerXP[i] = 0;
       }
     }
-    for (int i = 0; i < Constants.BANK_SIZE; i++) {
+    for (int i = 0; i < ServerConstants.BANK_SIZE; i++) {
       bankItems[i] = 0;
     }
 
-    for (int i = 0; i < Constants.BANK_SIZE; i++) {
+    for (int i = 0; i < ServerConstants.BANK_SIZE; i++) {
       bankItemsN[i] = 0;
     }
 
@@ -769,7 +769,7 @@ public abstract class Player {
 
     heightLevel = 0;
 
-    if (Constants.TUTORIAL_ISLAND) {
+    if (ServerConstants.TUTORIAL_ISLAND) {
       teleportToX = 3094;
       teleportToY = 3107;
     } else {
@@ -794,11 +794,11 @@ public abstract class Player {
     resetWalkingQueue();
   }
 
-  public static final int maxPlayerListSize = Constants.MAX_PLAYERS;
+  public static final int maxPlayerListSize = ServerConstants.MAX_PLAYERS;
   public Player playerList[] = new Player[maxPlayerListSize];
   public int playerListSize = 0;
 
-  public byte playerInListBitmap[] = new byte[Constants.MAX_PLAYERS + 7 >> 3];
+  public byte playerInListBitmap[] = new byte[ServerConstants.MAX_PLAYERS + 7 >> 3];
 
   public static final int maxNPCListSize = NpcHandler.maxNPCs;
   public Npc npcList[] = new Npc[maxNPCListSize];
@@ -1106,7 +1106,7 @@ public abstract class Player {
     }
   }
 
-  public byte cachedPropertiesBitmap[] = new byte[Constants.MAX_PLAYERS + 7 >> 3];
+  public byte cachedPropertiesBitmap[] = new byte[ServerConstants.MAX_PLAYERS + 7 >> 3];
 
   public void addNewNPC(Npc npc, Stream str, Stream updateBlock) {
     int id = npc.npcId;

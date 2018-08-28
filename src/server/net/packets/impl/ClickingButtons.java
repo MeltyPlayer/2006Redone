@@ -1,6 +1,6 @@
 package server.net.packets.impl;
 
-import server.Constants;
+import server.ServerConstants;
 import server.Server;
 import server.game.content.combat.Specials;
 import server.game.content.combat.magic.CastOnOther;
@@ -2123,7 +2123,7 @@ public class ClickingButtons implements PacketType {
           break;
         }
 
-        if (System.currentTimeMillis() - player.godSpellDelay < Constants.GOD_SPELL_CHARGE) {
+        if (System.currentTimeMillis() - player.godSpellDelay < ServerConstants.GOD_SPELL_CHARGE) {
           player.getActionSender().sendMessage("You still feel the charge in your body!");
           break;
         }

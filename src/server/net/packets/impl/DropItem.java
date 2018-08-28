@@ -1,6 +1,6 @@
 package server.net.packets.impl;
 
-import server.Constants;
+import server.ServerConstants;
 import server.Server;
 import server.game.content.minigames.castlewars.CastleWars;
 import server.game.content.music.sound.SoundList;
@@ -59,7 +59,7 @@ public class DropItem implements PacketType {
       return;
     }
     SkillHandler.resetSkills(player);
-    if (player.tutorialProgress < 36 && Constants.TUTORIAL_ISLAND) {
+    if (player.tutorialProgress < 36 && ServerConstants.TUTORIAL_ISLAND) {
       player.getActionSender().sendMessage("You can't drop items on tutorial island!");
       return;
     }
@@ -280,8 +280,8 @@ public class DropItem implements PacketType {
 
     if (player.playerItemsN[slot] != 0 && itemId != -1 && player.playerItems[slot] == itemId + 1) {
       if (droppable) {
-        for (int i = 0; i < Constants.DESTROYABLE_ITEMS.length; i++) {
-          if (itemId == Constants.DESTROYABLE_ITEMS[i]) {
+        for (int i = 0; i < ServerConstants.DESTROYABLE_ITEMS.length; i++) {
+          if (itemId == ServerConstants.DESTROYABLE_ITEMS[i]) {
             player.droppedItem = itemId;
             player.getItemAssistant().destroyInterface(itemId);
             return;
@@ -296,7 +296,7 @@ public class DropItem implements PacketType {
         Server.itemHandler.createGroundItem(player, itemId, player.getX(), player.getY(), player.playerItemsN[slot],
             player.getId());
         player.getItemAssistant().deleteItem(itemId, slot, player.playerItemsN[slot]);
-        if (Constants.SOUND) {
+        if (ServerConstants.SOUND) {
           player.getActionSender().sendSound(SoundList.ITEM_DROP, 100, 0);
         }
       } else {

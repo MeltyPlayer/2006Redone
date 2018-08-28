@@ -1,6 +1,6 @@
 package server.net.packets;
 
-import server.Constants;
+import server.ServerConstants;
 import server.game.dialogues.Dialogue;
 import server.game.players.Client;
 import server.net.packets.impl.AttackPlayer;
@@ -151,7 +151,7 @@ public class PacketHandler {
   public static void processPacket(Client c, int packetType, int packetSize) {
     PacketType p = packetId[packetType];
     if (p != null && packetType > 0 && packetType < 257 && packetType == c.packetType && packetSize == c.packetSize) {
-      if (Constants.sendServerPackets && c.playerRights == 3) {
+      if (ServerConstants.sendServerPackets && c.playerRights == 3) {
         c.getActionSender().sendMessage("PacketType: " + packetType + ". PacketSize: " + packetSize + ".");
       }
       try {

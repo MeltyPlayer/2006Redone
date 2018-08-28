@@ -1,6 +1,6 @@
 package server.net.packets.impl;
 
-import server.Constants;
+import server.ServerConstants;
 import server.event.CycleEvent;
 import server.event.CycleEventContainer;
 import server.event.CycleEventHandler;
@@ -111,7 +111,7 @@ public class ClickNPC implements PacketType {
           break;
         }
         if (RangeData.correctBowAndArrows(client) < client.playerEquipment[client.playerArrows]
-            && Constants.CORRECT_ARROWS && usingBow && !RangeData.usingCrystalBow(client)
+            && ServerConstants.CORRECT_ARROWS && usingBow && !RangeData.usingCrystalBow(client)
             && client.playerEquipment[client.playerWeapon] != 9185) {
           client.getActionSender()
               .sendMessage("You can't use "

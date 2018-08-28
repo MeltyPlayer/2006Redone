@@ -1,6 +1,6 @@
 package server.game.content.combat.melee;
 
-import server.Constants;
+import server.ServerConstants;
 import server.game.content.combat.magic.MagicData;
 import server.game.items.ItemAssistant;
 import server.game.players.Client;
@@ -82,7 +82,7 @@ public class MeleeData {
    **/
 
   public static int getAttackDelay(Client c) {
-    String s = ItemAssistant.getItemName(c.playerEquipment[Constants.WEAPON]).toLowerCase();
+    String s = ItemAssistant.getItemName(c.playerEquipment[ServerConstants.WEAPON]).toLowerCase();
     if (c.usingMagic) {
       switch (MagicData.MAGIC_SPELLS[c.spellId][0]) {
         case 12871: // ice blitz
@@ -201,7 +201,7 @@ public class MeleeData {
    **/
 
   public static void getPlayerAnimIndex(Client c) {
-    String weaponName = ItemAssistant.getItemName(c.playerEquipment[Constants.WEAPON]).toLowerCase();
+    String weaponName = ItemAssistant.getItemName(c.playerEquipment[ServerConstants.WEAPON]).toLowerCase();
     c.playerStandIndex = 0x328;
     c.playerTurnIndex = 0x337;
     c.playerWalkIndex = 0x333;
@@ -295,7 +295,7 @@ public class MeleeData {
    **/
 
   public static int getWeaponAnimation(Client c) {
-    String weaponName = ItemAssistant.getItemName(c.playerEquipment[Constants.WEAPON]).toLowerCase();
+    String weaponName = ItemAssistant.getItemName(c.playerEquipment[ServerConstants.WEAPON]).toLowerCase();
     if (c.playerEquipment[c.playerWeapon] <= 0) {
       switch (c.fightMode) {
         case 0:
@@ -408,7 +408,7 @@ public class MeleeData {
    * How long it takes to hit your enemy
    **/
   public static int getHitDelay(Client c) {
-    String weaponName = ItemAssistant.getItemName(c.playerEquipment[Constants.WEAPON]).toLowerCase();
+    String weaponName = ItemAssistant.getItemName(c.playerEquipment[ServerConstants.WEAPON]).toLowerCase();
     if (c.usingMagic) {
       switch (MagicData.MAGIC_SPELLS[c.spellId][0]) {
         case 12891:

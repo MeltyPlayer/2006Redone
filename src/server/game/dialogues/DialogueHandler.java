@@ -1,6 +1,6 @@
 package server.game.dialogues;
 
-import server.Constants;
+import server.ServerConstants;
 import server.game.content.quests.QuestAssistant;
 import server.game.content.quests.QuestRewards;
 import server.game.content.randomevents.FreakyForester;
@@ -132,7 +132,7 @@ public class DialogueHandler {
         break;
 
       case 14: // lumby guide
-        sendNpcChat1("Greetings, welcome to " + Constants.SERVER_NAME + ".", player.talkingNpc, "Lumbridge Guide");
+        sendNpcChat1("Greetings, welcome to " + ServerConstants.SERVER_NAME + ".", player.talkingNpc, "Lumbridge Guide");
         player.nextChat = 0;
         break;
 
@@ -3223,7 +3223,7 @@ public class DialogueHandler {
         player.nextChat = 1016;
         break;
       case 1016:
-        sendNpcChat2("This is the bank of " + Constants.SERVER_NAME + ".", "We have many branches in many towns.",
+        sendNpcChat2("This is the bank of " + ServerConstants.SERVER_NAME + ".", "We have many branches in many towns.",
             player.talkingNpc, "Banker");
         player.nextChat = 0;
         break;
@@ -4105,7 +4105,7 @@ public class DialogueHandler {
         // progress bar + tutorial int
         player.getActionSender().createArrow(1, 1);
         chatboxText(player, "To start the tutorial use your left mouse button to click on the",
-            "" + Constants.SERVER_NAME + " in this room. He is indicated by a flashing",
+            "" + ServerConstants.SERVER_NAME + " in this room. He is indicated by a flashing",
             "yellow arrow above his head. If you can't see him, use your", "keyboard's arrow keys to rotate the view.",
             "@blu@Getting started");
         player.getActionSender().chatbox(6179); // displays
@@ -4717,7 +4717,7 @@ public class DialogueHandler {
       case 3078: // fresh
         player.getActionSender().chatbox(6180);
         chatboxText(player, "Follow the path and you will come to the front of the building.",
-            "This is the Bank of " + Constants.SERVER_NAME + ", where you can store all your",
+            "This is the Bank of " + ServerConstants.SERVER_NAME + ", where you can store all your",
             "most valued items. To open your bank box just right click on an", "open booth indicated and select 'use'.",
             "Banking");
         player.getActionSender().chatbox(6179);
@@ -4762,7 +4762,7 @@ public class DialogueHandler {
 
       case 3085:
         sendNpcChat3("Now, the next way to earn money quickly is by quests.",
-            "Many people on " + Constants.SERVER_NAME + " have things they need",
+            "Many people on " + ServerConstants.SERVER_NAME + " have things they need",
             "doing, which they will reward you for.", player.talkingNpc, "Financial Advisor");
         player.nextChat = 3086;
         break;
@@ -4998,7 +4998,7 @@ public class DialogueHandler {
         break;
 
       case 3114:
-        sendNpcChat3("If all else fails, visit the " + Constants.SERVER_NAME + " website for a whole",
+        sendNpcChat3("If all else fails, visit the " + ServerConstants.SERVER_NAME + " website for a whole",
             "chestload of information on quests, skills, and minigames", "as well as a very good starter's guide.",
             player.talkingNpc, "Magic Instructor");
         player.nextChat = 3115;
@@ -5016,8 +5016,8 @@ public class DialogueHandler {
             ItemAssistant.getItemName(player.playerEquipment[player.playerWeapon]));
         player.getPlayerAssistant().addStarter();
         player.getPlayerAssistant().movePlayer(3233, 3229, 0);
-        player.getActionSender().sendMessage("Welcome to @blu@" + Constants.SERVER_NAME
-            + "@bla@ - currently in Server Stage v@blu@" + Constants.TEST_VERSION + "@bla@.");
+        player.getActionSender().sendMessage("Welcome to @blu@" + ServerConstants.SERVER_NAME
+            + "@bla@ - currently in Server Stage v@blu@" + ServerConstants.TEST_VERSION + "@bla@.");
         sendStatement4("Welcome to Lumbridge! To get more help, simply click on the",
             "Lumbridge Guide or one of the Tutors - these can be found by",
             "looking for the question mark icon on your mini-map. If you find",

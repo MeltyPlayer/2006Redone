@@ -1,6 +1,6 @@
 package server.net.packets.impl;
 
-import server.Constants;
+import server.ServerConstants;
 import server.game.content.combat.magic.CastOnOther;
 import server.game.content.combat.magic.MagicData;
 import server.game.content.combat.range.RangeData;
@@ -82,7 +82,7 @@ public class AttackPlayer implements PacketType {
           }
           if (c.duelRule[9]) {
             boolean canUseWeapon = false;
-            for (int funWeapon : Constants.FUN_WEAPONS) {
+            for (int funWeapon : ServerConstants.FUN_WEAPONS) {
               if (c.playerEquipment[c.playerWeapon] == funWeapon) {
                 canUseWeapon = true;
               }
@@ -126,7 +126,7 @@ public class AttackPlayer implements PacketType {
           c.getActionSender().sendMessage("You have run out of arrows!");
           return;
         }
-        if (RangeData.correctBowAndArrows(c) < c.playerEquipment[c.playerArrows] && Constants.CORRECT_ARROWS && usingBow
+        if (RangeData.correctBowAndArrows(c) < c.playerEquipment[c.playerArrows] && ServerConstants.CORRECT_ARROWS && usingBow
             && !RangeData.usingCrystalBow(c) && c.playerEquipment[c.playerWeapon] != 9185) {
           c.getActionSender()
               .sendMessage("You can't use " + ItemAssistant.getItemName(c.playerEquipment[c.playerArrows]).toLowerCase()

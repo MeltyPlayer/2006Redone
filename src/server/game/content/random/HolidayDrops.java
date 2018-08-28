@@ -1,6 +1,6 @@
 package server.game.content.random;
 
-import server.Constants;
+import server.ServerConstants;
 import server.game.players.PlayerHandler;
 
 /**
@@ -26,7 +26,7 @@ public enum HolidayDrops {
 
   public static int dropAmount() {
     int amount = DROP_AMOUNT;
-    if (Constants.SERVER_DEBUG) {
+    if (ServerConstants.SERVER_DEBUG) {
       return amount * 60;
     }
     return amount;

@@ -4,7 +4,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;
 
-import server.Constants;
+import server.ServerConstants;
 import server.Server;
 import server.game.items.Item;
 import server.game.objects.Objects;
@@ -86,7 +86,7 @@ public class PartyRoom {
   }
 
   public static void open(Client c) {
-    if (!Constants.PARTY_ROOM_DISABLED) {
+    if (!ServerConstants.PARTY_ROOM_DISABLED) {
       updateGlobal(c);
       updateDeposit(c);
       c.getItemAssistant().resetItems(5064);
@@ -153,7 +153,7 @@ public class PartyRoom {
 
   public static void depositItem(Client c, int id, int amount) {
     int slot = arraySlot(c.party, id);
-    for (int i : Constants.ITEM_TRADEABLE) {
+    for (int i : ServerConstants.ITEM_TRADEABLE) {
       if (i == id) {
         c.getActionSender().sendMessage("You can't deposit this item.");
         return;

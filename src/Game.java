@@ -12,7 +12,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -66,6 +65,7 @@ import client.ui.TextInput;
 import client.ui.Texture;
 import client.world.WorldController;
 import common.CommonConstants;
+import server.ServerConstants;
 
 @SuppressWarnings("serial")
 public class Game extends RSApplet {
@@ -2683,7 +2683,7 @@ public class Game extends RSApplet {
     sprite.method346(-202, -171);
     aRSImageProducer_1112.initDrawingArea();
     sprite.method346(0, -265);
-    aRSImageProducer_1113.initDrawingArea();
+    mainMenuRightTorchBottom.initDrawingArea();
     sprite.method346(-562, -265);
     aRSImageProducer_1114.initDrawingArea();
     sprite.method346(-128, -171);
@@ -2711,7 +2711,7 @@ public class Game extends RSApplet {
     sprite.method346(180, -171);
     aRSImageProducer_1112.initDrawingArea();
     sprite.method346(382, -265);
-    aRSImageProducer_1113.initDrawingArea();
+    mainMenuRightTorchBottom.initDrawingArea();
     sprite.method346(-180, -265);
     aRSImageProducer_1114.initDrawingArea();
     sprite.method346(254, -171);
@@ -3235,7 +3235,7 @@ public class Game extends RSApplet {
     char c = '\u0168';
     char c1 = '\310';
     byte byte1 = 20;
-    chatTextDrawingArea.drawText(0xffffff, "" + ClientSettings.SERVER_NAME + " is loading - please wait...",
+    chatTextDrawingArea.drawText(0xffffff, "" + ServerConstants.SERVER_NAME + " is loading - please wait...",
         c1 / 2 - 26 - byte1, c / 2);
     int j = c1 / 2 - 18 - byte1;
     DrawingArea.fillPixels(j, 34, 0x8c1111, c / 2 - 152, 304);
@@ -3253,7 +3253,7 @@ public class Game extends RSApplet {
       aRSImageProducer_1107.drawGraphics(super.graphics, 128, 0);
       aRSImageProducer_1108.drawGraphics(super.graphics, 202, 371);
       aRSImageProducer_1112.drawGraphics(super.graphics, 0, 265);
-      aRSImageProducer_1113.drawGraphics(super.graphics, 562, 265);
+      mainMenuRightTorchBottom.drawGraphics(super.graphics, 562, 265);
       aRSImageProducer_1114.drawGraphics(super.graphics, 128, 171);
       aRSImageProducer_1115.drawGraphics(super.graphics, 562, 171);
     }
@@ -4671,7 +4671,7 @@ public class Game extends RSApplet {
     aRSImageProducer_1108 = null;
     aRSImageProducer_1109 = null;
     aRSImageProducer_1112 = null;
-    aRSImageProducer_1113 = null;
+    mainMenuRightTorchBottom = null;
     aRSImageProducer_1114 = null;
     aRSImageProducer_1115 = null;
     multiOverlay = null;
@@ -5543,7 +5543,7 @@ public class Game extends RSApplet {
     DrawingArea.setAllPixelsToZero();
     aRSImageProducer_1112 = new RSImageProducer(202, 238, getGameComponent());
     DrawingArea.setAllPixelsToZero();
-    aRSImageProducer_1113 = new RSImageProducer(203, 238, getGameComponent());
+    mainMenuRightTorchBottom = new RSImageProducer(203, 238, getGameComponent());
     DrawingArea.setAllPixelsToZero();
     aRSImageProducer_1114 = new RSImageProducer(74, 94, getGameComponent());
     DrawingArea.setAllPixelsToZero();
@@ -5564,7 +5564,7 @@ public class Game extends RSApplet {
     aRSImageProducer_1108 = null;
     aRSImageProducer_1109 = null;
     aRSImageProducer_1112 = null;
-    aRSImageProducer_1113 = null;
+    mainMenuRightTorchBottom = null;
     aRSImageProducer_1114 = null;
     aRSImageProducer_1115 = null;
     aRSImageProducer_1166 = null;
@@ -5590,7 +5590,7 @@ public class Game extends RSApplet {
     aRSImageProducer_1110 = null;
     aRSImageProducer_1111 = null;
     aRSImageProducer_1112 = null;
-    aRSImageProducer_1113 = null;
+    mainMenuRightTorchBottom = null;
     aRSImageProducer_1114 = null;
     aRSImageProducer_1115 = null;
     aRSImageProducer_1166 = new RSImageProducer(479, 96, getGameComponent());
@@ -5911,7 +5911,7 @@ public class Game extends RSApplet {
         return;
       }
       if (k == 6) {
-        loginMessage1 = "" + ClientSettings.SERVER_NAME + " has been updated!";
+        loginMessage1 = "" + ServerConstants.SERVER_NAME + " has been updated!";
         loginMessage2 = "Please reload this page.";
         return;
       }
@@ -7188,7 +7188,7 @@ public class Game extends RSApplet {
       g.setFont(new Font("Helvetica", 1, 16));
       g.setColor(Color.yellow);
       int k = 35;
-      g.drawString("Sorry, an error has occured whilst loading " + ClientSettings.SERVER_NAME + "", 30, k);
+      g.drawString("Sorry, an error has occured whilst loading " + ServerConstants.SERVER_NAME + "", 30, k);
       k += 50;
       g.setColor(Color.white);
       g.drawString("To fix this try the following (in order):", 30, k);
@@ -7210,14 +7210,14 @@ public class Game extends RSApplet {
       g.setFont(new Font("Helvetica", 1, 20));
       g.setColor(Color.white);
       g.drawString("Error - unable to load game!", 50, 50);
-      g.drawString("To play " + ClientSettings.SERVER_NAME + " make sure you play from", 50, 100);
+      g.drawString("To play " + ServerConstants.SERVER_NAME + " make sure you play from", 50, 100);
       g.drawString("" + ClientSettings.SERVER_WEBSITE + "", 50, 150);
     }
     if (rsAlreadyLoaded) {
       aBoolean831 = false;
       g.setColor(Color.yellow);
       int l = 35;
-      g.drawString("Error a copy of " + ClientSettings.SERVER_NAME + " already appears to be loaded", 30, l);
+      g.drawString("Error a copy of " + ServerConstants.SERVER_NAME + " already appears to be loaded", 30, l);
       l += 50;
       g.setColor(Color.white);
       g.drawString("To fix this try the following (in order):", 30, l);
@@ -9588,7 +9588,7 @@ public class Game extends RSApplet {
       int i = c1 / 2 + 80;
       aTextDrawingArea_1270.method382(0x75a9a9, c / 2, onDemandFetcher.statusString, i, true);
       i = c1 / 2 - 20;
-      chatTextDrawingArea.method382(0xffff00, c / 2, "Welcome to " + ClientSettings.SERVER_NAME + "", i, true);
+      chatTextDrawingArea.method382(0xffff00, c / 2, "Welcome to " + ServerConstants.SERVER_NAME + "", i, true);
       i += 30;
       int l = c / 2 - 80;
       int k1 = c1 / 2 + 20;
@@ -9629,7 +9629,7 @@ public class Game extends RSApplet {
       int k = c1 / 2 - 35;
       chatTextDrawingArea.method382(0xffffff, c / 2, "To create a new account you need to", k, true);
       k += 15;
-      chatTextDrawingArea.method382(0xffffff, c / 2, "go back to the main " + ClientSettings.SERVER_NAME + " webpage",
+      chatTextDrawingArea.method382(0xffffff, c / 2, "go back to the main " + ServerConstants.SERVER_NAME + " webpage",
           k, true);
       k += 15;
       chatTextDrawingArea.method382(0xffffff, c / 2, "and choose the red 'create account'", k, true);
@@ -9647,7 +9647,7 @@ public class Game extends RSApplet {
       aRSImageProducer_1107.drawGraphics(super.graphics, 128, 0);
       aRSImageProducer_1108.drawGraphics(super.graphics, 202, 371);
       aRSImageProducer_1112.drawGraphics(super.graphics, 0, 265);
-      aRSImageProducer_1113.drawGraphics(super.graphics, 562, 265);
+      mainMenuRightTorchBottom.drawGraphics(super.graphics, 562, 265);
       aRSImageProducer_1114.drawGraphics(super.graphics, 128, 171);
       aRSImageProducer_1115.drawGraphics(super.graphics, 562, 171);
     }
@@ -12077,7 +12077,7 @@ public class Game extends RSApplet {
   public RSImageProducer aRSImageProducer_1110;
   public RSImageProducer aRSImageProducer_1111;
   public RSImageProducer aRSImageProducer_1112;
-  public RSImageProducer aRSImageProducer_1113;
+  public RSImageProducer mainMenuRightTorchBottom;
   public RSImageProducer aRSImageProducer_1114;
   public RSImageProducer aRSImageProducer_1115;
   public static int anInt1117;

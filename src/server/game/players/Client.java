@@ -12,7 +12,7 @@ import java.util.concurrent.Future;
 import org.apache.mina.common.IoSession;
 
 import server.Connection;
-import server.Constants;
+import server.ServerConstants;
 import server.Server;
 import server.event.CycleEvent;
 import server.event.CycleEventContainer;
@@ -436,12 +436,12 @@ public class Client extends Player {
     super(_playerId);
     session = s;
     synchronized (this) {
-      outStream = new Stream(new byte[Constants.BUFFER_SIZE]);
+      outStream = new Stream(new byte[ServerConstants.BUFFER_SIZE]);
       outStream.currentOffset = 0;
     }
-    inStream = new Stream(new byte[Constants.BUFFER_SIZE]);
+    inStream = new Stream(new byte[ServerConstants.BUFFER_SIZE]);
     inStream.currentOffset = 0;
-    buffer = new byte[Constants.BUFFER_SIZE];
+    buffer = new byte[ServerConstants.BUFFER_SIZE];
   }
 
   /**
@@ -634,15 +634,15 @@ public class Client extends Player {
         getPlayerAssistant().refreshSkill(playerFarming);
       }
       getPlayerAssistant().firstTimeTutorial();
-      if (tutorialProgress > 0 && tutorialProgress < 36 && Constants.TUTORIAL_ISLAND) {
+      if (tutorialProgress > 0 && tutorialProgress < 36 && ServerConstants.TUTORIAL_ISLAND) {
         getActionSender().sendMessage("@blu@Continue the tutorial from the last step you were on.@bla@");
       }
       if (tutorialProgress > 35) {
         getPlayerAssistant().sendSidebars();
         getItemAssistant().sendWeapon(playerEquipment[playerWeapon],
             ItemAssistant.getItemName(playerEquipment[playerWeapon]));
-        getActionSender().sendMessage("Welcome to @blu@" + Constants.SERVER_NAME
-            + "@bla@ - we are currently in Server Stage v@blu@" + Constants.TEST_VERSION + "@bla@.");
+        getActionSender().sendMessage("Welcome to @blu@" + ServerConstants.SERVER_NAME
+            + "@bla@ - we are currently in Server Stage v@blu@" + ServerConstants.TEST_VERSION + "@bla@.");
         getActionSender().sendMessage("@red@Warning@bla@: If you find a bug, report it to owner in skype.");
         if (!hasBankpin) {
           getActionSender().sendMessage("You do not have a bank pin it is highly recommended you get one.");
@@ -711,7 +711,7 @@ public class Client extends Player {
       getCombatAssistant().getPlayerAnimIndex();
       getPlayerAssistant().logIntoPM();
       getItemAssistant().addSpecialBar(playerEquipment[playerWeapon]);
-      saveTimer = Constants.SAVE_TIMER;
+      saveTimer = ServerConstants.SAVE_TIMER;
       saveCharacter = true;
       Misc.println("[REGISTERED]: " + playerName + "");
       handler.updatePlayer(this, outStream);
@@ -837,7 +837,7 @@ public class Client extends Player {
       int modY = absY > 6400 ? absY - 6400 : absY;
       wildLevel = (modY - 3520) / 8 + 1;
       getPlayerAssistant().walkableInterface(197);
-      if (Constants.SINGLE_AND_MULTI_ZONES) {
+      if (ServerConstants.SINGLE_AND_MULTI_ZONES) {
         if (inMulti()) {
           getPlayerAssistant().sendFrame126("@yel@Level: " + wildLevel, 199);
         } else {
@@ -873,7 +873,7 @@ public class Client extends Player {
 
   public Client getClient(String name) {
     name = name.toLowerCase();
-    for (int i = 0; i < Constants.MAX_PLAYERS; i++) {
+    for (int i = 0; i < ServerConstants.MAX_PLAYERS; i++) {
       if (validClient(i)) {
         Client client = getClient(i);
         if (client.playerName.toLowerCase().equalsIgnoreCase(name)) {
@@ -889,7 +889,7 @@ public class Client extends Player {
   }
 
   public boolean validClient(int id) {
-    if (id < 0 || id > Constants.MAX_PLAYERS) {
+    if (id < 0 || id > ServerConstants.MAX_PLAYERS) {
       return false;
     }
     return validClient(getClient(id));
@@ -917,7 +917,7 @@ public class Client extends Player {
     }
     getPlayerAssistant().writeEnergy();
 
-    if (System.currentTimeMillis() - specDelay > Constants.INCREASE_SPECIAL_AMOUNT) {
+    if (System.currentTimeMillis() - specDelay > ServerConstants.INCREASE_SPECIAL_AMOUNT) {
       specDelay = System.currentTimeMillis();
       if (specAmount < 10) {
         specAmount += .5;
@@ -939,7 +939,7 @@ public class Client extends Player {
         forcedChat("" + --duelCount);
         duelDelay = System.currentTimeMillis();
       } else {
-        damageTaken = new int[Constants.MAX_PLAYERS];
+        damageTaken = new int[ServerConstants.MAX_PLAYERS];
         forcedChat("FIGHT!");
         duelCount = 0;
       }
@@ -1077,7 +1077,7 @@ public class Client extends Player {
       }
     }
 
-    if (timeOutCounter > Constants.TIMEOUT) {
+    if (timeOutCounter > ServerConstants.TIMEOUT) {
       disconnected = true;
     }
 
@@ -1194,7 +1194,7 @@ public class Client extends Player {
    *          : SOUND DELAY
    */
   public void playSound(Client c, int SOUNDID, int delay) {
-    if (Constants.SOUND) {
+    if (ServerConstants.SOUND) {
       if (soundVolume <= -1) {
         return;
       }

@@ -2,7 +2,7 @@ package server.game.players;
 
 import java.net.InetSocketAddress;
 
-import server.Constants;
+import server.ServerConstants;
 import server.Server;
 import server.game.content.minigames.castlewars.CastleWars;
 import server.game.npcs.Npc;
@@ -12,9 +12,9 @@ import server.util.Stream;
 
 public class PlayerHandler {
 
-  public static Player players[] = new Player[Constants.MAX_PLAYERS];
+  public static Player players[] = new Player[ServerConstants.MAX_PLAYERS];
   public static int playerCount = 0;
-  public static String playersCurrentlyOn[] = new String[Constants.MAX_PLAYERS];
+  public static String playersCurrentlyOn[] = new String[ServerConstants.MAX_PLAYERS];
   public static boolean updateAnnounced;
   public static boolean updateRunning;
   public static int updateSeconds;
@@ -22,14 +22,14 @@ public class PlayerHandler {
   private boolean kickAllPlayers = false;
 
   static {
-    for (int i = 0; i < Constants.MAX_PLAYERS; i++) {
+    for (int i = 0; i < ServerConstants.MAX_PLAYERS; i++) {
       players[i] = null;
     }
   }
 
   public boolean newPlayerClient(Client client1) {
     int slot = -1;
-    for (int i = 1; i < Constants.MAX_PLAYERS; i++) {
+    for (int i = 1; i < ServerConstants.MAX_PLAYERS; i++) {
       if (players[i] == null || players[i].disconnected) {
         slot = i;
         break;
@@ -44,7 +44,7 @@ public class PlayerHandler {
     players[slot].isActive = true;
     players[slot].connectedFrom = ((InetSocketAddress) client1.getSession().getRemoteAddress()).getAddress()
         .getHostAddress();
-    if (Constants.SERVER_DEBUG) {
+    if (ServerConstants.SERVER_DEBUG) {
       Misc.println("Player Slot " + slot + " slot 0 " + players[0] + " Player Hit " + players[slot]);
     }
     return true;
@@ -56,7 +56,7 @@ public class PlayerHandler {
 
   public void updatePlayerNames() {
     playerCount = 0;
-    for (int i = 0; i < Constants.MAX_PLAYERS; i++) {
+    for (int i = 0; i < ServerConstants.MAX_PLAYERS; i++) {
       if (players[i] != null) {
         playersCurrentlyOn[i] = players[i].playerName;
         playerCount++;
@@ -292,7 +292,7 @@ public class PlayerHandler {
     str.endFrameVarSizeWord();
   }
 
-  private final Stream updateBlock = new Stream(new byte[Constants.BUFFER_SIZE]);
+  private final Stream updateBlock = new Stream(new byte[ServerConstants.BUFFER_SIZE]);
 
   public void updatePlayer(Player plr, Stream str) {
     // synchronized(plr) {

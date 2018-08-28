@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import server.Constants;
+import server.ServerConstants;
 import server.game.items.GroundItem;
 import server.game.items.ItemAssistant;
 import server.game.items.ItemList;
@@ -29,7 +29,7 @@ public class ItemHandler {
   public static final int HIDE_TICKS = 100;
 
   public ItemHandler() {
-    for (int i = 0; i < Constants.ITEM_LIMIT; i++) {
+    for (int i = 0; i < ServerConstants.ITEM_LIMIT; i++) {
       ItemList[i] = null;
     }
     loadItemList("item.cfg");
@@ -279,7 +279,7 @@ public class ItemHandler {
    * Item List
    **/
 
-  public ItemList ItemList[] = new ItemList[Constants.ITEM_LIMIT];
+  public ItemList ItemList[] = new ItemList[ServerConstants.ITEM_LIMIT];
 
   public void newItemList(int ItemId, String ItemName, String ItemDescription, double ShopValue, double LowAlch,
       double HighAlch, int Bonuses[]) {

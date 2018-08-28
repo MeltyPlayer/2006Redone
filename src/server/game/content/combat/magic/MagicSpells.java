@@ -1,6 +1,6 @@
 package server.game.content.combat.magic;
 
-import server.Constants;
+import server.ServerConstants;
 import server.game.content.music.sound.SoundList;
 import server.game.players.Client;
 import server.game.players.PlayerHandler;
@@ -29,7 +29,7 @@ public class MagicSpells extends MagicData {
           if (c2.playerLevel[3] - damage < 0) {
             damage = c2.playerLevel[3];
           }
-          c.getPlayerAssistant().addSkillXP(MagicData.MAGIC_SPELLS[c.oldSpellId][7] + damage * Constants.MAGIC_EXP_RATE,
+          c.getPlayerAssistant().addSkillXP(MagicData.MAGIC_SPELLS[c.oldSpellId][7] + damage * ServerConstants.MAGIC_EXP_RATE,
               6);
           c.getPlayerAssistant().addSkillXP(MagicData.MAGIC_SPELLS[c.oldSpellId][7] + damage / 3, 3);
           // Server.playerHandler.players[playerId].setHitDiff(damage);
@@ -93,7 +93,7 @@ public class MagicSpells extends MagicData {
     if (!PlayerHandler.players[i].inWild()) {
       return false;
     }
-    if (Constants.COMBAT_LEVEL_DIFFERENCE) {
+    if (ServerConstants.COMBAT_LEVEL_DIFFERENCE) {
       int combatDif1 = c.getCombatAssistant().getCombatDifference(c.combatLevel, PlayerHandler.players[i].combatLevel);
       if (combatDif1 > c.wildLevel || combatDif1 > PlayerHandler.players[i].wildLevel) {
         c.getActionSender().sendMessage("Your combat level difference is too great to attack that player here.");
@@ -101,7 +101,7 @@ public class MagicSpells extends MagicData {
       }
     }
 
-    if (Constants.SINGLE_AND_MULTI_ZONES) {
+    if (ServerConstants.SINGLE_AND_MULTI_ZONES) {
       if (!PlayerHandler.players[i].inMulti()) { // single combat
                                                  // zones
         if (PlayerHandler.players[i].underAttackBy != c.playerId && PlayerHandler.players[i].underAttackBy != 0) {

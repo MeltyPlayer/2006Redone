@@ -1,7 +1,7 @@
 package server.net.packets.impl;
 
 import server.Connection;
-import server.Constants;
+import server.ServerConstants;
 import server.game.items.ItemAssistant;
 import server.game.npcs.NpcHandler;
 import server.game.players.Client;
@@ -81,7 +81,7 @@ public class Commands implements PacketType {
       try {
         String playerToBan = playerCommand.substring(5);
         Connection.addNameToMuteList(playerToBan);
-        for (int i = 0; i < Constants.MAX_PLAYERS; i++) {
+        for (int i = 0; i < ServerConstants.MAX_PLAYERS; i++) {
           if (PlayerHandler.players[i] != null) {
             if (PlayerHandler.players[i].playerName.equalsIgnoreCase(playerToBan)) {
               Client c2 = (Client) PlayerHandler.players[i];
@@ -98,7 +98,7 @@ public class Commands implements PacketType {
     if (playerCommand.startsWith("ipmute")) {
       try {
         String playerToBan = playerCommand.substring(7);
-        for (int i = 0; i < Constants.MAX_PLAYERS; i++) {
+        for (int i = 0; i < ServerConstants.MAX_PLAYERS; i++) {
           if (PlayerHandler.players[i] != null) {
             if (PlayerHandler.players[i].playerName.equalsIgnoreCase(playerToBan)) {
               Connection.addIpToMuteList(PlayerHandler.players[i].connectedFrom);
@@ -118,7 +118,7 @@ public class Commands implements PacketType {
     if (playerCommand.startsWith("unipmute")) {
       try {
         String playerToBan = playerCommand.substring(9);
-        for (int i = 0; i < Constants.MAX_PLAYERS; i++) {
+        for (int i = 0; i < ServerConstants.MAX_PLAYERS; i++) {
           if (PlayerHandler.players[i] != null) {
             if (PlayerHandler.players[i].playerName.equalsIgnoreCase(playerToBan)) {
               Connection.unIPMuteUser(PlayerHandler.players[i].connectedFrom);
@@ -152,7 +152,7 @@ public class Commands implements PacketType {
     if (playerCommand.startsWith("ipban")) { // use as ::ipban name
       try {
         String playerToBan = playerCommand.substring(6);
-        for (int i = 0; i < Constants.MAX_PLAYERS; i++) {
+        for (int i = 0; i < ServerConstants.MAX_PLAYERS; i++) {
           if (PlayerHandler.players[i] != null) {
             if (PlayerHandler.players[i].playerName.equalsIgnoreCase(playerToBan)) {
               Connection.addIpToBanList(PlayerHandler.players[i].connectedFrom);
@@ -176,7 +176,7 @@ public class Commands implements PacketType {
         String playerToBan = playerCommand.substring(4);
         Connection.addNameToBanList(playerToBan);
         Connection.addNameToFile(playerToBan);
-        for (int i = 0; i < Constants.MAX_PLAYERS; i++) {
+        for (int i = 0; i < ServerConstants.MAX_PLAYERS; i++) {
           if (PlayerHandler.players[i] != null) {
             if (PlayerHandler.players[i].playerName.equalsIgnoreCase(playerToBan)) {
               PlayerHandler.players[i].disconnected = true;
@@ -370,7 +370,7 @@ public class Commands implements PacketType {
     if (playerCommand.startsWith("giveadmin")) {
       try {
         String playerToAdmin = playerCommand.substring(10);
-        for (int i = 0; i < Constants.MAX_PLAYERS; i++) {
+        for (int i = 0; i < ServerConstants.MAX_PLAYERS; i++) {
           if (PlayerHandler.players[i] != null) {
             if (PlayerHandler.players[i].playerName.equalsIgnoreCase(playerToAdmin)) {
               Client c2 = (Client) PlayerHandler.players[i];
@@ -389,7 +389,7 @@ public class Commands implements PacketType {
     if (playerCommand.startsWith("demote")) {
       try {
         String playerToAdmin = playerCommand.substring(7);
-        for (int i = 0; i < Constants.MAX_PLAYERS; i++) {
+        for (int i = 0; i < ServerConstants.MAX_PLAYERS; i++) {
           if (PlayerHandler.players[i] != null) {
             if (PlayerHandler.players[i].playerName.equalsIgnoreCase(playerToAdmin)) {
               Client c2 = (Client) PlayerHandler.players[i];
@@ -408,7 +408,7 @@ public class Commands implements PacketType {
     if (playerCommand.startsWith("givemod")) {
       try {
         String playerToMod = playerCommand.substring(8);
-        for (int i = 0; i < Constants.MAX_PLAYERS; i++) {
+        for (int i = 0; i < ServerConstants.MAX_PLAYERS; i++) {
           if (PlayerHandler.players[i] != null) {
             if (PlayerHandler.players[i].playerName.equalsIgnoreCase(playerToMod)) {
               Client c2 = (Client) PlayerHandler.players[i];

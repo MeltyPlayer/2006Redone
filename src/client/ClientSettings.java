@@ -12,10 +12,6 @@ import java.math.BigInteger;
 public class ClientSettings {
 
   /**
-   * The Servers Name
-   */
-  public final static String SERVER_NAME = "2006Redone";
-  /**
    * The Servers Website
    */
   public final static String SERVER_WEBSITE = "www.2006redone.org";
