@@ -12,6 +12,6 @@ public class ClientThread implements Runnable {
     Game.isMembers = true;
     Signlink.storeid = 32;
     Signlink.startpriv(CommonConstants.ADDRESS);
-    game.createClientFrame(Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
+    game.createClientFrame(Constants.WINDOW_VIEWPORT_WIDTH, Constants.WINDOW_VIEWPORT_HEIGHT);
   }
 }

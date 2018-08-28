@@ -25,9 +25,9 @@ import client.ui.RSImageProducer;
 public class RSApplet extends Applet
     implements Runnable, MouseListener, MouseMotionListener, KeyListener, FocusListener, WindowListener {
 
-  final void createClientFrame(int i, int j) {
-    myWidth = j;
-    myHeight = i;
+  final void createClientFrame(int width, int height) {
+    myWidth = width;
+    myHeight = height;
     gameFrame = new RSFrame(this, myWidth, myHeight);
     graphics = getGameComponent().getGraphics();
     fullGameScreen = new RSImageProducer(myWidth, myHeight, getGameComponent());
@@ -212,8 +212,8 @@ public class RSApplet extends Applet
     int i = mouseevent.getX();
     int j = mouseevent.getY();
     if (gameFrame != null) {
-      i -= Constants.MARGIN_X;
-      j -= Constants.MARGIN_Y;
+      i -= Constants.WINDOW_VIEWPORT_X;
+      j -= Constants.WINDOW_VIEWPORT_Y;
     }
     idleTime = 0;
     clickX = i;
@@ -254,8 +254,8 @@ public class RSApplet extends Applet
     int i = mouseevent.getX();
     int j = mouseevent.getY();
     if (gameFrame != null) {
-      i -= Constants.MARGIN_X;
-      j -= Constants.MARGIN_Y;
+      i -= Constants.WINDOW_VIEWPORT_X;
+      j -= Constants.WINDOW_VIEWPORT_Y;
     }
     idleTime = 0;
     mouseX = i;
@@ -267,8 +267,8 @@ public class RSApplet extends Applet
     int i = mouseevent.getX();
     int j = mouseevent.getY();
     if (gameFrame != null) {
-      i -= Constants.MARGIN_X;
-      j -= Constants.MARGIN_Y;
+      i -= Constants.WINDOW_VIEWPORT_X;
+      j -= Constants.WINDOW_VIEWPORT_Y;
     }
     idleTime = 0;
     mouseX = i;

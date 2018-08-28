@@ -5,25 +5,26 @@
 import java.awt.Frame;
 import java.awt.Graphics;
 
+import client.ui.Constants;
 import server.ServerConstants;
 
 @SuppressWarnings("serial")
 final class RSFrame extends Frame {
 
-  public RSFrame(RSApplet RSApplet_, int i, int j) {
+  public RSFrame(RSApplet RSApplet_, int width, int height) {
     rsApplet = RSApplet_;
     setTitle(ServerConstants.SERVER_NAME);
     setResizable(false);
     setVisible(true);
     toFront();
-    setSize(i + 8, j + 28);
+    setSize(width + 2 * Constants.WINDOW_EDGE_WIDTH, height + Constants.WINDOW_BAR_HEIGHT + Constants.WINDOW_EDGE_WIDTH);
     setLocationRelativeTo(null);
   }
 
   @Override
   public Graphics getGraphics() {
     Graphics g = super.getGraphics();
-    g.translate(4, 24);
+    g.translate(Constants.WINDOW_VIEWPORT_X, Constants.WINDOW_VIEWPORT_Y);
     return g;
   }
 

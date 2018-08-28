@@ -56,6 +56,7 @@ import client.network.Stream;
 import client.network.StreamLoader;
 import client.player.Skills;
 import client.ui.Background;
+import client.ui.Constants;
 import client.ui.DrawingArea;
 import client.ui.RSImageProducer;
 import client.ui.Sprite;
@@ -529,20 +530,6 @@ public class Game extends RSApplet {
     aRSImageProducer_1166.drawGraphics(super.graphics, 17, 357);
     aRSImageProducer_1165.initDrawingArea();
     Texture.lineOffsets = chatBoxAreaOffsets;
-  }
-
-  public void init() {
-    try {
-      nodeID = 10;
-      portOff = 0;
-      setHighMem();
-      isMembers = true;
-      Signlink.storeid = 32;
-      Signlink.startpriv(CommonConstants.ADDRESS);
-      initClientFrame(503, 765);
-    } catch (Exception exception) {
-      return;
-    }
   }
 
   public void startRunnable(Runnable runnable, int i) {
@@ -5574,7 +5561,8 @@ public class Game extends RSApplet {
     aRSImageProducer_1123 = null;
     aRSImageProducer_1125 = null;
     aRSImageProducer_1124 = null;
-    super.fullGameScreen = new RSImageProducer(765, 503, getGameComponent());
+    super.fullGameScreen = new RSImageProducer(Constants.WINDOW_VIEWPORT_WIDTH, Constants.WINDOW_VIEWPORT_HEIGHT,
+        getGameComponent());
     welcomeScreenRaised = true;
   }
 
@@ -10143,9 +10131,9 @@ public class Game extends RSApplet {
     }
   }
 
-  public void markMinimap(Sprite sprite, int i, int j) {
+  public void markMinimap(Sprite sprite, int x, int y) {
     int k = minimapInt1 + minimapInt2 & 0x7ff;
-    int l = i * i + j * j;
+    int l = x * x + y * y;
     if (l > 6400) {
       return;
     }
@@ -10153,10 +10141,10 @@ public class Game extends RSApplet {
     int j1 = Model.modelIntArray2[k];
     i1 = i1 * 256 / (minimapInt3 + 256);
     j1 = j1 * 256 / (minimapInt3 + 256);
-    int k1 = j * i1 + i * j1 >> 16;
-    int l1 = j * j1 - i * i1 >> 16;
+    int k1 = y * i1 + x * j1 >> 16;
+    int l1 = y * j1 - x * i1 >> 16;
     if (l > 2500) {
-      sprite.method354(mapBack, 83 - l1 - sprite.trimHeight / 2 - 4, 94 + k1 - sprite.trimWidth / 2 + 4);
+      sprite.method354(mapBack, 94 + k1 - sprite.trimWidth / 2 + 4, 83 - l1 - sprite.trimHeight / 2 - 4);
     } else {
       sprite.drawSprite(94 + k1 - sprite.trimWidth / 2 + 4, 83 - l1 - sprite.trimHeight / 2 - 4);
     }
