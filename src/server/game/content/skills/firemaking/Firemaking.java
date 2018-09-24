@@ -25,6 +25,19 @@ public class Firemaking {
     logLit = false;
   }
 
+  public static void attemptGroundFire(final Client c, final int usedWith, final int x, final int y,
+      final boolean groundObject) {
+    int firemakingItems[] = { 590, 7329, 7330, 7331 };
+    for(int fireItem : firemakingItems) {
+      if(c.getItemAssistant().playerHasItem(fireItem)) {
+        attemptFire(c,fireItem,usedWith,x,y,groundObject);
+        return;
+      }
+    }
+    c.getActionSender().sendMessage("You need a "+ ItemAssistant.getItemName(590) + " to light the " 
+          + ItemAssistant.getItemName(usedWith) + ".");
+  }
+
   public static void attemptFire(final Client c, final int itemUsed, final int usedWith, final int x, final int y,
       final boolean groundObject) {
     int firemakingItems[] = { 590, 7329, 7330, 7331 };
