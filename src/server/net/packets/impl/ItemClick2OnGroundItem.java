@@ -19,7 +19,7 @@ public class ItemClick2OnGroundItem implements PacketType {
     }
     for (LogData l : LogData.values()) {
       if (itemId == l.getLogId()) {
-        Firemaking.attemptFire(c, 590, itemId, itemX, itemY, true);
+        Firemaking.attemptGroundFire(c, itemId, itemX, itemY, true);
         return;
       }
     }
